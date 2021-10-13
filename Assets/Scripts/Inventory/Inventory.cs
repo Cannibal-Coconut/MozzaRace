@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Pick up and Check ingredients. Care for PickingUpColliders in editor inspector! It doesnt include this object.
+/// </summary>
 [RequireComponent(typeof(AudioSource))]
 public class Inventory : MonoBehaviour
 {
