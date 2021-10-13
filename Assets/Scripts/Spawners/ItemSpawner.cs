@@ -57,10 +57,10 @@ public class ItemSpawner : MonoBehaviour
 
         newItem.go = true;
 
-        Debug.Log(item.name + " Created!");
+        //Debug.Log(item.name + " Created!");
     }
 
-    //QUICK AND DIRTY, REMOVE WHEN DONE
+    //QUICK AND DIRTY, REMOVE WHEN DONE. REMOVE TO STOP SPAWNING!
     IEnumerator SpawnerCycle()
     {
         while (true)
@@ -69,6 +69,9 @@ public class ItemSpawner : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
         }
     }
+    //QUICK AND DIRTY
+
+
 
     [System.Serializable]
     class Ingredient

@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Since it is not clear yet, I'll just let this be. For now, it only displays stuff
+/// </summary>
 public class DesiredIngredientsDisplay : MonoBehaviour
 {
     [Header("Settings")]

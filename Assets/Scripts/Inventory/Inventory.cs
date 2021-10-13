@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
-[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(AudioSource))]
 public class Inventory : MonoBehaviour
 {
+    [Header("References")]
+    [Tooltip("Theses colliders will catch up ingredients")]
+    [SerializeField] Collider2D[] _pickingUpColliders;
+
     public List<ItemType> desiredItems;
 
     AudioSource _audioSource;
@@ -26,6 +28,7 @@ public class Inventory : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _audioSource.playOnAwake = false;
 
+        PreparepickingUpColliders();
 
         //QUICK AND DIRTY
         ItemType[] items = new ItemType[3] {
@@ -34,9 +37,65 @@ public class Inventory : MonoBehaviour
         _desiredDisplay = FindObjectOfType<DesiredIngredientsDisplay>();
         SetDesiredItemsList(items);
         //QUICK AND DIRTY
+    }
 
+    void PreparepickingUpColliders()
+    {
+        if (_pickingUpColliders != null)
+        {
+            for (int i = 0; i < _pickingUpColliders.Length; i++)
+            {
+                var colliderDelegate = _pickingUpColliders[i].gameObject.AddComponent<ColliderDelegate>();
 
+                colliderDelegate.onEnterTriggerAction = CheckTrigger;
 
+            }
+        }
+
+    }
+
+    /// <summary>
+    /// Check if such Collider's object is an ingredient
+    /// </summary>
+    /// <param name="collider"></param>
+    void CheckTrigger(Collider2D collider)
+    {
+        Item item = collider.GetComponent<Item>();
+
+        //Collided object is an item
+        if (item)
+        {
+            CheckIngredient(item);
+        }
+
+    }
+
+    void CheckIngredient(Item item)
+    {
+        //Is it the item we want?
+        if (_listIndex < desiredItems.Count && item.itemType == desiredItems[_listIndex])
+        {
+            if (item.audioClip)
+            {
+                _audioSource.clip = item.audioClip;
+                _audioSource.Play();
+            }
+
+            _listIndex++;
+
+            //Check if it is done
+            if (_listIndex == desiredItems.Count)
+            {
+                DesiredItemsAchieved();
+            }
+        }
+        else
+        {
+            //Wrong Item picked, start over.
+            RestartPickedItems();
+        }
+
+        item.Pick();
     }
 
     public void SetDesiredItemsList(ItemType[] items)
@@ -63,40 +122,6 @@ public class Inventory : MonoBehaviour
     void DesiredItemsAchieved()
     {
         Debug.Log("You've really made the grade!");
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Item item = collision.GetComponent<Item>();
-
-        //Collided object is an item
-        if (item)
-        {
-            //Is it the item we want?
-            if (_listIndex < desiredItems.Count && item.itemType == desiredItems[_listIndex])
-            {
-                if (item.audioClip)
-                {
-                    _audioSource.clip = item.audioClip;
-                    _audioSource.Play();
-                }
-
-                _listIndex++;
-
-                //Check if it is done
-                if (_listIndex == desiredItems.Count)
-                {
-                    DesiredItemsAchieved();
-                }
-            }
-            else
-            {
-                //Wrong Item picked, start over.
-                RestartPickedItems();
-            }
-
-            item.Pick();
-        }
     }
 
 }
