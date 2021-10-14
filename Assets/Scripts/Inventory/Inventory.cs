@@ -12,21 +12,16 @@ public class Inventory : MonoBehaviour
     [Tooltip("Theses colliders will catch up ingredients")]
     [SerializeField] Collider2D[] _pickingUpColliders;
 
-    public List<ItemType> desiredItems;
+    public List<MealOrder> orders;
+    int _selectedOrder;
 
     AudioSource _audioSource;
 
-    DesiredIngredientsDisplay _desiredDisplay;
-
-    /// <summary>
-    ///Current item in desiredItems to pick
-    /// </summary>
-    int _listIndex;
-
+    OrderDisplay _orderDisplay;
 
     private void Awake()
     {
-        desiredItems = new List<ItemType>();
+        orders = new List<MealOrder>();
 
         _audioSource = GetComponent<AudioSource>();
         _audioSource.playOnAwake = false;
@@ -34,11 +29,8 @@ public class Inventory : MonoBehaviour
         PreparepickingUpColliders();
 
         //QUICK AND DIRTY
-        ItemType[] items = new ItemType[3] {
-            ItemType.Bacon, ItemType.Tomato, ItemType.Pineapple
-       };
-        _desiredDisplay = FindObjectOfType<DesiredIngredientsDisplay>();
-        SetDesiredItemsList(items);
+
+        AddRandomOrder();
         //QUICK AND DIRTY
     }
 
@@ -76,55 +68,65 @@ public class Inventory : MonoBehaviour
     void CheckIngredient(Item item)
     {
         //Is it the item we want?
-        if (_listIndex < desiredItems.Count && item.itemType == desiredItems[_listIndex])
+        if (orders[_selectedOrder].ingredients.Contains(item.itemType))
         {
+            orders[_selectedOrder].ingredients.Remove(item.itemType);
+
             if (item.audioClip)
             {
                 _audioSource.clip = item.audioClip;
                 _audioSource.Play();
             }
 
-            _listIndex++;
-
             //Check if it is done
-            if (_listIndex == desiredItems.Count)
+            if (orders[_selectedOrder].ingredients.Count == 0)
             {
-                DesiredItemsAchieved();
+                RemoveOrder(_selectedOrder);
             }
         }
         else
         {
-            //Wrong Item picked, start over.
-            RestartPickedItems();
+            if (orders[_selectedOrder].ChangePoints(-10))
+            {
+                RemoveOrder(_selectedOrder);
+            }
         }
 
         item.Pick();
+
+        _orderDisplay.DisplayDesiredIngredients(orders);
     }
 
-    public void SetDesiredItemsList(ItemType[] items)
-    {
-        desiredItems.Clear();
-        _listIndex = 0;
 
-        foreach (var item in items)
+    void RemoveOrder(int i)
+    {
+        orders.RemoveAt(i);
+        _selectedOrder = 0;
+
+        _orderDisplay.DisplayDesiredIngredients(orders);
+
+        if (orders.Count == 0)
         {
-            desiredItems.Add(item);
-        }
-
-        if (_desiredDisplay)
-        {
-            _desiredDisplay.DisplayDesiredIngredients(desiredItems.ToArray());
+            AddRandomOrder();
         }
     }
 
-    public void RestartPickedItems()
+    void AddOrder(MealOrder order)
     {
-        _listIndex = 0;
+        orders.Add(order);
+
+        _orderDisplay.DisplayDesiredIngredients(orders);
     }
 
-    void DesiredItemsAchieved()
+    void AddRandomOrder()
     {
-        Debug.Log("You've really made the grade!");
-    }
+        List<ItemType> items = new List<ItemType>() {
+            ItemType.Bacon, ItemType.Tomato, ItemType.Pineapple
+       };
 
+        _orderDisplay = FindObjectOfType<OrderDisplay>();
+
+        AddOrder(new MealOrder(100, items));
+    }
 }
+

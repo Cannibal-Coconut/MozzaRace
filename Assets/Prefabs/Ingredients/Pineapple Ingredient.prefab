@@ -96,8 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0020a4b094ca3f46a4f9dd8328f4fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 1
+  itemType: 2
   _audioClip: {fileID: 0}
+  go: 0
 --- !u!61 &4652734939191821568
 BoxCollider2D:
   m_ObjectHideFlags: 0

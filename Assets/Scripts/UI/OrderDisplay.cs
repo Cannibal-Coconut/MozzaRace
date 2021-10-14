@@ -6,38 +6,39 @@ using UnityEngine;
 /// <summary>
 /// Since it is not clear yet, I'll just let this be. For now, it only displays stuff
 /// </summary>
-public class DesiredIngredientsDisplay : MonoBehaviour
+public class OrderDisplay : MonoBehaviour
 {
     [Header("Settings")]
-
-    [Tooltip("Display of Ingredients from right to left")]
-    [SerializeField] SpriteRenderer[] _ingredientHolders;
+    [SerializeField] SingleOrderDisplay[] _displayers;
 
     [Header("References")]
     [SerializeField] Sprite _baconSprite;
     [SerializeField] Sprite _tomatoSprite;
     [SerializeField] Sprite _pineappleSprite;
 
-    public void DisplayDesiredIngredients(ItemType[] ingredients)
+    public void DisplayDesiredIngredients(List<MealOrder> orders)
     {
-        foreach (var holder in _ingredientHolders)
+        if (orders.Count > _displayers.Length)
         {
-            holder.enabled = false;
+            Debug.LogWarning("Not enough Displayers!");
+
+            return;
         }
 
-        for (int i = 0; i < ingredients.Length; i++)
+        foreach (var display in _displayers)
         {
-            if (i < _ingredientHolders.Length)
-            {
-                _ingredientHolders[i].enabled = true;
+            display.HideSprites();
+        }
 
-                _ingredientHolders[i].sprite = GetSpriteForIngredient(ingredients[i]);
-            }
-            else
+        for (int i = 0; i < orders.Count; i++)
+        {
+            Sprite[] sprites = new Sprite[orders[i].ingredients.Count];
+            for (int j = 0; j < sprites.Length; j++)
             {
-                Debug.LogError("Not Enough Holders!");
+                sprites[j] = GetSpriteForIngredient(orders[i].ingredients[j]);
             }
 
+            _displayers[i].SetIngredientsSprites(sprites);
         }
 
 
@@ -50,15 +51,15 @@ public class DesiredIngredientsDisplay : MonoBehaviour
         {
             case ItemType.Bacon:
                 return _baconSprite;
-                //break;
+            //break;
 
             case ItemType.Tomato:
                 return _tomatoSprite;
-                //break;
+            //break;
 
             case ItemType.Pineapple:
                 return _pineappleSprite;
-                //break;
+            //break;
 
             default:
                 return null;

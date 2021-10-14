@@ -54,6 +54,7 @@ public class ItemSpawner : MonoBehaviour
     public void SpawnItem(Item item)
     {
         var newItem = Instantiate(item);
+        newItem.transform.position = transform.position;
 
         newItem.go = true;
 
