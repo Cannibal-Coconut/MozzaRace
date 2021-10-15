@@ -135,9 +135,8 @@ GameObject:
   - component: {fileID: 3995909}
   - component: {fileID: 3995908}
   - component: {fileID: 3995907}
-  - component: {fileID: 3995911}
   - component: {fileID: 3995906}
-  - component: {fileID: 3995912}
+  - component: {fileID: 3995911}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -157,7 +156,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51d71bdc8b227e4b9f81ca1368f823e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectInfo: {fileID: 3995911}
+  feetPosition: {fileID: 1830626464}
+  radiusFeet: 0.3
+  jumpForce: 10
+  doubleJumpForce: 15
+  jumpTime: 0.22
+  jumpTimeCounter: 0
+  layerGround:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!61 &3995907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -284,18 +291,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ccbde0794f7bc4e8569866ff220c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3995912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3995905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0846cd525cd81f45ba9300e7cb2a058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  <Rigidbody>k__BackingField: {fileID: 0}
+  <FeetPosition>k__BackingField: {fileID: 0}
+  <RadiusFeet>k__BackingField: 0
+  <IsJumping>k__BackingField: 0
+  <IsGrounded>k__BackingField: 0
+  <CanDoubleJump>k__BackingField: 0
+  <HasDoubleJump>k__BackingField: 0
+  <JumpForce>k__BackingField: 0
+  <DoubleJumpForce>k__BackingField: 0
+  <JumpTime>k__BackingField: 0
+  <JumpTimeCounter>k__BackingField: 0
 --- !u!1 &231178506
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,9 +526,9 @@ MonoBehaviour:
   jumpInputEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3995905}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 3995906}
+        m_TargetAssemblyTypeName: PlayerJump, Assembly-CSharp
+        m_MethodName: OnJumpInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
