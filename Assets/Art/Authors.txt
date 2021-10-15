@@ -1,2 +1,11 @@
+dir ./Sprites:
+
 Running_no_pizza_sprites: Manuel Bueno Lasso
 Running_pizza_sprites: Manuel Bueno Lasso
+
+dir ./Concepts
+
+escenario_1: David González Rueda
+escenario_2: David González Rueda
+escenario_3: David González Rueda
+escenario_4: David González Rueda
