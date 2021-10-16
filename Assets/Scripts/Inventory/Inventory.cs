@@ -12,6 +12,10 @@ public class Inventory : MonoBehaviour
     [Tooltip("Theses colliders will catch up ingredients")]
     [SerializeField] Collider2D[] _pickingUpColliders;
 
+    [Header("Settings")]
+    [SerializeField] [Range(0, 100)] int _loose = 5;
+    [SerializeField] [Range(0.1f, 5)] float _looseDelay = 2;
+
     public List<MealOrder> orders;
     int _selectedOrder;
 
@@ -26,12 +30,29 @@ public class Inventory : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _audioSource.playOnAwake = false;
 
+        _orderDisplay = FindObjectOfType<OrderDisplay>();
+
         PreparepickingUpColliders();
 
         //QUICK AND DIRTY
 
         AddRandomOrder();
+        AddRandomOrder();
+        AddRandomOrder();
         //QUICK AND DIRTY
+    }
+
+    private void Start()
+    {
+        StartCoroutine(Countdown());
+    }
+
+    public void SelectOrder(MealOrder order)
+    {
+        if (orders.Contains(order))
+        {
+            ChangeSelectedOrder(orders.IndexOf(order));
+        }
     }
 
     void PreparepickingUpColliders()
@@ -45,6 +66,33 @@ public class Inventory : MonoBehaviour
                 colliderDelegate.onEnterTriggerAction = CheckTrigger;
 
             }
+        }
+
+    }
+
+    IEnumerator Countdown()
+    {
+        while (true)
+        {
+            foreach (var order in orders)
+            {
+                order.ChangePoints(-_loose);
+
+
+            }
+
+            orders.FindAll((order) =>
+            {
+                if (order.points == 0)
+                {
+                    return false;
+                }
+
+
+                return true;
+            });
+
+            yield return new WaitForSeconds(_looseDelay);
         }
 
     }
@@ -94,16 +142,15 @@ public class Inventory : MonoBehaviour
 
         item.Pick();
 
-        _orderDisplay.DisplayDesiredIngredients(orders);
+        _orderDisplay.DisplayDesiredIngredients(orders, _selectedOrder);
     }
-
 
     void RemoveOrder(int i)
     {
         orders.RemoveAt(i);
         _selectedOrder = 0;
 
-        _orderDisplay.DisplayDesiredIngredients(orders);
+        _orderDisplay.DisplayDesiredIngredients(orders, _selectedOrder);
 
         if (orders.Count == 0)
         {
@@ -111,11 +158,12 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    void AddOrder(MealOrder order)
-    {
-        orders.Add(order);
 
-        _orderDisplay.DisplayDesiredIngredients(orders);
+    void ChangeSelectedOrder(int selected)
+    {
+        _selectedOrder = selected;
+
+        _orderDisplay.DisplayDesiredIngredients(orders, _selectedOrder);
     }
 
     void AddRandomOrder()
@@ -124,9 +172,16 @@ public class Inventory : MonoBehaviour
             ItemType.Bacon, ItemType.Tomato, ItemType.Pineapple
        };
 
-        _orderDisplay = FindObjectOfType<OrderDisplay>();
 
         AddOrder(new MealOrder(100, items));
+    }
+
+
+    void AddOrder(MealOrder order)
+    {
+        orders.Add(order);
+
+        _orderDisplay.DisplayDesiredIngredients(orders, _selectedOrder);
     }
 }
 

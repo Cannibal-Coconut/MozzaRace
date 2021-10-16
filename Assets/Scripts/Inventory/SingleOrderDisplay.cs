@@ -6,10 +6,21 @@ using UnityEngine.UI;
 public class SingleOrderDisplay : MonoBehaviour
 {
 
+    [Header("References")]
     [Tooltip("Display of Ingredients from right to left")]
     [SerializeField] Image[] _ingredientHolders;
+    [SerializeField] Image _selectionMarker;
 
-    public void SetIngredientsSprites(Sprite[] sprites)
+    MealOrder _mealOrder;
+
+    Inventory _inventory;
+
+    private void Awake()
+    {
+        _inventory = FindObjectOfType<Inventory>();
+    }
+
+    public void SetIngredientsSprites(MealOrder mealOrder, Sprite[] sprites, bool displayAsSelected)
     {
         if (sprites.Length <= _ingredientHolders.Length)
         {
@@ -19,7 +30,18 @@ public class SingleOrderDisplay : MonoBehaviour
                 _ingredientHolders[i].enabled = true;
             }
 
+            _mealOrder = mealOrder;
+
+            if (displayAsSelected)
+            {
+                _selectionMarker.enabled = true;
+            }
+            else
+            {
+                _selectionMarker.enabled = false;
+            }
         }
+
     }
 
     public void HideSprites()
@@ -29,6 +51,11 @@ public class SingleOrderDisplay : MonoBehaviour
             _ingredientHolders[i].enabled = false;
         }
 
+    }
+
+    public void SelectForOrder()
+    {
+        _inventory.SelectOrder(_mealOrder);
     }
 
 }

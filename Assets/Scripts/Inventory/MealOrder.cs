@@ -6,7 +6,7 @@ public class MealOrder
 {
     public List<ItemType> ingredients;
     public int points { get; private set; }
-    
+
 
     public MealOrder(int maxPoints, List<ItemType> ingredients)
     {
@@ -14,13 +14,13 @@ public class MealOrder
         this.ingredients = ingredients;
     }
 
-
     /// <summary>
     /// Add quantity to points. If points are 0 or less, return true.
     /// </summary>
     /// <param name="change"></param>
     /// <returns></returns>
-    public bool ChangePoints(int change) {
+    public bool ChangePoints(int change)
+    {
         points += change;
 
         if (points <= 0)
@@ -30,7 +30,8 @@ public class MealOrder
             //No more points
             return true;
         }
-        else {
+        else
+        {
             //There are still some points
             return false;
         }

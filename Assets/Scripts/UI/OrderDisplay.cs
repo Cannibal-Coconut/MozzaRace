@@ -16,7 +16,7 @@ public class OrderDisplay : MonoBehaviour
     [SerializeField] Sprite _tomatoSprite;
     [SerializeField] Sprite _pineappleSprite;
 
-    public void DisplayDesiredIngredients(List<MealOrder> orders)
+    public void DisplayDesiredIngredients(List<MealOrder> orders, int selectedOrder)
     {
         if (orders.Count > _displayers.Length)
         {
@@ -38,7 +38,12 @@ public class OrderDisplay : MonoBehaviour
                 sprites[j] = GetSpriteForIngredient(orders[i].ingredients[j]);
             }
 
-            _displayers[i].SetIngredientsSprites(sprites);
+            bool markAsSelected = false;
+
+            if (i == selectedOrder)
+                markAsSelected = true;
+
+            _displayers[i].SetIngredientsSprites(orders[i], sprites, markAsSelected);
         }
 
 
