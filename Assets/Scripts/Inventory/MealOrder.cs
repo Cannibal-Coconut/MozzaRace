@@ -7,7 +7,6 @@ public class MealOrder
     public List<ItemType> ingredients;
     public int points { get; private set; }
 
-
     public MealOrder(int maxPoints, List<ItemType> ingredients)
     {
         points = maxPoints;

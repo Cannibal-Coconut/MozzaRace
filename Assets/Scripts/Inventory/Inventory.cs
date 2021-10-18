@@ -8,20 +8,29 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Inventory : MonoBehaviour
 {
+    public const int MaxOrders = 3;
+
     [Header("References")]
     [Tooltip("Theses colliders will catch up ingredients")]
     [SerializeField] Collider2D[] _pickingUpColliders;
 
     [Header("Settings")]
+    [Tooltip("Loose of points overtime")]
     [SerializeField] [Range(0, 100)] int _loose = 5;
+    [Tooltip("Delay for points going down")]
     [SerializeField] [Range(0.1f, 5)] float _looseDelay = 2;
 
+    //Orders in use.
+    //CARE: Dont modify orders directly. Instead, use RemoveOrder(), AddOrder... so it is updated on UI.
     public List<MealOrder> orders;
+    //Index for selected MealOrder from orders list.
     int _selectedOrder;
 
-    AudioSource _audioSource;
+    public int points { get; private set; }
 
+    AudioSource _audioSource;
     OrderDisplay _orderDisplay;
+    PointsDisplay _pointsDisplay;
 
     private void Awake()
     {
@@ -31,20 +40,19 @@ public class Inventory : MonoBehaviour
         _audioSource.playOnAwake = false;
 
         _orderDisplay = FindObjectOfType<OrderDisplay>();
+        _pointsDisplay = FindObjectOfType<PointsDisplay>();
 
         PreparepickingUpColliders();
-
-        //QUICK AND DIRTY
-
-        AddRandomOrder();
-        AddRandomOrder();
-        AddRandomOrder();
-        //QUICK AND DIRTY
     }
 
     private void Start()
     {
+        //QUICK AND DIRTY
+        AddRandomOrder();
+        //QUICK AND DIRTY
+
         StartCoroutine(Countdown());
+        StartCoroutine(OrderGiver());
     }
 
     public void SelectOrder(MealOrder order)
@@ -70,6 +78,18 @@ public class Inventory : MonoBehaviour
 
     }
 
+    void ChangePoints(int value)
+    {
+        points += value;
+
+        if (_pointsDisplay)
+        {
+            _pointsDisplay.SetPointsInDisplay(points);
+        }
+
+    }
+
+    //QUICK AND DIRTY
     IEnumerator Countdown()
     {
         while (true)
@@ -77,25 +97,38 @@ public class Inventory : MonoBehaviour
             foreach (var order in orders)
             {
                 order.ChangePoints(-_loose);
-
-
             }
+            _orderDisplay.UpdatePoints();
 
-            orders.FindAll((order) =>
+
+            for (int i = 0; i < orders.Count; i++)
             {
-                if (order.points == 0)
+                if (orders[i].points == 0)
                 {
-                    return false;
+                    RemoveOrder(i);
+
+                    i--;
                 }
-
-
-                return true;
-            });
+            }
 
             yield return new WaitForSeconds(_looseDelay);
         }
 
     }
+
+    IEnumerator OrderGiver()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+
+            if (orders.Count != MaxOrders)
+            {
+                AddRandomOrder();
+            }
+        }
+    }
+    //QUICK AND DIRTY
 
     /// <summary>
     /// Check if such Collider's object is an ingredient
@@ -118,31 +151,43 @@ public class Inventory : MonoBehaviour
         //Is it the item we want?
         if (orders[_selectedOrder].ingredients.Contains(item.itemType))
         {
-            orders[_selectedOrder].ingredients.Remove(item.itemType);
-
-            if (item.audioClip)
-            {
-                _audioSource.clip = item.audioClip;
-                _audioSource.Play();
-            }
-
-            //Check if it is done
-            if (orders[_selectedOrder].ingredients.Count == 0)
-            {
-                RemoveOrder(_selectedOrder);
-            }
+            CorrectIngredientPicked(item);
         }
         else
         {
-            if (orders[_selectedOrder].ChangePoints(-10))
-            {
-                RemoveOrder(_selectedOrder);
-            }
+            WrongIngredientPicked(item);
         }
 
         item.Pick();
 
-        _orderDisplay.DisplayDesiredIngredients(orders, _selectedOrder);
+        _orderDisplay.DisplayOrders(orders, _selectedOrder);
+    }
+
+    void CorrectIngredientPicked(Item item)
+    {
+        orders[_selectedOrder].ingredients.Remove(item.itemType);
+
+        if (item.audioClip)
+        {
+            _audioSource.clip = item.audioClip;
+            _audioSource.Play();
+        }
+
+        //Check if it is done
+        if (orders[_selectedOrder].ingredients.Count == 0)
+        {
+            ChangePoints(orders[_selectedOrder].points);
+
+            RemoveOrder(_selectedOrder);
+        }
+    }
+
+    void WrongIngredientPicked(Item item)
+    {
+        if (orders[_selectedOrder].ChangePoints(-10))
+        {
+            RemoveOrder(_selectedOrder);
+        }
     }
 
     void RemoveOrder(int i)
@@ -150,20 +195,15 @@ public class Inventory : MonoBehaviour
         orders.RemoveAt(i);
         _selectedOrder = 0;
 
-        _orderDisplay.DisplayDesiredIngredients(orders, _selectedOrder);
+        _orderDisplay.DisplayOrders(orders, _selectedOrder);
 
-        if (orders.Count == 0)
-        {
-            AddRandomOrder();
-        }
     }
-
 
     void ChangeSelectedOrder(int selected)
     {
         _selectedOrder = selected;
 
-        _orderDisplay.DisplayDesiredIngredients(orders, _selectedOrder);
+        _orderDisplay.DisplayOrders(orders, _selectedOrder);
     }
 
     void AddRandomOrder()
@@ -176,12 +216,11 @@ public class Inventory : MonoBehaviour
         AddOrder(new MealOrder(100, items));
     }
 
-
     void AddOrder(MealOrder order)
     {
         orders.Add(order);
 
-        _orderDisplay.DisplayDesiredIngredients(orders, _selectedOrder);
+        _orderDisplay.DisplayOrders(orders, _selectedOrder);
     }
 }
 
