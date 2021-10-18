@@ -47,7 +47,7 @@ public class Item : MonoBehaviour
     private void FixedUpdate()
     {
         if (go)
-            transform.position += new Vector3(-0.1f, 0, 0);
+            transform.position += new Vector3(-10f, 0, 0) * Time.fixedDeltaTime;
     }
     //QUICK AND DIRTY
 

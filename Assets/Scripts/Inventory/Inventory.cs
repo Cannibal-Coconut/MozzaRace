@@ -8,38 +8,59 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Inventory : MonoBehaviour
 {
+    public const int MaxOrders = 3;
+
     [Header("References")]
     [Tooltip("Theses colliders will catch up ingredients")]
     [SerializeField] Collider2D[] _pickingUpColliders;
 
-    public List<ItemType> desiredItems;
+    [Header("Settings")]
+    [Tooltip("Loose of points overtime")]
+    [SerializeField] [Range(0, 100)] int _loose = 5;
+    [Tooltip("Delay for points going down")]
+    [SerializeField] [Range(0.1f, 5)] float _looseDelay = 2;
+
+    //Orders in use.
+    //CARE: Dont modify orders directly. Instead, use RemoveOrder(), AddOrder... so it is updated on UI.
+    public List<MealOrder> orders;
+    //Index for selected MealOrder from orders list.
+    int _selectedOrder;
+
+    public int points { get; private set; }
 
     AudioSource _audioSource;
-
-    DesiredIngredientsDisplay _desiredDisplay;
-
-    /// <summary>
-    ///Current item in desiredItems to pick
-    /// </summary>
-    int _listIndex;
-
+    OrderDisplay _orderDisplay;
+    PointsDisplay _pointsDisplay;
 
     private void Awake()
     {
-        desiredItems = new List<ItemType>();
+        orders = new List<MealOrder>();
 
         _audioSource = GetComponent<AudioSource>();
         _audioSource.playOnAwake = false;
 
-        PreparepickingUpColliders();
+        _orderDisplay = FindObjectOfType<OrderDisplay>();
+        _pointsDisplay = FindObjectOfType<PointsDisplay>();
 
+        PreparepickingUpColliders();
+    }
+
+    private void Start()
+    {
         //QUICK AND DIRTY
-        ItemType[] items = new ItemType[3] {
-            ItemType.Bacon, ItemType.Tomato, ItemType.Pineapple
-       };
-        _desiredDisplay = FindObjectOfType<DesiredIngredientsDisplay>();
-        SetDesiredItemsList(items);
+        AddRandomOrder();
         //QUICK AND DIRTY
+
+        StartCoroutine(Countdown());
+        StartCoroutine(OrderGiver());
+    }
+
+    public void SelectOrder(MealOrder order)
+    {
+        if (orders.Contains(order))
+        {
+            ChangeSelectedOrder(orders.IndexOf(order));
+        }
     }
 
     void PreparepickingUpColliders()
@@ -56,6 +77,58 @@ public class Inventory : MonoBehaviour
         }
 
     }
+
+    void ChangePoints(int value)
+    {
+        points += value;
+
+        if (_pointsDisplay)
+        {
+            _pointsDisplay.SetPointsInDisplay(points);
+        }
+
+    }
+
+    //QUICK AND DIRTY
+    IEnumerator Countdown()
+    {
+        while (true)
+        {
+            foreach (var order in orders)
+            {
+                order.ChangePoints(-_loose);
+            }
+            _orderDisplay.UpdatePoints();
+
+
+            for (int i = 0; i < orders.Count; i++)
+            {
+                if (orders[i].points == 0)
+                {
+                    RemoveOrder(i);
+
+                    i--;
+                }
+            }
+
+            yield return new WaitForSeconds(_looseDelay);
+        }
+
+    }
+
+    IEnumerator OrderGiver()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+
+            if (orders.Count != MaxOrders)
+            {
+                AddRandomOrder();
+            }
+        }
+    }
+    //QUICK AND DIRTY
 
     /// <summary>
     /// Check if such Collider's object is an ingredient
@@ -76,55 +149,78 @@ public class Inventory : MonoBehaviour
     void CheckIngredient(Item item)
     {
         //Is it the item we want?
-        if (_listIndex < desiredItems.Count && item.itemType == desiredItems[_listIndex])
+        if (orders[_selectedOrder].ingredients.Contains(item.itemType))
         {
-            if (item.audioClip)
-            {
-                _audioSource.clip = item.audioClip;
-                _audioSource.Play();
-            }
-
-            _listIndex++;
-
-            //Check if it is done
-            if (_listIndex == desiredItems.Count)
-            {
-                DesiredItemsAchieved();
-            }
+            CorrectIngredientPicked(item);
         }
         else
         {
-            //Wrong Item picked, start over.
-            RestartPickedItems();
+            WrongIngredientPicked(item);
         }
 
         item.Pick();
+
+        _orderDisplay.DisplayOrders(orders, _selectedOrder);
     }
 
-    public void SetDesiredItemsList(ItemType[] items)
+    void CorrectIngredientPicked(Item item)
     {
-        desiredItems.Clear();
-        _listIndex = 0;
+        orders[_selectedOrder].ingredients.Remove(item.itemType);
 
-        foreach (var item in items)
+        if (item.audioClip)
         {
-            desiredItems.Add(item);
+            _audioSource.clip = item.audioClip;
+            _audioSource.Play();
         }
 
-        if (_desiredDisplay)
+        //Check if it is done
+        if (orders[_selectedOrder].ingredients.Count == 0)
         {
-            _desiredDisplay.DisplayDesiredIngredients(desiredItems.ToArray());
+            ChangePoints(orders[_selectedOrder].points);
+
+            RemoveOrder(_selectedOrder);
         }
     }
 
-    public void RestartPickedItems()
+    void WrongIngredientPicked(Item item)
     {
-        _listIndex = 0;
+        if (orders[_selectedOrder].ChangePoints(-10))
+        {
+            RemoveOrder(_selectedOrder);
+        }
     }
 
-    void DesiredItemsAchieved()
+    void RemoveOrder(int i)
     {
-        Debug.Log("You've really made the grade!");
+        orders.RemoveAt(i);
+        _selectedOrder = 0;
+
+        _orderDisplay.DisplayOrders(orders, _selectedOrder);
+
     }
 
+    void ChangeSelectedOrder(int selected)
+    {
+        _selectedOrder = selected;
+
+        _orderDisplay.DisplayOrders(orders, _selectedOrder);
+    }
+
+    void AddRandomOrder()
+    {
+        List<ItemType> items = new List<ItemType>() {
+            ItemType.Bacon, ItemType.Tomato, ItemType.Pineapple
+       };
+
+
+        AddOrder(new MealOrder(100, items));
+    }
+
+    void AddOrder(MealOrder order)
+    {
+        orders.Add(order);
+
+        _orderDisplay.DisplayOrders(orders, _selectedOrder);
+    }
 }
+
