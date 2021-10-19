@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5120874273205331237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.09934967, y: 0.09934967, z: 0.09934967}
+  m_LocalScale: {x: 0.0329831, y: 0.0329831, z: 0.0329831}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   _audioClip: {fileID: 0}
+  go: 0
 --- !u!61 &5120874273205331238
 BoxCollider2D:
   m_ObjectHideFlags: 0
