@@ -12,6 +12,8 @@ public class Obstacle : MonoBehaviour
     SpriteRenderer _renderer;
     BoxCollider2D _collider;
 
+    public bool go;
+
     public int damage
     {
         get
@@ -22,13 +24,10 @@ public class Obstacle : MonoBehaviour
 
     private void Awake()
     {
+
         _renderer = GetComponent<SpriteRenderer>();
-
-    }
-
-    private void FixedUpdate()
-    {
-        transform.position += new Vector3(-1, 0, 0);
+        _collider = GetComponent<BoxCollider2D>();
+        _collider.isTrigger = true;
     }
 
     public void Hide()
@@ -43,6 +42,16 @@ public class Obstacle : MonoBehaviour
         _renderer.enabled = true;
         _collider.enabled = true;
     }
+
+
+    //QUICK AND DIRTY. REMOVE TO STOP GOING LIKE CRAZY
+    private void FixedUpdate()
+    {
+        if (go)
+            transform.position += new Vector3(-10f, 0, 0) * Time.fixedDeltaTime;
+    }
+    //QUICK AND DIRTY
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
