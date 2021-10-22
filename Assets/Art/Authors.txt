@@ -9,3 +9,11 @@ escenario_1: David González Rueda
 escenario_2: David González Rueda
 escenario_3: David González Rueda
 escenario_4: David González Rueda
+ingredientes_1: David González Rueda
+ingredientes_2: David González Rueda
+ingredientes_3: David González Rueda
+ingredientes_4: David González Rueda
+ingredientes_5: David González Rueda
+ingredientes_6: David González Rueda
+ingredientes_7: David González Rueda
+ingredientes_8: David González Rueda
