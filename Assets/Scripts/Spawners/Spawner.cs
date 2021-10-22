@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemSpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     [Tooltip("Spawnable Ingredients")]
     [SerializeField]
-    List<Ingredient> _ingredients;
+    List<WeightedSpawnable> _spawnables;
 
     //Range of ingredients' weight
     int _totalWeight;
@@ -25,38 +25,38 @@ public class ItemSpawner : MonoBehaviour
     {
         _totalWeight = 0;
 
-        foreach (Ingredient ingredient in _ingredients)
+        foreach (var spawnable in _spawnables)
         {
-            _totalWeight += ingredient.spawnWeight;
+            _totalWeight += spawnable.spawnWeight;
         }
     }
 
-    public void SpawnRandomItem()
+    public void SpawnRandom()
     {
         int token = Random.Range(0, _totalWeight);
         int sum = 0;
 
-        foreach (var ingredient in _ingredients)
+        foreach (var spawnable in _spawnables)
         {
             //Calculate ingredient's range
-            sum += ingredient.spawnWeight;
+            sum += spawnable.spawnWeight;
 
             //Check if sum is within ingredient's range
             if (token < sum)
             {
-                SpawnItem(ingredient.itemPrototype);
+                Spawn(spawnable.spawnablePrototype);
 
                 return;
             }
         }
     }
 
-    public void SpawnItem(Item item)
+    public void Spawn(Spawnable spawnable)
     {
-        var newItem = Instantiate(item);
+        var newItem = Instantiate(spawnable);
         newItem.transform.position = transform.position;
 
-        newItem.go = true;
+        newItem.Go(10f);
 
         //Debug.Log(item.name + " Created!");
     }
@@ -66,7 +66,7 @@ public class ItemSpawner : MonoBehaviour
     {
         while (true)
         {
-            SpawnRandomItem();
+            SpawnRandom();
             yield return new WaitForSeconds(1.5f);
         }
     }
@@ -75,11 +75,11 @@ public class ItemSpawner : MonoBehaviour
 
 
     [System.Serializable]
-    class Ingredient
+    class WeightedSpawnable
     {
-        public Item itemPrototype;
+        public Spawnable spawnablePrototype;
 
-        [Tooltip("Probability for spawn of this ingredient")]
+        [Tooltip("Probability for spawn of this Spawnable")]
         public int spawnWeight;
     }
 

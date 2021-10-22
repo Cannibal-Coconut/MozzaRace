@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4652734939191821574}
   - component: {fileID: 4652734939191821569}
   - component: {fileID: 4652734939191821568}
+  - component: {fileID: -7420153771713989328}
+  - component: {fileID: 6500439759176424640}
   m_Layer: 0
   m_Name: Pineapple Ingredient
   m_TagString: Untagged
@@ -125,3 +127,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.587165, y: 8.21303}
   m_EdgeRadius: 0
+--- !u!114 &-7420153771713989328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652734939191821571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793efcd785debcc459016e419623b5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6500439759176424640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652734939191821571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e1a7d172e193f45ba7962a10017418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go: 0

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3680576355479372360}
   - component: {fileID: 3680576355479372367}
   - component: {fileID: 3680576355479372366}
+  - component: {fileID: -5744518631138238903}
+  - component: {fileID: 4294641820164708578}
   m_Layer: 0
   m_Name: Tomato Ingredient
   m_TagString: Untagged
@@ -98,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   _audioClip: {fileID: 0}
+  go: 0
 --- !u!61 &3680576355479372366
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,3 +127,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.587165, y: 5.55527}
   m_EdgeRadius: 0
+--- !u!114 &-5744518631138238903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3680576355479372365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793efcd785debcc459016e419623b5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4294641820164708578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3680576355479372365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e1a7d172e193f45ba7962a10017418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go: 0
