@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 2181483241137690020}
   - component: {fileID: 2181483241137690027}
   - component: {fileID: 2181483241137690026}
-  - component: {fileID: 2181483241137690022}
+  - component: {fileID: 1342311093957862914}
+  - component: {fileID: 1183229152832010130}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -125,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 1
   go: 0
---- !u!114 &2181483241137690022
+--- !u!114 &1342311093957862914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,9 +135,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2181483241137690025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0020a4b094ca3f46a4f9dd8328f4fa3, type: 3}
+  m_Script: {fileID: 11500000, guid: 793efcd785debcc459016e419623b5b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 4
-  _audioClip: {fileID: 0}
+--- !u!114 &1183229152832010130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181483241137690025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e1a7d172e193f45ba7962a10017418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   go: 0
