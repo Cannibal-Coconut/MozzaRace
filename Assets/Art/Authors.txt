@@ -9,6 +9,7 @@ Jumping_no_pizza_sprites: Manuel Bueno Lasso
 Landing_pizza_sprites: Manuel Bueno Lasso
 Landing_no_pizza_sprites: Manuel Bueno Lasso
 Spinning_sprites: Manuel Bueno Lasso
+Running_holding_sprites: Manuel Bueno Lasso
 
 dir ./Concepts
 
