@@ -56,7 +56,7 @@ public class Spawner : MonoBehaviour
         var newItem = Instantiate(spawnable);
         newItem.transform.position = transform.position;
 
-        newItem.Go(10f);
+        newItem.Go(-10f);
 
         //Debug.Log(item.name + " Created!");
     }
