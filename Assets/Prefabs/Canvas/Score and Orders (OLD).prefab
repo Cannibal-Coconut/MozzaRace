@@ -208,7 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 917773744919206072}
   m_Layer: 0
-  m_Name: Score and Orders
+  m_Name: Score and Orders (OLD)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
