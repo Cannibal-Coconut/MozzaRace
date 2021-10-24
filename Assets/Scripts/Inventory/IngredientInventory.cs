@@ -6,7 +6,7 @@ using UnityEngine;
 /// Pick up and Check ingredients. Care for PickingUpColliders in editor inspector! It doesnt include this object.
 /// </summary>
 [RequireComponent(typeof(AudioSource))]
-public class Inventory : MonoBehaviour
+public class IngredientInventory : MonoBehaviour
 {
     public const int MaxOrders = 3;
 
@@ -32,6 +32,11 @@ public class Inventory : MonoBehaviour
     OrderDisplay _orderDisplay;
     PointsDisplay _pointsDisplay;
 
+    Coroutine _countDownCoroutine;
+    Coroutine _orderGiverCoroutine;
+
+
+
     private void Awake()
     {
         orders = new List<MealOrder>();
@@ -43,6 +48,14 @@ public class Inventory : MonoBehaviour
         _pointsDisplay = FindObjectOfType<PointsDisplay>();
 
         PreparepickingUpColliders();
+
+        var player = FindObjectOfType<Health>();
+
+        if (player)
+        {
+            player.onLive += StartOrderClock;
+            player.onDead += StopOrderClock;
+        }
     }
 
     private void Start()
@@ -51,8 +64,29 @@ public class Inventory : MonoBehaviour
         AddRandomOrder();
         //QUICK AND DIRTY
 
-        StartCoroutine(Countdown());
-        StartCoroutine(OrderGiver());
+
+    }
+
+    void StartOrderClock()
+    {
+        StopOrderClock();
+
+        _countDownCoroutine = StartCoroutine(Countdown());
+        _orderGiverCoroutine = StartCoroutine(OrderGiver());
+    }
+
+    void StopOrderClock()
+    {
+        if (_countDownCoroutine != null)
+        {
+            StopCoroutine(_countDownCoroutine);
+        }
+        
+
+        if (_orderGiverCoroutine != null)
+        {
+            StopCoroutine(_orderGiverCoroutine);
+        }
     }
 
     public void SelectOrder(MealOrder order)

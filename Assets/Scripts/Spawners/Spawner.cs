@@ -11,14 +11,38 @@ public class Spawner : MonoBehaviour
     //Range of ingredients' weight
     int _totalWeight;
 
+    Coroutine _spawnCoroutine;
+
     private void Awake()
     {
         UpdateTotalWeight();
+
+        var player = FindObjectOfType<Health>();
+        if (player)
+        {
+            player.onLive += StartSpawn;
+            player.onDead += StopSpawn;
+        }
     }
 
-    private void Start()
+    void StartSpawn()
     {
-        StartCoroutine(SpawnerCycle());
+        if (_spawnCoroutine != null)
+        {
+            StopCoroutine(_spawnCoroutine);
+        }
+
+        _spawnCoroutine = StartCoroutine(SpawnerCycle());
+    }
+
+    void StopSpawn()
+    {
+        foreach (var removable in FindObjectsOfType<Removable>())
+        {
+            removable.Remove();
+        }
+
+        StopCoroutine(_spawnCoroutine);
     }
 
     void UpdateTotalWeight()
