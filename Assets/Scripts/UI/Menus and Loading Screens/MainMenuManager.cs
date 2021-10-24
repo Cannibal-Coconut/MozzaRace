@@ -5,10 +5,10 @@ using UnityEngine;
 public class MainMenuManager : MonoBehaviour
 {
     
-    SceneLoader mySceneLoader;
+    SceneLoader sceneLoader;
 
     private void Start() {
-        mySceneLoader = FindObjectOfType<SceneLoader>();
+        sceneLoader = FindObjectOfType<SceneLoader>();
 
         Debug.Log(Application.platform.GetType());
     }
@@ -37,7 +37,7 @@ public class MainMenuManager : MonoBehaviour
 
         Debug.Log("Playing!");
         //TNESTING
-        mySceneLoader.LoadNextScene();
+        sceneLoader.LoadNextScene();
 
     }
 
