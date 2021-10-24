@@ -6,7 +6,7 @@ using UnityEngine;
 /// Pick up and Check ingredients. Care for PickingUpColliders in editor inspector! It doesnt include this object.
 /// </summary>
 [RequireComponent(typeof(AudioSource))]
-public class IngredientInventory : MonoBehaviour
+public class IngredientInventory : MonoBehaviour, ILiveListener
 {
     public const int MaxOrders = 3;
 
@@ -49,13 +49,7 @@ public class IngredientInventory : MonoBehaviour
 
         PreparepickingUpColliders();
 
-        var player = FindObjectOfType<Health>();
-
-        if (player)
-        {
-            player.onLive += StartOrderClock;
-            player.onDead += StopOrderClock;
-        }
+        SetListeners();
     }
 
     private void Start()
@@ -63,8 +57,6 @@ public class IngredientInventory : MonoBehaviour
         //QUICK AND DIRTY
         AddRandomOrder();
         //QUICK AND DIRTY
-
-
     }
 
     void StartOrderClock()
@@ -81,7 +73,7 @@ public class IngredientInventory : MonoBehaviour
         {
             StopCoroutine(_countDownCoroutine);
         }
-        
+
 
         if (_orderGiverCoroutine != null)
         {
@@ -256,5 +248,27 @@ public class IngredientInventory : MonoBehaviour
 
         _orderDisplay.DisplayOrders(orders, _selectedOrder);
     }
+
+    public void OnLive()
+    {
+        StartOrderClock();
+    }
+
+    public void OnDead()
+    {
+        StopOrderClock();
+    }
+
+    public void SetListeners()
+    {
+        var player = FindObjectOfType<Health>();
+        if (player)
+        {
+            player.AddLiveListener(OnLive);
+            player.AddDeadListener(OnDead);
+        }
+
+    }
+
 }
 

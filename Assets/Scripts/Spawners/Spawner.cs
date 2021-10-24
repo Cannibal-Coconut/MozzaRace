@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class Spawner : MonoBehaviour, ILiveListener
 {
     [Tooltip("Spawnable Ingredients")]
     [SerializeField]
@@ -17,13 +17,10 @@ public class Spawner : MonoBehaviour
     {
         UpdateTotalWeight();
 
-        var player = FindObjectOfType<Health>();
-        if (player)
-        {
-            player.onLive += StartSpawn;
-            player.onDead += StopSpawn;
-        }
+        SetListeners();
     }
+
+
 
     void StartSpawn()
     {
@@ -94,6 +91,28 @@ public class Spawner : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
         }
     }
+
+    public void OnLive()
+    {
+        StartSpawn();
+    }
+
+    public void OnDead()
+    {
+        StopSpawn();
+    }
+
+    public void SetListeners()
+    {
+        var player = FindObjectOfType<Health>();
+        if (player)
+        {
+            player.AddLiveListener(OnLive);
+            player.AddDeadListener(OnDead);
+        }
+
+    }
+
     //QUICK AND DIRTY
 
 

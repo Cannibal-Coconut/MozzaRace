@@ -12,9 +12,8 @@ public class Health : MonoBehaviour
     public int MaxHealthPoints;
     public int healthPoints { get; private set; }
 
-    public Action onDead;
-    public Action onLive;
-
+    private Action _onDead;
+    private Action _onLive;
 
     DeadScreen _deadScreen;
 
@@ -34,9 +33,9 @@ public class Health : MonoBehaviour
     {
         healthPoints = MaxHealthPoints;
 
-        if (onLive != null)
+        if (_onLive != null)
         {
-            onLive.Invoke();
+            _onLive.Invoke();
 
         }
     }
@@ -55,11 +54,21 @@ public class Health : MonoBehaviour
 
     void Dead()
     {
-        if (onDead != null)
+        if (_onDead != null)
         {
-            onDead.Invoke();
+            _onDead.Invoke();
         }
 
+    }
+
+    public void AddLiveListener(Action action)
+    {
+        _onLive += action;
+    }
+
+    public void AddDeadListener(Action action)
+    {
+        _onDead += action;
     }
 
 }
