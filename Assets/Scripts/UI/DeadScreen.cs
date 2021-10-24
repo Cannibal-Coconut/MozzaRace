@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
-public class DeadScreen : MonoBehaviour
+public class DeadScreen : MonoBehaviour, ILiveListener
 {
     [Header("Buttons")]
     [SerializeField] Button _coinRestartButton;
@@ -19,20 +19,17 @@ public class DeadScreen : MonoBehaviour
 
     IngredientInventory _inventory;
     Health _player;
-    
+
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         _inventory = FindObjectOfType<IngredientInventory>();
 
+        _player = FindObjectOfType<Health>();
+
         InitializeButtons();
 
-        _player = FindObjectOfType<Health>();
-        if (_player)
-        {
-            _player.onDead += Display;
-            _player.onLive += Hide;
-        }
+        SetListeners();
     }
 
     void InitializeButtons()
@@ -64,6 +61,25 @@ public class DeadScreen : MonoBehaviour
         _canvasGroup.alpha = 0;
     }
 
+    public void OnLive()
+    {
+        Hide();
+    }
 
+    public void OnDead()
+    {
+        Display();
+    }
+
+    public void SetListeners()
+    {
+        var player = FindObjectOfType<Health>();
+        if (player)
+        {
+            player.AddLiveListener(OnLive);
+            player.AddDeadListener(OnDead);
+        }
+
+    }
 
 }

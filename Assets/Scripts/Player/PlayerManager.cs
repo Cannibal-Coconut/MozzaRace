@@ -6,15 +6,15 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [Serializable]
-public class JumpInputEvent : UnityEvent<float> {}
+public class JumpInputEvent : UnityEvent<float> { }
 
 [Serializable]
-public class AttackInputEvent : UnityEvent<Vector2> {}
+public class AttackInputEvent : UnityEvent<Vector2> { }
 
 /**
  * Set the configurations to be able to interact with the player and disable the UI input
  */
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour, ILiveListener
 {
     private Controls _controls;
 
@@ -24,8 +24,10 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         _controls = new Controls();
+
+        SetListeners();
     }
-    
+
     private void Start()
     {
         _controls.Player.Jump.performed += OnJumpPerformed;
@@ -57,5 +59,26 @@ public class PlayerManager : MonoBehaviour
         var direction = context.ReadValue<Vector2>();
         attackInputEvent.Invoke(direction);
         Debug.Log("Direction to launch: ");
+    }
+
+    public void OnLive()
+    {
+        _controls.Player.Enable();
+    }
+
+    public void OnDead()
+    {
+        _controls.Player.Disable();
+    }
+
+    public void SetListeners()
+    {
+        var player = FindObjectOfType<Health>();
+        if (player)
+        {
+            player.AddLiveListener(OnLive);
+            player.AddDeadListener(OnDead);
+        }
+
     }
 }
