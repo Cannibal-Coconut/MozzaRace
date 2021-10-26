@@ -426,7 +426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd911c3322a2024295e46186a468140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickingUpColliders: []
+  _pickingUpColliders:
+  - {fileID: 5386698085040095962}
   _loose: 5
   _looseDelay: 2
 --- !u!114 &5386698084442602758

@@ -50,7 +50,7 @@ public class DeadScreen : MonoBehaviour, ILiveListener
 
     public void Display()
     {
-        _canvasGroup.alpha = 1;
+        _canvasGroup.gameObject.SetActive(true);
 
         _scoreMesh.text = "Points: " + _inventory.points.ToString();
 
@@ -58,7 +58,7 @@ public class DeadScreen : MonoBehaviour, ILiveListener
 
     public void Hide()
     {
-        _canvasGroup.alpha = 0;
+        _canvasGroup.gameObject.SetActive(false);
     }
 
     public void OnLive()
