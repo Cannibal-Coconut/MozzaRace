@@ -57,7 +57,7 @@ public class PlayerAttack : MonoBehaviour
 
         _launchTrajectory.EraseLine();
 
-        //if (!_pizzaLaunch.IsWithPlayer()) return;
+        if (!_pizzaLaunch.IsWithPlayer()) return;
         _pizzaLaunch.ThrowPizza(Vector3.Normalize(_endPoint - _startPoint));
         StartCoroutine(RecallTime(recallWaitTime));
     }
