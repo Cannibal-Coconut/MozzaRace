@@ -11,6 +11,7 @@ public class Missile : MonoBehaviour
     [SerializeField] SpriteRenderer _warningSignal;
 
     [Header("Settings")]
+    [SerializeField] [Range(0, 0.5f)] float _alignThreshold = 0.2f;
     [SerializeField] [Range(0, 5)] float _aligningTime = 3;
     [SerializeField] [Range(0, 5)] float _timeAfterAlign = 1;
 
@@ -36,7 +37,8 @@ public class Missile : MonoBehaviour
         _isAligning = true;
     }
 
-    void Remove() {
+    void Remove()
+    {
         Destroy(_warningSignal);
     }
 
@@ -74,15 +76,21 @@ public class Missile : MonoBehaviour
         {
             _aligningElapsedTime += Time.fixedDeltaTime;
 
-            Vector3 move = new Vector3(0, _alignSpeed * Time.fixedDeltaTime, 0);
-            if (transform.position.y > _target.transform.position.y)
+
+            if (Mathf.Abs(transform.position.y - _target.transform.position.y) > _alignThreshold)
             {
-                transform.position -= move;
+                Vector3 move = new Vector3(0, _alignSpeed * Time.fixedDeltaTime, 0);
+
+                if (transform.position.y > _target.transform.position.y)
+                {
+                    transform.position -= move;
+                }
+                else
+                {
+                    transform.position += move;
+                }
             }
-            else
-            {
-                transform.position += move;
-            }
+
         }
         else
         {
