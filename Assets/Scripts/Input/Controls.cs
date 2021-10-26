@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Controls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Input/Controls.inputactions'
 
 using System;
 using System.Collections;
@@ -27,9 +27,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Attack"",
+                    ""name"": ""AttackContact"",
                     ""type"": ""PassThrough"",
                     ""id"": ""4415f2e2-b2dc-441f-b0a0-15c1891f8448"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""AttackPosition"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""e64f51d6-2244-4cdb-9c22-1221ac94cce1"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -50,8 +58,8 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c820a153-64be-401f-8258-fae19b6da71c"",
-                    ""path"": ""<Touchscreen>/primaryTouch/press"",
-                    ""interactions"": """",
+                    ""path"": ""<Touchscreen>/press"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
@@ -72,22 +80,44 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""dee88efa-ca8d-4f43-bb02-4fe82c1e79bf"",
-                    ""path"": ""<Touchscreen>/primaryTouch"",
-                    ""interactions"": """",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""AttackContact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f797e038-6209-4c80-abd9-cfa531bca1a3"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""id"": ""3962ac04-930d-4501-9e8f-35d12464c9f8"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackContact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7db8519c-aa1a-4488-95cf-0fa5bc55b886"",
+                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""AttackPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2bb35122-67f8-4bb3-80b2-24c552f24703"",
+                    ""path"": ""<Touchscreen>/primaryTouch/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AttackPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -126,7 +156,8 @@ public class @Controls : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_AttackContact = m_Player.FindAction("AttackContact", throwIfNotFound: true);
+        m_Player_AttackPosition = m_Player.FindAction("AttackPosition", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
@@ -180,13 +211,15 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_AttackContact;
+    private readonly InputAction m_Player_AttackPosition;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @AttackContact => m_Wrapper.m_Player_AttackContact;
+        public InputAction @AttackPosition => m_Wrapper.m_Player_AttackPosition;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -199,9 +232,12 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @AttackContact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttackContact;
+                @AttackContact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttackContact;
+                @AttackContact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttackContact;
+                @AttackPosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttackPosition;
+                @AttackPosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttackPosition;
+                @AttackPosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttackPosition;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -209,9 +245,12 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Attack.started += instance.OnAttack;
-                @Attack.performed += instance.OnAttack;
-                @Attack.canceled += instance.OnAttack;
+                @AttackContact.started += instance.OnAttackContact;
+                @AttackContact.performed += instance.OnAttackContact;
+                @AttackContact.canceled += instance.OnAttackContact;
+                @AttackPosition.started += instance.OnAttackPosition;
+                @AttackPosition.performed += instance.OnAttackPosition;
+                @AttackPosition.canceled += instance.OnAttackPosition;
             }
         }
     }
@@ -252,7 +291,8 @@ public class @Controls : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnJump(InputAction.CallbackContext context);
-        void OnAttack(InputAction.CallbackContext context);
+        void OnAttackContact(InputAction.CallbackContext context);
+        void OnAttackPosition(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

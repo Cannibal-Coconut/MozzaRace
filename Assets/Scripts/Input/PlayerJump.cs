@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 public class PlayerJump : MonoBehaviour
 {
     private Rigidbody2D _rigidbody; // Rigidbody of the player
-    [SerializeField] private Transform feetPosition;// Feet position of the player
+    [SerializeField] private Transform feetTransform;// Feet transform of the player
     
     [Range(0,1)]
     [SerializeField] private float radiusFeet = 0.3f; // Radius used to check if the feet of the player is touching the ground
@@ -35,7 +35,7 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        _isGrounded = Physics2D.OverlapCircle(feetPosition.position, radiusFeet, layerGround);
+        _isGrounded = Physics2D.OverlapCircle(feetTransform.position, radiusFeet, layerGround);
     }
 
     private void FixedUpdate()
@@ -45,9 +45,9 @@ public class PlayerJump : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (!feetPosition) return;
+        if (!feetTransform) return;
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(feetPosition.position, radiusFeet);
+        Gizmos.DrawWireSphere(feetTransform.position, radiusFeet);
 
     }
 
