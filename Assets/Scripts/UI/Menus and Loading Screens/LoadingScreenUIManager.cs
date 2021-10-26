@@ -7,13 +7,13 @@ public class LoadingScreenUIManager : MonoBehaviour
 {
     
     private AsyncOperation loadingAsyncOp;
-    private SceneLoader mySceneLoader;
+    private SceneLoader sceneLoader;
     public Slider progressBar;
     public TextMeshProUGUI loadingText;
     private void Start()
     {
         //find sceneloader and start fake loading time to prevent screen from flashing too quickly in pc 
-        mySceneLoader = FindObjectOfType<SceneLoader>();
+        sceneLoader = FindObjectOfType<SceneLoader>();
         StartCoroutine(FakeLoadingTimeWait());
     }
 
@@ -28,11 +28,11 @@ public class LoadingScreenUIManager : MonoBehaviour
     private IEnumerator FakeLoadingTimeWait(){
 
         //Load prev asyng op to prevent nullpointer
-        loadingAsyncOp = mySceneLoader.GetAsyncLoadOp();
+        loadingAsyncOp = sceneLoader.GetAsyncLoadOp();
         yield return new WaitForSeconds(0.4f);
         //Load next scene
-        StartCoroutine(mySceneLoader.LoadSceneAsync(mySceneLoader.GetSavedNextSceneIndex()));
-        loadingAsyncOp = mySceneLoader.GetAsyncLoadOp();
+        StartCoroutine(sceneLoader.LoadSceneAsync(sceneLoader.GetSavedNextSceneIndex()));
+        loadingAsyncOp = sceneLoader.GetAsyncLoadOp();
 
    
     }

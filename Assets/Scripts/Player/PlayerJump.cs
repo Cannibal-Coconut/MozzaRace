@@ -81,4 +81,17 @@ public class PlayerJump : MonoBehaviour
                 break;
         }
     }
+
+    public bool GetIsGrounded(){
+
+        return _isGrounded;
+
+    }
+
+    public bool GetDoubleJump(){
+
+        return _hasDoubleJump;
+
+    }
+    
 }
