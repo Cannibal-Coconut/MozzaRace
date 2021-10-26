@@ -5,14 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerJump))]
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(PlayerAttack))]
-[RequireComponent(typeof(Inventory))]
 public class PlayerMovementInterface : MonoBehaviour
 {
 
     private PlayerJump playerJump;
     private Health playerHealth;
     private PlayerAttack playerAttack;
-    private Inventory playerInventory;
 
     public delegate void OnLaunchPizza();
 
@@ -24,7 +22,6 @@ public class PlayerMovementInterface : MonoBehaviour
         playerJump = GetComponent<PlayerJump>();
         playerHealth = GetComponent<Health>();
         playerAttack = GetComponent<PlayerAttack>();
-        playerInventory = GetComponent<Inventory>();
     }
 
   public bool GetGrounded(){
