@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857513313088535565}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.61, y: -1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -52,3 +52,5 @@ MonoBehaviour:
     spawnWeight: 1
   - spawnablePrototype: {fileID: 1183229152832010130, guid: ec126f6f46731ff48a0dccfb82c8f4a5, type: 3}
     spawnWeight: 3
+  - spawnablePrototype: {fileID: -1254254853566436139, guid: 5697fcdf8046bad41b558d1fbee69eb0, type: 3}
+    spawnWeight: 1
