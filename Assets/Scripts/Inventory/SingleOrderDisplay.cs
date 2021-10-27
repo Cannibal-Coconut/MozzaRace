@@ -24,13 +24,13 @@ public class SingleOrderDisplay : MonoBehaviour
 
     MealOrder _mealOrder;
 
-    Inventory _inventory;
+    IngredientInventory _inventory;
 
     CanvasGroup _canvasGroup;
 
     private void Awake()
     {
-        _inventory = FindObjectOfType<Inventory>();
+        _inventory = FindObjectOfType<IngredientInventory>();
         _canvasGroup = GetComponent<CanvasGroup>();
     }
 
