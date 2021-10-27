@@ -1,7 +1,43 @@
 fileFormatVersion: 2
 guid: a8b0fe7d7358f4f46893e9be5b6e48c8
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6633124380559086450
+    second: Pizza_horizontal_sprites_0
+  - first:
+      213: -4162471468503542099
+    second: Pizza_horizontal_sprites_1
+  - first:
+      213: -5557012262860531274
+    second: Pizza_horizontal_sprites_2
+  - first:
+      213: 1751716893376994229
+    second: Pizza_horizontal_sprites_3
+  - first:
+      213: 2914381983010072088
+    second: Pizza_horizontal_sprites_4
+  - first:
+      213: 4497111835180222206
+    second: Pizza_horizontal_sprites_5
+  - first:
+      213: -1820556919309037641
+    second: Pizza_horizontal_sprites_6
+  - first:
+      213: -4674851492364920661
+    second: Pizza_horizontal_sprites_7
+  - first:
+      213: 4524240982009189022
+    second: Pizza_horizontal_sprites_8
+  - first:
+      213: -56343588587820889
+    second: Pizza_horizontal_sprites_9
+  - first:
+      213: -1318129482537606509
+    second: Pizza_horizontal_sprites_10
+  - first:
+      213: -8314680511937151107
+    second: Pizza_horizontal_sprites_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -10,7 +46,7 @@ TextureImporter:
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
-    borderMipMap: 0
+    borderMipMap: 1
     mipMapsPreserveCoverage: 0
     alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
@@ -20,7 +56,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -32,7 +68,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,9 +111,297 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Pizza_horizontal_sprites_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1658
+        width: 417
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2731536fa779d0c50800000000000000
+      internalID: 6633124380559086450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pizza_horizontal_sprites_1
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 1656
+        width: 402
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6d52cc04eeb36c0800000000000000
+      internalID: -4162471468503542099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pizza_horizontal_sprites_2
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 1652
+        width: 390
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b955bb0ac681e2b0800000000000000
+      internalID: -5557012262860531274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pizza_horizontal_sprites_3
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 1651
+        width: 379
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bb59c8cb395f4810800000000000000
+      internalID: 1751716893376994229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pizza_horizontal_sprites_4
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1170
+        width: 371
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8162d15f8f6f17820800000000000000
+      internalID: 2914381983010072088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pizza_horizontal_sprites_5
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 1168
+        width: 358
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef64f1b2363f86e30800000000000000
+      internalID: 4497111835180222206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pizza_horizontal_sprites_6
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 1164
+        width: 342
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bf843ba0251cb6e0800000000000000
+      internalID: -1820556919309037641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pizza_horizontal_sprites_7
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 1167
+        width: 357
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba852eb06579f1fb0800000000000000
+      internalID: -4674851492364920661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pizza_horizontal_sprites_8
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 689
+        width: 367
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e921ce2e33559ce30800000000000000
+      internalID: 4524240982009189022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pizza_horizontal_sprites_9
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 691
+        width: 379
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a82ad00ec3d73ff0800000000000000
+      internalID: -56343588587820889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pizza_horizontal_sprites_10
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 693
+        width: 389
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3926069283015bde0800000000000000
+      internalID: -1318129482537606509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pizza_horizontal_sprites_11
+      rect:
+        serializedVersion: 2
+        x: 1477
+        y: 694
+        width: 400
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f7f11a0225c9c80800000000000000
+      internalID: -8314680511937151107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

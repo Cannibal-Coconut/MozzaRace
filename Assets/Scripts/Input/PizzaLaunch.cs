@@ -1,7 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using Unity.Mathematics;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class PizzaLaunch : MonoBehaviour
 {
@@ -12,10 +17,13 @@ public class PizzaLaunch : MonoBehaviour
 
     private State _state;
 
+    private TrailRenderer _trailRenderer;
+
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _state = State.Recalling;
+        _trailRenderer = GetComponent<TrailRenderer>();
     }
 
     enum State
@@ -32,14 +40,21 @@ public class PizzaLaunch : MonoBehaviour
             case State.Recalling:
                 Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;
                 _rigidbody2D.velocity = dirToPlayer * playerAttack.RecallSpeed;
+                transform.rotation = quaternion.LookRotation(Vector3.back, (Vector3)_rigidbody2D.velocity);
+
 
                 if (Vector3.Distance(transform.position, playerTransform.position) < playerAttack.grabPizzaRadius)
                 {
                     _state = State.WithPlayer;
+                    _trailRenderer.enabled = false;
                     _rigidbody2D.velocity = Vector2.zero;
                     _rigidbody2D.isKinematic = true;
                 }
-                    
+
+                break;
+            
+            case State.Thrown:
+                transform.rotation = quaternion.LookRotation(Vector3.forward, (Vector3)_rigidbody2D.velocity);
                 break;
         }
     }
@@ -60,10 +75,10 @@ public class PizzaLaunch : MonoBehaviour
         transform.position = playerTransform.position;
         var force = playerAttack.Power;
         _rigidbody2D.AddForce(throwDirection * force, ForceMode2D.Impulse);
-        
-        
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, throwDirection);
+
+        _trailRenderer.enabled = true;
         _state = State.Thrown;
-        
     }
 
     public void RecallPizza()
