@@ -5,56 +5,93 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerJump))]
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(PlayerAttack))]
+[RequireComponent(typeof(IngredientInventory))]
+
 public class PlayerMovementInterface : MonoBehaviour
 {
 
-    private PlayerJump playerJump;
-    private Health playerHealth;
-    private PlayerAttack playerAttack;
+  //References to other player scripts which contain important information this script listens to
+    private PlayerJump _playerJump;
+    private Health _playerHealth;
+    private PlayerAttack _playerAttack;
+
+    private int _pizzaStatus;
+  
+    enum PizzaStatus{
+
+    hasPizza,
+    noPizza
+
+    }
 
     public delegate void OnLaunchPizza();
 
     public event OnLaunchPizza onLaunchPizza;
 
+    public delegate void OnReceivePizza();
+
+    public event OnLaunchPizza onReceivePizza;
+
+
 
     private void Start() {
-        
-        playerJump = GetComponent<PlayerJump>();
-        playerHealth = GetComponent<Health>();
-        playerAttack = GetComponent<PlayerAttack>();
+    
+        _playerJump = GetComponent<PlayerJump>();
+        _playerHealth = GetComponent<Health>();
+        _playerAttack = GetComponent<PlayerAttack>();
     }
 
+//Get grounded state
   public bool GetGrounded(){
 
-      return playerJump.GetIsGrounded();;
+      return _playerJump.GetIsGrounded();;
 
   }
 
 
+//Get if player is holding loading
   public bool GetLoadingPizzaStatus(){
 
-    //  return _isLoadingPizza;
-    return false;
+    //if is loading
+    if(_playerAttack.GetIsAttackStarted()) {
+      return true;
+      } else return false; 
+
   }
 
-  public bool GetLaunchingPizzaStatus(){
+//Get launch pizza trigger
+  public void LaunchPizzaTrigger(){
 
-      //return _isLaunchingPizza;
-    return false;
+    onLaunchPizza();
+
   }
 
-  public int HasPizzaStatus(){
-      //if has pizza
-      if(false) return 0; else return 1;
+//get if player has pizza
+  public void  SetPizzaStatus(bool hasPizza){
+
+    if(hasPizza) {_pizzaStatus = (int)PizzaStatus.hasPizza; OnReceivePizzaEvent(); }else {_pizzaStatus = (int)PizzaStatus.noPizza; }
 
   } 
 
-  public bool HasDoubleJump(){
+  public int GetPizzaStatus(){
 
-      return playerJump.GetDoubleJump();
+    return _pizzaStatus;
 
   }
 
 
+//get double jump trigger 
+  public bool HasDoubleJump(){
+
+      return _playerJump.GetDoubleJump();
+
+  }
+
+public void OnReceivePizzaEvent(){
+
+    onReceivePizza();
+
+
+}
   
 }

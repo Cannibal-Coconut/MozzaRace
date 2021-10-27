@@ -7,14 +7,15 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovementInterface))]
 public class PlayerAnimationHandler : MonoBehaviour
 {
-    Animator playerAnimator;
-    PlayerMovementInterface playerInfo;
+    private Animator _playerAnimator;
+    private PlayerMovementInterface _playerInfo;
     // Start is called before the first frame update
     void Start()
     {
-        playerAnimator = GetComponent<Animator>();
-        playerInfo = GetComponent<PlayerMovementInterface>();
-        playerInfo.onLaunchPizza += PlayLaunchAnimation;
+        _playerAnimator = GetComponent<Animator>();
+        _playerInfo = GetComponent<PlayerMovementInterface>();
+        _playerInfo.onLaunchPizza += PlayLaunchAnimation;
+        _playerInfo.onReceivePizza += ResetLaunchTrigger;
     }
 
     // Update is called once per frame
@@ -22,24 +23,38 @@ public class PlayerAnimationHandler : MonoBehaviour
     {
          HandleAnimationParameters();
     }
-
+    
     private void HandleAnimationParameters(){
 
-      playerAnimator.SetBool("isGrounded", playerInfo.GetGrounded()); 
-      playerAnimator.SetBool("isLoadingPizza", playerInfo.GetLoadingPizzaStatus()); 
-      
+      _playerAnimator.SetBool("isGrounded", _playerInfo.GetGrounded()); 
+      _playerAnimator.SetBool("isLoadingPizza", _playerInfo.GetLoadingPizzaStatus()); 
 
-     
-      playerAnimator.SetLayerWeight(playerInfo.HasPizzaStatus(), 100);
+      if(_playerInfo.GetPizzaStatus() == 1){
+        _playerAnimator.SetBool("hasPizza",false );
+        _playerAnimator.SetLayerWeight(_playerInfo.GetPizzaStatus(), 100);
+        _playerAnimator.SetLayerWeight(0, 0);
  
-
+      }
+        else {
+            _playerAnimator.SetBool("hasPizza",true );
+            _playerAnimator.SetLayerWeight(_playerInfo.GetPizzaStatus(), 100);
+            _playerAnimator.SetLayerWeight(1, 0);
+        } 
+     
     }
 
     private void PlayLaunchAnimation(){
 
-        playerAnimator.ResetTrigger("launchPizza");
-        playerAnimator.SetTrigger("launchPizza");
-
+        _playerAnimator.SetTrigger("launchPizza");
+        
 
     }
+
+    public void ResetLaunchTrigger(){
+
+        _playerAnimator.ResetTrigger("launchPizza");
+
+    }
+
+   
 }

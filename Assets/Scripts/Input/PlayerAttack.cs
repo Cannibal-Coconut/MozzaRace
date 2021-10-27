@@ -18,8 +18,12 @@ public class PlayerAttack : MonoBehaviour
 
     [Range(0, 3)] public float grabPizzaRadius; // Radius of the grab
 
+    [SerializeField] private SpriteRenderer _pizzaSprite; 
+
     public float Power => power;
     public float RecallSpeed => recallSpeed;
+
+    private PlayerMovementInterface _playerInfo;
 
     private LaunchTrajectory
         _launchTrajectory; // Reference to the script LaunchTrajectory to draw the direction of the launch
@@ -31,6 +35,10 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         _launchTrajectory = GetComponent<LaunchTrajectory>();
+        _playerInfo = GetComponent<PlayerMovementInterface>();
+
+        _pizzaLaunch.onLaunchPizza += HandleThrownPizzaStateEvent;
+        _pizzaLaunch.onReceivePizza += HandleReceivePizzaStateEvent;
     }
 
     private void Update()
@@ -54,12 +62,16 @@ public class PlayerAttack : MonoBehaviour
     {
         _endPoint = endPoint;
         _isAttackStarted = false;
-
         _launchTrajectory.EraseLine();
-
-        if (!_pizzaLaunch.IsWithPlayer()) return;
-        _pizzaLaunch.ThrowPizza(Vector3.Normalize(_endPoint - _startPoint));
-        StartCoroutine(RecallTime(recallWaitTime));
+        _playerInfo.LaunchPizzaTrigger();
+        if (!_pizzaLaunch.IsWithPlayer()) {
+            //Debug.Log("Cant Throw");
+            return;
+        } else {
+            //Debug.Log("Throw");
+            _pizzaLaunch.ThrowPizza(Vector3.Normalize(_endPoint - _startPoint));
+            StartCoroutine(RecallTime(recallWaitTime));
+        }
     }
 
     private void GetCurrentPoint()
@@ -76,5 +88,24 @@ public class PlayerAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         _pizzaLaunch.RecallPizza();
+    }
+
+    public bool GetIsAttackStarted(){
+
+        return _isAttackStarted;
+
+    }   
+
+    public void HandleThrownPizzaStateEvent(){
+
+        _pizzaSprite.enabled = true;
+        _playerInfo.SetPizzaStatus(false);
+
+    }
+
+    public void HandleReceivePizzaStateEvent(){
+        _pizzaSprite.enabled = false;
+        _playerInfo.SetPizzaStatus(true);
+
     }
 }
