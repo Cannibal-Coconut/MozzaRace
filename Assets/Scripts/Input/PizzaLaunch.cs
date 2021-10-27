@@ -14,6 +14,13 @@ public class PizzaLaunch : MonoBehaviour
     [SerializeField] private PlayerAttack playerAttack;
 
 
+public delegate void PizzaLaunchEvent();
+
+    public event PizzaLaunchEvent onLaunchPizza;
+
+    public delegate void PizzaReceiveEvent();
+
+    public event PizzaReceiveEvent onReceivePizza;
     private Rigidbody2D _rigidbody2D;
 
     private State _state;
@@ -50,6 +57,7 @@ public class PizzaLaunch : MonoBehaviour
                     _trailRenderer.enabled = false;
                     _rigidbody2D.velocity = Vector2.zero;
                     _rigidbody2D.isKinematic = true;
+                    onReceivePizza();
                 }
 
                 break;
@@ -80,6 +88,7 @@ public class PizzaLaunch : MonoBehaviour
 
         _trailRenderer.enabled = true;
         _state = State.Thrown;
+        onLaunchPizza();
     }
 
     public void RecallPizza()
