@@ -1,8 +1,0 @@
-var PluginPlatform= {
-     IsMobile: function()
-     {
-         return UnityLoader.SystemInfo.mobile;
-     }
- };
- 
- mergeInto(LibraryManager.library, PluginPlatform);
