@@ -414,6 +414,7 @@ MonoBehaviour:
   recallSpeed: 20.8
   recallWaitTime: 0.81
   grabPizzaRadius: 0.64
+  _pizzaSprite: {fileID: 5386698085040095963}
 --- !u!114 &5386698084442602760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +543,7 @@ GameObject:
   - component: {fileID: 5386698085040095960}
   - component: {fileID: 5386698085040095959}
   - component: {fileID: 5386698085040095961}
+  - component: {fileID: 1655365864}
   m_Layer: 0
   m_Name: Pizza
   m_TagString: Untagged
@@ -556,13 +558,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5386698085040095965}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.52, y: 1.95, z: 0}
-  m_LocalScale: {x: 1.8625, y: 0.2375, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.03146365, w: 0.999505}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.588311, y: 0.588311, z: 0.588311}
   m_Children: []
   m_Father: {fileID: 5386698084442602761}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.606}
 --- !u!212 &5386698085040095963
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -604,7 +606,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.9339623, g: 0.9137623, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -782,3 +784,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 5386698084442602761}
   playerAttack: {fileID: 5386698084442602757}
+--- !u!95 &1655365864
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386698085040095965}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc576cd025d0d1640a743393b39c75eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

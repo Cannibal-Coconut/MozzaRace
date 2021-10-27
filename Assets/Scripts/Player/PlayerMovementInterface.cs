@@ -53,7 +53,7 @@ public class PlayerMovementInterface : MonoBehaviour
   public bool GetLoadingPizzaStatus(){
 
     //if is loading
-    if(_playerAttack.GetIsAttackStarted()) {
+    if(_playerAttack.isAttackStarted) {
       return true;
       } else return false; 
 

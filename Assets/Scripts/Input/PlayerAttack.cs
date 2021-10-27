@@ -30,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
 
     private Vector3 _startPoint, _endPoint, _currentPoint;
 
-    private bool _isAttackStarted; // Check if the attack has started
+    public bool isAttackStarted {get; private set;} // Check if the attack has started
 
     private void Start()
     {
@@ -55,13 +55,13 @@ public class PlayerAttack : MonoBehaviour
     public void OnStartAttackInput(Vector2 startPoint)
     {
         _startPoint = startPoint;
-        _isAttackStarted = true;
+        isAttackStarted = true;
     }
 
     public void OnEndAttackInput(Vector2 endPoint)
     {
         _endPoint = endPoint;
-        _isAttackStarted = false;
+        isAttackStarted = false;
         _launchTrajectory.EraseLine();
         _playerInfo.LaunchPizzaTrigger();
         if (!_pizzaLaunch.IsWithPlayer()) {
@@ -76,7 +76,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void GetCurrentPoint()
     {
-        if (!_isAttackStarted) return;
+        if (!isAttackStarted) return;
 
         _currentPoint = _playerManager.AttackPosition();
 
@@ -90,11 +90,6 @@ public class PlayerAttack : MonoBehaviour
         _pizzaLaunch.RecallPizza();
     }
 
-    public bool GetIsAttackStarted(){
-
-        return _isAttackStarted;
-
-    }   
 
     public void HandleThrownPizzaStateEvent(){
 
