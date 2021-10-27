@@ -13,15 +13,14 @@ public class PizzaLaunch : MonoBehaviour
     [SerializeField] private Transform playerTransform;
     [SerializeField] private PlayerAttack playerAttack;
 
-    public delegate void PizzaLaunchEvent();
+
+public delegate void PizzaLaunchEvent();
 
     public event PizzaLaunchEvent onLaunchPizza;
 
     public delegate void PizzaReceiveEvent();
 
     public event PizzaReceiveEvent onReceivePizza;
-
-    private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody2D;
 
     private State _state;
@@ -30,7 +29,6 @@ public class PizzaLaunch : MonoBehaviour
 
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _state = State.Recalling;
         _trailRenderer = GetComponent<TrailRenderer>();
@@ -50,8 +48,7 @@ public class PizzaLaunch : MonoBehaviour
             case State.Recalling:
                 Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;
                 _rigidbody2D.velocity = dirToPlayer * playerAttack.RecallSpeed;
-                transform.rotation =
-                    UnityEngine.Quaternion.FromToRotation(Vector3.left, (Vector3)_rigidbody2D.velocity);
+                transform.rotation = quaternion.LookRotation(Vector3.back, (Vector3)_rigidbody2D.velocity);
 
 
                 if (Vector3.Distance(transform.position, playerTransform.position) < playerAttack.grabPizzaRadius)
@@ -64,10 +61,9 @@ public class PizzaLaunch : MonoBehaviour
                 }
 
                 break;
-
+            
             case State.Thrown:
-                transform.rotation =
-                    UnityEngine.Quaternion.FromToRotation(Vector3.right, (Vector3)_rigidbody2D.velocity);
+                transform.rotation = quaternion.LookRotation(Vector3.forward, (Vector3)_rigidbody2D.velocity);
                 break;
         }
     }
@@ -84,8 +80,6 @@ public class PizzaLaunch : MonoBehaviour
 
     public void ThrowPizza(Vector3 throwDirection)
     {
-        _spriteRenderer.flipY = throwDirection.x < 0;
-        
         _rigidbody2D.isKinematic = false;
         transform.position = playerTransform.position;
         var force = playerAttack.Power;
