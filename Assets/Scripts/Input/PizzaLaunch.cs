@@ -48,7 +48,7 @@ public delegate void PizzaLaunchEvent();
             case State.Recalling:
                 Vector3 dirToPlayer = (playerTransform.position - transform.position).normalized;
                 _rigidbody2D.velocity = dirToPlayer * playerAttack.RecallSpeed;
-                transform.rotation = quaternion.LookRotation(Vector3.back, (Vector3)_rigidbody2D.velocity);
+                transform.rotation = UnityEngine.Quaternion.FromToRotation(Vector3.left, (Vector3)_rigidbody2D.velocity);
 
 
                 if (Vector3.Distance(transform.position, playerTransform.position) < playerAttack.grabPizzaRadius)
@@ -63,7 +63,7 @@ public delegate void PizzaLaunchEvent();
                 break;
             
             case State.Thrown:
-                transform.rotation = quaternion.LookRotation(Vector3.forward, (Vector3)_rigidbody2D.velocity);
+                transform.rotation = UnityEngine.Quaternion.FromToRotation(Vector3.right, (Vector3)_rigidbody2D.velocity);
                 break;
         }
     }
