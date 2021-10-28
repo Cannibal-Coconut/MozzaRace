@@ -130,14 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6981147416874424211, guid: fd08dc3de509b0d4bba5d521ab000a35, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 509
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981147416874424211, guid: fd08dc3de509b0d4bba5d521ab000a35, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -348.78033
-      objectReference: {fileID: 0}
     - target: {fileID: 6981147417047170908, guid: fd08dc3de509b0d4bba5d521ab000a35, type: 3}
       propertyPath: m_Name
       value: Order and Score Canvas
@@ -226,38 +218,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6981147417047170978, guid: fd08dc3de509b0d4bba5d521ab000a35, type: 3}
-      propertyPath: m_ScreenMatchMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981147417047170978, guid: fd08dc3de509b0d4bba5d521ab000a35, type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981147417236405738, guid: fd08dc3de509b0d4bba5d521ab000a35, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -86
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981147417236405738, guid: fd08dc3de509b0d4bba5d521ab000a35, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -29
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981147417842442404, guid: fd08dc3de509b0d4bba5d521ab000a35, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 509.00037
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981147417842442404, guid: fd08dc3de509b0d4bba5d521ab000a35, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -262
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981147418304572626, guid: fd08dc3de509b0d4bba5d521ab000a35, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 509.00037
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981147418304572626, guid: fd08dc3de509b0d4bba5d521ab000a35, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -183.25003
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd08dc3de509b0d4bba5d521ab000a35, type: 3}
 --- !u!1 &227235412
@@ -296,7 +256,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -384,7 +344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 857513313088535567, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.61
+      value: 13.05
       objectReference: {fileID: 0}
     - target: {fileID: 857513313088535567, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
       propertyPath: m_LocalPosition.y
