@@ -48,10 +48,25 @@ public class Obstacle : MonoBehaviour
 
         if (player)
         {
-            player.HurtPlayer(_damage);
-
-            Hide();
+            HurtPlayer(player);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var player = collision.GetContact(0).collider.GetComponent<Health>();
+
+        if (player)
+        {
+            HurtPlayer(player);
+        }
+    }
+
+    void HurtPlayer(Health player)
+    {
+        player.HurtPlayer(_damage);
+
+        Hide();
     }
 
 }

@@ -213,7 +213,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!212 &3995909
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -539,6 +539,7 @@ GameObject:
   - component: {fileID: 231178509}
   - component: {fileID: 231178508}
   - component: {fileID: 231178507}
+  - component: {fileID: 231178510}
   m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
@@ -632,11 +633,23 @@ Transform:
   m_GameObject: {fileID: 231178506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.006328225, y: -3.43, z: 0}
-  m_LocalScale: {x: 11.838, y: 1, z: 1}
+  m_LocalScale: {x: 73.83953, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &231178510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231178506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb07138330bc26e42be3c831c452efe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &238638592
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,6 +2254,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
+      propertyPath: _spawnables.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
+      propertyPath: _spawnables.Array.data[5].spawnWeight
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
+      propertyPath: _spawnables.Array.data[5].spawnablePrototype
+      value: 
+      objectReference: {fileID: 4132808423252033735, guid: f2b7d758aa9159548b0e6a62110e87a5, type: 3}
     - target: {fileID: 857513313088535565, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
       propertyPath: m_Name
       value: Spawner
