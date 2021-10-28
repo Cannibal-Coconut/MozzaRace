@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4132808423252033735}
   - component: {fileID: 9028370317223736565}
   - component: {fileID: 3377336733252734457}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roller
   m_TagString: Untagged
   m_Icon: {fileID: 0}

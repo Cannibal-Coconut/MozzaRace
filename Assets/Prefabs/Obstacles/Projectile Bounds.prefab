@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8632770572921807051}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Down Bound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8632770574278724680}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Up Bound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8632770574695923378}
   - component: {fileID: 8632770574695923381}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Projectile Bounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}

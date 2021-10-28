@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 270312554298292271}
   - component: {fileID: 270312554298292270}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: warning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 270312556072020813}
   - component: {fileID: 270312556072020800}
   - component: {fileID: -1254254853566436139}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _warningSignal: {fileID: 270312554298292270}
+  _alignThreshold: 0.2
   _aligningTime: 3
   _timeAfterAlign: 1
   _alignSpeed: 3
