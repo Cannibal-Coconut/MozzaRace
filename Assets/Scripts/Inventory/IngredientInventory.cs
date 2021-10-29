@@ -37,6 +37,8 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
 
 
+
+
     private void Awake()
     {
         orders = new List<MealOrder>();
@@ -278,6 +280,15 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
             player.AddDeadListener(OnDead);
         }
 
+    }
+
+    public void ResetInventory(){
+
+     for (int i = 0; i < orders.Count; i++)RemoveOrder(i);
+     for (int i = 0; i < orders.Count; i++)RemoveOrder(i);
+    points = 0;
+    ChangePoints(points);
+    AddRandomOrder();
     }
 
 }

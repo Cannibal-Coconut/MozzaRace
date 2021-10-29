@@ -17,7 +17,7 @@ public class PositionFloater : MonoBehaviour
     private void Update() {
         _temporalPosition = _thisPosition;
         _temporalPosition.y += Mathf.Sin(Time.fixedUnscaledTime * Mathf.PI * freq) * amplitude;
-        transform.position = new Vector3(transform.position.x, -_temporalPosition.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x, _temporalPosition.y, transform.position.z);
 
     }
 

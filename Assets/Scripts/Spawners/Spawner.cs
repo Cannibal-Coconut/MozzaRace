@@ -39,7 +39,7 @@ public class Spawner : MonoBehaviour, ILiveListener
             removable.Remove();
         }
 
-        StopCoroutine(_spawnCoroutine);
+       if(_spawnCoroutine !=null)  StopCoroutine(_spawnCoroutine);
     }
 
     void UpdateTotalWeight()
@@ -75,7 +75,7 @@ public class Spawner : MonoBehaviour, ILiveListener
     public void Spawn(Spawnable spawnable)
     {
         var newItem = Instantiate(spawnable);
-        newItem.transform.position = transform.position;
+        newItem.transform.position = this.transform.position;
 
         newItem.Go(-10f);
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     
@@ -10,8 +10,14 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Canvas _mainMenuCanvas;
     [SerializeField] private Canvas _pauseMenuCanvas;
 
+    [SerializeField] private IngredientInventory _inventory;
+    [SerializeField] private Health _player;
+
     private void Start() {
         sceneLoader = FindObjectOfType<SceneLoader>();
+        _inventory = FindObjectOfType<IngredientInventory>();
+        _player= FindObjectOfType<Health>();
+        _pauseMenuCanvas.enabled = false;
         OpenMainMenu();
 
     }
@@ -42,7 +48,9 @@ public class MenuManager : MonoBehaviour
         Debug.Log("Playing!");
        Time.timeScale =1.0f;
        _mainMenuCanvas.enabled = false;
+       ResetGame();
        ResumeGame();
+
 
     }
 
@@ -67,8 +75,18 @@ public class MenuManager : MonoBehaviour
     }
     
     public void OpenMainMenu(){
-
+        
+        ResetGame();
         _mainMenuCanvas.enabled = true;
+        
         Time.timeScale = 0.0f;
+    }   
+
+    public void ResetGame(){
+
+        _player.HurtPlayer(10000);
+        _inventory.ResetInventory();
+        _player.Live();
+
     }
 }

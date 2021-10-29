@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
-public class DeadScreen : MonoBehaviour, ILiveListener
+public class DeathScreen : MonoBehaviour, ILiveListener
 {
     [Header("Buttons")]
     [SerializeField] Button _coinRestartButton;
-    [SerializeField] Button _adRestartButton;
+    [SerializeField] Button _adContinueButton;
 
     [Header("Meshes")]
     [SerializeField] TextMeshProUGUI _scoreMesh;
@@ -19,12 +19,13 @@ public class DeadScreen : MonoBehaviour, ILiveListener
 
     IngredientInventory _inventory;
     Health _player;
+    private MenuManager _menuManager;
 
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         _inventory = FindObjectOfType<IngredientInventory>();
-
+        _menuManager = FindObjectOfType<MenuManager>();
         _player = FindObjectOfType<Health>();
 
         InitializeButtons();
@@ -35,15 +36,32 @@ public class DeadScreen : MonoBehaviour, ILiveListener
     void InitializeButtons()
     {
         _coinRestartButton.onClick.AddListener(RestartWithCoin);
-        _adRestartButton.onClick.AddListener(RestartWithAd);
+        _adContinueButton.onClick.AddListener(ContinueWithAd);
     }
 
-    void RestartWithCoin()
+    void RestartWithCoin() {
+
+        //coin --;
+        RestartGame();
+
+    }
+     void RestartGame()
     {
+        //ResetGame
+        _inventory.ResetInventory();
+        Hide();
         _player.Live();
     }
 
-    void RestartWithAd()
+    public void OpenMainMenu(){
+
+        RestartGame();
+        _menuManager.OpenMainMenu();
+
+    }
+
+
+    void ContinueWithAd()
     {
         _player.Live();
     }
@@ -53,11 +71,13 @@ public class DeadScreen : MonoBehaviour, ILiveListener
         _canvasGroup.gameObject.SetActive(true);
 
         _scoreMesh.text = "Points: " + _inventory.points.ToString();
+        Time.timeScale = 0.0f;
 
     }
 
     public void Hide()
     {
+        Time.timeScale = 1.0f;
         _canvasGroup.gameObject.SetActive(false);
     }
 
@@ -79,6 +99,7 @@ public class DeadScreen : MonoBehaviour, ILiveListener
             player.AddLiveListener(OnLive);
             player.AddDeadListener(OnDead);
         }
+
 
     }
 
