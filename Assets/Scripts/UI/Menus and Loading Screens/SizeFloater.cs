@@ -17,7 +17,7 @@ public class SizeFloater : MonoBehaviour
     } 
 
     private void Update() {
-        _f = Mathf.PingPong(Time.time/2, _fMax - _fMin) + _fMin;
+        _f = Mathf.PingPong(Time.unscaledTime/2, _fMax - _fMin) + _fMin;
         _thisTransform.localScale = new Vector3(_f,_f,_f);
     }
 

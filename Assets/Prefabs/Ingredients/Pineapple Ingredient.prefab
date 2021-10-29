@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4652734939191821568}
   - component: {fileID: -7420153771713989328}
   - component: {fileID: 6500439759176424640}
+  - component: {fileID: -8828755080963402199}
   m_Layer: 0
   m_Name: Pineapple Ingredient
   m_TagString: Untagged
@@ -151,3 +152,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontMove: 0
+--- !u!114 &-8828755080963402199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652734939191821571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1fbcf70d53dd74ba23b08618e0224a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.3
+  freq: 2

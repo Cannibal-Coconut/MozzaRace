@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class PositionFloater : MonoBehaviour
 {
-    private Transform _thisTransform;
-    private float _f;
-    [SerializeField] private float _fMax;
-    [SerializeField] private float _fMin;
-    private void Start() {
-        _thisTransform = this.transform;
+    [SerializeField] private float amplitude;
+    [SerializeField] private float freq;
 
-    } 
+    private Vector3 _thisPosition;
+    private Vector3 _temporalPosition;
+
+    private void Start() {
+        _thisPosition = this.transform.position;
+    }
 
     private void Update() {
-        _f = Mathf.PingPong(Time.time*5, _fMax - _fMin) + _fMin;
-        _thisTransform.localPosition = new Vector3(_thisTransform.localPosition.x,_thisTransform.localPosition.y + _f,_thisTransform.localPosition.z);
+        _temporalPosition = _thisPosition;
+        _temporalPosition.y += Mathf.Sin(Time.fixedUnscaledTime * Mathf.PI * freq) * amplitude;
+        transform.position = new Vector3(transform.position.x, -_temporalPosition.y, transform.position.z);
+
     }
 
 }

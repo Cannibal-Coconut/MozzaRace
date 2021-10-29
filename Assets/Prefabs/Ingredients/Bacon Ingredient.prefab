@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5120874273205331238}
   - component: {fileID: 7876758230055044578}
   - component: {fileID: -5209333159061529307}
+  - component: {fileID: 7194815395372352691}
   m_Layer: 0
   m_Name: Bacon Ingredient
   m_TagString: Untagged
@@ -151,3 +152,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontMove: 0
+--- !u!114 &7194815395372352691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5120874273205331237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1fbcf70d53dd74ba23b08618e0224a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.3
+  freq: 2
