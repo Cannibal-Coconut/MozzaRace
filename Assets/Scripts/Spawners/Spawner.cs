@@ -20,8 +20,6 @@ public class Spawner : MonoBehaviour, ILiveListener
         SetListeners();
     }
 
-
-
     void StartSpawn()
     {
         if (_spawnCoroutine != null)

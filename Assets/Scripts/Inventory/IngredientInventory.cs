@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 /// <summary>
 /// Pick up and Check ingredients. Care for PickingUpColliders in editor inspector! It doesnt include this object.
@@ -13,6 +15,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     [Header("References")]
     [Tooltip("Theses colliders will catch up ingredients")]
     [SerializeField] Collider2D[] _pickingUpColliders;
+    [SerializeField] ItemSet _itemSet;
 
     [Header("Settings")]
     [Tooltip("Loose of points overtime")]
@@ -35,6 +38,27 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     Coroutine _countDownCoroutine;
     Coroutine _orderGiverCoroutine;
 
+    public Item GetItemPrototype()
+    {
+        List<ItemType> ingredients = new List<ItemType>();
+
+        foreach (var order in orders)
+        {
+            foreach (var ingredient in order.ingredients)
+            {
+                ingredients.Add(ingredient);
+            }
+        }
+
+        foreach (ItemType item in Enum.GetValues(typeof(ItemType)))
+        {
+            ingredients.Add(item);
+        }
+
+        var type = ingredients[Random.Range(0, ingredients.Count)];
+        return _itemSet.GetItem(type);
+
+    }
 
 
     private void Awake()
