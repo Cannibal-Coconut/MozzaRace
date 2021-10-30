@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857513313088535565}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.61, y: -1.8, z: 0}
-  m_LocalScale: {x: 0.09102296, y: 0.09102296, z: 0.09102296}
+  m_LocalPosition: {x: 9, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,15 +44,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnables:
+  - spawnablePrototype: {fileID: 4294641820164708578, guid: 07bdea035df391a4dbc64379e7e06882, type: 3}
+    spawnWeight: 1
   - spawnablePrototype: {fileID: -5209333159061529307, guid: d1d99feaa100764438dea8ae4a5cc18e, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 4294641820164708578, guid: bd9dae8faa37939438182251f2208342, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 4294641820164708578, guid: 7d0c976d6b596e24c9b48e3174075efa, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 4294641820164708578, guid: 3030aa5ab275e7a4a9deffc1a06cf667, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 4294641820164708578, guid: 18cb48b7fa2577141b026ab6aa263ab4, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 4294641820164708578, guid: 8ec123df20e364446934667aabab130b, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 4294641820164708578, guid: e51583a5bdcc3b04fa1b5193a4ef23b8, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 4294641820164708578, guid: 3b3e9625c1c49164dbd2a609571b7bae, type: 3}
     spawnWeight: 1
   - spawnablePrototype: {fileID: 6500439759176424640, guid: f916220653317624a8623fce5f081423, type: 3}
     spawnWeight: 1
+  - spawnablePrototype: {fileID: 4294641820164708578, guid: b107747e82db1154aa1fe530d90959fa, type: 3}
+    spawnWeight: 1
   - spawnablePrototype: {fileID: 4294641820164708578, guid: 7147e6f8bf724cd4b94b6517e39a7ca8, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 4294641820164708578, guid: eea64ca94ab0f8c44917cac1f2f02481, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: -1254254853566436139, guid: 5697fcdf8046bad41b558d1fbee69eb0, type: 3}
     spawnWeight: 1
   - spawnablePrototype: {fileID: 1183229152832010130, guid: ec126f6f46731ff48a0dccfb82c8f4a5, type: 3}
     spawnWeight: 3
-  - spawnablePrototype: {fileID: -1254254853566436139, guid: 5697fcdf8046bad41b558d1fbee69eb0, type: 3}
-    spawnWeight: 1
-  - spawnablePrototype: {fileID: 4132808423252033735, guid: f2b7d758aa9159548b0e6a62110e87a5, type: 3}
-    spawnWeight: 1

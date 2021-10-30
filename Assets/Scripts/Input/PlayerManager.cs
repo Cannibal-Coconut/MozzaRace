@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [Serializable]
@@ -66,6 +67,7 @@ public class PlayerManager : MonoBehaviour
     private void OnAttackStarted(InputAction.CallbackContext context)
     {
         if (startAttackInputEvent == null) return;
+        if(EventSystem.current.IsPointerOverGameObject()) return;
         var startPoint = _controls.Player.AttackPosition.ReadValue<Vector2>();
 
         var startPointWorldCoords = Utils.ScreenToWorld(_camera, startPoint);
@@ -76,6 +78,7 @@ public class PlayerManager : MonoBehaviour
     private void OnAttackEnded(InputAction.CallbackContext context)
     {
         if (endAttackInputEvent == null) return;
+         if(EventSystem.current.IsPointerOverGameObject()) return;
         var endPoint = _controls.Player.AttackPosition.ReadValue<Vector2>();
 
         var endPointWorldCoords = Utils.ScreenToWorld(_camera, endPoint);

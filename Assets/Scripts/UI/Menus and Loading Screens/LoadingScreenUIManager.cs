@@ -29,7 +29,7 @@ public class LoadingScreenUIManager : MonoBehaviour
 
         //Load prev asyng op to prevent nullpointer
         loadingAsyncOp = sceneLoader.GetAsyncLoadOp();
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(2f);
         //Load next scene
         StartCoroutine(sceneLoader.LoadSceneAsync(sceneLoader.GetSavedNextSceneIndex()));
         loadingAsyncOp = sceneLoader.GetAsyncLoadOp();

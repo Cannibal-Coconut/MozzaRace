@@ -37,6 +37,8 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
 
 
+
+
     private void Awake()
     {
         orders = new List<MealOrder>();
@@ -234,10 +236,20 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
     void AddRandomOrder()
     {
-        List<ItemType> items = new List<ItemType>() {
-            ItemType.Bacon, ItemType.Tomato, ItemType.Pineapple
-       };
+        List<ItemType> allItems = new List<ItemType>();
 
+        foreach (ItemType item in System.Enum.GetValues(typeof(ItemType)))
+        {
+          allItems.Add(item);
+        }
+
+        List<ItemType> items = new List<ItemType>();
+
+        for(int i = 0; i < 3; i++) {
+            ItemType itemToAdd = allItems[Random.Range(0,allItems.Count)];
+            items.Add(itemToAdd);
+            allItems.Remove(itemToAdd);
+        }
 
         AddOrder(new MealOrder(100, items));
     }
@@ -268,6 +280,15 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
             player.AddDeadListener(OnDead);
         }
 
+    }
+
+    public void ResetInventory(){
+
+     for (int i = 0; i < orders.Count; i++)RemoveOrder(i);
+     for (int i = 0; i < orders.Count; i++)RemoveOrder(i);
+    points = 0;
+    ChangePoints(points);
+    AddRandomOrder();
     }
 
 }

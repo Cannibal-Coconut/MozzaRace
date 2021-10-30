@@ -18,9 +18,19 @@ public class SingleOrderDisplay : MonoBehaviour
     [SerializeField] Image _selectionMarker;
 
     [Header("Sprites")]
+    [SerializeField] Sprite _acnhovySprite;
     [SerializeField] Sprite _baconSprite;
-    [SerializeField] Sprite _tomatoSprite;
+    [SerializeField] Sprite _cheeseSprite;
+    [SerializeField] Sprite _eggSprite;
+    [SerializeField] Sprite _hamSprite;
+    [SerializeField] Sprite _mushroomSprite;
+    [SerializeField] Sprite _oliveSprite;
+    [SerializeField] Sprite _onionSprite;
+    [SerializeField] Sprite _pepperoniSprite;
     [SerializeField] Sprite _pineappleSprite;
+    [SerializeField] Sprite _shrimpSprite;
+    [SerializeField] Sprite _tomatoSprite;
+    [SerializeField] Sprite _tunaSprite;
 
     MealOrder _mealOrder;
 
@@ -106,18 +116,51 @@ public class SingleOrderDisplay : MonoBehaviour
 
         switch (ingredient)
         {
-            case ItemType.Bacon:
+            case ItemType.Anchovy:
+                return _acnhovySprite;
+            //break;
+           
+             case ItemType.Bacon:
                 return _baconSprite;
             //break;
 
-            case ItemType.Tomato:
-                return _tomatoSprite;
+            case ItemType.Cheese:
+                return _cheeseSprite;
             //break;
 
+            case ItemType.Egg:
+                return _eggSprite;
+            //break;
+
+            case ItemType.Ham:
+                return _hamSprite;
+            //break;
+            
+            case ItemType.Mushroom:
+                return _mushroomSprite;
+            //break;
+            case ItemType.Olive:
+                return _oliveSprite;
+            //break;
+            case ItemType.Onion:
+                return _onionSprite;
+            //break;
+            case ItemType.Pepperoni:
+                return _pepperoniSprite;
+            //break;
             case ItemType.Pineapple:
                 return _pineappleSprite;
             //break;
-
+            case ItemType.Shrimp:
+                return _shrimpSprite;
+            //break;  
+            case ItemType.Tomato:
+                return _tomatoSprite;
+            //break;
+            case ItemType.Tuna:
+                return _tunaSprite;
+            //break;
+         
             default:
                 return null;
                 //break;

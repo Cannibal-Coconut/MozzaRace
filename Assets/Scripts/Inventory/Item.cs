@@ -43,12 +43,19 @@ public class Item : MonoBehaviour
 
 public enum ItemType
 {
+    Anchovy,
     Bacon,
-    Tomato,
-    Pineapple,
+    Cheese,
+    Egg,
     Ham,
+    Mushroom,
+    Olive,
     Onion,
-    Pepper,
-    Mozzarella,
-    Mushroom
+    Pepperoni,
+    Pineapple,
+    Shrimp,
+    Tomato,
+    Tuna,
+    
+
 }

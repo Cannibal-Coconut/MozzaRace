@@ -15,11 +15,11 @@ public class Health : MonoBehaviour
     private Action _onDead;
     private Action _onLive;
 
-    DeadScreen _deadScreen;
+    DeathScreen _deadScreen;
 
     private void Awake()
     {
-        _deadScreen = FindObjectOfType<DeadScreen>();
+        _deadScreen = FindObjectOfType<DeathScreen>();
 
 
     }
