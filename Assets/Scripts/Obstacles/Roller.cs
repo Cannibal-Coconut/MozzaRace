@@ -27,6 +27,8 @@ public class Roller : MonoBehaviour
         var desiredVelocity = _rigidbody.velocity;
         desiredVelocity.y = verticalSpeed;
         _rigidbody.velocity = desiredVelocity;
+
+        transform.parent = null;
     }
 
     private void FixedUpdate()

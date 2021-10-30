@@ -16,7 +16,7 @@ public class Missile : MonoBehaviour
     [SerializeField] [Range(0, 5)] float _timeAfterAlign = 1;
 
     [SerializeField] [Range(0, 10)] float _alignSpeed = 1;
-    [SerializeField] [Range(1, 10)] float _fireSpeed = 10;
+    [SerializeField] [Range(1, 25)] float _fireSpeed = 10;
 
     Health _target;
 
@@ -31,10 +31,15 @@ public class Missile : MonoBehaviour
         removable.AddRemoveListener(Remove);
 
         _target = FindObjectOfType<Health>();
+}
 
+    private void Start()
+    {
         SetOnBounds();
 
         _isAligning = true;
+
+        transform.parent = null;
     }
 
     void Remove()

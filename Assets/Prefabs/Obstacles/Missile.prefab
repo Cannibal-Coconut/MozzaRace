@@ -226,7 +226,7 @@ MonoBehaviour:
   _aligningTime: 3
   _timeAfterAlign: 1
   _alignSpeed: 3
-  _fireSpeed: 10
+  _fireSpeed: 25
 --- !u!114 &270312556072020800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,4 +251,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e1a7d172e193f45ba7962a10017418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeForNextSpawn: 0
   dontMove: 1

@@ -37,7 +37,7 @@ public class Spawner : MonoBehaviour, ILiveListener
             removable.Remove();
         }
 
-       if(_spawnCoroutine !=null)  StopCoroutine(_spawnCoroutine);
+        if (_spawnCoroutine != null) StopCoroutine(_spawnCoroutine);
     }
 
     void UpdateTotalWeight()
@@ -50,7 +50,7 @@ public class Spawner : MonoBehaviour, ILiveListener
         }
     }
 
-    public void SpawnRandom()
+    public float SpawnRandom()
     {
         int token = Random.Range(0, _totalWeight);
         int sum = 0;
@@ -63,19 +63,22 @@ public class Spawner : MonoBehaviour, ILiveListener
             //Check if sum is within ingredient's range
             if (token < sum)
             {
-                Spawn(spawnable.spawnablePrototype);
 
-                return;
+                return Spawn(spawnable.spawnablePrototype);
             }
         }
+
+        return 0;
     }
 
-    public void Spawn(Spawnable spawnable)
+    public float Spawn(Spawnable spawnable)
     {
         var newItem = Instantiate(spawnable);
-        newItem.transform.position = this.transform.position;
+        newItem.transform.position = transform.position;
 
         newItem.Go(-10f);
+
+        return spawnable.timeForNextSpawn;
 
         //Debug.Log(item.name + " Created!");
     }
@@ -85,8 +88,8 @@ public class Spawner : MonoBehaviour, ILiveListener
     {
         while (true)
         {
-            SpawnRandom();
-            yield return new WaitForSeconds(1.5f);
+            var time = SpawnRandom();
+            yield return new WaitForSeconds(time);
         }
     }
 

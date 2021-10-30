@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c81f6ff55983448abbaab66ac11825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  _speed: 4
   _flippedSpeed: 7
   _bounceHeight: 3
 --- !u!114 &4132808423252033732
@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e1a7d172e193f45ba7962a10017418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeForNextSpawn: 0
   dontMove: 1
 --- !u!61 &9028370317223736565
 BoxCollider2D:
