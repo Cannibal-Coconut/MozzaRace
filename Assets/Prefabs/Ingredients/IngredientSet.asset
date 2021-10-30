@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8823d770ab9fcd9439052782fa1eaeba, type: 3}
+  m_Name: IngredientSet
+  m_EditorClassIdentifier: 
+  bacon: {fileID: 5120874273205331239, guid: d1d99feaa100764438dea8ae4a5cc18e, type: 3}
+  ham: {fileID: 5120874273205331239, guid: ff952f917f8617245b6c11379e41b13f, type: 3}
+  mozzarella: {fileID: 5120874273205331239, guid: ff952f917f8617245b6c11379e41b13f, type: 3}
+  mushroom: {fileID: 5120874273205331239, guid: ff952f917f8617245b6c11379e41b13f, type: 3}
+  onion: {fileID: 5120874273205331239, guid: ff952f917f8617245b6c11379e41b13f, type: 3}
+  pepper: {fileID: 5120874273205331239, guid: ff952f917f8617245b6c11379e41b13f, type: 3}
+  pineapple: {fileID: 4652734939191821569, guid: f916220653317624a8623fce5f081423, type: 3}
+  tomato: {fileID: 3680576355479372367, guid: 7147e6f8bf724cd4b94b6517e39a7ca8, type: 3}
