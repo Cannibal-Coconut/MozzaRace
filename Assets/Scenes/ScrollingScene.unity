@@ -762,6 +762,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  changeOrderInputEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1643877643}
+        m_TargetAssemblyTypeName: IngredientInventory, Assembly-CSharp
+        m_MethodName: SelectOrderScrollWheel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &740086479
 Transform:
   m_ObjectHideFlags: 0
@@ -1439,6 +1454,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1643877643 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5386698084442602760, guid: ebaf443f795d60048add89176f2e0b0d, type: 3}
+  m_PrefabInstance: {fileID: 974941514}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd911c3322a2024295e46186a468140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1727936855
 GameObject:
   m_ObjectHideFlags: 0
