@@ -18,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
     [Range(0, 3)] public float grabPizzaRadius; // Radius of the grab
 
     [SerializeField] private SpriteRenderer _pizzaSprite; 
+    [SerializeField] private Collider2D _pizzaCollider; 
 
     public float Power => power;
     public float RecallSpeed => recallSpeed;
@@ -93,12 +94,14 @@ public class PlayerAttack : MonoBehaviour
     public void HandleThrownPizzaStateEvent(){
 
         _pizzaSprite.enabled = true;
+        _pizzaCollider.enabled = true;
         _playerInfo.SetPizzaStatus(false);
 
     }
 
     public void HandleReceivePizzaStateEvent(){
         _pizzaSprite.enabled = false;
+        _pizzaCollider.enabled = false;
         _playerInfo.SetPizzaStatus(true);
 
     }

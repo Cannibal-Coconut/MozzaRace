@@ -389,7 +389,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5e716815b30577742b54a4efa4a553b0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.45
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -638,108 +638,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 550650112346274780, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.05333993
-      objectReference: {fileID: 0}
-    - target: {fileID: 550650112346274780, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.05333993
-      objectReference: {fileID: 0}
-    - target: {fileID: 550650112346274780, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.05333993
-      objectReference: {fileID: 0}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[12].spawnWeight
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[13].spawnWeight
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[0].spawnablePrototype
-      value: 
-      objectReference: {fileID: 8501705632778821268, guid: 339df19c67abb7e4fa630c01e8d63d71, type: 3}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[1].spawnablePrototype
-      value: 
-      objectReference: {fileID: 8501705632778821268, guid: 87a9330c5f9e61c4f962a5e7b5e16dfb, type: 3}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[2].spawnablePrototype
-      value: 
-      objectReference: {fileID: 8501705632778821268, guid: 57c6f857a34892e4294ed7176c9af7a8, type: 3}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[3].spawnablePrototype
-      value: 
-      objectReference: {fileID: 8501705632778821268, guid: 99e840a0e1e6a984cb1ec0d82aa167d9, type: 3}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[4].spawnablePrototype
-      value: 
-      objectReference: {fileID: 8501705632778821268, guid: 4fe5bea8868fb1e41b6388373144c92d, type: 3}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[5].spawnablePrototype
-      value: 
-      objectReference: {fileID: 4294641820164708578, guid: e51583a5bdcc3b04fa1b5193a4ef23b8, type: 3}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[6].spawnablePrototype
-      value: 
-      objectReference: {fileID: 4294641820164708578, guid: 3b3e9625c1c49164dbd2a609571b7bae, type: 3}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[7].spawnablePrototype
-      value: 
-      objectReference: {fileID: 6500439759176424640, guid: f916220653317624a8623fce5f081423, type: 3}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[8].spawnablePrototype
-      value: 
-      objectReference: {fileID: 4294641820164708578, guid: b107747e82db1154aa1fe530d90959fa, type: 3}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[9].spawnablePrototype
-      value: 
-      objectReference: {fileID: 4294641820164708578, guid: 7147e6f8bf724cd4b94b6517e39a7ca8, type: 3}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[10].spawnablePrototype
-      value: 
-      objectReference: {fileID: 4294641820164708578, guid: eea64ca94ab0f8c44917cac1f2f02481, type: 3}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[11].spawnablePrototype
-      value: 
-      objectReference: {fileID: -1254254853566436139, guid: 5697fcdf8046bad41b558d1fbee69eb0, type: 3}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[12].spawnablePrototype
-      value: 
-      objectReference: {fileID: 1183229152832010130, guid: ec126f6f46731ff48a0dccfb82c8f4a5, type: 3}
-    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: _spawnables.Array.data[13].spawnablePrototype
-      value: 
-      objectReference: {fileID: 1183229152832010130, guid: ec126f6f46731ff48a0dccfb82c8f4a5, type: 3}
-    - target: {fileID: 857513313088535565, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 857513313088535565, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
       propertyPath: m_Name
       value: Item Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 857513313088535567, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 857513313088535567, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 857513313088535567, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 857513313088535567, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
-      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 857513313088535567, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
