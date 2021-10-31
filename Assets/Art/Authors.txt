@@ -30,3 +30,5 @@ ingredientes_7: David González Rueda
 ingredientes_8: David González Rueda
 Obstacles_roll: Manuel Bueno Lasso
 Obstacles_knife: Manuel Bueno Lasso
+Obstacles_signal_knife: Manuel Bueno Lasso
+Obstacles_signal_roll: Manuel Bueno Lasso
