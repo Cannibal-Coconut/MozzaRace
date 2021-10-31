@@ -111,60 +111,37 @@ public class SingleOrderDisplay : MonoBehaviour
         _inventory.SelectOrder(_mealOrder);
     }
 
-    Sprite GetSpriteForIngredient(ItemType ingredient)
+    private Sprite GetSpriteForIngredient(ItemType ingredient)
     {
-
-        switch (ingredient)
+        return ingredient switch
         {
-            case ItemType.Anchovy:
-                return _acnhovySprite;
+            ItemType.Anchovy => _acnhovySprite,
             //break;
-           
-             case ItemType.Bacon:
-                return _baconSprite;
+            ItemType.Bacon => _baconSprite,
             //break;
-
-            case ItemType.Cheese:
-                return _cheeseSprite;
+            ItemType.Cheese => _cheeseSprite,
             //break;
-
-            case ItemType.Egg:
-                return _eggSprite;
+            ItemType.Egg => _eggSprite,
             //break;
-
-            case ItemType.Ham:
-                return _hamSprite;
+            ItemType.Ham => _hamSprite,
             //break;
-            
-            case ItemType.Mushroom:
-                return _mushroomSprite;
+            ItemType.Mushroom => _mushroomSprite,
             //break;
-            case ItemType.Olive:
-                return _oliveSprite;
+            ItemType.Olive => _oliveSprite,
             //break;
-            case ItemType.Onion:
-                return _onionSprite;
+            ItemType.Onion => _onionSprite,
             //break;
-            case ItemType.Pepperoni:
-                return _pepperoniSprite;
+            ItemType.Pepperoni => _pepperoniSprite,
             //break;
-            case ItemType.Pineapple:
-                return _pineappleSprite;
+            ItemType.Pineapple => _pineappleSprite,
             //break;
-            case ItemType.Shrimp:
-                return _shrimpSprite;
+            ItemType.Shrimp => _shrimpSprite,
             //break;  
-            case ItemType.Tomato:
-                return _tomatoSprite;
+            ItemType.Tomato => _tomatoSprite,
             //break;
-            case ItemType.Tuna:
-                return _tunaSprite;
-            //break;
-         
-            default:
-                return null;
-                //break;
-        }
+            ItemType.Tuna => _tunaSprite,
+            _ => null
+        };
     }
 
 }

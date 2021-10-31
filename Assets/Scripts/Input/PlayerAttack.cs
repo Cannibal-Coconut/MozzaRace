@@ -1,6 +1,4 @@
-
 using System.Collections;
-
 using UnityEngine;
 
 
@@ -11,13 +9,16 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private PlayerManager _playerManager; // Reference to PlayerManager in order to get the position of the input
 
-    [Range(1, 50)] [SerializeField] private float power;
+    [Range(1, 50)] [SerializeField] private float power; // Power of the launch
     [Range(1, 50)] [SerializeField] private float recallSpeed; // Recall speed of the pizza
     [Range(0, 3)] [SerializeField] private float recallWaitTime; // Recall speed of the pizza
 
+    [Range(0, 1)] [SerializeField]
+    private float minimalDistance; // Minimal distance between the start and the end points of the charge
+
     [Range(0, 3)] public float grabPizzaRadius; // Radius of the grab
 
-    [SerializeField] private SpriteRenderer _pizzaSprite; 
+    [SerializeField] private SpriteRenderer _pizzaSprite;
 
     public float Power => power;
     public float RecallSpeed => recallSpeed;
@@ -27,9 +28,12 @@ public class PlayerAttack : MonoBehaviour
     private LaunchTrajectory
         _launchTrajectory; // Reference to the script LaunchTrajectory to draw the direction of the launch
 
-    private Vector3 _startPoint, _endPoint, _currentPoint;
+    private Vector3
+        _startPoint,
+        _endPoint,
+        _currentPoint; // Points that saves the position of the finger during the charge of the attack
 
-    public bool isAttackStarted {get; private set;} // Check if the attack has started
+    public bool isAttackStarted { get; private set; } // Check if the attack has started
 
     private void Start()
     {
@@ -53,21 +57,20 @@ public class PlayerAttack : MonoBehaviour
 
     public void OnStartAttackInput(Vector2 startPoint)
     {
+        if (!_pizzaLaunch.IsWithPlayer()) return;
         _startPoint = startPoint;
         isAttackStarted = true;
     }
 
     public void OnEndAttackInput(Vector2 endPoint)
     {
+        if (!isAttackStarted) return;
         _endPoint = endPoint;
         isAttackStarted = false;
         _launchTrajectory.EraseLine();
         _playerInfo.LaunchPizzaTrigger();
-        if (!_pizzaLaunch.IsWithPlayer()) {
-            //Debug.Log("Cant Throw");
-            return;
-        } else {
-            //Debug.Log("Throw");
+        if (IsMinimalDistance() && _pizzaLaunch.IsWithPlayer())
+        {
             _pizzaLaunch.ThrowPizza(Vector3.Normalize(_endPoint - _startPoint));
             StartCoroutine(RecallTime(recallWaitTime));
         }
@@ -90,16 +93,20 @@ public class PlayerAttack : MonoBehaviour
     }
 
 
-    public void HandleThrownPizzaStateEvent(){
-
+    public void HandleThrownPizzaStateEvent()
+    {
         _pizzaSprite.enabled = true;
         _playerInfo.SetPizzaStatus(false);
-
     }
 
-    public void HandleReceivePizzaStateEvent(){
+    public void HandleReceivePizzaStateEvent()
+    {
         _pizzaSprite.enabled = false;
         _playerInfo.SetPizzaStatus(true);
+    }
 
+    private bool IsMinimalDistance()
+    {
+        return (_endPoint - _startPoint).magnitude > minimalDistance;
     }
 }
