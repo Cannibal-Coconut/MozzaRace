@@ -415,6 +415,7 @@ MonoBehaviour:
   recallWaitTime: 0.81
   grabPizzaRadius: 0.64
   _pizzaSprite: {fileID: 5386698085040095963}
+  _pizzaCollider: {fileID: 5386698085040095962}
 --- !u!114 &5386698084442602760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +430,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pickingUpColliders:
   - {fileID: 5386698085040095962}
+  - {fileID: 5386698084442602764}
+  _itemSet: {fileID: 0}
   _loose: 5
   _looseDelay: 2
 --- !u!114 &5386698084442602758
