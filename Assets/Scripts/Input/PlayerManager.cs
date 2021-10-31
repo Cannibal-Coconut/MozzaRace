@@ -15,6 +15,9 @@ public class StartAttackInputEvent : UnityEvent<Vector2> {}
 [Serializable]
 public class EndAttackInputEvent : UnityEvent<Vector2> {}
 
+[Serializable]
+public class ChangeOrderInputEvent : UnityEvent<float> {}
+
 
 /**
  * Set the configurations to be able to interact with the player and disable the UI input
@@ -27,6 +30,7 @@ public class PlayerManager : MonoBehaviour
     public JumpInputEvent jumpInputEvent;
     public StartAttackInputEvent startAttackInputEvent;
     public EndAttackInputEvent endAttackInputEvent;
+    public ChangeOrderInputEvent changeOrderInputEvent;
 
     private Camera _camera;
 
@@ -43,6 +47,8 @@ public class PlayerManager : MonoBehaviour
 
         _controls.Player.AttackContact.started += OnAttackStarted;
         _controls.Player.AttackContact.canceled += OnAttackEnded;
+
+        _controls.Player.ChangeOrder.performed += OnChangeOrderPerformed;
     }
 
     private void OnEnable()
@@ -89,5 +95,11 @@ public class PlayerManager : MonoBehaviour
     public Vector2 AttackPosition()
     {
         return Utils.ScreenToWorld(_camera, _controls.Player.AttackPosition.ReadValue<Vector2>());
+    }
+
+    private void OnChangeOrderPerformed(InputAction.CallbackContext context)
+    {
+        if (changeOrderInputEvent == null) return;
+        changeOrderInputEvent.Invoke(context.ReadValue<float>());
     }
 }

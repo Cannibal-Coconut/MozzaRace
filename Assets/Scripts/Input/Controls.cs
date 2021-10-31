@@ -41,6 +41,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChangeOrder"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""4c6764ec-4d37-4a7e-98b8-7747b1da8051"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -48,18 +56,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""3ce15024-46f2-46e0-b9da-0054300d1dd7"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c820a153-64be-401f-8258-fae19b6da71c"",
-                    ""path"": ""<Touchscreen>/press"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": ""Press(pressPoint=0.1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
@@ -79,8 +76,8 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dee88efa-ca8d-4f43-bb02-4fe82c1e79bf"",
-                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""id"": ""3962ac04-930d-4501-9e8f-35d12464c9f8"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
@@ -90,8 +87,8 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3962ac04-930d-4501-9e8f-35d12464c9f8"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""975eab4b-6be2-482e-8ae1-913055375efe"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
@@ -118,6 +115,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""AttackPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b8d1bd8-8941-457e-8039-b35e0f6b7133"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeOrder"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -158,6 +166,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_AttackContact = m_Player.FindAction("AttackContact", throwIfNotFound: true);
         m_Player_AttackPosition = m_Player.FindAction("AttackPosition", throwIfNotFound: true);
+        m_Player_ChangeOrder = m_Player.FindAction("ChangeOrder", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
@@ -213,6 +222,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_AttackContact;
     private readonly InputAction m_Player_AttackPosition;
+    private readonly InputAction m_Player_ChangeOrder;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -220,6 +230,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @AttackContact => m_Wrapper.m_Player_AttackContact;
         public InputAction @AttackPosition => m_Wrapper.m_Player_AttackPosition;
+        public InputAction @ChangeOrder => m_Wrapper.m_Player_ChangeOrder;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -238,6 +249,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @AttackPosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttackPosition;
                 @AttackPosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttackPosition;
                 @AttackPosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttackPosition;
+                @ChangeOrder.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeOrder;
+                @ChangeOrder.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeOrder;
+                @ChangeOrder.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeOrder;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -251,6 +265,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @AttackPosition.started += instance.OnAttackPosition;
                 @AttackPosition.performed += instance.OnAttackPosition;
                 @AttackPosition.canceled += instance.OnAttackPosition;
+                @ChangeOrder.started += instance.OnChangeOrder;
+                @ChangeOrder.performed += instance.OnChangeOrder;
+                @ChangeOrder.canceled += instance.OnChangeOrder;
             }
         }
     }
@@ -293,6 +310,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnAttackContact(InputAction.CallbackContext context);
         void OnAttackPosition(InputAction.CallbackContext context);
+        void OnChangeOrder(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

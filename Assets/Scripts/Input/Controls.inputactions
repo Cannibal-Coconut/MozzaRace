@@ -28,6 +28,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ChangeOrder",
+                    "type": "PassThrough",
+                    "id": "4c6764ec-4d37-4a7e-98b8-7747b1da8051",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -35,18 +43,7 @@
                     "name": "",
                     "id": "3ce15024-46f2-46e0-b9da-0054300d1dd7",
                     "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c820a153-64be-401f-8258-fae19b6da71c",
-                    "path": "<Touchscreen>/press",
-                    "interactions": "Press",
+                    "interactions": "Press(pressPoint=0.1)",
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
@@ -66,8 +63,8 @@
                 },
                 {
                     "name": "",
-                    "id": "dee88efa-ca8d-4f43-bb02-4fe82c1e79bf",
-                    "path": "<Touchscreen>/primaryTouch/press",
+                    "id": "3962ac04-930d-4501-9e8f-35d12464c9f8",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
@@ -77,8 +74,8 @@
                 },
                 {
                     "name": "",
-                    "id": "3962ac04-930d-4501-9e8f-35d12464c9f8",
-                    "path": "<Mouse>/leftButton",
+                    "id": "975eab4b-6be2-482e-8ae1-913055375efe",
+                    "path": "<Touchscreen>/primaryTouch/press",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
@@ -105,6 +102,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "AttackPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b8d1bd8-8941-457e-8039-b35e0f6b7133",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeOrder",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
