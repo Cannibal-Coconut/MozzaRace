@@ -56,7 +56,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""3ce15024-46f2-46e0-b9da-0054300d1dd7"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Press(pressPoint=0.1)"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
@@ -87,8 +87,8 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""975eab4b-6be2-482e-8ae1-913055375efe"",
-                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""id"": ""364b6215-ae23-4fa3-9fd1-c2fe00f28f73"",
+                    ""path"": ""<Touchscreen>/press"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
@@ -109,7 +109,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2bb35122-67f8-4bb3-80b2-24c552f24703"",
+                    ""id"": ""861a72ac-2926-49e3-8f20-2b984ad6b17e"",
                     ""path"": ""<Touchscreen>/primaryTouch/position"",
                     ""interactions"": """",
                     ""processors"": """",
