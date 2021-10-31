@@ -12,6 +12,7 @@ Spinning_sprites: Manuel Bueno Lasso
 Running_holding_sprites: Manuel Bueno Lasso
 Pizza_horizontal_sprites: Manuel Bueno Lasso
 Pizza_vertical_sprites: Manuel Bueno Lasso
+Roll_sprites: Manuel Bueno Lasso
 
 dir ./Concepts
 
@@ -27,3 +28,5 @@ ingredientes_5: David González Rueda
 ingredientes_6: David González Rueda
 ingredientes_7: David González Rueda
 ingredientes_8: David González Rueda
+Obstacles_roll: Manuel Bueno Lasso
+Obstacles_knife: Manuel Bueno Lasso
