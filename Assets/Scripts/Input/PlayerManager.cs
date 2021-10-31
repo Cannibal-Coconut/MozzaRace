@@ -7,16 +7,24 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [Serializable]
-public class JumpInputEvent : UnityEvent<float> {}
+public class JumpInputEvent : UnityEvent<float>
+{
+}
 
 [Serializable]
-public class StartAttackInputEvent : UnityEvent<Vector2> {}
+public class StartAttackInputEvent : UnityEvent<Vector2>
+{
+}
 
 [Serializable]
-public class EndAttackInputEvent : UnityEvent<Vector2> {}
+public class EndAttackInputEvent : UnityEvent<Vector2>
+{
+}
 
 [Serializable]
-public class ChangeOrderInputEvent : UnityEvent<float> {}
+public class ChangeOrderInputEvent : UnityEvent<float>
+{
+}
 
 
 /**
@@ -27,10 +35,12 @@ public class PlayerManager : MonoBehaviour
 {
     private Controls _controls;
 
-    public JumpInputEvent jumpInputEvent;
-    public StartAttackInputEvent startAttackInputEvent;
-    public EndAttackInputEvent endAttackInputEvent;
-    public ChangeOrderInputEvent changeOrderInputEvent;
+    [SerializeField] private BoxCollider2D jumpButtonCollider;
+
+    [SerializeField] private JumpInputEvent jumpInputEvent;
+    [SerializeField] private StartAttackInputEvent startAttackInputEvent;
+    [SerializeField] private EndAttackInputEvent endAttackInputEvent;
+    [SerializeField] private ChangeOrderInputEvent changeOrderInputEvent;
 
     private Camera _camera;
 
@@ -39,7 +49,7 @@ public class PlayerManager : MonoBehaviour
         _camera = Camera.main;
         _controls = new Controls();
     }
-    
+
     private void Start()
     {
         _controls.Player.Jump.performed += OnJumpPerformed;
@@ -73,22 +83,22 @@ public class PlayerManager : MonoBehaviour
     private void OnAttackStarted(InputAction.CallbackContext context)
     {
         if (startAttackInputEvent == null) return;
-        if(EventSystem.current.IsPointerOverGameObject()) return;
-        var startPoint = _controls.Player.AttackPosition.ReadValue<Vector2>();
-
-        var startPointWorldCoords = Utils.ScreenToWorld(_camera, startPoint);
         
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+
+        if (jumpButtonCollider.bounds.Contains(_controls.Player.AttackPosition.ReadValue<Vector2>())) return;
+
+        var startPointWorldCoords = AttackPosition();
+
         startAttackInputEvent.Invoke(startPointWorldCoords);
     }
 
     private void OnAttackEnded(InputAction.CallbackContext context)
     {
         if (endAttackInputEvent == null) return;
-         if(EventSystem.current.IsPointerOverGameObject()) return;
-        var endPoint = _controls.Player.AttackPosition.ReadValue<Vector2>();
 
-        var endPointWorldCoords = Utils.ScreenToWorld(_camera, endPoint);
-        
+        var endPointWorldCoords = AttackPosition();
+
         endAttackInputEvent.Invoke(endPointWorldCoords);
     }
 

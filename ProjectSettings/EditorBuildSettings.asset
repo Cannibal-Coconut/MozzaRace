@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Initial Animation.unity
     guid: 27cd208b49cefcf4185b3a6f04801332
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Loading Screen.unity
     guid: 180e5c19ff6508842af75fcc5515840c
   - enabled: 1
