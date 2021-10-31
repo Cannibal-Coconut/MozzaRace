@@ -717,6 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1eaf281acdea0d498a3270f0e58d7d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpButtonCollider: {fileID: 6862773011263716000}
   jumpInputEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1769,6 +1770,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6364425168713978228, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
+      propertyPath: m_Size.x
+      value: 295.63892
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364425168713978228, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
+      propertyPath: m_Size.y
+      value: 544.54895
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364425168713978228, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
+      propertyPath: m_Offset.x
+      value: -41.141006
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364425168713978228, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
+      propertyPath: m_Offset.y
+      value: 66.74504
+      objectReference: {fileID: 0}
     - target: {fileID: 6862773010863227806, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1817,5 +1834,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllCanvasInGameScenePrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8133298121547441846, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 133
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
+--- !u!61 &6862773011263716000 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6364425168713978228, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
+  m_PrefabInstance: {fileID: 6862773011263715999}
+  m_PrefabAsset: {fileID: 0}
