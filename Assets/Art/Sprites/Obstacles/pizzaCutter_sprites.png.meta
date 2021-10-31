@@ -178,9 +178,9 @@ TextureImporter:
       name: pizzaCutter_sprites_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 1440
-        width: 479.75
+        width: 480
         height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -201,7 +201,7 @@ TextureImporter:
         serializedVersion: 2
         x: 480
         y: 1440
-        width: 479.75
+        width: 480
         height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -220,9 +220,9 @@ TextureImporter:
       name: pizzaCutter_sprites_2
       rect:
         serializedVersion: 2
-        x: 959
+        x: 960
         y: 1440
-        width: 479.75
+        width: 480
         height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -241,9 +241,9 @@ TextureImporter:
       name: pizzaCutter_sprites_3
       rect:
         serializedVersion: 2
-        x: 1438
+        x: 1440
         y: 1440
-        width: 479.75
+        width: 480
         height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -262,9 +262,9 @@ TextureImporter:
       name: pizzaCutter_sprites_4
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 960
-        width: 479.75
+        width: 480
         height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -285,7 +285,7 @@ TextureImporter:
         serializedVersion: 2
         x: 480
         y: 960
-        width: 479.75
+        width: 480
         height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -304,9 +304,9 @@ TextureImporter:
       name: pizzaCutter_sprites_6
       rect:
         serializedVersion: 2
-        x: 959
+        x: 960
         y: 960
-        width: 479.75
+        width: 480
         height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -325,9 +325,9 @@ TextureImporter:
       name: pizzaCutter_sprites_7
       rect:
         serializedVersion: 2
-        x: 1438
+        x: 1440
         y: 960
-        width: 479.75
+        width: 480
         height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
