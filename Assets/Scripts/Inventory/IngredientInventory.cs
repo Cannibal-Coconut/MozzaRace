@@ -21,7 +21,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     [Tooltip("Loose of points overtime")]
     [SerializeField] [Range(0, 100)] int _loose = 5;
     [Tooltip("Delay for points going down")]
-    [SerializeField] [Range(0.1f, 5)] float _looseDelay = 2;
+    [SerializeField] [Range(0.1f, 5)] float _looseDelay = 4;
 
     //Orders in use.
     //CARE: Dont modify orders directly. Instead, use RemoveOrder(), AddOrder... so it is updated on UI.

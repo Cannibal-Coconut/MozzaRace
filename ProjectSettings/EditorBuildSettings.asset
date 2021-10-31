@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Loading Screen.unity
     guid: 180e5c19ff6508842af75fcc5515840c
   - enabled: 1
-    path: Assets/Scenes/Testing Animations.unity
-    guid: 94e4d8afcb9ec3a4dad6b8c41956845a
+    path: Assets/Scenes/SrcollingScene.unity
+    guid: de290005e7a812640b977e6b2c458827
   m_configObjects: {}

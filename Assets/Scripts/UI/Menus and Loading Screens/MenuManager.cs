@@ -89,4 +89,10 @@ public class MenuManager : MonoBehaviour
         _player.Live();
 
     }
+
+    public void PlayButtonSound(){
+
+        SoundManager.PlaySound(SoundManager.Sound.MENUPOP, 1f);
+
+    }
 }
