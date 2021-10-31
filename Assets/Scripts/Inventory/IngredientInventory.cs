@@ -115,6 +115,36 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         }
     }
 
+    public void SelectOrderScrollWheel(float dirScroll)
+    {
+        if (dirScroll > 0)
+        {
+            if ((_selectedOrder + 1) > orders.Count - 1)
+            {
+                _selectedOrder = 0;
+                ChangeSelectedOrder(_selectedOrder);
+            }
+            else
+            {
+                _selectedOrder++;
+                ChangeSelectedOrder(_selectedOrder);
+            }
+        }
+        else if (dirScroll < 0)
+        {
+            if ((_selectedOrder - 1) < 0)
+            {
+                _selectedOrder = orders.Count - 1;
+                ChangeSelectedOrder(_selectedOrder);
+            }
+            else
+            {
+                _selectedOrder--;
+                ChangeSelectedOrder(_selectedOrder);
+            }
+        }
+    }
+
     void PreparepickingUpColliders()
     {
         if (_pickingUpColliders != null)
