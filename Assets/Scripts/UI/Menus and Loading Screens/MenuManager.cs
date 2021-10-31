@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private Canvas _mainMenuCanvas;
     [SerializeField] private Canvas _pauseMenuCanvas;
-
+    [SerializeField] private Button _pauseMenuButton;
     [SerializeField] private IngredientInventory _inventory;
     [SerializeField] private Health _player;
 
@@ -87,6 +87,17 @@ public class MenuManager : MonoBehaviour
         _player.HurtPlayer(10000);
         _inventory.ResetInventory();
         _player.Live();
+
+    }
+    public void DisablePauseButton(){
+
+        _pauseMenuButton.enabled = false;
+
+
+    }
+    public void EnablePauseButton(){
+        _pauseMenuButton.enabled = true;
+
 
     }
 

@@ -69,7 +69,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     public void Display()
     {
         _canvasGroup.gameObject.SetActive(true);
-
+        _menuManager.DisablePauseButton();
         _scoreMesh.text = "Points: " + _inventory.points.ToString();
         Time.timeScale = 0.0f;
 
@@ -78,6 +78,9 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     public void Hide()
     {
         Time.timeScale = 1.0f;
+        
+        
+        _menuManager.EnablePauseButton();
         _canvasGroup.gameObject.SetActive(false);
     }
 
