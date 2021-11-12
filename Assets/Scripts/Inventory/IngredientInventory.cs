@@ -20,12 +20,20 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     [Header("Settings")]
     [Tooltip("Loose of points overtime")]
     [SerializeField] [Range(0, 100)] int _loose = 5;
+    [Tooltip("Loose of points for wrong ingredient")]
+    [SerializeField] [Range(0, 100)] int _wrongIngredientLoose = 5;
     [Tooltip("Delay for points going down")]
     [SerializeField] [Range(0.1f, 5)] float _looseDelay = 4;
+    [Tooltip("Delay for assigning correct mealOrder")]
+    [SerializeField] [Range(0.1f, 1)] float _assigningDelay = 0.5f;
 
-    //Orders in use.
-    //CARE: Dont modify orders directly. Instead, use RemoveOrder(), AddOrder... so it is updated on UI.
+    /// <summary>
+    ///Orders in use.
+    /// CARE: Dont modify orders directly. Instead, use RemoveOrder(), AddOrder... so it is updated on UI.
+    /// </summary>
     public List<MealOrder> orders;
+
+    List<DelayedIngredient> _delayedIngredients;
     //Index for selected MealOrder from orders list.
     int _selectedOrder;
 
@@ -60,12 +68,10 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
     }
 
-
-
-
     private void Awake()
     {
         orders = new List<MealOrder>();
+        _delayedIngredients = new List<DelayedIngredient>();
 
         _audioSource = GetComponent<AudioSource>();
         _audioSource.playOnAwake = false;
@@ -241,8 +247,6 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         }
 
         item.Pick();
-
-        _orderDisplay.DisplayOrders(orders, _selectedOrder);
     }
 
     void CorrectIngredientPicked(Item item)
@@ -262,14 +266,27 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
             RemoveOrder(_selectedOrder);
         }
+
+        _orderDisplay.DisplayOrders(orders, _selectedOrder);
+
     }
 
     void WrongIngredientPicked(Item item)
+    {
+        _delayedIngredients.Add(new DelayedIngredient(item, this, _looseDelay));
+    }
+
+    protected void ConfirmWrongIngredient(DelayedIngredient delayedIngredient)
     {
         if (orders[_selectedOrder].ChangePoints(-10))
         {
             RemoveOrder(_selectedOrder);
         }
+
+        _delayedIngredients.Remove(delayedIngredient);
+
+        _orderDisplay.DisplayOrders(orders, _selectedOrder);
+
     }
 
     void RemoveOrder(int i)
@@ -286,6 +303,27 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         _selectedOrder = selected;
 
         _orderDisplay.DisplayOrders(orders, _selectedOrder);
+
+        CheckDelayedIngredients();
+
+    }
+
+    void CheckDelayedIngredients()
+    {
+        for (int i = 0; i < _delayedIngredients.Count; i++)
+        {
+            if (orders[_selectedOrder].ingredients.Contains(_delayedIngredients[i].item.itemType))
+            {
+                CorrectIngredientPicked(_delayedIngredients[i].item);
+                _delayedIngredients[i].Pick();
+
+                _delayedIngredients.RemoveAt(i);
+
+                i--;
+            }
+
+        }
+
     }
 
     void AddRandomOrder()
@@ -294,13 +332,14 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
         foreach (ItemType item in System.Enum.GetValues(typeof(ItemType)))
         {
-          allItems.Add(item);
+            allItems.Add(item);
         }
 
         List<ItemType> items = new List<ItemType>();
 
-        for(int i = 0; i < 3; i++) {
-            ItemType itemToAdd = allItems[Random.Range(0,allItems.Count)];
+        for (int i = 0; i < 3; i++)
+        {
+            ItemType itemToAdd = allItems[Random.Range(0, allItems.Count)];
             items.Add(itemToAdd);
             allItems.Remove(itemToAdd);
         }
@@ -336,13 +375,52 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
     }
 
-    public void ResetInventory(){
+    public void ResetInventory()
+    {
 
-     for (int i = 0; i < orders.Count; i++)RemoveOrder(i);
-     for (int i = 0; i < orders.Count; i++)RemoveOrder(i);
-    points = 0;
-    ChangePoints(points);
-    AddRandomOrder();
+        for (int i = 0; i < orders.Count; i++) RemoveOrder(i);
+        for (int i = 0; i < orders.Count; i++) RemoveOrder(i);
+        points = 0;
+        ChangePoints(points);
+        AddRandomOrder();
+    }
+
+    protected class DelayedIngredient
+    {
+        public Item item { get; private set; }
+        IngredientInventory _inventory;
+        float _time;
+
+        Coroutine _coroutine;
+
+
+        public DelayedIngredient(Item item, IngredientInventory inventory, float time)
+        {
+            this.item = item;
+            _inventory = inventory;
+            _time = time;
+
+            _coroutine = inventory.StartCoroutine(Delay());
+            Debug.Log("HURRY!");
+        }
+
+        IEnumerator Delay()
+        {
+
+            yield return new WaitForSeconds(_time);
+
+            _inventory.ConfirmWrongIngredient(this);
+
+            Debug.Log("LESS POINTS");
+
+
+        }
+
+        public void Pick()
+        {
+            _inventory.StopCoroutine(_coroutine);
+            Debug.Log("YOU GOT IT");
+        }
     }
 
 }
