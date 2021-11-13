@@ -10,22 +10,17 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(AudioSource))]
 public class IngredientInventory : MonoBehaviour, ILiveListener
 {
-    public const int MaxOrders = 3;
-
     [Header("References")]
     [Tooltip("Theses colliders will catch up ingredients")]
     [SerializeField] Collider2D[] _pickingUpColliders;
     [SerializeField] ItemSet _itemSet;
 
-    [Header("Settings")]
-    [Tooltip("Loose of points overtime")]
-    [SerializeField] [Range(0, 100)] int _loose = 5;
-    [Tooltip("Loose of points for wrong ingredient")]
-    [SerializeField] [Range(0, 100)] int _wrongIngredientLoose = 5;
-    [Tooltip("Delay for points going down")]
-    [SerializeField] [Range(0.1f, 5)] float _looseDelay = 4;
     [Tooltip("Delay for assigning correct mealOrder")]
     [SerializeField] [Range(0.1f, 1)] float _assigningDelay = 0.5f;
+
+    InventorySettings _settings;
+
+    public InventorySettings defaulSettings;
 
     /// <summary>
     ///Orders in use.
@@ -50,11 +45,16 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     {
         List<ItemType> ingredients = new List<ItemType>();
 
+
         foreach (var order in orders)
         {
             foreach (var ingredient in order.ingredients)
             {
-                ingredients.Add(ingredient);
+                for (int i = 0; i < 1 + _settings.requestedItemSpawnBuff; i++)
+                {
+                    ingredients.Add(ingredient);
+                }
+
             }
         }
 
@@ -67,6 +67,9 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         return _itemSet.GetItem(type);
 
     }
+
+    Action<int> _finishedOrdersIncreasedCallback;
+    public int finishedOrders = -1;
 
     private void Awake()
     {
@@ -82,6 +85,8 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         PreparepickingUpColliders();
 
         SetListeners();
+
+        _settings = defaulSettings;
     }
 
     private void Start()
@@ -89,6 +94,8 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         //QUICK AND DIRTY
         AddRandomOrder();
         //QUICK AND DIRTY
+
+        AddFinishedOrder();
     }
 
     void StartOrderClock()
@@ -184,7 +191,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         {
             foreach (var order in orders)
             {
-                order.ChangePoints(-_loose);
+                order.ChangePoints(-_settings.overtimeLoose);
             }
             _orderDisplay.UpdatePoints();
 
@@ -199,7 +206,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
                 }
             }
 
-            yield return new WaitForSeconds(_looseDelay);
+            yield return new WaitForSeconds(_settings.looseDelay);
         }
 
     }
@@ -210,7 +217,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         {
             yield return new WaitForSeconds(5f);
 
-            if (orders.Count != MaxOrders)
+            if (orders.Count < _settings.maxOrders)
             {
                 AddRandomOrder();
             }
@@ -234,8 +241,15 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
     }
 
+    public void SetSettings(InventorySettings newSettings)
+    {
+        _settings = newSettings;
+    }
+
     void CheckIngredient(Item item)
     {
+        if (_selectedOrder >= orders.Count || _selectedOrder < 0) return;
+
         //Is it the item we want?
         if (orders[_selectedOrder].ingredients.Contains(item.itemType))
         {
@@ -265,20 +279,37 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
             ChangePoints(orders[_selectedOrder].points);
 
             RemoveOrder(_selectedOrder);
+
+            AddFinishedOrder();
         }
 
         _orderDisplay.DisplayOrders(orders, _selectedOrder);
 
     }
 
+    void AddFinishedOrder()
+    {
+        finishedOrders++;
+        if (_finishedOrdersIncreasedCallback != null)
+        {
+            _finishedOrdersIncreasedCallback.Invoke(finishedOrders);
+        }
+
+    }
+
+    public void AddFinishedOrderListener(Action<int> action)
+    {
+        _finishedOrdersIncreasedCallback += action;
+    }
+
     void WrongIngredientPicked(Item item)
     {
-        _delayedIngredients.Add(new DelayedIngredient(item, this, _looseDelay));
+        _delayedIngredients.Add(new DelayedIngredient(item, this, _assigningDelay));
     }
 
     protected void ConfirmWrongIngredient(DelayedIngredient delayedIngredient)
     {
-        if (orders[_selectedOrder].ChangePoints(-10))
+        if (orders[_selectedOrder].ChangePoints(-_settings.wrongIngredientLoose))
         {
             RemoveOrder(_selectedOrder);
         }
@@ -344,7 +375,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
             allItems.Remove(itemToAdd);
         }
 
-        AddOrder(new MealOrder(100, items));
+        AddOrder(new MealOrder(_settings.baseOrderPoints, items));
     }
 
     void AddOrder(MealOrder order)
@@ -385,6 +416,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         AddRandomOrder();
     }
 
+
     protected class DelayedIngredient
     {
         public Item item { get; private set; }
@@ -401,7 +433,6 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
             _time = time;
 
             _coroutine = inventory.StartCoroutine(Delay());
-            Debug.Log("HURRY!");
         }
 
         IEnumerator Delay()
@@ -411,15 +442,11 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
             _inventory.ConfirmWrongIngredient(this);
 
-            Debug.Log("LESS POINTS");
-
-
         }
 
         public void Pick()
         {
             _inventory.StopCoroutine(_coroutine);
-            Debug.Log("YOU GOT IT");
         }
     }
 

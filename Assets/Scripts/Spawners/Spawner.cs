@@ -5,19 +5,31 @@ using UnityEngine;
 public class Spawner : MonoBehaviour, ILiveListener
 {
     [Tooltip("Spawnable Ingredients")]
-    [SerializeField]
-    List<WeightedSpawnable> _spawnables;
 
-    //Range of ingredients' weight
-    int _totalWeight;
+    [SerializeField]
+    WeightedSpawnable[] _easySpawnables;
+    int _easyTotalWeight;
+
+    [SerializeField]
+    WeightedSpawnable[] _mediumSpawnables;
+    int _mediumTotalWeight;
+
+    [SerializeField]
+    WeightedSpawnable[] _hardSpawnables;
+    int _hardTotalWeight;
+
+    SpawnSettings _spawnSettings;
+    [SerializeField] SpawnSettings _defaultSpawnSettings;
 
     Coroutine _spawnCoroutine;
 
     private void Awake()
     {
-        UpdateTotalWeight();
+        UpdateTotalWeights();
 
         SetListeners();
+
+        _spawnSettings = _defaultSpawnSettings;
     }
 
     void StartSpawn()
@@ -30,6 +42,7 @@ public class Spawner : MonoBehaviour, ILiveListener
         _spawnCoroutine = StartCoroutine(SpawnerCycle());
     }
 
+
     void StopSpawn()
     {
         foreach (var removable in FindObjectsOfType<Removable>())
@@ -40,22 +53,63 @@ public class Spawner : MonoBehaviour, ILiveListener
         if (_spawnCoroutine != null) StopCoroutine(_spawnCoroutine);
     }
 
-    void UpdateTotalWeight()
+    public void SetListWeights(SpawnSettings settings)
     {
-        _totalWeight = 0;
+        _spawnSettings = settings;
+    }
 
-        foreach (var spawnable in _spawnables)
+    void UpdateTotalWeights()
+    {
+        _easyTotalWeight = 0;
+        foreach (var spawnable in _easySpawnables)
         {
-            _totalWeight += spawnable.spawnWeight;
+            _easyTotalWeight += spawnable.spawnWeight;
+        }
+
+        _mediumTotalWeight = 0;
+        foreach (var spawnable in _mediumSpawnables)
+        {
+            _mediumTotalWeight += spawnable.spawnWeight;
+        }
+
+        _hardTotalWeight = 0;
+        foreach (var spawnable in _hardSpawnables)
+        {
+            _hardTotalWeight += spawnable.spawnWeight;
         }
     }
 
     public float SpawnRandom()
     {
-        int token = Random.Range(0, _totalWeight);
+        int listTotalWeight = _spawnSettings.easyObstacleWeight + _spawnSettings.mediumObstacleWeight + _spawnSettings.hardObstacleWeight;
+        int listToken = Random.Range(0, listTotalWeight);
+
+        int totalWeight;
+        WeightedSpawnable[] selectedSpawnables;
+
+        if (listToken < _spawnSettings.easyObstacleWeight)
+        {
+            Debug.Log("Easy Obstacle Spawned");
+            totalWeight = _easyTotalWeight;
+            selectedSpawnables = _easySpawnables;
+        }
+        else if (listToken < _spawnSettings.easyObstacleWeight +_spawnSettings.mediumObstacleWeight)
+        {
+            Debug.Log("Medium Obstacle Spawned");
+            totalWeight = _mediumTotalWeight;
+            selectedSpawnables = _mediumSpawnables;
+        }
+        else
+        {
+            Debug.Log("Hard Obstacle Spawned");
+            totalWeight = _hardTotalWeight;
+            selectedSpawnables = _hardSpawnables;
+        }
+
+        int token = Random.Range(0, totalWeight);
         int sum = 0;
 
-        foreach (var spawnable in _spawnables)
+        foreach (var spawnable in selectedSpawnables)
         {
             //Calculate ingredient's range
             sum += spawnable.spawnWeight;
