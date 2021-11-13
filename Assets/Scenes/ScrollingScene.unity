@@ -1099,110 +1099,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51d71bdc8b227e4b9f81ca1368f823e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1038068512
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1038068514}
-  - component: {fileID: 1038068513}
-  m_Layer: 0
-  m_Name: Difficulty Adjuster
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1038068513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038068512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94adea98a69a2f348a229cc7111b48df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levels:
-  - name: Facilito bro
-    finishedOrders: 0
-    speedFactor: 1
-    inventorySettings:
-      maxOrders: 1
-      wrongIngredientLoose: 5
-      overtimeLoose: 10
-      looseDelay: 10
-      requestedItemSpawnBuff: 5
-    spawnSettings:
-      easyObstacleWeight: 2
-      mediumObstacleWeight: 2
-      difficultObstacleWeight: 2
-    events:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: Tope chungo
-    finishedOrders: 5
-    speedFactor: 1
-    inventorySettings:
-      maxOrders: 2
-      wrongIngredientLoose: 10
-      overtimeLoose: 5
-      looseDelay: 10
-      requestedItemSpawnBuff: 5
-    spawnSettings:
-      easyObstacleWeight: 0
-      mediumObstacleWeight: 0
-      difficultObstacleWeight: 0
-    events:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: Tope chungo
-    finishedOrders: 10
-    speedFactor: 1
-    inventorySettings:
-      maxOrders: 3
-      wrongIngredientLoose: 0
-      overtimeLoose: 0
-      looseDelay: 0
-      requestedItemSpawnBuff: 0
-    spawnSettings:
-      easyObstacleWeight: 0
-      mediumObstacleWeight: 0
-      difficultObstacleWeight: 0
-    events:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1643877643}
-          m_TargetAssemblyTypeName: IngredientInventory, Assembly-CSharp
-          m_MethodName: SetOrderCapacity
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!4 &1038068514
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038068512}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.8307977, y: 1.5675659, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1064233265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,3 +1865,60 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 6364425168713978228, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
   m_PrefabInstance: {fileID: 6862773011263715999}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7012705697240324406
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7012705696252801556, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801556, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.8307977
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801556, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5675659
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801556, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801556, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801556, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801556, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801556, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801556, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801556, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801556, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801558, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: m_Name
+      value: Difficulty Adjuster
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}

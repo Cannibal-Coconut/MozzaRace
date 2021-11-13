@@ -43,14 +43,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 247882e195d44b4489e8269da9296645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnables:
-  - spawnablePrototype: {fileID: 8501705632778821268, guid: 339df19c67abb7e4fa630c01e8d63d71, type: 3}
+  _easySpawnables:
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 4fe5bea8868fb1e41b6388373144c92d, type: 3}
     spawnWeight: 1
+  _mediumSpawnables:
   - spawnablePrototype: {fileID: 8501705632778821268, guid: 87a9330c5f9e61c4f962a5e7b5e16dfb, type: 3}
     spawnWeight: 1
   - spawnablePrototype: {fileID: 8501705632778821268, guid: 57c6f857a34892e4294ed7176c9af7a8, type: 3}
     spawnWeight: 1
+  _hardSpawnables:
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 339df19c67abb7e4fa630c01e8d63d71, type: 3}
+    spawnWeight: 1
   - spawnablePrototype: {fileID: 8501705632778821268, guid: 99e840a0e1e6a984cb1ec0d82aa167d9, type: 3}
     spawnWeight: 1
-  - spawnablePrototype: {fileID: 8501705632778821268, guid: 4fe5bea8868fb1e41b6388373144c92d, type: 3}
-    spawnWeight: 1
+  _defaultSpawnSettings:
+    easyObstacleWeight: 1
+    mediumObstacleWeight: 0
+    hardObstacleWeight: 0
