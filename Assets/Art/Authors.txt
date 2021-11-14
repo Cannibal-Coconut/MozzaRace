@@ -7,6 +7,7 @@ Stove_sprite: Manuel Bueno Lasso
 Fire_long_sprites: Manuel Bueno Lasso
 Fire_mid_sprites: Manuel Bueno Lasso
 Fire_small_sprites: Manuel Bueno Lasso
+Flip_no_pizza_sprites: Manuel Bueno Lasso
 
 dir ./Concepts
 
