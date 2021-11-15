@@ -33,12 +33,18 @@ public class PlayerMovementInterface : MonoBehaviour
     public event OnLaunchPizza onReceivePizza;
 
 
+  
+    public delegate void Death();
+
+    public event Death onDeath;
 
     private void Start() {
     
         _playerJump = GetComponent<PlayerJump>();
         _playerHealth = GetComponent<Health>();
         _playerAttack = GetComponent<PlayerAttack>();
+        _playerHealth.AddDeadListener(IsDead);
+
     }
 
 //Get grounded state
@@ -93,5 +99,13 @@ public void OnReceivePizzaEvent(){
 
 
 }
+
+public void IsDead(){
+
+  onDeath();
+
+}
+
+
   
 }

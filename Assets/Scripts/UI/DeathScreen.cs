@@ -68,12 +68,19 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
     public void Display()
     {
+        StartCoroutine(DeathAnimationWaiter());
+    }
+
+    private IEnumerator DeathAnimationWaiter(){
+
+        yield return new WaitForSeconds(0.27f);
         _canvasGroup.gameObject.SetActive(true);
         _menuManager.DisablePauseButton();
         _scoreMesh.text = "Points: " + _inventory.points.ToString();
         Time.timeScale = 0.0f;
 
-    }
+
+    }    
 
     public void Hide()
     {

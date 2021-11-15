@@ -16,6 +16,7 @@ public class PlayerAnimationHandler : MonoBehaviour
         _playerInfo = GetComponent<PlayerMovementInterface>();
         _playerInfo.onLaunchPizza += PlayLaunchAnimation;
         _playerInfo.onReceivePizza += ResetLaunchTrigger;
+        _playerInfo.onDeath += PlayDeathAnimation;
     }
 
     // Update is called once per frame
@@ -40,6 +41,11 @@ public class PlayerAnimationHandler : MonoBehaviour
             _playerAnimator.SetLayerWeight(_playerInfo.GetPizzaStatus(), 100);
             _playerAnimator.SetLayerWeight(1, 0);
         } 
+
+        if(_playerInfo.HasDoubleJump()){
+
+            _playerAnimator.SetTrigger("doubleJump");
+        } else _playerAnimator.ResetTrigger("doubleJump");
      
     }
 
@@ -56,5 +62,10 @@ public class PlayerAnimationHandler : MonoBehaviour
 
     }
 
+    private void PlayDeathAnimation(){
+
+        _playerAnimator.SetTrigger("Death");
+        _playerAnimator.ResetTrigger("Death");
+    }
    
 }
