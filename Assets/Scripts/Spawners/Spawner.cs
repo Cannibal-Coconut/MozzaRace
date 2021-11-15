@@ -89,19 +89,19 @@ public class Spawner : MonoBehaviour, ILiveListener
 
         if (listToken < _spawnSettings.easyObstacleWeight)
         {
-            Debug.Log("Easy Obstacle Spawned");
+            //Debug.Log("Easy Obstacle Spawned");
             totalWeight = _easyTotalWeight;
             selectedSpawnables = _easySpawnables;
         }
         else if (listToken < _spawnSettings.easyObstacleWeight +_spawnSettings.mediumObstacleWeight)
         {
-            Debug.Log("Medium Obstacle Spawned");
+            //Debug.Log("Medium Obstacle Spawned");
             totalWeight = _mediumTotalWeight;
             selectedSpawnables = _mediumSpawnables;
         }
         else
         {
-            Debug.Log("Hard Obstacle Spawned");
+            //Debug.Log("Hard Obstacle Spawned");
             totalWeight = _hardTotalWeight;
             selectedSpawnables = _hardSpawnables;
         }
