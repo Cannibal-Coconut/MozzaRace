@@ -41,6 +41,8 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     Coroutine _countDownCoroutine;
     Coroutine _orderGiverCoroutine;
 
+    Action<Item> _onTakenItemAction;
+
     public Item GetItemPrototype()
     {
         List<ItemType> ingredients = new List<ItemType>();
@@ -87,6 +89,12 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         SetListeners();
 
         _settings = defaulSettings;
+
+    }
+
+    public void AddOnItemTakenListener(Action<Item> action)
+    {
+        _onTakenItemAction += action;
     }
 
     private void Start()
@@ -237,6 +245,11 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         if (item)
         {
             CheckIngredient(item);
+
+            if (_onTakenItemAction != null)
+            {
+                _onTakenItemAction.Invoke(item);
+            }
         }
 
     }
