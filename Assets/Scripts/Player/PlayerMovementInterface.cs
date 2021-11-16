@@ -37,6 +37,10 @@ public class PlayerMovementInterface : MonoBehaviour
     public delegate void Death();
 
     public event Death onDeath;
+  
+    public delegate void Life();
+
+    public event Life onLive;
 
     private void Start() {
     
@@ -44,6 +48,7 @@ public class PlayerMovementInterface : MonoBehaviour
         _playerHealth = GetComponent<Health>();
         _playerAttack = GetComponent<PlayerAttack>();
         _playerHealth.AddDeadListener(IsDead);
+        _playerHealth.AddLiveListener(IsAlive);
 
     }
 
@@ -89,7 +94,7 @@ public class PlayerMovementInterface : MonoBehaviour
 //get double jump trigger 
   public bool HasDoubleJump(){
 
-      return _playerJump.GetDoubleJump();
+      return !_playerJump.GetDoubleJump();
 
   }
 
@@ -105,6 +110,15 @@ public void IsDead(){
   onDeath();
 
 }
+
+
+public void IsAlive(){
+
+  onLive();
+
+}
+
+
 
 
   

@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
 
     public void Start()
     {
-        Live();
+       Live();
     }
 
     public void Live()
@@ -38,6 +38,15 @@ public class Health : MonoBehaviour
             _onLive.Invoke();
 
         }
+    }
+
+     void Dead()
+    {
+        if (_onDead != null)
+        {
+            _onDead.Invoke();
+        }
+
     }
 
     public void HurtPlayer(int damage)
@@ -52,14 +61,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    void Dead()
-    {
-        if (_onDead != null)
-        {
-            _onDead.Invoke();
-        }
-
-    }
+   
 
     public void AddLiveListener(Action action)
     {

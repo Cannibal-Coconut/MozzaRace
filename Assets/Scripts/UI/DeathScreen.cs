@@ -43,7 +43,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
         //coin --;
         RestartGame();
-
+        _menuManager.ResumeGame();
     }
      void RestartGame()
     {
@@ -55,8 +55,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
     public void OpenMainMenu(){
 
-        RestartGame();
-        _menuManager.OpenMainMenu();
+        _menuManager.ReturnToMainMenu();
 
     }
 
@@ -64,6 +63,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     void ContinueWithAd()
     {
         _player.Live();
+        _menuManager.ResumeGame();
     }
 
     public void Display()
@@ -73,8 +73,9 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
     private IEnumerator DeathAnimationWaiter(){
 
-        yield return new WaitForSeconds(0.27f);
-        _canvasGroup.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        _canvasGroup.alpha = 1f;
+        _canvasGroup.blocksRaycasts = true;
         _menuManager.DisablePauseButton();
         _scoreMesh.text = "Points: " + _inventory.points.ToString();
         Time.timeScale = 0.0f;
@@ -84,16 +85,17 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
     public void Hide()
     {
-        Time.timeScale = 1.0f;
-        
-        
         _menuManager.EnablePauseButton();
-        _canvasGroup.gameObject.SetActive(false);
+        _canvasGroup.alpha = 0f;
+        _canvasGroup.blocksRaycasts = false;
+        
     }
 
     public void OnLive()
     {
+
         Hide();
+        
     }
 
     public void OnDead()

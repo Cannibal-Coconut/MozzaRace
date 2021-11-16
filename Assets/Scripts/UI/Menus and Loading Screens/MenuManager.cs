@@ -12,7 +12,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Button _pauseMenuButton;
     [SerializeField] private IngredientInventory _inventory;
     [SerializeField] private Health _player;
-
     private void Start() {
         sceneLoader = FindObjectOfType<SceneLoader>();
         _inventory = FindObjectOfType<IngredientInventory>();
@@ -46,7 +45,6 @@ public class MenuManager : MonoBehaviour
     public void InitGame(){
 
         Debug.Log("Playing!");
-       Time.timeScale =1.0f;
        _mainMenuCanvas.enabled = false;
        ResetGame();
        ResumeGame();
@@ -55,16 +53,15 @@ public class MenuManager : MonoBehaviour
     }
 
     public void OpenPauseMenu(){
-        
-        Time.timeScale = 0.0f;
-        _pauseMenuCanvas.enabled = true;
 
+        _pauseMenuCanvas.enabled = true;
+        Time.timeScale = 0.0f;
     }
 
     public void ResumeGame(){
 
-        _pauseMenuCanvas.enabled = false;
         Time.timeScale = 1.0f;
+        _pauseMenuCanvas.enabled = false;
     }
 
     
@@ -75,24 +72,24 @@ public class MenuManager : MonoBehaviour
     }
     
     public void OpenMainMenu(){
-        
-        ResetGame();
         _mainMenuCanvas.enabled = true;
-        
         Time.timeScale = 0.0f;
     }   
 
-    public void ResetGame(){
 
-        _player.HurtPlayer(10000);
+    public void ReturnToMainMenu(){
+        Time.timeScale = 1.0f;
+        sceneLoader.LoadScene(2);
+    }
+
+    public void ResetGame(){
+        
         _inventory.ResetInventory();
         _player.Live();
-
     }
     public void DisablePauseButton(){
 
         _pauseMenuButton.enabled = false;
-
 
     }
     public void EnablePauseButton(){

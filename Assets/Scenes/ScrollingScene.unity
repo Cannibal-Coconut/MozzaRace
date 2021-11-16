@@ -1249,6 +1249,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -3280158853795775478, guid: 19965ab6023428a4e8aebcb836ff8453, type: 3}
+    - target: {fileID: 5386698084442602764, guid: ebaf443f795d60048add89176f2e0b0d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386698084442602764, guid: ebaf443f795d60048add89176f2e0b0d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 5.12
+      objectReference: {fileID: 0}
     - target: {fileID: 5386698084442602766, guid: ebaf443f795d60048add89176f2e0b0d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2187,26 +2195,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2673188248371938678, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364425168713978228, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
-      propertyPath: m_Size.x
-      value: 295.63892
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364425168713978228, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
-      propertyPath: m_Size.y
-      value: 544.54895
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364425168713978228, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
-      propertyPath: m_Offset.x
-      value: -41.141006
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364425168713978228, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
-      propertyPath: m_Offset.y
-      value: 66.74504
-      objectReference: {fileID: 0}
     - target: {fileID: 6862773010863227806, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2254,14 +2242,6 @@ PrefabInstance:
     - target: {fileID: 6862773010863227807, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
       propertyPath: m_Name
       value: AllCanvasInGameScenePrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 8133298121547441846, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 133
-      objectReference: {fileID: 0}
-    - target: {fileID: 9001765940325225452, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9e656c62cd5b564c9e438d974350c49, type: 3}
