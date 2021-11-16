@@ -7,6 +7,9 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CanvasGroup))]
 public class DeathScreen : MonoBehaviour, ILiveListener
 {
+    [Header("References")]
+    [SerializeField] AdVideo _adVideo;
+
     [Header("Buttons")]
     [SerializeField] Button _coinRestartButton;
     [SerializeField] Button _adContinueButton;
@@ -19,7 +22,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
     IngredientInventory _inventory;
     Health _player;
-    private MenuManager _menuManager;
+    MenuManager _menuManager;
 
     private void Awake()
     {
@@ -31,6 +34,8 @@ public class DeathScreen : MonoBehaviour, ILiveListener
         InitializeButtons();
 
         SetListeners();
+
+        enabled = true;
     }
 
     void InitializeButtons()
@@ -63,15 +68,18 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
     void ContinueWithAd()
     {
-        _player.Live();
+        _adVideo.PlayRandomVideo(_player.Live);
     }
 
     public void Display()
     {
-        _canvasGroup.gameObject.SetActive(true);
+        
         _menuManager.DisablePauseButton();
         _scoreMesh.text = "Points: " + _inventory.points.ToString();
         Time.timeScale = 0.0f;
+
+        _canvasGroup.alpha = 1;
+        _canvasGroup.blocksRaycasts = true;
 
     }
 
@@ -81,7 +89,8 @@ public class DeathScreen : MonoBehaviour, ILiveListener
         
         
         _menuManager.EnablePauseButton();
-        _canvasGroup.gameObject.SetActive(false);
+        _canvasGroup.alpha = 0;
+        _canvasGroup.blocksRaycasts = false;
     }
 
     public void OnLive()
