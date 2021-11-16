@@ -19,3 +19,5 @@ escenario_2: David González Rueda
 escenario_3: David González Rueda
 escenario_4: David González Rueda
 portada: Manuel Bueno Lasso
+UIShop_Base: David González Rueda + Manuel Bueno Lasso
+UIShop_WithPlaceholders: David González Rueada + Manuel Bueno Lasso
