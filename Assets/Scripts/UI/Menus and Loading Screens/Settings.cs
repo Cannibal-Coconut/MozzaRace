@@ -32,6 +32,7 @@ public class Settings : MonoBehaviour
     [SerializeField] Button _backButton;
 
     CanvasGroup _canvasGroup;
+    LanguageContext _languageContext;
 
     const string MasterAudioKey = "MasterAudio";
     const string MusicAudioKey = "MusicAudio";
@@ -40,15 +41,10 @@ public class Settings : MonoBehaviour
     const float MaxAudioValue = 20;
     const float MinAudioValue = -80;
 
-    public enum Language
-    {
-        English,
-        Spanish,
-    }
-
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
+        _languageContext = FindObjectOfType<LanguageContext>();
 
         SetSliders();
         SetButtons();
@@ -137,15 +133,7 @@ public class Settings : MonoBehaviour
 
     public void SetLanguage(Language language)
     {
-        switch (language)
-        {
-            case Language.English:
-                Debug.Log("English!");
-                break;
-            case Language.Spanish:
-                Debug.Log("Spanish!");
-                break;
-        }
+        _languageContext.ChangeLanguage(language);
     }
 
     public void DisplayTutorial()
