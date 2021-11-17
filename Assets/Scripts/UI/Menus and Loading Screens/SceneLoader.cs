@@ -11,7 +11,7 @@ public class SceneLoader : MonoBehaviour
     //SceneIndex saved to load after loading screen
     private int savedNextSceneIndex;
     //const loading screen index to call when loading screen
-    private const int loadingScreenIndex = 1; 
+    private const int LOADING_SCREEN_INDEX = 1; 
 
     private void Awake() {
         DontDestroyOnLoad(this.gameObject);
@@ -55,10 +55,10 @@ public class SceneLoader : MonoBehaviour
 
     //Public function to load scene from index 
     public void LoadScene(int nextSceneIndex){
-
+        
         //load asynchronously from an index using coroutines
         savedNextSceneIndex = nextSceneIndex;
-        StartCoroutine(LoadSceneAsync(loadingScreenIndex));
+        StartCoroutine(LoadSceneAsync(LOADING_SCREEN_INDEX));
 
     }
 

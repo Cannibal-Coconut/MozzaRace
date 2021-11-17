@@ -15,6 +15,8 @@ public class Health : MonoBehaviour
     private Action _onDead;
     private Action _onLive;
 
+    private bool _isAlive;
+
     DeathScreen _deadScreen;
 
     private void Awake()
@@ -24,13 +26,19 @@ public class Health : MonoBehaviour
 
     }
 
+    public bool GetAlive(){
+
+        return _isAlive;
+
+    }
     public void Start()
     {
-        Live();
+       Live();
     }
 
     public void Live()
-    {
+    {   
+        _isAlive = true;
         healthPoints = MaxHealthPoints;
 
         if (_onLive != null)
@@ -38,6 +46,16 @@ public class Health : MonoBehaviour
             _onLive.Invoke();
 
         }
+    }
+
+     void Dead()
+    {
+        if (_onDead != null)
+        {   
+            _isAlive = false;
+            _onDead.Invoke();
+        }
+
     }
 
     public void HurtPlayer(int damage)
@@ -52,14 +70,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    void Dead()
-    {
-        if (_onDead != null)
-        {
-            _onDead.Invoke();
-        }
-
-    }
+   
 
     public void AddLiveListener(Action action)
     {

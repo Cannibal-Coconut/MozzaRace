@@ -16,7 +16,7 @@ public class LoadingScreenUIManager : MonoBehaviour
         sceneLoader = FindObjectOfType<SceneLoader>();
         StartCoroutine(FakeLoadingTimeWait());
     }
-
+    
     private void Update()
     {
         //Loading progress bar + % text

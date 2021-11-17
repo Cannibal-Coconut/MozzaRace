@@ -33,12 +33,18 @@ public class PlayerMovementInterface : MonoBehaviour
     public event OnLaunchPizza onReceivePizza;
 
 
+  
+    public delegate void Death();
+
+    public event Death onDeath;
 
     private void Start() {
     
         _playerJump = GetComponent<PlayerJump>();
         _playerHealth = GetComponent<Health>();
         _playerAttack = GetComponent<PlayerAttack>();
+        _playerHealth.AddDeadListener(IsDead);
+
     }
 
 //Get grounded state
@@ -83,7 +89,7 @@ public class PlayerMovementInterface : MonoBehaviour
 //get double jump trigger 
   public bool HasDoubleJump(){
 
-      return _playerJump.GetDoubleJump();
+      return !_playerJump.GetDoubleJump();
 
   }
 
@@ -93,5 +99,21 @@ public void OnReceivePizzaEvent(){
 
 
 }
+
+public void IsDead(){
+
+  onDeath();
+
+}
+
+
+
+public bool GetAliveStatus(){
+  
+    return _playerHealth.GetAlive();
+
+}
+
+
   
 }
