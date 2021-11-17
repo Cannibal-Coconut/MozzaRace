@@ -35,7 +35,6 @@ enum FSM {
         _playerInfo.onLaunchPizza += LaunchPizzaEvent;
         _playerInfo.onReceivePizza += ReceivePizzaEvent; //Receive pizza event
         _playerInfo.onDeath += SetDead;
-        _playerInfo.onLive += SetLive;
         _state = FSM.Running;
     }
 
@@ -104,7 +103,9 @@ enum FSM {
         if(!_playerInfo.GetGrounded() &&  (_state == FSM.Running || _state == FSM.Landing || _state == FSM.Loading)) _state = FSM.Jumping;
     
         if((_state == FSM.Jumping || _state == FSM.Airborne) && !_playerInfo.HasDoubleJump() && !_playerInfo.GetGrounded() && _state != FSM.Spinning) _state = FSM.DoubleJumping; 
-        }
+        } else if(_playerInfo.GetAliveStatus()) { SetLive();}
+
+        
     }
 
     private void PlayAnimation(string animationName, bool overridePizza, float animationStart){
@@ -160,11 +161,12 @@ enum FSM {
         _state = FSM.Dead;
 
     }
-    private void SetLive(){
+    public void SetLive(){
 
         _state = FSM.Running;
 
     }
+
     bool AnimationIsPlaying(string stateName, int layer){
             return _playerAnimator.GetCurrentAnimatorStateInfo(layer).IsName(stateName);
      }

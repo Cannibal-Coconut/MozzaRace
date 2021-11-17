@@ -37,10 +37,6 @@ public class PlayerMovementInterface : MonoBehaviour
     public delegate void Death();
 
     public event Death onDeath;
-  
-    public delegate void Life();
-
-    public event Life onLive;
 
     private void Start() {
     
@@ -48,7 +44,6 @@ public class PlayerMovementInterface : MonoBehaviour
         _playerHealth = GetComponent<Health>();
         _playerAttack = GetComponent<PlayerAttack>();
         _playerHealth.AddDeadListener(IsDead);
-        _playerHealth.AddLiveListener(IsAlive);
 
     }
 
@@ -112,13 +107,12 @@ public void IsDead(){
 }
 
 
-public void IsAlive(){
 
-  onLive();
+public bool GetAliveStatus(){
+  
+    return _playerHealth.GetAlive();
 
 }
-
-
 
 
   
