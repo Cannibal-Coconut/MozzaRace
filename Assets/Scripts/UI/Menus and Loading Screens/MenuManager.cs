@@ -11,6 +11,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Button _pauseMenuButton;
 
     [SerializeField] Settings _settings;
+    [SerializeField] Shop _shop;
+    [SerializeField] Wardrobe _wardrobe;
 
     SceneLoader _sceneLoader;
     private IngredientInventory _inventory;
@@ -25,7 +27,6 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-
         _pauseMenuCanvas.enabled = false;
         OpenMainMenu();
     }
@@ -34,15 +35,13 @@ public class MenuManager : MonoBehaviour
     {
 
         Debug.Log("Shop!");
+        _shop.Display();
         //LoadShop
     }
 
     public void OpenWardrobe()
     {
-
-
-        Debug.Log("Wardrobe!");
-        //LoadWardrobe
+        _wardrobe.Display();
     }
 
     public void OpenSettings()

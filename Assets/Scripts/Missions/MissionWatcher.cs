@@ -28,7 +28,7 @@ public class MissionWatcher : MonoBehaviour, ILiveListener
 
         if (_selectedMission.CheckMission())
         {
-            Debug.Log("Eureka!");
+            //Debug.Log("Eureka!");
         }
     }
 
