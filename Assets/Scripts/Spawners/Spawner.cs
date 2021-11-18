@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour, ILiveListener
     }
 
 
-    void StopSpawn()
+    public void StopSpawn()
     {
         foreach (var removable in FindObjectsOfType<Removable>())
         {

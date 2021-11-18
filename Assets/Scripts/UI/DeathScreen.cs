@@ -65,7 +65,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
         }
     }
 
-    void RestartGame()
+        void RestartGame()
     {
         //ResetGame
         _inventory.ResetInventory();
@@ -100,6 +100,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
         yield return new WaitForSeconds(1.5f);
         _canvasGroup.alpha = 1f;
+        Time.timeScale = 0f;
         _canvasGroup.blocksRaycasts = true;
     }    
 

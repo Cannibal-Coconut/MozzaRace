@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OptionsAtlas
+  m_Name: PauseAtlas
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -16,7 +16,7 @@ SpriteAtlas:
       maxTextureSize: 2048
       textureCompression: 0
       filterMode: 1
-      generateMipMaps: 1
+      generateMipMaps: 0
       readable: 0
       crunchedCompression: 0
       sRGB: 1
@@ -43,34 +43,28 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 709462754963b864bb8ed706c3e0a461, type: 3}
-    - {fileID: 2800000, guid: f017912e812ab274c88938a86a8098dc, type: 3}
-    - {fileID: 2800000, guid: ac3d0452426b9ab4b86971fff76c53c0, type: 3}
-    - {fileID: 2800000, guid: 7fdaac82b1f0b8441af519685aa3139d, type: 3}
-    - {fileID: 2800000, guid: 09724ac295f73934a9e1c31e775d6f8a, type: 3}
-    - {fileID: 2800000, guid: 779e671dc1e3aec46ac79888631b07b5, type: 3}
-    - {fileID: 2800000, guid: f15bdfcffeb58c547905177e019a82e4, type: 3}
-    totalSpriteSurfaceArea: 1472091
+    - {fileID: 2800000, guid: 84c0f948a0fde1d458fda45e9ee997fd, type: 3}
+    - {fileID: 2800000, guid: 7ce97b36d4e1f574684d7eceece114cc, type: 3}
+    - {fileID: 2800000, guid: 52bc6f9e25834cb4ba921bf6fdd9a579, type: 3}
+    - {fileID: 2800000, guid: 5019b6b57dea3ef40b9c6e413942953a, type: 3}
+    - {fileID: 2800000, guid: 9c95e5d75d0756243b8e893dc86fb750, type: 3}
+    totalSpriteSurfaceArea: 2475900
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: ac3d0452426b9ab4b86971fff76c53c0, type: 3}
-  - {fileID: 21300000, guid: 7fdaac82b1f0b8441af519685aa3139d, type: 3}
-  - {fileID: 21300000, guid: 09724ac295f73934a9e1c31e775d6f8a, type: 3}
-  - {fileID: 21300000, guid: 709462754963b864bb8ed706c3e0a461, type: 3}
-  - {fileID: 21300000, guid: 779e671dc1e3aec46ac79888631b07b5, type: 3}
-  - {fileID: 21300000, guid: f017912e812ab274c88938a86a8098dc, type: 3}
-  - {fileID: 21300000, guid: f15bdfcffeb58c547905177e019a82e4, type: 3}
+  - {fileID: 21300000, guid: 5019b6b57dea3ef40b9c6e413942953a, type: 3}
+  - {fileID: 21300000, guid: 7ce97b36d4e1f574684d7eceece114cc, type: 3}
+  - {fileID: 21300000, guid: 9c95e5d75d0756243b8e893dc86fb750, type: 3}
+  - {fileID: 21300000, guid: 84c0f948a0fde1d458fda45e9ee997fd, type: 3}
+  - {fileID: 21300000, guid: 52bc6f9e25834cb4ba921bf6fdd9a579, type: 3}
   m_PackedSpriteNamesToIndex:
-  - UIBarButton
-  - UIBarFilled
-  - UIBarNoFill
-  - OptionsUI_Clear
-  - UIOptionButton
-  - OptionsUI_Sound
-  - UIBackButton
+  - PauseUI_Options
+  - PauseUI_Base
+  - PauseUI_Resume
+  - PauseUI_Retry
+  - PauseUI_Home
   m_RenderDataMap: {}
-  m_Tag: OptionsAtlas
+  m_Tag: PauseAtlas
   m_IsVariant: 0

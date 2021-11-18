@@ -48,7 +48,7 @@ public class Health : MonoBehaviour
         }
     }
 
-     void Dead()
+     public void Dead()
     {
         if (_onDead != null)
         {   

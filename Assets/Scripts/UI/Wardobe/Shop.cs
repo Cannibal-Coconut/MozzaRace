@@ -52,14 +52,14 @@ public class Shop : MonoBehaviour
     void CreateSkins()
     {
         List<Skin> skins = new List<Skin>();
-        var whiteSkin = new Skin(Color.white, 0);
-        whiteSkin.purchased = true;
 
-        skins.Add(whiteSkin);
         skins.Add(new Skin(Color.green, 200));
         skins.Add(new Skin(Color.yellow, 300));
         skins.Add(new Skin(Color.blue, 400));
         skins.Add(new Skin(Color.magenta, 500));
+        skins.Add(new Skin(Color.red, 500));
+        skins.Add(new Skin(Color.gray, 500));
+        skins.Add(new Skin(Color.cyan, 500));
 
         _skins = skins.ToArray();
 
@@ -123,7 +123,7 @@ public class Shop : MonoBehaviour
 
     void UpdateMoney()
     {
-        _moneyMesh.text = "Skin Points: " + _profileInventory.skinPoints.ToString();
+        _moneyMesh.text = _profileInventory.skinPoints.ToString();
     }
 
     public void Display()

@@ -13,6 +13,7 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private IngredientInventory _inventory;
     [SerializeField] private Health _player;
+    [SerializeField] private Spawner _spawner;
 
 
 
@@ -27,6 +28,7 @@ public class MenuManager : MonoBehaviour
         _inventory = FindObjectOfType<IngredientInventory>();
         _player = FindObjectOfType<Health>();
         _sceneLoader = FindObjectOfType<SceneLoader>();
+        _spawner = FindObjectOfType<Spawner>();
     }
     private void Start()
     {
@@ -104,6 +106,18 @@ public class MenuManager : MonoBehaviour
         
         _inventory.ResetInventory();
         _player.Live();
+        
+        
+    }
+
+
+    public void RestartButton(){
+        
+        _inventory.ResetInventory();
+        _spawner.StopSpawn();
+        _player.Live();
+
+
     }
     public void DisablePauseButton(){
 
