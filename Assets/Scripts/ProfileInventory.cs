@@ -31,7 +31,7 @@ public class ProfileInventory : MonoBehaviour
             skins.Add(whiteSkin);
 
             _instance = this;
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
 
             LoadPremiumCoins();
             LoadSkinPoints();
