@@ -56,7 +56,7 @@ public class MenuManager : MonoBehaviour
 
 
         Debug.Log("Settings!");
-        //OpenSettings
+        _settings.Show();
 
     }
 
