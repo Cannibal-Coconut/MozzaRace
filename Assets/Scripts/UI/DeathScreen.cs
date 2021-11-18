@@ -11,8 +11,9 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     [SerializeField] AdVideo _adVideo;
 
     [Header("Buttons")]
-    [SerializeField] Button _coinRestartButton;
+    [SerializeField] Button _coinContinueButton;
     [SerializeField] Button _adContinueButton;
+    [SerializeField] Button _restartButton;
 
     [Header("Meshes")]
     [SerializeField] TextMeshProUGUI _scoreMesh;
@@ -45,11 +46,13 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
     void InitializeButtons()
     {
-        _coinRestartButton.onClick.AddListener(RestartWithCoin);
+        _coinContinueButton.onClick.AddListener(ContinueWithCoin);
         _adContinueButton.onClick.AddListener(ContinueWithAd);
+        _restartButton.onClick.AddListener(RestartGame);
+        
     }
 
-    void RestartWithCoin()
+    void ContinueWithCoin()
     {
 
         if (_profileInventory)
@@ -57,7 +60,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
             if (_profileInventory.premiumCoins >= _premiumCost)
             {
                 _profileInventory.RemovePremiumCoins(_premiumCost);
-                RestartGame();
+                _player.Live();
             }
         }
     }
@@ -69,6 +72,8 @@ public class DeathScreen : MonoBehaviour, ILiveListener
         Hide();
         _player.Live();
     }
+
+    
 
     public void OpenMainMenu()
     {

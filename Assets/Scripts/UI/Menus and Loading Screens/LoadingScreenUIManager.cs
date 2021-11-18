@@ -20,16 +20,17 @@ public class LoadingScreenUIManager : MonoBehaviour
     private void Update()
     {
         //Loading progress bar + % text
-        float  progressValue = Mathf.Clamp01(loadingAsyncOp.progress/0.9f);
+       if(loadingAsyncOp != null) { float  progressValue = Mathf.Clamp01(loadingAsyncOp.progress/0.9f);
         progressBar.value = progressValue;
         loadingText.text = Mathf.Round(progressValue * 100) + "%";
+       }
     }
 
     private IEnumerator FakeLoadingTimeWait(){
 
         //Load prev asyng op to prevent nullpointer
-        loadingAsyncOp = sceneLoader.GetAsyncLoadOp();
-        yield return new WaitForSeconds(2f);
+       // loadingAsyncOp = sceneLoader.GetAsyncLoadOp();
+        yield return new WaitForSeconds(0.2f);
         //Load next scene
         StartCoroutine(sceneLoader.LoadSceneAsync(sceneLoader.GetSavedNextSceneIndex()));
         loadingAsyncOp = sceneLoader.GetAsyncLoadOp();
