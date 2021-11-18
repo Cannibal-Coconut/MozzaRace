@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class ProfileInventory : MonoBehaviour
@@ -14,6 +16,8 @@ public class ProfileInventory : MonoBehaviour
 
     Action _onEconomyChange;
 
+    const string FilePathName = "/MySaveData.dat";
+
     private void Awake()
     {
         //Make Sure there is only one of these.
@@ -23,6 +27,40 @@ public class ProfileInventory : MonoBehaviour
         }
         else
         {
+            _instance = this;
+            //DontDestroyOnLoad(this);
+
+            LoadProfileData();
+
+            AddOnEconomyChangeListener(SaveProfileData);
+        }
+    }
+
+    private void Start()
+    {
+        _onEconomyChange.Invoke();
+    }
+
+    void LoadProfileData()
+    {
+        if (File.Exists(Application.persistentDataPath + FilePathName))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + FilePathName, FileMode.Open);
+            SaveData data = (SaveData)bf.Deserialize(file);
+            file.Close();
+
+            premiumCoins = data.premiumCoins;
+            skinPoints = data.skinPoints;
+            skins = data.skins;
+
+            Debug.Log("Game data loaded!");
+        }
+
+        else
+        {
+            premiumCoins = 5;
+            skinPoints = 100000;
             skins = new List<Skin>();
 
             var whiteSkin = new Skin(Color.white, 0);
@@ -30,35 +68,23 @@ public class ProfileInventory : MonoBehaviour
 
             skins.Add(whiteSkin);
 
-            _instance = this;
-            //DontDestroyOnLoad(this);
-
-            LoadPremiumCoins();
-            LoadSkinPoints();
-
+            SaveProfileData();
         }
+
     }
 
-    void LoadPremiumCoins()
+    void SaveProfileData()
     {
-        premiumCoins = 100;
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + FilePathName);
 
+        SaveData data = new SaveData();
+        data.premiumCoins = premiumCoins;
+        data.skinPoints = skinPoints;
+        data.skins = skins;
 
-        if (_onEconomyChange != null)
-        {
-            _onEconomyChange.Invoke();
-        }
-    }
-
-    void LoadSkinPoints()
-    {
-        skinPoints = 12350;
-
-
-        if (_onEconomyChange != null)
-        {
-            _onEconomyChange.Invoke();
-        }
+        bf.Serialize(file, data);
+        file.Close();
     }
 
     public void AddOnEconomyChangeListener(Action action)
@@ -121,5 +147,15 @@ public class ProfileInventory : MonoBehaviour
         }
     }
 
+
+    [Serializable]
+    class SaveData
+    {
+        public int premiumCoins;
+        public int skinPoints;
+
+        public List<Skin> skins;
+
+    }
 
 }
