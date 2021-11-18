@@ -108,7 +108,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
     public void Hide()
     {
-        Time.timeScale = 1.0f;
+       // Time.timeScale = 1.0f;
         _menuManager.EnablePauseButton();
         _canvasGroup.alpha = 0;
         _canvasGroup.blocksRaycasts = false;
