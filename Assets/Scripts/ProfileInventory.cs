@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class ProfileInventory : MonoBehaviour
 {
@@ -39,6 +40,51 @@ public class ProfileInventory : MonoBehaviour
     private void Start()
     {
         _onEconomyChange.Invoke();
+
+        StartCoroutine(Login("juanito", "1000"));
+    }
+
+    IEnumerator GetText()
+    {
+        UnityWebRequest www = UnityWebRequest.Get("http://localhost/Unity/GetUsers.php");
+        yield return www.Send();
+
+        if (www.result == UnityWebRequest.Result.ConnectionError)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            // Show results as text
+            Debug.Log(www.downloadHandler.text);
+
+            // Or retrieve results as binary data
+            byte[] results = www.downloadHandler.data;
+        }
+    }
+
+    IEnumerator Login(string username, string password)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("loginUser", username);
+        form.AddField("loginPass", password);
+
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/Unity/Login.php", form))
+        {
+            yield return www.Send();
+
+            if (www.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                // Show results as text
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
+
+
     }
 
     void LoadProfileData()
@@ -145,6 +191,8 @@ public class ProfileInventory : MonoBehaviour
         {
             _onEconomyChange.Invoke();
         }
+
+
     }
 
 
