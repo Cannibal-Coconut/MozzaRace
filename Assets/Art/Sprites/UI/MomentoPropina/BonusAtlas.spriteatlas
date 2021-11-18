@@ -50,7 +50,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 679f5a4f6778032498528e13cbe4699e, type: 3}
     - {fileID: 2800000, guid: 79b7985068cf9c6409715add151a87b8, type: 3}
     - {fileID: 2800000, guid: 5fc45332f17700c4387b93b36aac46ce, type: 3}
-    - {fileID: 2800000, guid: 79064c7f0f5a169448b153e72af88134, type: 3}
+    - {fileID: 2800000, guid: 3db0575a0fc7e9744a63c9f72a2f445a, type: 3}
     totalSpriteSurfaceArea: 6133207
     bindAsDefault: 1
     isAtlasV2: 0
@@ -60,20 +60,20 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 79b7985068cf9c6409715add151a87b8, type: 3}
   - {fileID: 21300000, guid: 5fc45332f17700c4387b93b36aac46ce, type: 3}
   - {fileID: 21300000, guid: f23e785811c0d77468d23f889fcc471b, type: 3}
+  - {fileID: 21300000, guid: 3db0575a0fc7e9744a63c9f72a2f445a, type: 3}
   - {fileID: 21300000, guid: 52b86ffa31b045c409a7d1bebb1bbbfd, type: 3}
   - {fileID: 21300000, guid: 176f5b0e0d4d7d040b6ddff7ac3841b7, type: 3}
   - {fileID: 21300000, guid: 7b89d0ded818e904690f77210e3fc621, type: 3}
   - {fileID: 21300000, guid: 679f5a4f6778032498528e13cbe4699e, type: 3}
-  - {fileID: 21300000, guid: 79064c7f0f5a169448b153e72af88134, type: 3}
   m_PackedSpriteNamesToIndex:
   - WardrobeUI_Item
   - WardrobeUI_Item_Selected
   - GameUI_Order
+  - UIShop_Base_WithCoins
   - MomentoPropinaJar
   - MomentoPropinaSign_noText
   - Coin
   - WardrobeUI_Base
-  - UIShop_Base
   m_RenderDataMap: {}
   m_Tag: BonusAtlas
   m_IsVariant: 0

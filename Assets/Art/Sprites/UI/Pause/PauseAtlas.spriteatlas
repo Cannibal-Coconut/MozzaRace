@@ -48,23 +48,50 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 52bc6f9e25834cb4ba921bf6fdd9a579, type: 3}
     - {fileID: 2800000, guid: 5019b6b57dea3ef40b9c6e413942953a, type: 3}
     - {fileID: 2800000, guid: 9c95e5d75d0756243b8e893dc86fb750, type: 3}
-    totalSpriteSurfaceArea: 2475900
+    - {fileID: 2800000, guid: 381afdba4ce0ca941b5f7bb820cffc4f, type: 3}
+    - {fileID: 2800000, guid: 880b8cf73ea617a4081dbdf1bce0e603, type: 3}
+    - {fileID: 2800000, guid: 6b3df5bccd825d34c8cbb7828d064095, type: 3}
+    - {fileID: 2800000, guid: 6837ccc38e383c8469e3833badcb6d03, type: 3}
+    - {fileID: 2800000, guid: c5482332f5f69694895b82b95e958bb6, type: 3}
+    - {fileID: 2800000, guid: 03e541df0e1fdef4989fbcf363d0fada, type: 3}
+    - {fileID: 2800000, guid: daf1d3fdfacd21447be35999b4be2bee, type: 3}
+    - {fileID: 2800000, guid: cb8ab5eb4f7ff2f46ac2360b6dd06670, type: 3}
+    - {fileID: 2800000, guid: eee6f920d708b4642b9ef9e609961c08, type: 3}
+    totalSpriteSurfaceArea: 3008420
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: eee6f920d708b4642b9ef9e609961c08, type: 3}
+  - {fileID: 21300000, guid: c5482332f5f69694895b82b95e958bb6, type: 3}
+  - {fileID: 21300000, guid: 6837ccc38e383c8469e3833badcb6d03, type: 3}
   - {fileID: 21300000, guid: 5019b6b57dea3ef40b9c6e413942953a, type: 3}
   - {fileID: 21300000, guid: 7ce97b36d4e1f574684d7eceece114cc, type: 3}
   - {fileID: 21300000, guid: 9c95e5d75d0756243b8e893dc86fb750, type: 3}
+  - {fileID: 21300000, guid: 880b8cf73ea617a4081dbdf1bce0e603, type: 3}
   - {fileID: 21300000, guid: 84c0f948a0fde1d458fda45e9ee997fd, type: 3}
+  - {fileID: 21300000, guid: 381afdba4ce0ca941b5f7bb820cffc4f, type: 3}
+  - {fileID: 21300000, guid: cb8ab5eb4f7ff2f46ac2360b6dd06670, type: 3}
+  - {fileID: 21300000, guid: 6b3df5bccd825d34c8cbb7828d064095, type: 3}
+  - {fileID: 21300000, guid: daf1d3fdfacd21447be35999b4be2bee, type: 3}
   - {fileID: 21300000, guid: 52bc6f9e25834cb4ba921bf6fdd9a579, type: 3}
+  - {fileID: 21300000, guid: 03e541df0e1fdef4989fbcf363d0fada, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Pause_Button
+  - RightArrowButton
+  - LeftArrowButton
   - PauseUI_Options
   - PauseUI_Base
   - PauseUI_Resume
+  - Buy_Button
   - PauseUI_Retry
+  - Bought_Button
+  - Crono
+  - Coin_Frame
+  - ShopItem_Selected
   - PauseUI_Home
+  - ShopItem_NotBought
   m_RenderDataMap: {}
   m_Tag: PauseAtlas
   m_IsVariant: 0

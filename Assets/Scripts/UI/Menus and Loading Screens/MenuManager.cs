@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Canvas _mainMenuCanvas;
     [SerializeField] private Canvas _pauseMenuCanvas;
     [SerializeField] private Button _pauseMenuButton;
+    [SerializeField] private Button _wardrobeButton;
 
     [SerializeField] private IngredientInventory _inventory;
     [SerializeField] private Health _player;
@@ -52,6 +53,7 @@ public class MenuManager : MonoBehaviour
     public void OpenWardrobe(){
 
         _wardrobe.Display();
+        _wardrobeButton.gameObject.SetActive(false);        
     }
 
     public void OpenSettings(){
@@ -130,6 +132,11 @@ public class MenuManager : MonoBehaviour
 
     }
 
+    public void EnableWardrobeButton(){
+
+        _wardrobeButton.gameObject.SetActive(true);
+
+    }
     public void PlayButtonSound(){
 
         SoundManager.PlaySound(SoundManager.Sound.MENUPOP, 1f);
