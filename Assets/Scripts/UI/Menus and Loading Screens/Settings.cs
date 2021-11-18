@@ -31,6 +31,11 @@ public class Settings : MonoBehaviour
     [Header("Back")]
     [SerializeField] Button _backButton;
 
+    [SerializeField] private CanvasGroup _volumeCanvas;
+    [SerializeField] private CanvasGroup _languageCanvas;
+    [SerializeField] private CanvasGroup _miscCanvas;
+
+
     CanvasGroup _canvasGroup;
 
     const string MasterAudioKey = "MasterAudio";
@@ -39,6 +44,13 @@ public class Settings : MonoBehaviour
 
     const float MaxAudioValue = 20;
     const float MinAudioValue = -80;
+
+    public enum SettingsState {
+    Volume,
+    Language,
+    Misc,
+} 
+
 
     public enum Language
     {
@@ -52,6 +64,7 @@ public class Settings : MonoBehaviour
 
         SetSliders();
         SetButtons();
+        DisplayVolume();
     }
 
     private void Start()
@@ -67,6 +80,52 @@ public class Settings : MonoBehaviour
 
     }
 
+    private void SettingsDisplay(SettingsState s){
+
+        switch(s){
+
+            case SettingsState.Volume:
+            _languageCanvas.alpha = 0;
+            _languageCanvas.blocksRaycasts = false;
+            _miscCanvas.alpha = 0;
+            _miscCanvas.blocksRaycasts = false;
+            _volumeCanvas.alpha = 1;
+            _volumeCanvas.blocksRaycasts = true;
+
+            break;
+
+            case SettingsState.Language:
+             _languageCanvas.alpha = 1;
+            _languageCanvas.blocksRaycasts = true;
+            _miscCanvas.alpha = 0;
+            _miscCanvas.blocksRaycasts = false;
+            _volumeCanvas.alpha = 0;
+            _volumeCanvas.blocksRaycasts = false;
+            break;
+
+            case SettingsState.Misc:
+             _languageCanvas.alpha = 0;
+            _languageCanvas.blocksRaycasts = false;
+            _miscCanvas.alpha = 1;
+            _miscCanvas.blocksRaycasts = true;
+            _volumeCanvas.alpha = 0;
+            _volumeCanvas.blocksRaycasts = false;
+            break; 
+
+        }
+
+    }
+
+    public void DisplayVolume(){
+        SettingsDisplay(SettingsState.Volume);
+    }
+    public void DisplayLanguage(){
+        SettingsDisplay(SettingsState.Language);
+    }
+    public void DisplayMisc(){
+        SettingsDisplay(SettingsState.Misc);
+    }
+    
     public void Hide()
     {
         _canvasGroup.alpha = 0;
