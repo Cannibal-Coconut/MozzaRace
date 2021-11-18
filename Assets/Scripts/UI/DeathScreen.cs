@@ -87,8 +87,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     {
         _menuManager.DisablePauseButton();
         _scoreMesh.text = "Points: " + _inventory.points.ToString();
-        Time.timeScale = 0.0f;
-
+       
         StartCoroutine(DeathAnimationWaiter());
     }
 

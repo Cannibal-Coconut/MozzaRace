@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 3043140657215692397}
   - component: {fileID: 2038300189304122280}
   - component: {fileID: 8655095806793202207}
+  - component: {fileID: 2049926714592565448}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -165,7 +166,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.8, y: 4.5}
+    oldSize: {x: 4.7999997, y: 4.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -413,6 +414,7 @@ MonoBehaviour:
   power: 15.1
   recallSpeed: 20.8
   recallWaitTime: 0.81
+  minimalDistance: 0
   grabPizzaRadius: 0.64
   _pizzaSprite: {fileID: 5386698085040095963}
   _pizzaCollider: {fileID: 5386698085040095962}
@@ -432,8 +434,15 @@ MonoBehaviour:
   - {fileID: 5386698085040095962}
   - {fileID: 5386698084442602764}
   _itemSet: {fileID: 0}
-  _loose: 5
-  _looseDelay: 2
+  _assigningDelay: 0.5
+  defaulSettings:
+    maxOrders: 0
+    baseOrderPoints: 0
+    wrongIngredientLoose: 0
+    overtimeLoose: 0
+    looseDelay: 0
+    requestedItemSpawnBuff: 0
+  finishedOrders: -1
 --- !u!114 &5386698084442602758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,6 +509,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a7bbf3ab43341b42b2d7c67674da5ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: 0
+--- !u!114 &2049926714592565448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386698084442602766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a830ed0facf3545a2d039411d85741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5386698084893565072
@@ -636,7 +658,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.8, y: 4.8}
+    oldSize: {x: 4.7999997, y: 4.7999997}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
