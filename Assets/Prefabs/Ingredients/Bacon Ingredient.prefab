@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 5120874273205331232}
   - component: {fileID: 5120874273205331239}
   - component: {fileID: 5120874273205331238}
+  - component: {fileID: 7876758230055044578}
+  - component: {fileID: -5209333159061529307}
+  - component: {fileID: 7194815395372352691}
   m_Layer: 0
   m_Name: Bacon Ingredient
   m_TagString: Untagged
@@ -28,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5120874273205331237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.09934967, y: 0.09934967, z: 0.09934967}
+  m_LocalScale: {x: 0.14821588, y: 0.14821588, z: 0.14821588}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ec5b1a0282cb46047afd0a25d3a7b954, type: 3}
+  m_Sprite: {fileID: 8337414708080639702, guid: f26c332938f63ac4ca5b3780a52ddb31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0020a4b094ca3f46a4f9dd8328f4fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemType: 1
   _audioClip: {fileID: 0}
 --- !u!61 &5120874273205331238
 BoxCollider2D:
@@ -115,7 +118,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19.94, y: 14.17}
+    oldSize: {x: 10.002442, y: 10.000001}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -124,3 +127,42 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 19.94, y: 14.17}
   m_EdgeRadius: 0
+--- !u!114 &7876758230055044578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5120874273205331237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793efcd785debcc459016e419623b5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5209333159061529307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5120874273205331237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e1a7d172e193f45ba7962a10017418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontMove: 0
+--- !u!114 &7194815395372352691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5120874273205331237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1fbcf70d53dd74ba23b08618e0224a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.3
+  freq: 2

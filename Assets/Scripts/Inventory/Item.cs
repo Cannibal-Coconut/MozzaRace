@@ -13,10 +13,6 @@ public class Item : MonoBehaviour
     [Tooltip("Picking up audio")]
     [SerializeField] AudioClip _audioClip;
 
-    //QUICK AND DIRTY. LOOK AT FIXED UPDATE, IT IS JUST TO MAKE IT MOVE
-    public bool go;
-    //QUICK AND DIRTY
-
     public AudioClip audioClip
     {
         get
@@ -43,25 +39,23 @@ public class Item : MonoBehaviour
     }
 
 
-    //QUICK AND DIRTY. REMOVE TO STOP GOING LIKE CRAZY
-    private void FixedUpdate()
-    {
-        if (go)
-            transform.position += new Vector3(-10f, 0, 0) * Time.fixedDeltaTime;
-    }
-    //QUICK AND DIRTY
-
-
 }
 
 public enum ItemType
 {
+    Anchovy,
     Bacon,
-    Tomato,
-    Pineapple,
+    Cheese,
+    Egg,
     Ham,
+    Mushroom,
+    Olive,
     Onion,
-    Pepper,
-    Mozzarella,
-    Mushroom
+    Pepperoni,
+    Pineapple,
+    Shrimp,
+    Tomato,
+    Tuna,
+    
+
 }

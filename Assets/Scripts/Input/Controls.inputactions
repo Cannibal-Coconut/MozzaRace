@@ -1,0 +1,150 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "4b501349-a7b3-4285-8665-684107c32121",
+            "actions": [
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "716fd717-0778-4141-9781-5f5dd1a10285",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "AttackContact",
+                    "type": "PassThrough",
+                    "id": "4415f2e2-b2dc-441f-b0a0-15c1891f8448",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "AttackPosition",
+                    "type": "PassThrough",
+                    "id": "e64f51d6-2244-4cdb-9c22-1221ac94cce1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ChangeOrder",
+                    "type": "PassThrough",
+                    "id": "4c6764ec-4d37-4a7e-98b8-7747b1da8051",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3ce15024-46f2-46e0-b9da-0054300d1dd7",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da7f861d-a9c6-4e3a-adbc-69426f9340c5",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3962ac04-930d-4501-9e8f-35d12464c9f8",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackContact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "364b6215-ae23-4fa3-9fd1-c2fe00f28f73",
+                    "path": "<Touchscreen>/press",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackContact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7db8519c-aa1a-4488-95cf-0fa5bc55b886",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "861a72ac-2926-49e3-8f20-2b984ad6b17e",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b8d1bd8-8941-457e-8039-b35e0f6b7133",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeOrder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "5b262f54-03cf-40eb-94d7-37821586150a",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "3d2d3d9e-0815-4f4b-b4f5-24044e037912",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7371d7f6-322b-4354-9f7d-1a5425463b30",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

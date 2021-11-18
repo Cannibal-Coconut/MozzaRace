@@ -18,19 +18,29 @@ public class SingleOrderDisplay : MonoBehaviour
     [SerializeField] Image _selectionMarker;
 
     [Header("Sprites")]
+    [SerializeField] Sprite _acnhovySprite;
     [SerializeField] Sprite _baconSprite;
-    [SerializeField] Sprite _tomatoSprite;
+    [SerializeField] Sprite _cheeseSprite;
+    [SerializeField] Sprite _eggSprite;
+    [SerializeField] Sprite _hamSprite;
+    [SerializeField] Sprite _mushroomSprite;
+    [SerializeField] Sprite _oliveSprite;
+    [SerializeField] Sprite _onionSprite;
+    [SerializeField] Sprite _pepperoniSprite;
     [SerializeField] Sprite _pineappleSprite;
+    [SerializeField] Sprite _shrimpSprite;
+    [SerializeField] Sprite _tomatoSprite;
+    [SerializeField] Sprite _tunaSprite;
 
     MealOrder _mealOrder;
 
-    Inventory _inventory;
+    IngredientInventory _inventory;
 
     CanvasGroup _canvasGroup;
 
     private void Awake()
     {
-        _inventory = FindObjectOfType<Inventory>();
+        _inventory = FindObjectOfType<IngredientInventory>();
         _canvasGroup = GetComponent<CanvasGroup>();
     }
 
@@ -101,27 +111,37 @@ public class SingleOrderDisplay : MonoBehaviour
         _inventory.SelectOrder(_mealOrder);
     }
 
-    Sprite GetSpriteForIngredient(ItemType ingredient)
+    private Sprite GetSpriteForIngredient(ItemType ingredient)
     {
-
-        switch (ingredient)
+        return ingredient switch
         {
-            case ItemType.Bacon:
-                return _baconSprite;
+            ItemType.Anchovy => _acnhovySprite,
             //break;
-
-            case ItemType.Tomato:
-                return _tomatoSprite;
+            ItemType.Bacon => _baconSprite,
             //break;
-
-            case ItemType.Pineapple:
-                return _pineappleSprite;
+            ItemType.Cheese => _cheeseSprite,
             //break;
-
-            default:
-                return null;
-                //break;
-        }
+            ItemType.Egg => _eggSprite,
+            //break;
+            ItemType.Ham => _hamSprite,
+            //break;
+            ItemType.Mushroom => _mushroomSprite,
+            //break;
+            ItemType.Olive => _oliveSprite,
+            //break;
+            ItemType.Onion => _onionSprite,
+            //break;
+            ItemType.Pepperoni => _pepperoniSprite,
+            //break;
+            ItemType.Pineapple => _pineappleSprite,
+            //break;
+            ItemType.Shrimp => _shrimpSprite,
+            //break;  
+            ItemType.Tomato => _tomatoSprite,
+            //break;
+            ItemType.Tuna => _tunaSprite,
+            _ => null
+        };
     }
 
 }
