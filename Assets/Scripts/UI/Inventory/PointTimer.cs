@@ -24,7 +24,7 @@ public class PointTimer : MonoBehaviour
 
     public void UpdateColor(){
 
-        _fillColor = g
+      //  _fillColor = g
 
     }
 
