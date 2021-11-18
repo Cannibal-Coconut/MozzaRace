@@ -10,12 +10,30 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Canvas _mainMenuCanvas;
     [SerializeField] private Canvas _pauseMenuCanvas;
     [SerializeField] private Button _pauseMenuButton;
+
     [SerializeField] private IngredientInventory _inventory;
     [SerializeField] private Health _player;
-    private void Start() {
+
+
+
+    [SerializeField] Settings _settings;
+    [SerializeField] Shop _shop;
+    [SerializeField] Wardrobe _wardrobe;
+
+    SceneLoader _sceneLoader;
+
+    private void Awake()
+    {
+        _inventory = FindObjectOfType<IngredientInventory>();
+        _player = FindObjectOfType<Health>();
+        _sceneLoader = FindObjectOfType<SceneLoader>();
+    }
+    private void Start()
+    {
         sceneLoader = FindObjectOfType<SceneLoader>();
         _inventory = FindObjectOfType<IngredientInventory>();
-        _player= FindObjectOfType<Health>();
+        _player = FindObjectOfType<Health>();
+
         _pauseMenuCanvas.enabled = false;
         OpenMainMenu();
 
@@ -24,14 +42,14 @@ public class MenuManager : MonoBehaviour
     public void OpenShop(){
 
         Debug.Log("Shop!");
+        _shop.Display();
         //LoadShop
     }
 
+
     public void OpenWardrobe(){
 
-        
-        Debug.Log("Wardrobe!");
-        //LoadWardrobe
+        _wardrobe.Display();
     }
 
     public void OpenSettings(){
