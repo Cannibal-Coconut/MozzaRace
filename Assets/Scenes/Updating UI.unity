@@ -744,6 +744,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &578662778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2693532961225050604, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
+  m_PrefabInstance: {fileID: 2693532961428391619}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &631528567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,6 +1178,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1287998103361650390, guid: ebaf443f795d60048add89176f2e0b0d, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5386698084442602757, guid: ebaf443f795d60048add89176f2e0b0d, type: 3}
       propertyPath: _playerManager
       value: 
@@ -1249,6 +1258,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -3280158853795775478, guid: 19965ab6023428a4e8aebcb836ff8453, type: 3}
+    - target: {fileID: 5386698084442602763, guid: ebaf443f795d60048add89176f2e0b0d, type: 3}
+      propertyPath: m_Constraints
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5386698084442602764, guid: ebaf443f795d60048add89176f2e0b0d, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 5.12
@@ -1520,6 +1533,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1282781957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1282781958}
+  m_Layer: 0
+  m_Name: OrlandoGamePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1282781958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282781957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.76, y: -2.16, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_Children: []
+  m_Father: {fileID: 1485786102}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1305446236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,6 +1691,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1357438009 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2038300189304122280, guid: ebaf443f795d60048add89176f2e0b0d, type: 3}
+  m_PrefabInstance: {fileID: 974941514}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4725fd3cc7c0c0e42b1a3f8fc840c369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1472216842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,6 +1798,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1485786101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1485786102}
+  - component: {fileID: 1485786103}
+  m_Layer: 0
+  m_Name: GameStateManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1485786102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485786101}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.12346776, y: 0.9062982, z: -2.8693905}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1643491675}
+  - {fileID: 1282781958}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1485786103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485786101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6eda7c5ff1d7974987348249634ad43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menuPos: {fileID: 1643491674}
+  _gamePos: {fileID: 1282781957}
+  _RedMenuBackground: {fileID: 578662778}
+  _playerInfo: {fileID: 1357438009}
 --- !u!1 &1500307098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,6 +1913,36 @@ Transform:
   - {fileID: 1923862830}
   m_Father: {fileID: 0}
   m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1643491674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1643491675}
+  m_Layer: 0
+  m_Name: OrlandoMenuPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1643491675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643491674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.98, y: -2.16, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_Children: []
+  m_Father: {fileID: 1485786102}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1643877643 stripped
 MonoBehaviour:
@@ -2301,6 +2434,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2052894176298202838, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693532961225050604, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2693532961828519874, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}

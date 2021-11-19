@@ -7,10 +7,18 @@ public class MealOrder
     public List<ItemType> ingredients;
     public int points { get; private set; }
 
+    private int _maxPoints;
     public MealOrder(int maxPoints, List<ItemType> ingredients)
     {
         points = maxPoints;
+        _maxPoints = maxPoints;
         this.ingredients = ingredients;
+    }
+
+    public int GetMaxPoints(){
+
+        return  _maxPoints;
+
     }
 
     /// <summary>

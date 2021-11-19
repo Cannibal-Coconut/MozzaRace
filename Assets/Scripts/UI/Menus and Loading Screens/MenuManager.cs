@@ -10,6 +10,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Canvas _mainMenuCanvas;
     [SerializeField] private Canvas _pauseMenuCanvas;
     [SerializeField] private Button _pauseMenuButton;
+    [SerializeField] private Button _wardrobeButton;
+    [SerializeField] private GameStateManager _game;
+
 
     [SerializeField] private IngredientInventory _inventory;
     [SerializeField] private Health _player;
@@ -26,6 +29,7 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         _inventory = FindObjectOfType<IngredientInventory>();
+        _game = FindObjectOfType<GameStateManager>();
         _player = FindObjectOfType<Health>();
         _sceneLoader = FindObjectOfType<SceneLoader>();
         _spawner = FindObjectOfType<Spawner>();
@@ -43,29 +47,28 @@ public class MenuManager : MonoBehaviour
 
     public void OpenShop(){
 
-        Debug.Log("Shop!");
         _shop.Display();
-        //LoadShop
+    
     }
 
 
     public void OpenWardrobe(){
 
         _wardrobe.Display();
+        _wardrobeButton.gameObject.SetActive(false);        
     }
 
     public void OpenSettings(){
 
-
-        Debug.Log("Settings!");
+            
         _settings.Show();
 
     }
 
     public void InitGame(){
 
-        Debug.Log("Playing!");
        _mainMenuCanvas.enabled = false;
+        _game.SetGamePos();
        ResetGame();
        ResumeGame();
 
@@ -130,6 +133,11 @@ public class MenuManager : MonoBehaviour
 
     }
 
+    public void EnableWardrobeButton(){
+
+        _wardrobeButton.gameObject.SetActive(true);
+
+    }
     public void PlayButtonSound(){
 
         SoundManager.PlaySound(SoundManager.Sound.MENUPOP, 1f);
