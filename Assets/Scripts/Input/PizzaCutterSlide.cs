@@ -1,31 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[RequireComponent(typeof(LaunchTrajectory)), RequireComponent(typeof(CircleCollider2D)),
- RequireComponent(typeof(TrailRenderer)), RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(LaunchTrajectory))]
 public class PizzaCutterSlide : MonoBehaviour
 {
     [SerializeField]
     private PlayerManager playerManager; // Reference to PlayerManager in order to get the position of the input
 
-    [SerializeField] private SpriteRenderer cutterRenderer;
+    [SerializeField] private Rigidbody2D cutter;
 
     [Range(1, 50)] [SerializeField] private float power; // Power of the launch
-    [Range(0, 3)] [SerializeField] private float waitTime; // Recall speed of the pizza
 
     [Range(0, 1)] [SerializeField]
     private float minimalDistance; // Minimal distance between the start and the end points of the charge
 
-    private CircleCollider2D _cutterCollider;
-
     private LaunchTrajectory
         _launchTrajectory; // Reference to the script LaunchTrajectory to draw the direction of the launch
-
-    private TrailRenderer _trailRenderer;
-
-    private Rigidbody2D _rigidbody2D;
 
     private Vector3
         _startPoint,
@@ -40,9 +33,6 @@ public class PizzaCutterSlide : MonoBehaviour
     private void Start()
     {
         _launchTrajectory = GetComponent<LaunchTrajectory>();
-        _cutterCollider = GetComponent<CircleCollider2D>();
-        _trailRenderer = GetComponent<TrailRenderer>();
-        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -52,10 +42,7 @@ public class PizzaCutterSlide : MonoBehaviour
 
     public void OnStartCutInput(Vector2 startPoint)
     {
-        if (Thrown) return;
         _startPoint = startPoint;
-        _rigidbody2D.position = startPoint;
-        _rigidbody2D.velocity = Vector2.zero;;
         IsCutStarted = true;
     }
 
@@ -88,19 +75,14 @@ public class PizzaCutterSlide : MonoBehaviour
 
     private void ThrowCutter(Vector3 throwDirection)
     {
-        cutterRenderer.flipX = throwDirection.x < 0;
-        
         var force = power;
-        _rigidbody2D.AddForce(throwDirection * force, ForceMode2D.Impulse);
-
-        _trailRenderer.enabled = true;
-        Thrown = true;
-        StartCoroutine(WaitTimeForNewCut());
+        Rigidbody2D cutterRigidbody = null;
+        InstantiateCutter(ref cutterRigidbody);
+        cutterRigidbody.AddForce(throwDirection * force, ForceMode2D.Impulse);
     }
 
-    private IEnumerator WaitTimeForNewCut()
+    private void InstantiateCutter(ref Rigidbody2D rigidbody2D)
     {
-        yield return new WaitForSeconds(waitTime);
-        Thrown = false;
+        rigidbody2D = Instantiate(cutter, cutter.transform.position + _startPoint, Quaternion.identity, transform);
     }
 }
