@@ -20,6 +20,7 @@ public class Wardrobe : MonoBehaviour
 
 
     CanvasGroup _canvasGroup;
+    [SerializeField] CanvasGroup _extraCanvas;
     ProfileInventory _profileInventory;
 
     private void Awake()
@@ -101,12 +102,17 @@ public class Wardrobe : MonoBehaviour
 
         _canvasGroup.alpha = 1;
         _canvasGroup.blocksRaycasts = true;
+        _extraCanvas.alpha = 1;
+        _extraCanvas.blocksRaycasts = true;
     }
 
     public void Hide()
     {
         _canvasGroup.alpha = 0;
         _canvasGroup.blocksRaycasts = false;
+        _extraCanvas.alpha = 0;
+        _extraCanvas.blocksRaycasts = false;
+        
     }
 
 

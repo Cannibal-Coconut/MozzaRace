@@ -11,6 +11,9 @@ public class ProjectileBounds : MonoBehaviour
     [SerializeField]
     Transform _lowBound;
 
+    public Transform rollerSignalPosition;
+
+
     [Header("Settings")]
     [SerializeField]
     [Range(1, 40)] float _signalOffset;

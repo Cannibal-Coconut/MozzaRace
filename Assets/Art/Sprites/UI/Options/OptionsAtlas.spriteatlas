@@ -50,7 +50,11 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 09724ac295f73934a9e1c31e775d6f8a, type: 3}
     - {fileID: 2800000, guid: 779e671dc1e3aec46ac79888631b07b5, type: 3}
     - {fileID: 2800000, guid: f15bdfcffeb58c547905177e019a82e4, type: 3}
-    totalSpriteSurfaceArea: 1472091
+    - {fileID: 2800000, guid: 46179de9172528b4791d3271f8edea3b, type: 3}
+    - {fileID: 2800000, guid: 3098452ed5b7fb94ca8e6c814b2b540d, type: 3}
+    - {fileID: 2800000, guid: b78537ffe3115fd42afa6e8189087725, type: 3}
+    - {fileID: 2800000, guid: 8802c2d54e3c0174d8d2446a16d53aca, type: 3}
+    totalSpriteSurfaceArea: 1945491
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -60,17 +64,25 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 7fdaac82b1f0b8441af519685aa3139d, type: 3}
   - {fileID: 21300000, guid: 09724ac295f73934a9e1c31e775d6f8a, type: 3}
   - {fileID: 21300000, guid: 709462754963b864bb8ed706c3e0a461, type: 3}
+  - {fileID: 21300000, guid: 8802c2d54e3c0174d8d2446a16d53aca, type: 3}
+  - {fileID: 21300000, guid: 46179de9172528b4791d3271f8edea3b, type: 3}
   - {fileID: 21300000, guid: 779e671dc1e3aec46ac79888631b07b5, type: 3}
   - {fileID: 21300000, guid: f017912e812ab274c88938a86a8098dc, type: 3}
+  - {fileID: 21300000, guid: 3098452ed5b7fb94ca8e6c814b2b540d, type: 3}
   - {fileID: 21300000, guid: f15bdfcffeb58c547905177e019a82e4, type: 3}
+  - {fileID: 21300000, guid: b78537ffe3115fd42afa6e8189087725, type: 3}
   m_PackedSpriteNamesToIndex:
   - UIBarButton
   - UIBarFilled
   - UIBarNoFill
   - OptionsUI_Clear
+  - Option_Stick
+  - Button_1
   - UIOptionButton
   - OptionsUI_Sound
+  - Button_2
   - UIBackButton
+  - Button_3
   m_RenderDataMap: {}
   m_Tag: OptionsAtlas
   m_IsVariant: 0
