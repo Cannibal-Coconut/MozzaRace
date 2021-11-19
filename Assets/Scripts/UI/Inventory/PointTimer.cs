@@ -9,6 +9,10 @@ public class PointTimer : MonoBehaviour
     private Image _fill;
     private Color _fillColor;
 
+    private float _currentPoints;
+
+    private float _totalPoints;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,22 +21,33 @@ public class PointTimer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-         SetFillColor(_fillColor);   
+
+    public void UpdateTimer(){
+
+        float currentPointPercentage =  _currentPoints/ _totalPoints; 
+        if( currentPointPercentage > 0.5) {
+            SetFillColor(Color.green);
+            }
+        else if( currentPointPercentage > 0.25) {
+            SetFillColor(Color.yellow);
+            }
+        else if( currentPointPercentage >=0) {
+            SetFillColor(Color.red);
+            }
+
+        _fill.color = _fillColor;
+        _fill.fillAmount = currentPointPercentage;
+
+
     }
 
-    public void UpdateColor(){
+    public void UpdateCurrentPoints(int current){ _currentPoints = current; }
 
-      //  _fillColor = g
+    public void SetTotalPoints(int total) { _totalPoints = total;}
+ 
+    public void SetFillColor(Color color){
 
-    }
-
-
-
-    private void SetFillColor(Color color){
-
-        _fill.color = color;
+        _fillColor = color;
 
     }
 }

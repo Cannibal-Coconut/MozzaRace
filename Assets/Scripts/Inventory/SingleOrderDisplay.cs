@@ -32,6 +32,9 @@ public class SingleOrderDisplay : MonoBehaviour
     [SerializeField] Sprite _tomatoSprite;
     [SerializeField] Sprite _tunaSprite;
 
+    [Header("Timer")]
+    [SerializeField] private PointTimer _timer;
+
     MealOrder _mealOrder;
 
     IngredientInventory _inventory;
@@ -76,6 +79,7 @@ public class SingleOrderDisplay : MonoBehaviour
             _selectionMarker.enabled = false;
         }
 
+        _timer.SetTotalPoints(_mealOrder.GetMaxPoints());
         UpdatePoints();
     }
 
@@ -84,8 +88,12 @@ public class SingleOrderDisplay : MonoBehaviour
     /// </summary>
     public void UpdatePoints()
     {
-        if (_mealOrder != null)
+        if (_mealOrder != null){
             _pointsMesh.text = _mealOrder.points.ToString();
+            _timer.UpdateCurrentPoints(_mealOrder.points);
+            _timer.UpdateTimer();
+        }
+
     }
 
     public void Show()
