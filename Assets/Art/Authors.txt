@@ -1,16 +1,50 @@
 dir ./Sprites:
 
+Changing_no_pizza_sprites: Manuel Bueno Lasso
+Changing_pizza_sprites: Manuel Bueno Lasso
 Running_no_pizza_sprites: Manuel Bueno Lasso
 Running_pizza_sprites: Manuel Bueno Lasso
 Defeated_sprites: Manuel Bueno Lasso
+Flip_no_pizza_sprites: Manuel Bueno Lasso
+Jumping_no_pizza_sprites: Manuel Bueno Lasso
+Jumping_pizza_sprites: Manuel Bueno Lasso
+Landing_no_pizza_sprites: Manuel Bueno Lasso
+Landing_pizza_sprites: Manuel Bueno Lasso
+Running_holding_sprites: Manuel Bueno Lasso
+Spinning_sprites: Manuel Bueno Lasso
+Pizza_horizontal_sprites: Manuel Bueno Lasso
+Pizza_vertical_sprites: Manuel Bueno Lasso
 Stove_sprite: Manuel Bueno Lasso
 Fire_long_sprites: Manuel Bueno Lasso
 Fire_mid_sprites: Manuel Bueno Lasso
 Fire_small_sprites: Manuel Bueno Lasso
 Flip_no_pizza_sprites: Manuel Bueno Lasso
+Obstacles_knife:Manuel Bueno Lasso
+Obstackes_signal_knife: Manuel Bueno Lasso
+Roll_sprites: Manuel Bueno Lasso
+Coin: Manuel Bueno Lasso
+MomentoPropinaJar: Manuel Bueno Lasso
+MomentoPropinaSign_noText = Manuel Bueno Lasso
+MomentoPropinaSign_PlaceHolder = Manuel Bueno Lasso
 Pizza_cutter_sprites: Manuel Bueno Lasso
 Pizza_no_seams: Manuel Bueno Lasso
 Pizza_seams: Manuel Bueno Lasso
+shine: Manuel Bueno Lasso
+Icon_1Minute: Manuel Bueno Lasso
+Icon_15Matches: Manuel Bueno Lasso
+Icon_500Points: Manuel Bueno Lasso
+Icon_5000Points: Manuel Bueno Lasso
+Icon_Aloha: Manuel Bueno Lasso
+Icon_FirstTip: Manuel Bueno Lasso
+Icon_hitOnTheBeat: Manuel Bueno Lasso
+Icon_katana: Manuel Bueno Lasso
+Icon_pig: Manuel Bueno Lasso
+Icon_tomatoDay: Manuel Bueno Lasso
+
+dir ./RRSS
+Banner: Manuel Bueno Lasso
+fondo_principal: Manuel Bueno Lasso
+Icono_con_letras: Manuel Bueno Lasso
 
 dir ./Concepts
 
@@ -18,6 +52,23 @@ escenario_1: David González Rueda
 escenario_2: David González Rueda
 escenario_3: David González Rueda
 escenario_4: David González Rueda
+coconut_no_background: Manuel Bueno Lasso
 portada: Manuel Bueno Lasso
+minigame_UI_emptyBar: Manuel Bueno Lasso
+minigame_UI_fullBar: Manuel Bueno Lasso
+Obstacles_pizzaCutter: Manuel Bueno Lasso
+Obstacles_roll: Manuel Bueno Lasso
+Orlando_no_background: Manuel Bueno Lasso
+Pruebas_color: Manuel Bueno Lasso
+Pruebas_linea: Manuel Bueno Lasso
 UIShop_Base: David González Rueda + Manuel Bueno Lasso
-UIShop_WithPlaceholders: David González Rueada + Manuel Bueno Lasso
+UIShop_WithPlaceholders: David González Rueda + Manuel Bueno Lasso
+
+dir./Avatares (Repositorio de Cannibal-Coconut)
+Avatar_Ángel: Manuel Bueno Lasso
+Avatar_David: Manuel Bueno Lasso
+Avatar_Javi: Manuel Bueno Lasso
+Avatar_Manu: Manuel Bueno Lasso
+Avatar_Mari: Manuel Bueno Lasso
+Avatar_Rafa: Manuel Bueno Lasso
+Avatar_Vicente: Manuel Bueno Lasso
