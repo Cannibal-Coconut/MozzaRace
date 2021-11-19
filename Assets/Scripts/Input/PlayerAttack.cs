@@ -39,6 +39,10 @@ public class PlayerAttack : MonoBehaviour
 
     public bool isAttackStarted { get; private set; } // Check if the attack has started
 
+    private void Awake() {
+        _pizzaSprite.enabled = false;
+    }
+
     private void Start()
     {
         _launchTrajectory = GetComponent<LaunchTrajectory>();
