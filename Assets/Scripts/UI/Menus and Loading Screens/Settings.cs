@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Events;
@@ -49,32 +46,21 @@ public class Settings : MonoBehaviour
     const float MaxAudioValue = 20;
     const float MinAudioValue = -80;
 
+    static bool _displayJumpButton = true;
 
+    LanguageContext _languageContext;
 
-    public enum SettingsState {
-    Volume,
-    Language,
-    Misc,
-} 
-
-    
-    private Language _language;
-
-    public Language GetLanguage(){
-
-        return _language;
-
-    }
-
-    public enum Language
+    public enum SettingsState
     {
-        English,
-        Spanish,
+        Volume,
+        Language,
+        Misc,
     }
 
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
+        _languageContext = FindObjectOfType<LanguageContext>();
 
         SetSliders();
         SetButtons();
@@ -94,57 +80,60 @@ public class Settings : MonoBehaviour
 
     }
 
-    private void SettingsDisplay(SettingsState s){
+    private void SettingsDisplay(SettingsState s)
+    {
 
-        switch(s){
+        switch (s)
+        {
 
             case SettingsState.Volume:
-            if(_language ==  Language.English)_settingTitle.text = "Volume"; 
-            if(_language ==  Language.Spanish)_settingTitle.text = "Volumen"; 
-            _languageCanvas.alpha = 0;
-            _languageCanvas.blocksRaycasts = false;
-            _miscCanvas.alpha = 0;
-            _miscCanvas.blocksRaycasts = false;
-            _volumeCanvas.alpha = 1;
-            _volumeCanvas.blocksRaycasts = true;
 
-            break;
+                _languageCanvas.alpha = 0;
+                _languageCanvas.blocksRaycasts = false;
+                _miscCanvas.alpha = 0;
+                _miscCanvas.blocksRaycasts = false;
+                _volumeCanvas.alpha = 1;
+                _volumeCanvas.blocksRaycasts = true;
+
+                break;
 
             case SettingsState.Language:
-            if(_language ==  Language.English)_settingTitle.text = "Language"; 
-            if(_language ==  Language.Spanish)_settingTitle.text = "Idioma"; 
-             _languageCanvas.alpha = 1;
-            _languageCanvas.blocksRaycasts = true;
-            _miscCanvas.alpha = 0;
-            _miscCanvas.blocksRaycasts = false;
-            _volumeCanvas.alpha = 0;
-            _volumeCanvas.blocksRaycasts = false;
-            break;
+
+                _languageCanvas.alpha = 1;
+                _languageCanvas.blocksRaycasts = true;
+                _miscCanvas.alpha = 0;
+                _miscCanvas.blocksRaycasts = false;
+                _volumeCanvas.alpha = 0;
+                _volumeCanvas.blocksRaycasts = false;
+                break;
 
             case SettingsState.Misc:
-            _settingTitle.text = "Misc";
-            _languageCanvas.alpha = 0;
-            _languageCanvas.blocksRaycasts = false;
-            _miscCanvas.alpha = 1;
-            _miscCanvas.blocksRaycasts = true;
-            _volumeCanvas.alpha = 0;
-            _volumeCanvas.blocksRaycasts = false;
-            break; 
+                _settingTitle.text = "Misc";
+                _languageCanvas.alpha = 0;
+                _languageCanvas.blocksRaycasts = false;
+                _miscCanvas.alpha = 1;
+                _miscCanvas.blocksRaycasts = true;
+                _volumeCanvas.alpha = 0;
+                _volumeCanvas.blocksRaycasts = false;
+                break;
 
         }
 
     }
 
-    public void DisplayVolume(){
+    public void DisplayVolume()
+    {
         SettingsDisplay(SettingsState.Volume);
     }
-    public void DisplayLanguage(){
+    public void DisplayLanguage()
+    {
         SettingsDisplay(SettingsState.Language);
     }
-    public void DisplayMisc(){
+    public void DisplayMisc()
+    {
         SettingsDisplay(SettingsState.Misc);
     }
-    
+
     public void Hide()
     {
         _canvasGroup.alpha = 0;
@@ -219,11 +208,11 @@ public class Settings : MonoBehaviour
         {
             case Language.English:
                 Debug.Log("English!");
-                _language = Language.English;
+                _languageContext.ChangeLanguage(Language.English);
                 break;
             case Language.Spanish:
                 Debug.Log("Spanish!");
-                _language = Language.Spanish;
+                _languageContext.ChangeLanguage(Language.Spanish);
                 break;
         }
     }

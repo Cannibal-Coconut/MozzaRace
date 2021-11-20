@@ -24,6 +24,11 @@ public class TMProLanguageChangeable : LanguageChangeable
         _textMesh = GetComponent<TextMeshProUGUI>();
     }
 
+    private void Start()
+    {
+
+    }
+
     public override void ChangeLanguage(Language language)
     {
         switch (language)

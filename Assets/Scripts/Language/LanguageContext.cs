@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class LanguageContext : MonoBehaviour
 {
+    static LanguageContext _instance;
 
     public Language currentLanguage { get; private set; }
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (_instance)
+        {
+            _instance.UpdateLanguageChangeables();
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+            UpdateLanguageChangeables();
+        }
     }
 
     private void Start()
@@ -22,9 +33,15 @@ public class LanguageContext : MonoBehaviour
         if (language == currentLanguage) return;
 
         currentLanguage = language;
+
+        UpdateLanguageChangeables();
+    }
+
+    public void UpdateLanguageChangeables()
+    {
         foreach (var changeable in FindObjectsOfType<LanguageChangeable>())
         {
-            changeable.ChangeLanguage(language);
+            changeable.ChangeLanguage(currentLanguage);
         }
     }
 
