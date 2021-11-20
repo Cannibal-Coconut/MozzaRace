@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 public class PizzaCutterSlide : MonoBehaviour
 {
     [SerializeField]
-    private PlayerManager playerManager; // Reference to PlayerManager in order to get the position of the input
+    private PizzaCutManager pizzaCutManager; // Reference to PlayerManager in order to get the position of the input
 
     [SerializeField] private Rigidbody2D cutter;
 
@@ -63,7 +63,7 @@ public class PizzaCutterSlide : MonoBehaviour
     {
         if (!IsCutStarted) return;
 
-        _currentPoint = playerManager.AttackPosition();
+        _currentPoint = pizzaCutManager.AttackPosition();
 
         _launchTrajectory.DrawTrajectory(_startPoint, _currentPoint);
     }
