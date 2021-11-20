@@ -13,13 +13,16 @@ public class DifficultyAdjuster : MonoBehaviour
     DifficultyLevel _currentLevel;
     IngredientInventory _inventory;
     Spawner _spawner;
+    DeathScreen _deathScreen;
 
 
     // Start is called before the first frame update
     void Awake()
     {
         _inventory = FindObjectOfType<IngredientInventory>();
+        _deathScreen = FindObjectOfType<DeathScreen>();
         _inventory.AddFinishedOrderListener(OnOrderFinished);
+
 
         _spawner = FindObjectOfType<Spawner>();
         
@@ -51,7 +54,8 @@ public class DifficultyAdjuster : MonoBehaviour
         if (level == null) return;
 
         _currentLevel = level;
-
+        _deathScreen.SetDifficultyLevel(level);
+        
         _currentLevel.events.Invoke();
 
         _inventory.SetSettings(_currentLevel.inventorySettings);
@@ -59,26 +63,6 @@ public class DifficultyAdjuster : MonoBehaviour
 
         Debug.Log("Starting Level: "+ _currentLevel.name);
 
-    }
-
-    [System.Serializable]
-    class DifficultyLevel
-    {
-        [Tooltip("Just an ID. It doesnt do anything")]
-        public string name;
-
-        [Header("Settings")]
-        [Tooltip("Number of orders needed for this level")]
-        public int finishedOrders;
-        public float speedFactor;
-
-        [Header("Inventory Settings")]
-        public InventorySettings inventorySettings;
-
-        [Header("Spawn Settings")]
-        public SpawnSettings spawnSettings;
-
-        public UnityEvent events;
     }
 
     [ContextMenu("Sort Levels")]

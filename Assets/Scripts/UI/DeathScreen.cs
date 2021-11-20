@@ -16,11 +16,9 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     [SerializeField] Button _restartButton;
 
     [Header("Meshes")]
-    [SerializeField] TextMeshProUGUI _scoreMesh;
-    [SerializeField] TextMeshProUGUI _premiumCoinsMesh;
-
-    [Header("Settings")]
-    [SerializeField] [Range(0, 10)] int _continueWithPointsCost;
+    [SerializeField] TextMeshProUGUI _matchScoreMesh;
+    [SerializeField] TextMeshProUGUI _pointsMesh;
+    [SerializeField] TextMeshProUGUI _premiumCostMesh;
 
     CanvasGroup _canvasGroup;
 
@@ -29,11 +27,16 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     MenuManager _menuManager;
     ProfileInventory _profileInventory;
 
+    LanguageContext _languageContext;
+
+    DifficultyLevel _currentLevel;
+
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         _inventory = FindObjectOfType<IngredientInventory>();
         _profileInventory = FindObjectOfType<ProfileInventory>();
+        _languageContext = FindObjectOfType<LanguageContext>();
         _menuManager = FindObjectOfType<MenuManager>();
         _player = FindObjectOfType<Health>();
 
@@ -49,7 +52,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
         _coinContinueButton.onClick.AddListener(ContinueWithPoints);
         _adContinueButton.onClick.AddListener(ContinueWithAd);
         _restartButton.onClick.AddListener(RestartGame);
-        
+
     }
 
     void ContinueWithPoints()
@@ -57,31 +60,28 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
         if (_profileInventory)
         {
-            if (_profileInventory.points >= _continueWithPointsCost)
+            if (_profileInventory.matchPoints >= _currentLevel.reviveCost)
             {
-                _profileInventory.RemovePoints(_continueWithPointsCost);
+                _profileInventory.RemoveMatchPoints(_currentLevel.reviveCost);
                 _player.Live();
             }
         }
     }
 
-        void RestartGame()
+    void RestartGame()
     {
         //ResetGame
         _inventory.ResetInventory();
+        _profileInventory.PassMatchPointsToSkinPoints();
         Hide();
         _player.Live();
     }
 
-    
-
     public void OpenMainMenu()
     {
-
+        _profileInventory.PassMatchPointsToSkinPoints();
         _menuManager.ReturnToMainMenu();
-
     }
-
 
     void ContinueWithAd()
     {
@@ -91,24 +91,46 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     public void Display()
     {
         _menuManager.DisablePauseButton();
-        _scoreMesh.text = "Points: " + _profileInventory.points.ToString();
-       
+
+        string pointsText = "Points: ";
+        string totalText = "Total: ";
+        switch (_languageContext.currentLanguage)
+        {
+            case Language.English:
+                pointsText = "Points: ";
+                totalText = "Total: ";
+                break;
+            case Language.Spanish:
+                pointsText = "Puntos: ";
+                totalText = "Total: ";
+                break;
+            default:
+                break;
+        }
+        _matchScoreMesh.text = pointsText + _profileInventory.matchPoints.ToString();
+        _pointsMesh.text = totalText + (_profileInventory.points + _profileInventory.matchPoints).ToString();
+        _premiumCostMesh.text = _currentLevel.reviveCost.ToString();
+
         StartCoroutine(DeathAnimationWaiter());
     }
 
-    private IEnumerator DeathAnimationWaiter(){
+    public void SetDifficultyLevel(DifficultyLevel level)
+    {
+        _currentLevel = level;
+    }
+
+    private IEnumerator DeathAnimationWaiter()
+    {
 
         yield return new WaitForSeconds(1.5f);
         _canvasGroup.alpha = 1f;
         Time.timeScale = 0f;
         _canvasGroup.blocksRaycasts = true;
-    }    
-
-
+    }
 
     public void Hide()
     {
-       // Time.timeScale = 1.0f;
+        // Time.timeScale = 1.0f;
         _menuManager.EnablePauseButton();
         _canvasGroup.alpha = 0;
         _canvasGroup.blocksRaycasts = false;
@@ -118,7 +140,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     {
 
         Hide();
-        
+
     }
 
     public void OnDead()

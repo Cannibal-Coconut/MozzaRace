@@ -184,12 +184,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
     void ChangePoints(int value)
     {
-        _profileInventory.AddPoints(value);
-
-        if (_pointsDisplay)
-        {
-            _pointsDisplay.SetPointsInDisplay(value);
-        }
+        _profileInventory.AddMatchPoints(value);
 
     }
 

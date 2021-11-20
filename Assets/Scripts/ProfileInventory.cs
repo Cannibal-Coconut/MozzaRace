@@ -9,6 +9,7 @@ using UnityEngine.Networking;
 public class ProfileInventory : MonoBehaviour, ILiveListener
 {
     public int points { get; private set; }
+    public int matchPoints { get; private set; }
 
     static ProfileInventory _instance;
 
@@ -48,8 +49,10 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
 
     private void Start()
     {
-        //StartCoroutine(SignIn("Testamon", "12345"));
-
+        if (_onEconomyChange != null)
+        {
+            _onEconomyChange.Invoke();
+        }
     }
 
     public void AddBoughtSkin(Skin skin)
@@ -256,7 +259,6 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
         _databaseCoroutineAvaliable = true;
     }
 
-
     void SetProfileFromData(ProfileSaveData data)
     {
         points = data.points;
@@ -271,6 +273,40 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
     public void AddPoints(int value)
     {
         points += Mathf.Abs(value);
+
+
+        if (_onEconomyChange != null)
+        {
+            _onEconomyChange.Invoke();
+        }
+    }
+
+    public void AddMatchPoints(int value)
+    {
+        matchPoints += Mathf.Abs(value);
+
+        if (_onEconomyChange != null)
+        {
+            _onEconomyChange.Invoke();
+        }
+    }
+
+    public void PassMatchPointsToSkinPoints()
+    {
+        AddPoints(matchPoints);
+
+        matchPoints = 0;
+    }
+
+    public void RemoveMatchPoints(int value)
+    {
+        points -= Mathf.Abs(value);
+
+        if (points < 0)
+        {
+            points = 0;
+
+        }
 
 
         if (_onEconomyChange != null)
@@ -305,7 +341,7 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
 
     public void OnDead()
     {
-        UpdateInventoryInDatabase();
+
     }
 
     public void SetListeners()
