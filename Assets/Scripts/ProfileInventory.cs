@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class ProfileInventory : MonoBehaviour
 {
@@ -16,7 +17,14 @@ public class ProfileInventory : MonoBehaviour
 
     Action _onEconomyChange;
 
-    const string FilePathName = "/MySaveData.dat";
+    string _username;
+    string _password;
+    bool _logged;
+
+    const string DatabaseDomainURL = "https://mozzadb.000webhostapp.com";
+
+    Coroutine _databaseCoroutine;
+    bool _databaseCoroutineAvaliable = true;
 
     private void Awake()
     {
@@ -30,61 +38,223 @@ public class ProfileInventory : MonoBehaviour
             _instance = this;
             //DontDestroyOnLoad(this);
 
-            LoadProfileData();
+            _logged = false;
+            _databaseCoroutineAvaliable = true;
+
+            /*
+             * LoadProfileData();
 
             AddOnEconomyChangeListener(SaveProfileData);
+            */
         }
     }
 
     private void Start()
     {
-        _onEconomyChange.Invoke();
+        //StartCoroutine(SignIn("Testamon", "12345"));
+
     }
 
-    void LoadProfileData()
+    public void LogInFromDatabase(string username, string password, Action successCallback, Action failureCallback)
     {
-        if (File.Exists(Application.persistentDataPath + FilePathName))
+        if (_databaseCoroutineAvaliable)
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + FilePathName, FileMode.Open);
-            SaveData data = (SaveData)bf.Deserialize(file);
-            file.Close();
+            Action<ProfileSaveData> callback = SetProfileFromData;
 
-            premiumCoins = data.premiumCoins;
-            skinPoints = data.skinPoints;
-            skins = data.skins;
+            if (successCallback != null)
+            {
+                callback += (data) =>
+                {
+                    successCallback.Invoke();
+                };
+            }
 
-            Debug.Log("Game data loaded!");
-        }
-
-        else
-        {
-            premiumCoins = 5;
-            skinPoints = 100000;
-            skins = new List<Skin>();
-
-            var whiteSkin = new Skin(Color.white, 0);
-            whiteSkin.purchased = true;
-
-            skins.Add(whiteSkin);
-
-            SaveProfileData();
+            _databaseCoroutine = StartCoroutine(LogIn(username, password, callback, failureCallback));
         }
 
     }
 
-    void SaveProfileData()
+    IEnumerator LogIn(string username, string password, Action<ProfileSaveData> successCallback, Action failureCallback)
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + FilePathName);
+        _databaseCoroutineAvaliable = false;
 
-        SaveData data = new SaveData();
-        data.premiumCoins = premiumCoins;
-        data.skinPoints = skinPoints;
-        data.skins = skins;
+        WWWForm form = new WWWForm();
+        form.AddField("loginUser", username);
+        form.AddField("loginPass", password);
 
-        bf.Serialize(file, data);
-        file.Close();
+        using (UnityWebRequest www = UnityWebRequest.Post(DatabaseDomainURL + "/LogIn.php", form))
+        {
+            yield return www.Send();
+
+            if (www.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                // Show results as text
+                try
+                {
+                    ProfileSaveData data = JsonUtility.FromJson<ProfileSaveData>(www.downloadHandler.text);
+
+                    _username = username;
+                    _password = password;
+                    _logged = true;
+
+                    if (successCallback != null)
+                    {
+                        successCallback.Invoke(data);
+                    }
+                }
+                catch
+                {
+                    Debug.LogWarning("Check Password and Username: " + www.downloadHandler.text);
+
+                    if (failureCallback != null)
+                    {
+                        failureCallback.Invoke();
+                    }
+                }
+            }
+        }
+
+        _databaseCoroutineAvaliable = true;
+    }
+
+    public void SignInFromDatabase(string username, string password, Action successCallback, Action failureCallback)
+    {
+        if (_databaseCoroutineAvaliable)
+        {
+            _databaseCoroutine = StartCoroutine(SignIn(username, password, successCallback, failureCallback));
+        }
+    }
+
+    IEnumerator SignIn(string username, string password, Action successCallback, Action failureCallback)
+    {
+        _databaseCoroutineAvaliable = false;
+
+        WWWForm form = new WWWForm();
+        form.AddField("loginUser", username);
+        form.AddField("loginPass", password);
+
+        skins = new List<Skin>();
+        skins.Add(new Skin(Color.white, 0));
+        var saveData = new ProfileSaveData(skinPoints, skins);
+
+        form.AddField("loginData", JsonUtility.ToJson(saveData));
+
+        using (UnityWebRequest www = UnityWebRequest.Post(DatabaseDomainURL + "/SignIn.php", form))
+        {
+            yield return www.Send();
+
+            if (www.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log(www.error);
+
+            }
+            else
+            {
+
+                if (www.downloadHandler.text == "OK")
+                {
+
+                    SetProfileFromData(saveData);
+                    _username = username;
+                    _password = password;
+                    _logged = true;
+
+                    if (successCallback != null)
+                    {
+                        successCallback.Invoke();
+                    }
+                }
+                else
+                {
+
+                    Debug.LogWarning(www.downloadHandler.text);
+                    if (failureCallback != null)
+                    {
+                        failureCallback.Invoke();
+
+                    }
+
+                }
+
+
+            }
+        }
+
+        _databaseCoroutineAvaliable = true;
+    }
+
+    public void UpdateInventoryInDatabase(Action successCallback, Action failureCallback)
+    {
+        if (_logged)
+        {
+            StartCoroutine(UpdateProfile(_username, _password, successCallback, failureCallback));
+        }
+    }
+
+    public void UpdateInventoryInDatabase()
+    {
+        UpdateInventoryInDatabase(null, null);
+    }
+
+    IEnumerator UpdateProfile(string username, string password, Action successCallback, Action failureCallback)
+    {
+        _databaseCoroutineAvaliable = false;
+
+        WWWForm form = new WWWForm();
+        form.AddField("updateUser", username);
+        form.AddField("updatePass", password);
+
+        var saveData = new ProfileSaveData(skinPoints, skins);
+
+        form.AddField("updateData", JsonUtility.ToJson(saveData));
+
+        using (UnityWebRequest www = UnityWebRequest.Post(DatabaseDomainURL + "/UpdateUser.php", form))
+        {
+            yield return www.Send();
+
+            if (www.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log(www.error);
+
+            }
+            else
+            {
+
+                if (www.downloadHandler.text == "OK")
+                {
+                    if (successCallback != null)
+                    {
+                        successCallback.Invoke();
+                    }
+                }
+                else
+                {
+
+                    Debug.LogWarning(www.downloadHandler.text);
+                    if (failureCallback != null)
+                    {
+                        failureCallback.Invoke();
+
+                    }
+
+                }
+
+
+            }
+        }
+
+        _databaseCoroutineAvaliable = true;
+    }
+
+
+    void SetProfileFromData(ProfileSaveData data)
+    {
+        skinPoints = data.points;
+        skins = data.skins;
     }
 
     public void AddOnEconomyChangeListener(Action action)
@@ -145,17 +315,23 @@ public class ProfileInventory : MonoBehaviour
         {
             _onEconomyChange.Invoke();
         }
+
+
     }
 
 
     [Serializable]
-    class SaveData
+    public class ProfileSaveData
     {
-        public int premiumCoins;
-        public int skinPoints;
+        public int points;
 
         public List<Skin> skins;
 
+        public ProfileSaveData(int points, List<Skin> skins)
+        {
+            this.points = points;
+            this.skins = skins;
+        }
     }
 
 }
