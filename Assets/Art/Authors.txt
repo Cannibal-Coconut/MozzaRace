@@ -120,7 +120,11 @@ shine: Manuel Bueno Lasso
 		MainUI_Options: David González Rueda
 		MainUI_Shop: David González Rueda
 		MainUI_Wardrobe: David González Rueda
-		MainUI_WithPlaceHolders: David González Rueda			
+		MainUI_WithPlaceHolders: David González Rueda	
+
+		dir ./UI/Minigame
+		Right_Button: David González Rueda
+		Left_Button: David González Rueda		
 
 		dir ./UI/MomentoPropina
 		Coin: Manuel Bueno Lasso
