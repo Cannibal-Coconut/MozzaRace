@@ -1,68 +1,188 @@
-dir ./Sprites:
-
-Changing_no_pizza_sprites: Manuel Bueno Lasso
-Changing_pizza_sprites: Manuel Bueno Lasso
-Running_no_pizza_sprites: Manuel Bueno Lasso
-Running_pizza_sprites: Manuel Bueno Lasso
-Defeated_sprites: Manuel Bueno Lasso
-Flip_no_pizza_sprites: Manuel Bueno Lasso
-Jumping_no_pizza_sprites: Manuel Bueno Lasso
-Jumping_pizza_sprites: Manuel Bueno Lasso
-Landing_no_pizza_sprites: Manuel Bueno Lasso
-Landing_pizza_sprites: Manuel Bueno Lasso
-Running_holding_sprites: Manuel Bueno Lasso
-Spinning_sprites: Manuel Bueno Lasso
-Pizza_horizontal_sprites: Manuel Bueno Lasso
-Pizza_vertical_sprites: Manuel Bueno Lasso
-Stove_sprite: Manuel Bueno Lasso
-Fire_long_sprites: Manuel Bueno Lasso
-Fire_mid_sprites: Manuel Bueno Lasso
-Fire_small_sprites: Manuel Bueno Lasso
-Flip_no_pizza_sprites: Manuel Bueno Lasso
-Obstacles_knife:Manuel Bueno Lasso
-Obstackes_signal_knife: Manuel Bueno Lasso
-Roll_sprites: Manuel Bueno Lasso
-Coin: Manuel Bueno Lasso
-MomentoPropinaJar: Manuel Bueno Lasso
-MomentoPropinaSign_noText = Manuel Bueno Lasso
-MomentoPropinaSign_PlaceHolder = Manuel Bueno Lasso
-Pizza_cutter_sprites: Manuel Bueno Lasso
-Pizza_no_seams: Manuel Bueno Lasso
-Pizza_seams: Manuel Bueno Lasso
-shine: Manuel Bueno Lasso
-Icon_1Minute: Manuel Bueno Lasso
-Icon_15Matches: Manuel Bueno Lasso
-Icon_500Points: Manuel Bueno Lasso
-Icon_5000Points: Manuel Bueno Lasso
-Icon_Aloha: Manuel Bueno Lasso
-Icon_FirstTip: Manuel Bueno Lasso
-Icon_hitOnTheBeat: Manuel Bueno Lasso
-Icon_katana: Manuel Bueno Lasso
-Icon_pig: Manuel Bueno Lasso
-Icon_tomatoDay: Manuel Bueno Lasso
-
-dir ./RRSS
-Banner: Manuel Bueno Lasso
-fondo_principal: Manuel Bueno Lasso
-Icono_con_letras: Manuel Bueno Lasso
-
-dir ./Concepts
-
+dir ./Concept
+coconut_no_background: Manuel Bueno Lasso
+Concepts_Interfaces: David González Rueda
+Concepts_Mecánicas: David González Rueda
 escenario_1: David González Rueda
 escenario_2: David González Rueda
 escenario_3: David González Rueda
 escenario_4: David González Rueda
-coconut_no_background: Manuel Bueno Lasso
-portada: Manuel Bueno Lasso
+Ingredientes_1: David González Rueda
+Ingredientes_2: David González Rueda
+Ingredientes_3: David González Rueda
+Ingredientes_4: David González Rueda
+Ingredientes_5: David González Rueda
+Ingredientes_6: David González Rueda
+Ingredientes_7: David González Rueda
+Ingredientes_8: David González Rueda
 minigame_UI_emptyBar: Manuel Bueno Lasso
 minigame_UI_fullBar: Manuel Bueno Lasso
 Obstacles_pizzaCutter: Manuel Bueno Lasso
 Obstacles_roll: Manuel Bueno Lasso
 Orlando_no_background: Manuel Bueno Lasso
+portada: Manuel Bueno Lasso
 Pruebas_color: Manuel Bueno Lasso
 Pruebas_linea: Manuel Bueno Lasso
-UIShop_Base: David González Rueda + Manuel Bueno Lasso
-UIShop_WithPlaceholders: David González Rueda + Manuel Bueno Lasso
+
+dir ./RRSS
+Banner: Manuel Bueno Lasso
+fondo_principal: Manuel Bueno Lasso
+Icono_con_letras: Manuel Bueno Lasso
+Icono_tw: Manuel Bueno Lasso
+Logo: Manuel Bueno Lasso
+CannibalCoconutBanner: David González Rueda
+
+
+dir ./Sprites:
+Pizza_cutter_sprites: Manuel Bueno Lasso
+Pizza_no_seams: Manuel Bueno Lasso
+Pizza_seams: Manuel Bueno Lasso
+shine: Manuel Bueno Lasso
+
+	dir ./Sprites/Character
+	Changing_no_pizza_sprites: Manuel Bueno Lasso
+	Changing_pizza_sprites: Manuel Bueno Lasso
+	Running_no_pizza_sprites: Manuel Bueno Lasso
+	Running_pizza_sprites: Manuel Bueno Lasso
+	Defeated_sprites: Manuel Bueno Lasso
+	Flip_no_pizza_sprites: Manuel Bueno Lasso
+	Jumping_no_pizza_sprites: Manuel Bueno Lasso
+	Jumping_pizza_sprites: Manuel Bueno Lasso
+	Landing_no_pizza_sprites: Manuel Bueno Lasso
+	Landing_pizza_sprites: Manuel Bueno Lasso
+	Running_holding_sprites: Manuel Bueno Lasso
+	Spinning_sprites: Manuel Bueno Lasso
+
+	dir ./Sprites/Enviroment
+	Suelo_1: David González Rueda.
+	Fondo_PrimerPlano_SinIngredientes: David González Rueda
+	Fondo__SegundoPlano_Letras: David González Rueda
+	Fondo__SegundoPlano_SinLetras: David González Rueda
+	Fondo_TercerPlano: David González Rueda
+	Fondo_CuartoPlano: David González Rueda
+	
+	dir ./Sprites/FondosArreglados
+	Fondo_PrimerPlano_SinIngredientes_Retoque: David González Rueda
+	Fondo__SegundoPlano_Letras_Retoque : David González Rueda
+	Fondo_TercerPlano_Retoque: David González Rueda
+	Fondo_CuartoPlano_Retoque: David González Rueda
+	
+	
+	dir ./Sprites/Ingredientes
+	todos_ingredientes: David González Rueda
+
+	dir ./Sprites/Obstacles	
+	Stove_sprite: Manuel Bueno Lasso
+	Fire_long_sprites: Manuel Bueno Lasso
+	Fire_mid_sprites: Manuel Bueno Lasso
+	Fire_small_sprites: Manuel Bueno Lasso
+	Obstacles_knife:Manuel Bueno Lasso
+	Obstackes_signal_knife: Manuel Bueno Lasso
+	Obstackes_signal_roll: Manuel Bueno Lasso
+	pizzaCutter_sprites: Manuel Bueno Lasso
+	Roll_sprites: Manuel Bueno Lasso
+
+	dir ./Sprites/Pizza
+	Pizza_horizontal_sprites: Manuel Bueno Lasso
+	Pizza_vertical_sprites: Manuel Bueno Lasso
+	
+	dir ./Sprites/UI
+		dir ./UI/Death
+		DeathUI:Background: David González Rueda
+		DeathUI_Button_Home: David González Rueda
+		DeathUI_Button_Premium: David González Rueda
+		DeathUI_Button_Reset: David González Rueda
+		DeathUI_Button_Skip: David González Rueda
+		DeathUI_Button_Video: David González Rueda
+		DeathUI_WithPlaceholders: David González Rueda 
+
+		dir ./UI/Icons	
+		Icon_1Minute: Manuel Bueno Lasso
+		Icon_15Matches: Manuel Bueno Lasso
+		Icon_500Points: Manuel Bueno Lasso
+		Icon_5000Points: Manuel Bueno Lasso
+		Icon_Aloha: Manuel Bueno Lasso
+		Icon_FirstTip: Manuel Bueno Lasso
+		Icon_hitOnTheBeat: Manuel Bueno Lasso
+		Icon_katana: Manuel Bueno Lasso
+		Icon_pig: Manuel Bueno Lasso
+		Icon_tomatoDay: Manuel Bueno Lasso
+
+		dir ./UI/InGame
+		GameUI_Base: David González Rueda
+		GameUI_Order: David González Rueda
+		GameUI_Placeholders: David González Rueda
+		JumpButton: David González Rueda		
+
+		dir ./UI/MainMenu
+		MainUI_Base: David González Rueda
+		MainUI_MissionLayout: David González Rueda
+		MainUI_MissionSkip: David González Rueda
+		MainUI_Options: David González Rueda
+		MainUI_Shop: David González Rueda
+		MainUI_Wardrobe: David González Rueda
+		MainUI_WithPlaceHolders: David González Rueda	
+
+		dir ./UI/Minigame
+		Right_Button: David González Rueda
+		Left_Button: David González Rueda		
+
+		dir ./UI/MomentoPropina
+		Coin: Manuel Bueno Lasso
+		MomentoPropinaJar: Manuel Bueno Lasso
+		MomentoPropinaSign_noText: Manuel Bueno Lasso
+		MomentoPropinaSign_PlaceHolder: Manuel Bueno Lasso
+
+		dir ./UI/Options
+		Button_1: David González Rueda
+		Button_2: David González Rueda
+		Button_3: David González Rueda
+		Option_Stick: David González Rueda
+		OptionsUI_Clear: David González Rueda
+		OptionsUI_Sound: David González Rueda
+		OptionsUI_WithPlaceholders: David González Rueda
+		OptionsUI_WithPlaceholders_Language: David González Rueda
+		UIBackButton: David González Rueda
+		UIBarButton: David González Rueda
+		UIBarFiller: David González Rueda
+		UIBarNoFill: David González Rueda
+		UIOptionButton: David González Rueda
+
+		dir ./UI/Pause
+		PauseUI_Base: David González Rueda
+		PauseUI_Home: David González Rueda
+		PauseUI_Options: David González Rueda
+		PauseUI_Resume: David González Rueda
+		PauseUI_Retry: David González Rueda
+		PauseUI_WithPlaceholders: David González Rueda
+		
+		dir ./UI/Shop
+		UIShop_Base: David González Rueda + Manuel Bueno Lasso
+		UIShop_WithPlaceholders: David González Rueda + Manuel Bueno Lasso
+
+		dir ./UI/Tutorial
+		Tutorial_Button: David González Rueda
+		tutorial_mobile: David González Rueda
+		tutorial_pc: David González Rueda
+
+		dir ./UI/Wardrobe
+		WardrobeUI_Base: David González Rueda
+		WardrobeUI_Item: David González Rueda
+		WardrobeUI_Item_Selected: David González Rueda
+		WardrobeUI_PlaceHolders: David González Rueda
+
+dir ./UI/FinalTouches
+Bought_Button: David González Rueda
+Buy_Button: David González Rueda
+Coin_Frame: David González Rueda + Manuel Bueno Lasso
+Crono: David González Rueda
+LeftArrowButton: David González Rueda
+Pause_Button: David González Rueda
+RightArrowButton: David González Rueda
+ShopItem_NotBought: David González Rueda + Manuel Bueno Lasso
+ShopItem_Selected: David González Rueda + Manuel Bueno Lasso
+UIShop_Base_WithCoins: David González Rueda + Manuel Bueno Lasso
+UIShop_WithPlaceHolders: David González Rueda + Manuel Bueno Lasso
+
 
 dir./Avatares (Repositorio de Cannibal-Coconut)
 Avatar_Ángel: Manuel Bueno Lasso
