@@ -11,13 +11,12 @@ public class SceneLoader : MonoBehaviour
     //SceneIndex saved to load after loading screen
     private int savedNextSceneIndex;
     //const loading screen index to call when loading screen
-    private const int LOADING_SCREEN_INDEX = 1;
+    private const int LOADING_SCREEN_INDEX = 2;
 
     static SceneLoader _instance;
 
     private void Awake()
     {
-
         if (_instance)
         {
             Destroy(gameObject);
@@ -39,10 +38,8 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator StartingAnimation()
     {
-
         yield return new WaitForSeconds(0f);
         LoadScene(2);
-
     }
 
 

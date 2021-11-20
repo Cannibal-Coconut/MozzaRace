@@ -32,7 +32,7 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
         if (_instance)
         {
             _instance.SetListeners();
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
         }
         else
         {

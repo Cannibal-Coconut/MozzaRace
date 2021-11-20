@@ -102,7 +102,7 @@ public class MenuManager : MonoBehaviour
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1.0f;
-        sceneLoader.LoadScene(2);
+        sceneLoader.LoadScene(3);
     }
 
     public void ResetGame()
