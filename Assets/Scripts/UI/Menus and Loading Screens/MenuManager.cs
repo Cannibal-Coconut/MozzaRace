@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class MenuManager : MonoBehaviour
 {
-    
     SceneLoader sceneLoader;
 
     [SerializeField] private Canvas _mainMenuCanvas;
@@ -19,10 +19,12 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Spawner _spawner;
 
 
+    [SerializeField] private Settings _settings;
+    [SerializeField] private Shop _shop;
+    [SerializeField] private Wardrobe _wardrobe;
 
-    [SerializeField] Settings _settings;
-    [SerializeField] Shop _shop;
-    [SerializeField] Wardrobe _wardrobe;
+    [SerializeField] private PlayerManager _playerManager;
+    [SerializeField] private PizzaCutManager _pizzaCutManager;
 
     SceneLoader _sceneLoader;
 
@@ -33,6 +35,7 @@ public class MenuManager : MonoBehaviour
         _sceneLoader = FindObjectOfType<SceneLoader>();
         _spawner = FindObjectOfType<Spawner>();
     }
+
     private void Start()
     {
         sceneLoader = FindObjectOfType<SceneLoader>();
@@ -41,105 +44,100 @@ public class MenuManager : MonoBehaviour
 
         _pauseMenuCanvas.enabled = false;
         OpenMainMenu();
-
     }
 
-    public void OpenShop(){
-
+    public void OpenShop()
+    {
         _shop.Display();
-    
     }
 
 
-    public void OpenWardrobe(){
-
+    public void OpenWardrobe()
+    {
         _wardrobe.Display();
-        _wardrobeButton.gameObject.SetActive(false);        
+        _wardrobeButton.gameObject.SetActive(false);
     }
 
-    public void OpenSettings(){
-
-            
+    public void OpenSettings()
+    {
         _settings.Show();
-
     }
 
-    public void InitGame(){
-
-       _mainMenuCanvas.enabled = false;
+    public void InitGame()
+    {
+        _playerManager.enabled = true;
+        _mainMenuCanvas.enabled = false;
         _game.SetGamePos();
-       ResetGame();
-       ResumeGame();
-
-
+        ResetGame();
+        ResumeGame();
     }
 
-    public void OpenPauseMenu(){
-
+    public void OpenPauseMenu()
+    {
+        _playerManager.enabled = false;
         _pauseMenuCanvas.enabled = true;
         Time.timeScale = 0.0f;
     }
 
-    public void ResumeGame(){
-
+    public void ResumeGame()
+    {
+        _playerManager.enabled = true;
         Time.timeScale = 1.0f;
         _pauseMenuCanvas.enabled = false;
     }
 
-    
-    public void QuitGame(){
 
+    public void QuitGame()
+    {
         Application.Quit();
-
     }
-    
-    public void OpenMainMenu(){
+
+    public void OpenMainMenu()
+    {
+        _playerManager.enabled = true;
         _mainMenuCanvas.enabled = true;
         Time.timeScale = 0.0f;
-    }   
+    }
 
-
-    public void ReturnToMainMenu(){
+    public void ReturnToMainMenu()
+    {
         Time.timeScale = 1.0f;
         sceneLoader.LoadScene(2);
     }
 
-    public void ResetGame(){
-        
+    public void ResetGame()
+    {
+        _playerManager.enabled = true;
         _inventory.ResetInventory();
         _player.Live();
-        
-        
     }
 
 
-    public void RestartButton(){
-        
+    public void RestartButton()
+    {
+        _playerManager.enabled = true;
         _inventory.ResetInventory();
         _spawner.StopSpawn();
         _player.Live();
-
-
     }
-    public void DisablePauseButton(){
 
+    public void DisablePauseButton()
+    {
         _pauseMenuButton.enabled = false;
-
     }
-    public void EnablePauseButton(){
+
+    public void EnablePauseButton()
+    {
         _pauseMenuButton.enabled = true;
-
-
     }
 
-    public void EnableWardrobeButton(){
-
+    public void EnableWardrobeButton()
+    {
         _wardrobeButton.gameObject.SetActive(true);
-
     }
-    public void PlayButtonSound(){
 
+    public void PlayButtonSound()
+    {
         SoundManager.PlaySound(SoundManager.Sound.MENUPOP, 1f);
-
     }
 }

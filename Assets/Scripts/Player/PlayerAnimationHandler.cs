@@ -83,7 +83,7 @@ enum FSM {
                    if(_playerInfo.GetGrounded()) _state = FSM.Running; 
                     else _state = FSM.Airborne;
                }
-            break;
+                break;
             case FSM.Dead:
                 PlayAnimation("Death", true, 0f);
             break;
@@ -99,9 +99,8 @@ enum FSM {
         if(_state == FSM.Airborne && _playerInfo.GetGrounded())  _state = FSM.Landing;
 
         if(_playerInfo.GetGrounded()) {
-
+            if(_state == FSM.Landing) if(AnimationIsFinished(CheckPizzaString("Landing"), _playerInfo.GetPizzaStatus(), 1f))  _state = FSM.Running;
             if(_playerInfo.GetLoadingPizzaStatus()){ _state = FSM.Loading;}
-            if(_state == FSM.Landing) if(AnimationIsFinished(CheckPizzaString("Landing"), _playerInfo.GetPizzaStatus(), 1f))  _state = FSM.Running;  
         }
 
         if(!_playerInfo.GetGrounded() &&  (_state == FSM.Running || _state == FSM.Landing || _state == FSM.Loading)) _state = FSM.Jumping;
