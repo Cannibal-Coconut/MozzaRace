@@ -6,10 +6,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class ProfileInventory : MonoBehaviour
+public class ProfileInventory : MonoBehaviour, ILiveListener
 {
-    public int premiumCoins { get; private set; }
-    public int skinPoints { get; private set; }
+    public int points { get; private set; }
 
     static ProfileInventory _instance;
 
@@ -31,21 +30,19 @@ public class ProfileInventory : MonoBehaviour
         //Make Sure there is only one of these.
         if (_instance)
         {
+            _instance.SetListeners();
             Destroy(gameObject);
         }
         else
         {
             _instance = this;
-            //DontDestroyOnLoad(this);
+            transform.parent = null;
+            DontDestroyOnLoad(this);
 
             _logged = false;
             _databaseCoroutineAvaliable = true;
 
-            /*
-             * LoadProfileData();
-
-            AddOnEconomyChangeListener(SaveProfileData);
-            */
+            SetListeners();
         }
     }
 
@@ -53,6 +50,15 @@ public class ProfileInventory : MonoBehaviour
     {
         //StartCoroutine(SignIn("Testamon", "12345"));
 
+    }
+
+    public void AddBoughtSkin(Skin skin)
+    {
+        skin.purchased = true;
+
+        skins.Add(skin);
+
+        UpdateInventoryInDatabase();
     }
 
     public void LogInFromDatabase(string username, string password, Action successCallback, Action failureCallback)
@@ -84,7 +90,7 @@ public class ProfileInventory : MonoBehaviour
 
         using (UnityWebRequest www = UnityWebRequest.Post(DatabaseDomainURL + "/LogIn.php", form))
         {
-            yield return www.Send();
+            yield return www.SendWebRequest();
 
             if (www.result == UnityWebRequest.Result.ConnectionError)
             {
@@ -139,13 +145,13 @@ public class ProfileInventory : MonoBehaviour
 
         skins = new List<Skin>();
         skins.Add(new Skin(Color.white, 0));
-        var saveData = new ProfileSaveData(skinPoints, skins);
+        var saveData = new ProfileSaveData(points, skins);
 
         form.AddField("loginData", JsonUtility.ToJson(saveData));
 
         using (UnityWebRequest www = UnityWebRequest.Post(DatabaseDomainURL + "/SignIn.php", form))
         {
-            yield return www.Send();
+            yield return www.SendWebRequest();
 
             if (www.result == UnityWebRequest.Result.ConnectionError)
             {
@@ -208,13 +214,13 @@ public class ProfileInventory : MonoBehaviour
         form.AddField("updateUser", username);
         form.AddField("updatePass", password);
 
-        var saveData = new ProfileSaveData(skinPoints, skins);
+        var saveData = new ProfileSaveData(points, skins);
 
         form.AddField("updateData", JsonUtility.ToJson(saveData));
 
         using (UnityWebRequest www = UnityWebRequest.Post(DatabaseDomainURL + "/UpdateUser.php", form))
         {
-            yield return www.Send();
+            yield return www.SendWebRequest();
 
             if (www.result == UnityWebRequest.Result.ConnectionError)
             {
@@ -253,7 +259,7 @@ public class ProfileInventory : MonoBehaviour
 
     void SetProfileFromData(ProfileSaveData data)
     {
-        skinPoints = data.points;
+        points = data.points;
         skins = data.skins;
     }
 
@@ -262,9 +268,9 @@ public class ProfileInventory : MonoBehaviour
         _onEconomyChange += action;
     }
 
-    public void AddPremiumCoins(int value)
+    public void AddPoints(int value)
     {
-        premiumCoins += Mathf.Abs(value);
+        points += Mathf.Abs(value);
 
 
         if (_onEconomyChange != null)
@@ -273,40 +279,13 @@ public class ProfileInventory : MonoBehaviour
         }
     }
 
-    public void RemovePremiumCoins(int value)
+    public void RemovePoints(int value)
     {
-        premiumCoins -= Mathf.Abs(value);
+        points -= Mathf.Abs(value);
 
-        if (premiumCoins < 0)
+        if (points < 0)
         {
-            premiumCoins = 0;
-
-        }
-
-        if (_onEconomyChange != null)
-        {
-            _onEconomyChange.Invoke();
-        }
-    }
-
-    public void AddSkinPoints(int value)
-    {
-        skinPoints += Mathf.Abs(value);
-
-
-        if (_onEconomyChange != null)
-        {
-            _onEconomyChange.Invoke();
-        }
-    }
-
-    public void RemoveSkinPoints(int value)
-    {
-        skinPoints -= Mathf.Abs(value);
-
-        if (skinPoints < 0)
-        {
-            skinPoints = 0;
+            points = 0;
 
         }
 
@@ -319,6 +298,25 @@ public class ProfileInventory : MonoBehaviour
 
     }
 
+    public void OnLive()
+    {
+        UpdateInventoryInDatabase();
+    }
+
+    public void OnDead()
+    {
+        UpdateInventoryInDatabase();
+    }
+
+    public void SetListeners()
+    {
+        var player = FindObjectOfType<Health>();
+        if (player)
+        {
+            player.AddLiveListener(OnLive);
+            player.AddDeadListener(OnDead);
+        }
+    }
 
     [Serializable]
     public class ProfileSaveData

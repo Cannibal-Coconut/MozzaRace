@@ -28,7 +28,6 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        _inventory = FindObjectOfType<IngredientInventory>();
         _game = FindObjectOfType<GameStateManager>();
         _player = FindObjectOfType<Health>();
         _sceneLoader = FindObjectOfType<SceneLoader>();
