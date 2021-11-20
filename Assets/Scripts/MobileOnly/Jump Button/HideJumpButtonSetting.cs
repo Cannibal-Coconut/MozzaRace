@@ -14,7 +14,7 @@ public class HideJumpButtonSetting : MonoBehaviour
 
     private bool isActive;
 
-    private void Awake()
+    private void Start()
     {
         _button = GetComponent<Button>();
 

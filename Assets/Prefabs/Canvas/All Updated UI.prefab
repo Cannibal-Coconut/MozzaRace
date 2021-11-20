@@ -9033,6 +9033,7 @@ GameObject:
   - component: {fileID: 1098458323215301600}
   - component: {fileID: 2454132754891975976}
   - component: {fileID: 366433195}
+  - component: {fileID: 366433196}
   m_Layer: 5
   m_Name: JumpButton
   m_TagString: Untagged
@@ -9056,7 +9057,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 133, y: -324}
+  m_AnchoredPosition: {x: 133, y: -301}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &857117923168488390
@@ -9082,7 +9083,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.5686275}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 476.5, y: 20.5, z: 434.7, w: -854.6}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9167,7 +9168,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -41.141006, y: 470}
+  m_Offset: {x: -41.141006, y: 475.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -9178,7 +9179,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 543.8, y: 2158.3}
+  m_Size: {x: 1153.6, y: 1777}
   m_EdgeRadius: 0
 --- !u!114 &366433195
 MonoBehaviour:
@@ -9192,7 +9193,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da209022750bfde4aa548eee413243bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 2693532961023892915}
+  _settingButton: {fileID: 2693532961023892915}
+--- !u!114 &366433196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034722392364037160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7364293f492c12447858d1e2ea4f7d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3036428174114165469
 GameObject:
   m_ObjectHideFlags: 0

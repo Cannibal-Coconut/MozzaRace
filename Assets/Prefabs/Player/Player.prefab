@@ -166,7 +166,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.7999997, y: 4.5}
+    oldSize: {x: 4.8, y: 4.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -414,7 +414,7 @@ MonoBehaviour:
   power: 15.1
   recallSpeed: 20.8
   recallWaitTime: 0.81
-  minimalDistance: 0
+  minimalDistance: 1
   grabPizzaRadius: 0.64
   _pizzaSprite: {fileID: 5386698085040095963}
   _pizzaCollider: {fileID: 5386698085040095962}
@@ -658,7 +658,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.7999997, y: 4.7999997}
+    oldSize: {x: 4.8, y: 4.8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

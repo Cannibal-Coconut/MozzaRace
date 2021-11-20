@@ -13,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
     [Range(1, 50)] [SerializeField] private float recallSpeed; // Recall speed of the pizza
     [Range(0, 3)] [SerializeField] private float recallWaitTime; // Recall speed of the pizza
 
-    [Range(0, 1)] [SerializeField]
+    [Range(0, 3)] [SerializeField]
     private float minimalDistance; // Minimal distance between the start and the end points of the charge
 
     [Range(0, 3)] public float grabPizzaRadius; // Radius of the grab
@@ -45,6 +45,9 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
+        if (PlatformDetector.IsPlatformMobile())
+            minimalDistance = 3;
+        
         _launchTrajectory = GetComponent<LaunchTrajectory>();
         _playerInfo = GetComponent<PlayerMovementInterface>();
 
@@ -76,9 +79,9 @@ public class PlayerAttack : MonoBehaviour
         _endPoint = endPoint;
         isAttackStarted = false;
         _launchTrajectory.EraseLine();
-        _playerInfo.LaunchPizzaTrigger();
         if (IsMinimalDistance() && _pizzaLaunch.IsWithPlayer())
         {
+            _playerInfo.LaunchPizzaTrigger();
             _pizzaLaunch.ThrowPizza(Vector3.Normalize(_endPoint - _startPoint));
             StartCoroutine(RecallTime(recallWaitTime));
         }
