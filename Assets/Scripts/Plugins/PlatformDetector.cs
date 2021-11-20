@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 
-public class PlatformDetector
+public static class PlatformDetector
 {
     [DllImport("__Internal")]
     private static extern bool IsMobile();
-    public bool IsPlatformMobile()
+    public static bool IsPlatformMobile()
     {
 #if !UNITY_EDITOR && UNITY_WEBGL
             return IsMobile();
