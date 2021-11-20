@@ -6,22 +6,32 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class HideJumpButton : MonoBehaviour
 {
-    private Image _image;
+    [SerializeField] private Button _settingButton;
 
-    [SerializeField] private Button _button;
+    private Color _buttonColorBlock;
 
-    private void Awake()
+    private void Start()
     {
-        _image = GetComponent<Image>();
+        _buttonColorBlock = GetComponent<Button>().colors.normalColor;
         
-        _button.onClick.AddListener(HideImage);
+        _settingButton.onClick.AddListener(HideImage);
 
         if (!PlatformDetector.IsPlatformMobile())
+        {
             gameObject.SetActive(false);
+        }
     }
 
     private void HideImage()
     {
-        _image.enabled = !_image.enabled;
+        switch (_buttonColorBlock.a)
+        {
+            case 255:
+                _buttonColorBlock.a = 0;
+                break;
+            case 0:
+                _buttonColorBlock.a = 255;
+                break;
+        }
     }
 }

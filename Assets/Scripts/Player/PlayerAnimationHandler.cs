@@ -79,6 +79,10 @@ enum FSM {
             break;
             case FSM.Loading:
                 PlayAnimation("RunningLoading", true, 0f);
+                if(AnimationIsFinished("Spinning", _playerInfo.GetPizzaStatus(), 1f)){
+                   if(_playerInfo.GetGrounded()) _state = FSM.Running; 
+                    else _state = FSM.Airborne;
+               }
             break;
             case FSM.Dead:
                 PlayAnimation("Death", true, 0f);

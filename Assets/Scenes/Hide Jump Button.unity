@@ -521,11 +521,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &366433189 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3034722392364037160, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
-  m_PrefabInstance: {fileID: 2693532961428391619}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &469235287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,6 +1186,10 @@ PrefabInstance:
       propertyPath: _playerManager
       value: 
       objectReference: {fileID: 740086478}
+    - target: {fileID: 5386698084442602757, guid: ebaf443f795d60048add89176f2e0b0d, type: 3}
+      propertyPath: minimalDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5386698084442602760, guid: ebaf443f795d60048add89176f2e0b0d, type: 3}
       propertyPath: _itemSet
       value: 
@@ -2441,38 +2440,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2454132754891975976, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
-      propertyPath: m_Size.x
-      value: 543.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454132754891975976, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
-      propertyPath: m_Size.y
-      value: 2158.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2454132754891975976, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
-      propertyPath: m_Offset.y
-      value: 470
-      objectReference: {fileID: 0}
-    - target: {fileID: 2693532961023892915, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2693532961023892915, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2693532961023892915, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 366433189}
-    - target: {fileID: 2693532961023892915, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2693532961225050604, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2693532961828519874, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2521,17 +2488,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: All Updated UI
       objectReference: {fileID: 0}
-    - target: {fileID: 2693532962633136955, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
-      propertyPath: m_text
-      value: 'Hide Jump Button : OFF'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2693532962633136955, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
-      propertyPath: m_fontSize
-      value: 95
-      objectReference: {fileID: 0}
-    - target: {fileID: 2693532962633136955, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 95
+    - target: {fileID: 3034722392364037160, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f99b31cf1ac31a94ab5cfae344dd2066, type: 3}
