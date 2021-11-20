@@ -8,7 +8,7 @@ public class LanguageContext : MonoBehaviour
 
     public Language currentLanguage { get; private set; }
 
-    private void Awake()
+    private void Start()
     {
         if (_instance)
         {
@@ -17,15 +17,12 @@ public class LanguageContext : MonoBehaviour
         }
         else
         {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-            UpdateLanguageChangeables();
-        }
-    }
 
-    private void Start()
-    {
-        ChangeLanguage(Language.English);
+            _instance = this;
+            transform.parent = null;
+            DontDestroyOnLoad(gameObject);
+            ChangeLanguage(Language.English);
+        }
     }
 
     public void ChangeLanguage(Language language)

@@ -20,8 +20,6 @@ public class Shop : MonoBehaviour
     [SerializeField] SkinHolder[] _skinHolders;
     [SerializeField] TextMeshProUGUI _moneyMesh;
 
- 
-
     Skin[] _skins;
     int _currentSkinSpage;
     int maxPage = 0;
@@ -40,8 +38,6 @@ public class Shop : MonoBehaviour
         Hide();
 
         CreateSkins();
-
-
     }
 
     private void Start()
@@ -49,6 +45,8 @@ public class Shop : MonoBehaviour
         SetButtons();
 
         SetSkinPage(0);
+
+        UpdateMoney();
     }
 
     public void SelectSkinHolder(SkinHolder skinHolder)

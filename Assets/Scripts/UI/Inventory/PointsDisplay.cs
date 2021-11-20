@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,10 +13,21 @@ public class PointsDisplay : MonoBehaviour
     [Header("References")]
     [SerializeField] TextMeshProUGUI _textMesh;
 
-    public void SetPointsInDisplay(int points) {
+    ProfileInventory _inventory;
 
-        if (_textMesh != null) {
-            _textMesh.text = "Points: " + points;
+    private void Awake()
+    {
+        _inventory = FindObjectOfType<ProfileInventory>();
+
+        _inventory.AddOnEconomyChangeListener(SetPointsInDisplay);
+    }
+
+    public void SetPointsInDisplay()
+    {
+        if (_textMesh != null)
+        {
+            _textMesh.text = "Points: " + _inventory.matchPoints;
+
         }
 
     }
