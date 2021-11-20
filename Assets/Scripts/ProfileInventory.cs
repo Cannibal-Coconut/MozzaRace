@@ -30,12 +30,14 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
         //Make Sure there is only one of these.
         if (_instance)
         {
+            _instance.SetListeners();
             Destroy(gameObject);
         }
         else
         {
             _instance = this;
-            //DontDestroyOnLoad(this);
+            transform.parent = null;
+            DontDestroyOnLoad(this);
 
             _logged = false;
             _databaseCoroutineAvaliable = true;

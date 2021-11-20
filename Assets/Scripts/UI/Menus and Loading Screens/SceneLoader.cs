@@ -5,25 +5,40 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    
+
     //private async load operation
     private AsyncOperation sceneLoadAsyncOperation;
     //SceneIndex saved to load after loading screen
     private int savedNextSceneIndex;
     //const loading screen index to call when loading screen
-    private const int LOADING_SCREEN_INDEX = 1; 
+    private const int LOADING_SCREEN_INDEX = 1;
 
-    private void Awake() {
-        DontDestroyOnLoad(this.gameObject);
+    static SceneLoader _instance;
+
+    private void Awake()
+    {
+
+        if (_instance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+            transform.parent = null;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     #region TESTING
 
-    private void Start() {
+    private void Start()
+    {
         StartCoroutine(StartingAnimation());
     }
 
-    private IEnumerator StartingAnimation(){
+    private IEnumerator StartingAnimation()
+    {
 
         yield return new WaitForSeconds(1.5f);
         LoadScene(2);
@@ -38,14 +53,16 @@ public class SceneLoader : MonoBehaviour
 
 
     //public async load operation getter
-    public AsyncOperation GetAsyncLoadOp(){
+    public AsyncOperation GetAsyncLoadOp()
+    {
 
         return sceneLoadAsyncOperation;
 
     }
 
-     //public next loadable scene index getter
-    public int  GetSavedNextSceneIndex(){
+    //public next loadable scene index getter
+    public int GetSavedNextSceneIndex()
+    {
 
         return savedNextSceneIndex;
 
@@ -54,8 +71,9 @@ public class SceneLoader : MonoBehaviour
 
 
     //Public function to load scene from index 
-    public void LoadScene(int nextSceneIndex){
-        
+    public void LoadScene(int nextSceneIndex)
+    {
+
         //load asynchronously from an index using coroutines
         savedNextSceneIndex = nextSceneIndex;
         StartCoroutine(LoadSceneAsync(LOADING_SCREEN_INDEX));
@@ -63,32 +81,36 @@ public class SceneLoader : MonoBehaviour
     }
 
 
-    public void LoadNextScene(){
+    public void LoadNextScene()
+    {
 
-        LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+        LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
 
-    public void LoadPreviousScene(){
+    public void LoadPreviousScene()
+    {
 
-        LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+        LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 
     }
 
 
     //Coroutine
-    public IEnumerator LoadSceneAsync(int asyncSceneIndex){
+    public IEnumerator LoadSceneAsync(int asyncSceneIndex)
+    {
 
         //save load operation for progress bars/data
         sceneLoadAsyncOperation = SceneManager.LoadSceneAsync(asyncSceneIndex);
-        
+
         //wait until loading is done
-        while(!sceneLoadAsyncOperation.isDone){
-        yield return null;
+        while (!sceneLoadAsyncOperation.isDone)
+        {
+            yield return null;
         }
     }
 
 }
 
 
-    
+
