@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,14 +11,22 @@ public class SkinHolder : MonoBehaviour
     [Header("References")]
     [SerializeField] Button _button;
     [SerializeField] Image _image;
+    [SerializeField] Image _frameImage;
+
+    [SerializeField] TextMeshProUGUI _priceText;
 
     [Header("Settings")]
     [SerializeField] HolderType _holderType;
 
+    [Header("Settings")]
+    [SerializeField] Sprite _selectedSprite;
+    [SerializeField] Sprite _unselectedSprite;
+
     PlayerSkin _playerSkin;
+    Shop _shop;
 
     CanvasGroup _canvasGroup;
-    Skin _skin;
+    public Skin skin { get; private set; }
     ProfileInventory _profileInventory;
 
     public enum HolderType
@@ -30,29 +39,38 @@ public class SkinHolder : MonoBehaviour
     private void Awake()
     {
         _playerSkin = FindObjectOfType<PlayerSkin>();
+        _shop = FindObjectOfType<Shop>();
 
         _canvasGroup = GetComponent<CanvasGroup>();
 
         _profileInventory = FindObjectOfType<ProfileInventory>();
-
-
 
         switch (_holderType)
         {
             case HolderType.Shop:
                 _button.onClick.AddListener(() =>
                 {
-                    Purchase();
+                    _shop.SelectSkinHolder(this);
                 });
                 break;
             case HolderType.Wardrobe:
                 _button.onClick.AddListener(() =>
                 {
-                    Equip();
+                    _playerSkin.SetSkin(skin);
                 });
                 break;
         }
 
+    }
+
+    public void Select()
+    {
+        _frameImage.sprite = _selectedSprite;
+    }
+
+    public void Deselect()
+    {
+        _frameImage.sprite = _unselectedSprite;
     }
 
     public void Hide()
@@ -70,41 +88,26 @@ public class SkinHolder : MonoBehaviour
 
     public void SetSkin(Skin skin)
     {
-        _skin = skin;
+        this.skin = skin;
 
-        _image.color = _skin.color;
+        _image.color = this.skin.color;
 
+        if (_priceText)
+        {
+            _priceText.text = skin.value.ToString();
+        }
 
     }
 
     public void Equip()
     {
-        if (_skin.purchased)
+        if (skin.purchased)
         {
             Debug.Log("SKIN!");
-            _playerSkin.SetSkin(_skin);
+            _playerSkin.SetSkin(skin);
         }
     }
 
-    public void Purchase()
-    {
-        if (!_skin.purchased)
-        {
-            if (_profileInventory.skinPoints >= _skin.value)
-            {
-                _profileInventory.RemoveSkinPoints(_skin.value);
-
-                if (!_skin.purchased)
-                {
-                    _skin.purchased = true;
-
-                    _profileInventory.skins.Add(_skin);
-                }
-
-            }
-        }
-
-    }
 
 
 

@@ -19,6 +19,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     [SerializeField] [Range(0.1f, 1)] float _assigningDelay = 0.5f;
 
     InventorySettings _settings;
+    ProfileInventory _profileInventory;
 
     public InventorySettings defaulSettings;
 
@@ -31,8 +32,6 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     List<DelayedIngredient> _delayedIngredients;
     //Index for selected MealOrder from orders list.
     int _selectedOrder;
-
-    public int points { get; private set; }
 
     AudioSource _audioSource;
     OrderDisplay _orderDisplay;
@@ -83,6 +82,8 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
         _orderDisplay = FindObjectOfType<OrderDisplay>();
         _pointsDisplay = FindObjectOfType<PointsDisplay>();
+
+        _profileInventory = FindObjectOfType<ProfileInventory>();
 
         PreparepickingUpColliders();
 
@@ -183,11 +184,11 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
     void ChangePoints(int value)
     {
-        points += value;
+        _profileInventory.AddPoints(value);
 
         if (_pointsDisplay)
         {
-            _pointsDisplay.SetPointsInDisplay(points);
+            _pointsDisplay.SetPointsInDisplay(value);
         }
 
     }
@@ -421,11 +422,9 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
     public void ResetInventory()
     {
-
         for (int i = 0; i < orders.Count; i++) RemoveOrder(i);
         for (int i = 0; i < orders.Count; i++) RemoveOrder(i);
-        points = 0;
-        ChangePoints(points);
+     
         AddRandomOrder();
     }
 
