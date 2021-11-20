@@ -6,22 +6,21 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(PlayerAttack))]
 [RequireComponent(typeof(IngredientInventory))]
-
 public class PlayerMovementInterface : MonoBehaviour
 {
-
-  //References to other player scripts which contain important information this script listens to
+    //References to other player scripts which contain important information this script listens to
     private PlayerJump _playerJump;
     private Health _playerHealth;
     private PlayerAttack _playerAttack;
 
+    [SerializeField] private PlayerManager playerManager;
+
     private int _pizzaStatus;
-  
-    enum PizzaStatus{
 
-    hasPizza,
-    noPizza
-
+    enum PizzaStatus
+    {
+        hasPizza,
+        noPizza
     }
 
     public delegate void OnLaunchPizza();
@@ -33,87 +32,83 @@ public class PlayerMovementInterface : MonoBehaviour
     public event OnLaunchPizza onReceivePizza;
 
 
-  
     public delegate void Death();
 
     public event Death onDeath;
 
-    private void Start() {
-    
+    private void Start()
+    {
         _playerJump = GetComponent<PlayerJump>();
         _playerHealth = GetComponent<Health>();
         _playerAttack = GetComponent<PlayerAttack>();
         _playerHealth.AddDeadListener(IsDead);
-
     }
 
 //Get grounded state
-  public bool GetGrounded(){
-
-      return _playerJump.GetIsGrounded();;
-
-  }
+    public bool GetGrounded()
+    {
+        return _playerJump.GetIsGrounded();
+        ;
+    }
 
 
 //Get if player is holding loading
-  public bool GetLoadingPizzaStatus(){
-
-    //if is loading
-    if(_playerAttack.isAttackStarted) {
-      return true;
-      } else return false; 
-
-  }
+    public bool GetLoadingPizzaStatus()
+    {
+        //if is loading
+        if (_playerAttack.isAttackStarted)
+        {
+            return true;
+        }
+        else return false;
+    }
 
 //Get launch pizza trigger
-  public void LaunchPizzaTrigger(){
-
-    onLaunchPizza();
-
-  }
+    public void LaunchPizzaTrigger()
+    {
+        onLaunchPizza();
+    }
 
 //get if player has pizza
-  public void  SetPizzaStatus(bool hasPizza){
+    public void SetPizzaStatus(bool hasPizza)
+    {
+        if (hasPizza)
+        {
+            _pizzaStatus = (int)PizzaStatus.hasPizza;
+            OnReceivePizzaEvent();
+        }
+        else
+        {
+            _pizzaStatus = (int)PizzaStatus.noPizza;
+        }
+    }
 
-    if(hasPizza) {_pizzaStatus = (int)PizzaStatus.hasPizza; OnReceivePizzaEvent(); }else {_pizzaStatus = (int)PizzaStatus.noPizza; }
-
-  } 
-
-  public int GetPizzaStatus(){
-
-    return _pizzaStatus;
-
-  }
+    public int GetPizzaStatus()
+    {
+        return _pizzaStatus;
+    }
 
 
 //get double jump trigger 
-  public bool HasDoubleJump(){
+    public bool HasDoubleJump()
+    {
+        return !_playerJump.GetDoubleJump();
+    }
 
-      return !_playerJump.GetDoubleJump();
+    public void OnReceivePizzaEvent()
+    {
+        onReceivePizza();
+    }
 
-  }
-
-public void OnReceivePizzaEvent(){
-
-    onReceivePizza();
-
-
-}
-
-public void IsDead(){
-
-  onDeath();
-
-}
+    public void IsDead()
+    {
+        playerManager.enabled = false;
+        onDeath();
+    }
 
 
-
-public bool GetAliveStatus(){
-  
-    return _playerHealth.GetAlive();
-
-}
-
-
-  
+    public bool GetAliveStatus()
+    {
+        return _playerHealth.GetAlive();
+    }
 }
