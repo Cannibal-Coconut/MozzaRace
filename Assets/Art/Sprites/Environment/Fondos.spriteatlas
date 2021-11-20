@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DeathUIAtlas
+  m_Name: Fondos
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -16,14 +16,14 @@ SpriteAtlas:
       maxTextureSize: 2048
       textureCompression: 0
       filterMode: 1
-      generateMipMaps: 1
-      readable: 1
+      generateMipMaps: 0
+      readable: 0
       crunchedCompression: 0
       sRGB: 1
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 2048
+      m_MaxTextureSize: 4096
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 1
@@ -43,31 +43,31 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 412da6a2d0a128d42a736333fa54be31, type: 3}
-    - {fileID: 2800000, guid: 406bf9b8fad390343b3c2167d530ab42, type: 3}
-    - {fileID: 2800000, guid: dbb73ea5a5e7ced4680e5a8450c53c5a, type: 3}
-    - {fileID: 2800000, guid: bf501a789a5bb3a45b430ab84dde1b86, type: 3}
-    - {fileID: 2800000, guid: e106a89a372adcf4db673d3d2b769e22, type: 3}
-    - {fileID: 2800000, guid: 5955cd397f623a742a2af4cc05cf11eb, type: 3}
-    totalSpriteSurfaceArea: 2521930
+    - {fileID: 2800000, guid: 400729b5a35f72649a9c9f2078d6e031, type: 3}
+    - {fileID: 2800000, guid: fbc45ca3996023c499300ccefe8fc9a1, type: 3}
+    - {fileID: 2800000, guid: 1ccf5df9c10216d47abeced51521f06f, type: 3}
+    - {fileID: 2800000, guid: 4f9d43231c8043e4fb70defc5bc5db00, type: 3}
+    - {fileID: 2800000, guid: bb471eab61fc5d844b5f47e9a1770085, type: 3}
+    - {fileID: 2800000, guid: 901c5e4417043574da78d7360d0f44b5, type: 3}
+    totalSpriteSurfaceArea: 6810910
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 412da6a2d0a128d42a736333fa54be31, type: 3}
-  - {fileID: 21300000, guid: dbb73ea5a5e7ced4680e5a8450c53c5a, type: 3}
-  - {fileID: 21300000, guid: bf501a789a5bb3a45b430ab84dde1b86, type: 3}
-  - {fileID: 21300000, guid: 406bf9b8fad390343b3c2167d530ab42, type: 3}
-  - {fileID: 21300000, guid: 5955cd397f623a742a2af4cc05cf11eb, type: 3}
-  - {fileID: 21300000, guid: e106a89a372adcf4db673d3d2b769e22, type: 3}
+  - {fileID: 21300000, guid: 4f9d43231c8043e4fb70defc5bc5db00, type: 3}
+  - {fileID: 21300000, guid: fbc45ca3996023c499300ccefe8fc9a1, type: 3}
+  - {fileID: 21300000, guid: 901c5e4417043574da78d7360d0f44b5, type: 3}
+  - {fileID: 21300000, guid: 400729b5a35f72649a9c9f2078d6e031, type: 3}
+  - {fileID: 21300000, guid: 1ccf5df9c10216d47abeced51521f06f, type: 3}
+  - {fileID: 21300000, guid: bb471eab61fc5d844b5f47e9a1770085, type: 3}
   m_PackedSpriteNamesToIndex:
-  - DeathUI_Background
-  - DeathUI_Button_Premium
-  - DeathUI_Button_Reset
-  - DeathUI_Button_Home
-  - DeathUI_Button_Video
-  - DeathUI_Button_Skip
+  - Fondo_CuartoPlano
+  - Fondo_PrimerPlano_SinIngredientes
+  - Fondo__SegundoPlano_Letras
+  - Suelo_1
+  - Fondo_TercerPlano
+  - Fondo__SegundoPlano_SinLetras
   m_RenderDataMap: {}
-  m_Tag: DeathUIAtlas
+  m_Tag: Fondos
   m_IsVariant: 0
