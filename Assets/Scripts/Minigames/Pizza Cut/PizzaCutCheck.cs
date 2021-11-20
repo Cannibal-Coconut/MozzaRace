@@ -3,11 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-1)]
 public class PizzaCutCheck : MonoBehaviour
 {
     private ChangePizza changePizza;
 
     private List<ColliderLine> _colliderLines = new List<ColliderLine>();
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.TryGetComponent(out CollisionCount collisionCount)) return;
+        if (collisionCount.Collisions() != 3)
+            PizzaFailed();
+    }
 
     private void Start()
     {
