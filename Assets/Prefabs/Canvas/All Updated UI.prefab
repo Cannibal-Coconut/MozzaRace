@@ -774,6 +774,8 @@ MonoBehaviour:
   _settings: {fileID: 2052894175272030069}
   _shop: {fileID: 3396164865187908650}
   _wardrobe: {fileID: 7091920804841787321}
+  _playerManager: {fileID: 0}
+  _pizzaCutManager: {fileID: 0}
 --- !u!1 &1267279735663917192
 GameObject:
   m_ObjectHideFlags: 0
@@ -6717,7 +6719,7 @@ MonoBehaviour:
   _restartButton: {fileID: 2693532961584229098}
   _scoreMesh: {fileID: 2693532962820863109}
   _premiumCoinsMesh: {fileID: 2693532961105094203}
-  _premiumCost: 0
+  _continueWithPointsCost: 0
 --- !u!1 &2693532961828519875
 GameObject:
   m_ObjectHideFlags: 0

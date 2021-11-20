@@ -117,7 +117,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6938088706160537204, guid: f38e89fe229486a469c2aaff70e3a9e5, type: 3}
+  m_Sprite: {fileID: -3280158853795775478, guid: 19965ab6023428a4e8aebcb836ff8453, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,7 +148,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!61 &5386698084442602764
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.8, y: 4.5}
+    oldSize: {x: 5.12, y: 5.12}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -433,15 +433,15 @@ MonoBehaviour:
   _pickingUpColliders:
   - {fileID: 5386698085040095962}
   - {fileID: 5386698084442602764}
-  _itemSet: {fileID: 0}
-  _assigningDelay: 0.5
+  _itemSet: {fileID: 11400000, guid: 87acda126c5d54742a34703b3e05c6cd, type: 2}
+  _assigningDelay: 1
   defaulSettings:
     maxOrders: 0
     baseOrderPoints: 0
-    wrongIngredientLoose: 0
-    overtimeLoose: 0
-    looseDelay: 0
-    requestedItemSpawnBuff: 0
+    wrongIngredientLoose: 5
+    overtimeLoose: 5
+    looseDelay: 1
+    requestedItemSpawnBuff: 1
   finishedOrders: -1
 --- !u!114 &5386698084442602758
 MonoBehaviour:
@@ -467,7 +467,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c40f89beffdb89845bde21c9a0cd15d5, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -499,6 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4725fd3cc7c0c0e42b1a3f8fc840c369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
 --- !u!114 &8655095806793202207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,7 +630,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 100
   m_Sprite: {fileID: 4524240982009189022, guid: a8b0fe7d7358f4f46893e9be5b6e48c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
