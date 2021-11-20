@@ -20,7 +20,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     [SerializeField] TextMeshProUGUI _premiumCoinsMesh;
 
     [Header("Settings")]
-    [SerializeField] [Range(0, 10)] int _premiumCost;
+    [SerializeField] [Range(0, 10)] int _continueWithPointsCost;
 
     CanvasGroup _canvasGroup;
 
@@ -46,20 +46,20 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
     void InitializeButtons()
     {
-        _coinContinueButton.onClick.AddListener(ContinueWithCoin);
+        _coinContinueButton.onClick.AddListener(ContinueWithPoints);
         _adContinueButton.onClick.AddListener(ContinueWithAd);
         _restartButton.onClick.AddListener(RestartGame);
         
     }
 
-    void ContinueWithCoin()
+    void ContinueWithPoints()
     {
 
         if (_profileInventory)
         {
-            if (_profileInventory.premiumCoins >= _premiumCost)
+            if (_profileInventory.points >= _continueWithPointsCost)
             {
-                _profileInventory.RemovePremiumCoins(_premiumCost);
+                _profileInventory.RemovePoints(_continueWithPointsCost);
                 _player.Live();
             }
         }
@@ -91,7 +91,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     public void Display()
     {
         _menuManager.DisablePauseButton();
-        _scoreMesh.text = "Points: " + _inventory.points.ToString();
+        _scoreMesh.text = "Points: " + _profileInventory.points.ToString();
        
         StartCoroutine(DeathAnimationWaiter());
     }

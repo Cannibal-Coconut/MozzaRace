@@ -15,17 +15,21 @@ public class Shop : MonoBehaviour
     [SerializeField] Button _previousSkinPageButton;
     [SerializeField] Button _nextSkinPageButton;
 
+    [SerializeField] Button _buySkinButton;
 
     [SerializeField] SkinHolder[] _skinHolders;
     [SerializeField] TextMeshProUGUI _moneyMesh;
 
+ 
+
     Skin[] _skins;
     int _currentSkinSpage;
     int maxPage = 0;
-
+    SkinHolder _selectedSkinHolder;
 
     CanvasGroup _canvasGroup;
     ProfileInventory _profileInventory;
+
 
     private void Awake()
     {
@@ -45,8 +49,39 @@ public class Shop : MonoBehaviour
         SetButtons();
 
         SetSkinPage(0);
+    }
 
-        
+    public void SelectSkinHolder(SkinHolder skinHolder)
+    {
+        if (_selectedSkinHolder)
+        {
+            _selectedSkinHolder.Deselect();
+        }
+
+        _selectedSkinHolder = skinHolder;
+
+        _selectedSkinHolder.Select();
+    }
+
+    void BuySkin()
+    {
+        if (_selectedSkinHolder != null)
+        {
+            if (!_selectedSkinHolder.skin.purchased)
+            {
+                if (_profileInventory.points >= _selectedSkinHolder.skin.value)
+                {
+                    _profileInventory.RemovePoints(_selectedSkinHolder.skin.value);
+
+                    if (!_selectedSkinHolder.skin.purchased)
+                    {
+                        _selectedSkinHolder.skin.purchased = true;
+
+                        _profileInventory.AddBoughtSkin(_selectedSkinHolder.skin);
+                    }
+                }
+            }
+        }
     }
 
     void CreateSkins()
@@ -101,6 +136,8 @@ public class Shop : MonoBehaviour
             _skinHolders[i].SetSkin(_skins[pageNumber * skinsPerPage + i]);
             _skinHolders[i].Show();
         }
+
+        SelectSkinHolder(_skinHolders[0]);
     }
 
     void SetButtons()
@@ -119,11 +156,13 @@ public class Shop : MonoBehaviour
         {
             SetSkinPage(_currentSkinSpage - 1);
         });
+
+        _buySkinButton.onClick.AddListener(BuySkin);
     }
 
     void UpdateMoney()
     {
-        _moneyMesh.text = _profileInventory.skinPoints.ToString();
+        _moneyMesh.text = _profileInventory.points.ToString();
     }
 
     public void Display()

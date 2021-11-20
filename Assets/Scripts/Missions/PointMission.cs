@@ -38,9 +38,9 @@ public class PointMission : Mission
 
     void OnOrderFinishedCallback(int doneOrders)
     {
-         if (_inventory.points >= _targetPoints)
+        /* if (_profileInventory.points >= _targetPoints)
         {
             _done = true;
-        }
+        }*/
     }
 }
