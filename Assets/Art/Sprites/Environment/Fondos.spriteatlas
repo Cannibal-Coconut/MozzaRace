@@ -44,30 +44,27 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: 400729b5a35f72649a9c9f2078d6e031, type: 3}
-    - {fileID: 2800000, guid: fbc45ca3996023c499300ccefe8fc9a1, type: 3}
-    - {fileID: 2800000, guid: 1ccf5df9c10216d47abeced51521f06f, type: 3}
-    - {fileID: 2800000, guid: 4f9d43231c8043e4fb70defc5bc5db00, type: 3}
-    - {fileID: 2800000, guid: bb471eab61fc5d844b5f47e9a1770085, type: 3}
-    - {fileID: 2800000, guid: 901c5e4417043574da78d7360d0f44b5, type: 3}
-    totalSpriteSurfaceArea: 6810910
+    - {fileID: 2800000, guid: 73a23a617a6b6fa4b8c3edcb77864f2d, type: 3}
+    - {fileID: 2800000, guid: d0dd9b0747ee2d8459034d8c1bf0300d, type: 3}
+    - {fileID: 2800000, guid: 4baa401deef2c4d46b48a0d41895862a, type: 3}
+    - {fileID: 2800000, guid: aafaf2f0dc2015c4d92335e4d04586ea, type: 3}
+    totalSpriteSurfaceArea: 3178496
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 4f9d43231c8043e4fb70defc5bc5db00, type: 3}
-  - {fileID: 21300000, guid: fbc45ca3996023c499300ccefe8fc9a1, type: 3}
-  - {fileID: 21300000, guid: 901c5e4417043574da78d7360d0f44b5, type: 3}
+  - {fileID: 21300000, guid: aafaf2f0dc2015c4d92335e4d04586ea, type: 3}
+  - {fileID: 21300000, guid: 73a23a617a6b6fa4b8c3edcb77864f2d, type: 3}
   - {fileID: 21300000, guid: 400729b5a35f72649a9c9f2078d6e031, type: 3}
-  - {fileID: 21300000, guid: 1ccf5df9c10216d47abeced51521f06f, type: 3}
-  - {fileID: 21300000, guid: bb471eab61fc5d844b5f47e9a1770085, type: 3}
+  - {fileID: 21300000, guid: d0dd9b0747ee2d8459034d8c1bf0300d, type: 3}
+  - {fileID: 21300000, guid: 4baa401deef2c4d46b48a0d41895862a, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Fondo_CuartoPlano
-  - Fondo_PrimerPlano_SinIngredientes
-  - Fondo__SegundoPlano_Letras
+  - Fondo_TercerPlano_Retoque
+  - Fondo__SegundoPlano_Letras_Retoque
   - Suelo_1
-  - Fondo_TercerPlano
-  - Fondo__SegundoPlano_SinLetras
+  - Fondo_CuartoPlano_Retoque
+  - Fondo_PrimerPlano_SinIngredientes_Retoque
   m_RenderDataMap: {}
   m_Tag: Fondos
   m_IsVariant: 0
