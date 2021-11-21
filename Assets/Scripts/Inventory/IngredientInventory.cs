@@ -236,7 +236,10 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     void CheckTrigger(Collider2D collider)
     {
         Item item = collider.GetComponent<Item>();
+        TipJar tipjar = collider.GetComponent<TipJar>(); 
+        Coin coin = collider.GetComponent<Coin>();
 
+        
         //Collided object is an item
         if (item)
         {
@@ -246,8 +249,15 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
             {
                 _onTakenItemAction.Invoke(item);
             }
-        }
+        } 
+        else if (tipjar) {
 
+            tipjar.StartTipTimeSpawn();
+
+        } else if (coin) {
+
+            coin.AddPointsPerCoin();
+        }
     }
 
     public void SetSettings(InventorySettings newSettings)
