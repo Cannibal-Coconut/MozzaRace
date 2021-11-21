@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8948497678076351750, guid: 0158069c639d7274c83ec771db5fd540, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8948497678076351750, guid: 0158069c639d7274c83ec771db5fd540, type: 3}
       propertyPath: m_LocalPosition.x
@@ -571,7 +571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5807158878400714240, guid: 7bd6140a5fbc47744bc3069b48448981, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5807158878400714240, guid: 7bd6140a5fbc47744bc3069b48448981, type: 3}
       propertyPath: m_AnchorMax.x
@@ -711,7 +711,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &911675137
 GameObject:
@@ -982,58 +982,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &1119315237
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1119315238}
-  - component: {fileID: 1119315239}
-  m_Layer: 0
-  m_Name: Mission Watcher
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1119315238
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119315237}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.02, y: 2.296563, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1119315239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119315237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97804aa9cd20f77419a1fcbdb57919f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _orderMissions: []
-  _pointMissions: []
-  _accumulativePointMissions: []
-  _hitRollMissions: []
-  _timeMissions: []
-  _tipMissions: []
-  _gameCounterMissions: []
-  _cutPizzaMissions: []
-  _maxSelectedMissions: 1
 --- !u!1 &1187546907 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4391831602830640197, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
@@ -1080,7 +1028,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1282781957
 GameObject:
@@ -1241,7 +1189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4391831602363511403, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4391831602363511403, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1458,7 +1406,7 @@ Transform:
   - {fileID: 1643491675}
   - {fileID: 1282781958}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1485786103
 MonoBehaviour:
@@ -1710,7 +1658,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5281956370314670812, guid: 7c627ff1004219a4a8cf06ba9f2b5cbd, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5281956370314670812, guid: 7c627ff1004219a4a8cf06ba9f2b5cbd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1757,6 +1705,14 @@ PrefabInstance:
       value: Mission Watcher (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5281956370314670815, guid: 7c627ff1004219a4a8cf06ba9f2b5cbd, type: 3}
+      propertyPath: _cutPizzaMissions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281956370314670815, guid: 7c627ff1004219a4a8cf06ba9f2b5cbd, type: 3}
+      propertyPath: _gameCounterMissions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281956370314670815, guid: 7c627ff1004219a4a8cf06ba9f2b5cbd, type: 3}
       propertyPath: _tipMissions.Array.data[0]._targetCounter
       value: 1
       objectReference: {fileID: 0}
@@ -1785,7 +1741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4891631593309048094, guid: 5be65a5c21145614b8a41a24025a134c, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4891631593309048094, guid: 5be65a5c21145614b8a41a24025a134c, type: 3}
       propertyPath: m_LocalPosition.x
