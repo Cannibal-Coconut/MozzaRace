@@ -16,10 +16,10 @@ public class HideJumpButton : MonoBehaviour
 
         settingButton.onClick.AddListener(HideImage);
 
-        // if (!PlatformDetector.IsPlatformMobile())
-        // {
-        //     gameObject.SetActive(false);
-        // }
+        if (!PlatformDetector.IsPlatformMobile())
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void HideImage()
