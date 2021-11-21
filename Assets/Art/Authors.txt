@@ -127,7 +127,10 @@ shine: Manuel Bueno Lasso
 
 		dir./UI/Login
 		Login_PlaceHolders: Manuel Bueno Lasso + David González Rueda
-		Login_UI: Manuel Bueno Lasso + David González Rueda		
+		Login_UI: Manuel Bueno Lasso + David González Rueda	
+		button_Login: Manuel Bueno Lasso + David González Rueda
+		TextField_login: Manuel Bueno Lasso
+		Background_login: Manuel Bueno Lasso + David González Rueda	
 
 		dir ./UI/MainMenu
 		Credits_Button: David González Rueda
