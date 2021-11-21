@@ -323,8 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ea0c86e9480744f82bc1ceb3731cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tipJarSpawnable: {fileID: 8501705632778821268, guid: 7bae547de8996934d89aa6961cba47eb, type: 3}
+  _tipJarSpawnable: {fileID: 8501705632778821268, guid: 0ab14f4c6585cba42b488b005df8b84b, type: 3}
   _coinPresetSpawnables:
-  - {fileID: 8501705632778821268, guid: 3a9b849a348f6f54da55d4133fe64657, type: 3}
-  - {fileID: 8501705632778821268, guid: 6b8dbd65201477947aaf64f44b979697, type: 3}
-  - {fileID: 8501705632778821268, guid: 8baaf7f1421c2b64f85c31c1d1c8d0b6, type: 3}
+  - {fileID: 8501705632778821268, guid: 100997462e753b84f891512ab8938960, type: 3}
+  - {fileID: 8501705632778821268, guid: 8ca415141bf6fb544acefdbfffd5d9bc, type: 3}

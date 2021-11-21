@@ -137,6 +137,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 1, z: 0}
+--- !u!225 &1939445152
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7771900233536113243}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &705640268510424078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -364,12 +376,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5388277063800649522, guid: c10b5307656d28d42bd16d9e759db712, type: 3}
+      propertyPath: _tipJarSpawnable
+      value: 
+      objectReference: {fileID: 8501705632778821268, guid: 0ab14f4c6585cba42b488b005df8b84b, type: 3}
+    - target: {fileID: 5388277063800649522, guid: c10b5307656d28d42bd16d9e759db712, type: 3}
+      propertyPath: _coinPresetSpawnables.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5388277063800649522, guid: c10b5307656d28d42bd16d9e759db712, type: 3}
+      propertyPath: _coinPresetSpawnables.Array.data[0]
+      value: 
+      objectReference: {fileID: 8501705632778821268, guid: 8ca415141bf6fb544acefdbfffd5d9bc, type: 3}
+    - target: {fileID: 5388277063800649522, guid: c10b5307656d28d42bd16d9e759db712, type: 3}
+      propertyPath: _coinPresetSpawnables.Array.data[1]
+      value: 
+      objectReference: {fileID: 8501705632778821268, guid: 100997462e753b84f891512ab8938960, type: 3}
+    - target: {fileID: 5388277063800649522, guid: c10b5307656d28d42bd16d9e759db712, type: 3}
+      propertyPath: _coinPresetSpawnables.Array.data[2]
+      value: 
+      objectReference: {fileID: 8501705632778821268, guid: 8ca415141bf6fb544acefdbfffd5d9bc, type: 3}
     - target: {fileID: 8758246640355567366, guid: c10b5307656d28d42bd16d9e759db712, type: 3}
       propertyPath: m_Name
       value: TipTimeCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c10b5307656d28d42bd16d9e759db712, type: 3}
+--- !u!1 &7771900233536113243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8758246640355567366, guid: c10b5307656d28d42bd16d9e759db712, type: 3}
+  m_PrefabInstance: {fileID: 1319797679736548701}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2766860639673883536 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3761915163554445005, guid: c10b5307656d28d42bd16d9e759db712, type: 3}
@@ -657,6 +694,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1500344574524282865}
+    - target: {fileID: 5455746676047648827, guid: ee24a680c3437234abfb42edf3a6bc0e, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794450171113392448, guid: ee24a680c3437234abfb42edf3a6bc0e, type: 3}
+      propertyPath: settingButton
+      value: 
+      objectReference: {fileID: 4391831603166089242}
     - target: {fileID: 7794450171113392448, guid: ee24a680c3437234abfb42edf3a6bc0e, type: 3}
       propertyPath: _settingButton
       value: 

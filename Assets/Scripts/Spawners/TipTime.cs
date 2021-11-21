@@ -38,7 +38,7 @@ public class TipTime : MonoBehaviour
         
         _inventoryPoints.onupdateMatchPoints += UpdateCurrentPoints;
         _offsetPoints = 0;
-        _tipTimePointThreshhold = 10;
+        _tipTimePointThreshhold = 500;
         _TipTimeCanvas.alpha = 0;
     }
 
@@ -85,7 +85,7 @@ public class TipTime : MonoBehaviour
         _presetSpawner.StartSpawn();
         StartCoroutine(TipTimeBannerShowtime());
         //Spawn Tips
-        _presetSpawner.Spawn(_coinPresetSpawnables[Random.Range(1, _coinPresetSpawnables.Length)]);
+        _presetSpawner.Spawn(_coinPresetSpawnables[Random.Range(0, _coinPresetSpawnables.Length)]);
     }
     
     private IEnumerator TipTimeBannerShowtime(){
