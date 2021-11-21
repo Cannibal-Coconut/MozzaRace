@@ -39,9 +39,14 @@ public class PlayerAttack : MonoBehaviour
 
     public bool isAttackStarted { get; private set; } // Check if the attack has started
 
+    private SoundSettingManager sound;
+
     private void Awake() {
+        sound = FindObjectOfType<SoundSettingManager>();
         _pizzaSprite.enabled = false;
     }
+
+    
 
     private void Start()
     {
@@ -84,6 +89,7 @@ public class PlayerAttack : MonoBehaviour
             _playerInfo.LaunchPizzaTrigger();
             _pizzaLaunch.ThrowPizza(Vector3.Normalize(_endPoint - _startPoint));
             StartCoroutine(RecallTime(recallWaitTime));
+            sound.PlayPizzaLaunch();
         }
     }
 
@@ -106,6 +112,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void HandleThrownPizzaStateEvent()
     {
+
         _pizzaSprite.enabled = true;
         _pizzaCollider.enabled = true;
         _playerInfo.SetPizzaStatus(false);

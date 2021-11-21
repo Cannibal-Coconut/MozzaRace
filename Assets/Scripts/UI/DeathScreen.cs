@@ -31,7 +31,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
     DifficultyLevel _currentLevel;
     private ChangePizza _minigameMonitor;
-
+    SoundSettingManager sound;
     private bool _hasNotDied;
 
     private void Awake()
@@ -43,7 +43,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
         _menuManager = FindObjectOfType<MenuManager>();
         _minigameMonitor= FindObjectOfType<ChangePizza>();
         _player = FindObjectOfType<Health>();
-
+        sound = FindObjectOfType<SoundSettingManager>();
         InitializeButtons();
 
         SetListeners();
@@ -68,6 +68,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
             {
                 _profileInventory.RemoveMatchPoints(_currentLevel.reviveCost);
                 _player.Live();
+                sound.PlaySpendMoney();
             }
         }
     }
@@ -131,7 +132,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     }
     private IEnumerator DeathAnimationWaiter()
     {
-
+        sound.PlayGameOver();
         yield return new WaitForSeconds(1.5f);
         //Init Pizza Time
         if(_inventory.finishedOrders > 1 && _hasNotDied) _minigameMonitor.enabled = true;
@@ -149,6 +150,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     public void Hide()
     {
         // Time.timeScale = 1.0f;
+        
         _menuManager.EnablePauseButton();
         _canvasGroup.alpha = 0;
         _canvasGroup.blocksRaycasts = false;

@@ -154,10 +154,6 @@ public class MenuManager : MonoBehaviour
         _wardrobeButton.gameObject.SetActive(true);
     }
 
-    public void PlayButtonSound()
-    {
-        SoundManager.PlaySound(SoundManager.Sound.MENUPOP, 1f);
-    }
-
+  
 
 }

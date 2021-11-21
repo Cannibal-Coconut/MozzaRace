@@ -21,6 +21,8 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     InventorySettings _settings;
     ProfileInventory _profileInventory;
 
+    SoundSettingManager sound;
+
     public InventorySettings defaulSettings;
 
     /// <summary>
@@ -75,6 +77,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
     private void Awake()
     {
+        sound = FindObjectOfType<SoundSettingManager>();
         orders = new List<MealOrder>();
         _delayedIngredients = new List<DelayedIngredient>();
 
@@ -255,7 +258,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         {
 
             tipjar.StartTipTimeSpawn();
-
+            sound.PlayTipTime();
             if (onTakenTipAction != null)
             {
                 onTakenTipAction.Invoke();
@@ -264,7 +267,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         }
         else if (coin)
         {
-
+            sound.PlayCoinPickup();
             coin.AddPointsPerCoin();
         }
     }
@@ -286,6 +289,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         else
         {
             WrongIngredientPicked(item);
+            sound.PlayPizzaTimeError();
         }
 
         item.Pick();
@@ -300,16 +304,16 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
             _audioSource.clip = item.audioClip;
             _audioSource.Play();
         }
-
         //Check if it is done
         if (orders[_selectedOrder].ingredients.Count == 0)
         {
             ChangePoints(orders[_selectedOrder].points);
 
             RemoveOrder(_selectedOrder);
-
+            sound.PlayFinishedOrder();
             AddFinishedOrder();
-        }
+        } else         sound.PlayIngredientPickup();
+
 
         _orderDisplay.DisplayOrders(orders, _selectedOrder);
 

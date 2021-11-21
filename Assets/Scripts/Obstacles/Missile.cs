@@ -25,12 +25,15 @@ public class Missile : MonoBehaviour
     bool _isAligning;
     bool _go;
 
+    SoundSettingManager sound;
+
     private void Awake()
     {
         var removable = GetComponent<Removable>();
         removable.AddRemoveListener(Remove);
 
         _target = FindObjectOfType<Health>();
+        sound = FindObjectOfType<SoundSettingManager>();
 }
 
     private void Start()
@@ -39,7 +42,9 @@ public class Missile : MonoBehaviour
 
         _isAligning = true;
 
-        transform.parent = null;
+        transform.parent = null;    
+
+        sound.PlayKnifeAlert();
     }
 
     void Remove()
@@ -109,7 +114,7 @@ public class Missile : MonoBehaviour
     {
         yield return new WaitForSeconds(_timeAfterAlign);
         _warningSignal.enabled = false;
-
+        sound.PlayKnifeThrow();
         _go = true;
     }
 
