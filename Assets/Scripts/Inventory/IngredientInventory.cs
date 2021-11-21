@@ -437,9 +437,10 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     public void ResetInventory()
     {
         for (int i = 0; i < orders.Count; i++) RemoveOrder(i);
-        for (int i = 0; i < orders.Count; i++) RemoveOrder(i);
 
-        AddRandomOrder();
+        finishedOrders = 0;
+
+        //AddRandomOrder();
     }
 
 
