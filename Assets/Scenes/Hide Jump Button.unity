@@ -1300,6 +1300,30 @@ PrefabInstance:
       propertyPath: _playerManager
       value: 
       objectReference: {fileID: 740086478}
+    - target: {fileID: 1543815902995648490, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: _englishText
+      value: '-Jump tapping the left side of the screen
+
+        -Slide your finger
+        to launch your pizza
+
+        -Try to catch the ingredients for your selected
+        order
+
+        -Select an order at the bottom of the screen'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543815902995648490, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: _spanishText
+      value: '-Salta pulsando el lado izquierdo de la pantalla
+
+        -Desliza
+        el dedo para lanzar tu pizza
+
+        -Intenta coger los ingredientes para
+        tu comanda
+
+        -Selecciona una comanda abajo de la pantalla.'
+      objectReference: {fileID: 0}
     - target: {fileID: 1825145802154183552, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8403506
@@ -1323,6 +1347,18 @@ PrefabInstance:
     - target: {fileID: 1825145802154183552, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971029716552694457, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_text
+      value: '-Jump tapping the left side of the screen
+
+        -Slide your finger
+        to launch your pizza
+
+        -Try to catch the ingredients for your selected
+        order
+
+        -Select an order at the bottom of the screen'
       objectReference: {fileID: 0}
     - target: {fileID: 3008988618926138441, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_Enabled
@@ -1448,6 +1484,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -115
       objectReference: {fileID: 0}
+    - target: {fileID: 6011891133780753800, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_text
+      value: '-Jump tapping the left side of the screen
+
+        -Slide your finger
+        to launch your pizza
+
+        -Try to catch the ingredients for your selected
+        order
+
+        -Select an order at the bottom of the screen'
+      objectReference: {fileID: 0}
     - target: {fileID: 6159352668793543250, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: _pcImage
       value: 
@@ -1479,6 +1527,30 @@ PrefabInstance:
     - target: {fileID: 7080223293744667905, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856249402290752998, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: _englishText
+      value: '-Jump tapping the left side of the screen
+
+        -Slide your finger
+        to launch your pizza
+
+        -Try to catch the ingredients for your selected
+        order
+
+        -Select an order at the bottom of the screen'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856249402290752998, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: _spanishText
+      value: '-Salta pulsando el lado izquierdo de la pantalla
+
+        -Desliza
+        el dedo para lanzar tu pizza
+
+        -Intenta coger los ingredientes para
+        tu comanda
+
+        -Selecciona una comanda abajo de la pantalla.'
       objectReference: {fileID: 0}
     - target: {fileID: 9105915984720588127, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_AnchorMax.x

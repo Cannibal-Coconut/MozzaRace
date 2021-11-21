@@ -230,15 +230,15 @@ MonoBehaviour:
     to launch your pizza\r.\n-Try to catch the ingredients for your selected order\r.\n-Select
     an order at the bottom of the screen."
   _englishSize: 10
-  _spanishText: '-Salta pulsando el lado izquierdo de la pantalla
+  _spanishText: '-Salta pulsando el lado izquierdo de la pantalla.
 
-    -Desliza el
-    dedo para lanzar tu pizza
+    -Desliza
+    el dedo para lanzar tu pizza.
 
-    -Intenta coger los ingredientes para tu comanda
+    -Intenta coger los ingredientes para tu comanda.
 
     -Selecciona
-    una comanda abajo de la pantalla'
+    una comanda abajo de la pantalla.'
   _spanishSize: 10
 --- !u!1 &2090361797365696960
 GameObject:
@@ -585,15 +585,15 @@ MonoBehaviour:
     to launch your pizza\r.\n-Try to catch the ingredients for your selected order\r.\n-Select
     an order at the bottom of the screen."
   _englishSize: 10
-  _spanishText: '-Salta pulsando el lado izquierdo de la pantalla
+  _spanishText: '-Salta pulsando el lado izquierdo de la pantalla.
 
-    -Desliza el
-    dedo para lanzar tu pizza
+    -Desliza
+    el dedo para lanzar tu pizza.
 
-    -Intenta coger los ingredientes para tu comanda
+    -Intenta coger los ingredientes para tu comanda.
 
     -Selecciona
-    una comanda abajo de la pantalla'
+    una comanda abajo de la pantalla.'
   _spanishSize: 10
 --- !u!1 &8020939096138301227
 GameObject:
