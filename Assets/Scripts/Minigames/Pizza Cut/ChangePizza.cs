@@ -8,14 +8,23 @@ using UnityEngine;
 public class ChangePizza : MonoBehaviour
 {      
 
+<<<<<<< HEAD
     private  float _pizzaCuttingTotalRemainingTime {get;set;}
     public int remainingPizzas {get;set;}
+=======
+    private float _pizzaCuttingTotalRemainingTime {get;set;}
+    private float _pizzaCuttingTimer {get;set;}
+    private int _remainingPizzas {get;set;}
+>>>>>>> parent of edc6cab (Revert "Merge branch 'PizzaCutGameplayIntegration' into development")
     private int _goodPizzas {get;set;}
     private int _finishedOrders;
     private float _finishedOrderReviveThreshhold;
 
     private IngredientInventory _orderInventory;
+<<<<<<< HEAD
     private PizzaTimeCanvas _pizzaCanvas;
+=======
+>>>>>>> parent of edc6cab (Revert "Merge branch 'PizzaCutGameplayIntegration' into development")
     private PlayerManager _player;
     private Health _playerHealth;
 
@@ -41,7 +50,10 @@ public class ChangePizza : MonoBehaviour
         _pizzaCutManager = GetComponent<PizzaCutManager>();
         _orderInventory = FindObjectOfType<IngredientInventory>();
         _player = FindObjectOfType<PlayerManager>();
+<<<<<<< HEAD
         _pizzaCanvas= FindObjectOfType<PizzaTimeCanvas>();
+=======
+>>>>>>> parent of edc6cab (Revert "Merge branch 'PizzaCutGameplayIntegration' into development")
         _playerHealth = FindObjectOfType<Health>();
         _death = FindObjectOfType<DeathScreen>();
 
@@ -75,15 +87,25 @@ public class ChangePizza : MonoBehaviour
     public void ChangeVisiblePizza(PizzaCutCheck visiblePizza, bool result)
     {
         Destroy(visiblePizza.gameObject);
+<<<<<<< HEAD
         remainingPizzas--;
          if (result) _goodPizzas++; 
         Debug.Log("You have to cut " + remainingPizzas + " remaining pizzas");
+=======
+        _remainingPizzas--;
+         if (result) _goodPizzas++; 
+        Debug.Log("You have to cut " + _remainingPizzas + " remaining pizzas");
+>>>>>>> parent of edc6cab (Revert "Merge branch 'PizzaCutGameplayIntegration' into development")
         StartCoroutine(ShowResult(result));
     }       
 
     public IEnumerator PizzaCutMinigameTimer(){
         
+<<<<<<< HEAD
         _pizzaCanvas.SetPizzaTimer(_pizzaCuttingTotalRemainingTime);
+=======
+
+>>>>>>> parent of edc6cab (Revert "Merge branch 'PizzaCutGameplayIntegration' into development")
         yield return new WaitForSeconds(_pizzaCuttingTotalRemainingTime);
         if(minigameState) {
             LoseMinigame();
@@ -105,7 +127,11 @@ public class ChangePizza : MonoBehaviour
                 
             } 
 
+<<<<<<< HEAD
             if(remainingPizzas < 0) {
+=======
+            if(_remainingPizzas < 0) {
+>>>>>>> parent of edc6cab (Revert "Merge branch 'PizzaCutGameplayIntegration' into development")
 
                 LoseMinigame();
                 Debug.Log("You just ran out of pizzas!");
@@ -158,9 +184,16 @@ public class ChangePizza : MonoBehaviour
             _finishedOrders = _orderInventory.finishedOrders;
         } else _finishedOrders = 50; 
         CalculateTotalPizzaTime();
+<<<<<<< HEAD
         _pizzaCanvas.Display();
         StartCoroutine(PizzaCutMinigameTimer());
         remainingPizzas = _finishedOrders;
+=======
+        StartCoroutine(PizzaCutMinigameTimer());
+
+        _remainingPizzas = _finishedOrders;
+
+>>>>>>> parent of edc6cab (Revert "Merge branch 'PizzaCutGameplayIntegration' into development")
         _finishedOrderReviveThreshhold = _finishedOrders * 0.5f;
         Debug.Log("Cut " + _finishedOrderReviveThreshhold + " to Revive!");
         Debug.Log("You have completed " + _finishedOrders + " orders!");
@@ -183,8 +216,14 @@ public class ChangePizza : MonoBehaviour
 
         Destroy(_currentPizza);
         minigameState = false;
+<<<<<<< HEAD
         remainingPizzas = 0;
         _pizzaCanvas.Hide();
+=======
+        _pizzaCuttingTimer = _pizzaCuttingTotalRemainingTime;
+        _remainingPizzas = 0;
+
+>>>>>>> parent of edc6cab (Revert "Merge branch 'PizzaCutGameplayIntegration' into development")
     }   
 
     private void OnDisable() {
@@ -192,10 +231,13 @@ public class ChangePizza : MonoBehaviour
         _player.enabled = true;
         _pizzaCutManager.enabled = false;
     }
+<<<<<<< HEAD
 
     public float GetPizzaCuttingTotalRemainingTime(){
 
         return _pizzaCuttingTotalRemainingTime;
 
     }
+=======
+>>>>>>> parent of edc6cab (Revert "Merge branch 'PizzaCutGameplayIntegration' into development")
 }

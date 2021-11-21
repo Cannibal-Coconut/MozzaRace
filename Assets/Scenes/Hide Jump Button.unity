@@ -937,6 +937,7 @@ PrefabInstance:
       propertyPath: _playerManager
       value: 
       objectReference: {fileID: 740086478}
+<<<<<<< HEAD
     - target: {fileID: 1825145802154183552, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8403506
@@ -973,6 +974,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+=======
+    - target: {fileID: 3147285401001806548, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984877554404958788, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+>>>>>>> parent of edc6cab (Revert "Merge branch 'PizzaCutGameplayIntegration' into development")
     - target: {fileID: 4391831602363511402, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_Name
       value: Main Canvas
@@ -1057,6 +1068,7 @@ PrefabInstance:
       propertyPath: _coinPresetSpawnables.Array.data[2]
       value: 
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 9105915984720588127, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.9075408
@@ -1079,6 +1091,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2331169076332537660, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+=======
+    - target: {fileID: 6724335281063961877, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6724335281063961877, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6724335281063961877, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803374542525520644, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803374542525520644, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+>>>>>>> parent of edc6cab (Revert "Merge branch 'PizzaCutGameplayIntegration' into development")
   m_SourcePrefab: {fileID: 100100000, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
 --- !u!1 &1347055304
 GameObject:
@@ -1214,6 +1249,95 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd911c3322a2024295e46186a468140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1696476260
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1184802522545452024, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184802522545452026, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184802522852323389, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184802522852323389, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184802522852323389, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184802522852323389, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184802522852323389, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184802522852323389, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184802522852323389, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184802522852323389, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184802522852323389, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184802522852323389, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184802522852323389, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184802522852323390, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_Name
+      value: PizzaCutPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437094135757701749, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437094135757701749, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437094135757701749, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405782350724239475, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405782350724239475, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405782350724239475, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 072ed97444fc51d4d9742356cc83905c, type: 3}
 --- !u!1 &1708400550
 GameObject:
   m_ObjectHideFlags: 0

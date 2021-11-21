@@ -188,6 +188,10 @@ shine: Manuel Bueno Lasso
 		WardrobeUI_PlaceHolders: David González Rueda
 		
 
+		dir./UI/Login
+		Login_PlaceHolders: Manuel Bueno Lasso + David González Rueda
+		Login_UI: Manuel Bueno Lasso + David González Rueda
+
 dir ./UI/FinalTouches
 Bought_Button: David González Rueda
 Buy_Button: David González Rueda
