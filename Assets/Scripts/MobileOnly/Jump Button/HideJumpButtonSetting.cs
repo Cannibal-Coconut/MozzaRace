@@ -22,8 +22,8 @@ public class HideJumpButtonSetting : MonoBehaviour
 
         _button.onClick.AddListener(SetText);
 
-        if (!PlatformDetector.IsPlatformMobile())
-            gameObject.SetActive(false);
+        // if (!PlatformDetector.IsPlatformMobile())
+        //     gameObject.SetActive(false);
     }
 
     private void SetText()
