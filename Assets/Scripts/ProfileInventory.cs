@@ -58,6 +58,7 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
         {
             _onEconomyChange.Invoke();
         }
+
     }
 
     public void AddBoughtSkin(Skin skin)

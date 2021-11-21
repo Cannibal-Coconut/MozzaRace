@@ -8,17 +8,19 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CanvasGroup))]
 public class Shop : MonoBehaviour
 {
-    [Header("References")]
-    [Header("Buttons")]
-    [SerializeField] Button _backButton;
+    [Header("References")] [Header("Buttons")] [SerializeField]
+    Button _backButton;
 
     [SerializeField] Button _previousSkinPageButton;
     [SerializeField] Button _nextSkinPageButton;
 
     [SerializeField] Button _buySkinButton;
+    [SerializeField] private TMP_Text _textBuyButton;
 
     [SerializeField] SkinHolder[] _skinHolders;
     [SerializeField] TextMeshProUGUI _moneyMesh;
+
+    [SerializeField] private LanguageContext languageContext;
 
     Skin[] _skins;
     int _currentSkinSpage;
@@ -28,11 +30,10 @@ public class Shop : MonoBehaviour
     CanvasGroup _canvasGroup;
     ProfileInventory _profileInventory;
 
-
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
-        
+
         Hide();
 
         CreateSkins();
@@ -47,6 +48,8 @@ public class Shop : MonoBehaviour
         _profileInventory = FindObjectOfType<ProfileInventory>();
         _profileInventory.AddOnEconomyChangeListener(UpdateMoney);
         UpdateMoney();
+        
+        SkinInProperty();
     }
 
     public void SelectSkinHolder(SkinHolder skinHolder)
@@ -59,6 +62,8 @@ public class Shop : MonoBehaviour
         _selectedSkinHolder = skinHolder;
 
         _selectedSkinHolder.Select();
+        
+        SkinInProperty();
     }
 
     void BuySkin()
@@ -76,10 +81,40 @@ public class Shop : MonoBehaviour
                         _selectedSkinHolder.skin.purchased = true;
 
                         _profileInventory.AddBoughtSkin(_selectedSkinHolder.skin);
+
+                        switch (languageContext.currentLanguage)
+                        {
+                            case Language.Spanish:
+                                _textBuyButton.SetText("Comprado");
+                                break;
+                            case Language.English:
+                                _textBuyButton.SetText("Bought");
+                                break;
+                            default:
+                                throw new ArgumentOutOfRangeException();
+                        }
                     }
                 }
             }
         }
+    }
+
+    void SkinInProperty()
+    {
+        if (_selectedSkinHolder == null) return;
+
+        switch (languageContext.currentLanguage)
+        {
+            case Language.Spanish:
+                _textBuyButton.SetText(_selectedSkinHolder.skin.purchased ? "Comprado" : "¿Comprar?");
+                break;
+            case Language.English:
+                _textBuyButton.SetText(_selectedSkinHolder.skin.purchased ? "Bought" : "Buy?");
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
     }
 
     void CreateSkins()
@@ -140,20 +175,11 @@ public class Shop : MonoBehaviour
 
     void SetButtons()
     {
-        _backButton.onClick.AddListener(() =>
-        {
-            Hide();
-        });
+        _backButton.onClick.AddListener(() => { Hide(); });
 
-        _nextSkinPageButton.onClick.AddListener(() =>
-        {
-            SetSkinPage(_currentSkinSpage + 1);
-        });
+        _nextSkinPageButton.onClick.AddListener(() => { SetSkinPage(_currentSkinSpage + 1); });
 
-        _previousSkinPageButton.onClick.AddListener(() =>
-        {
-            SetSkinPage(_currentSkinSpage - 1);
-        });
+        _previousSkinPageButton.onClick.AddListener(() => { SetSkinPage(_currentSkinSpage - 1); });
 
         _buySkinButton.onClick.AddListener(BuySkin);
     }
@@ -174,7 +200,4 @@ public class Shop : MonoBehaviour
         _canvasGroup.alpha = 0;
         _canvasGroup.blocksRaycasts = false;
     }
-
-
-
 }
