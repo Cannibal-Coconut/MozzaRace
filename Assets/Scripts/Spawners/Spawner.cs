@@ -102,7 +102,7 @@ public class Spawner : MonoBehaviour, ILiveListener
             totalWeight = _easyTotalWeight;
             selectedSpawnables = _easySpawnables;
         }
-        else if (listToken < _spawnSettings.easyObstacleWeight +_spawnSettings.mediumObstacleWeight)
+        else if (listToken < _spawnSettings.easyObstacleWeight + _spawnSettings.mediumObstacleWeight)
         {
             //Debug.Log("Medium Obstacle Spawned");
             totalWeight = _mediumTotalWeight;
@@ -149,14 +149,17 @@ public class Spawner : MonoBehaviour, ILiveListener
     //QUICK AND DIRTY, REMOVE WHEN DONE. REMOVE TO STOP SPAWNING!
     IEnumerator SpawnerCycle()
     {
+        yield return new WaitForSeconds(1.5f);
+
         while (true)
         {
-           //TIP TIME
-           var time = SpawnRandom();
-            if(_tipTime.GetTipTimeModeStatus()) time = _tipTime.GetTipTime();
-            if(_pizzaTime.minigameState)  {
-                time =  4f;
-                }
+            //TIP TIME
+            var time = SpawnRandom();
+            if (_tipTime.GetTipTimeModeStatus()) time = _tipTime.GetTipTime();
+            if (_pizzaTime.minigameState)
+            {
+                time = 4f;
+            }
             yield return new WaitForSeconds(time);
         }
     }
@@ -170,7 +173,7 @@ public class Spawner : MonoBehaviour, ILiveListener
     {
         StopSpawn();
     }
-    
+
     public void SetListeners()
     {
         var player = FindObjectOfType<Health>();
