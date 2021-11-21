@@ -15,7 +15,7 @@ public class PointsDisplay : MonoBehaviour
 
     ProfileInventory _inventory;
 
-    private void Awake()
+    private void Start()
     {
         _inventory = FindObjectOfType<ProfileInventory>();
 

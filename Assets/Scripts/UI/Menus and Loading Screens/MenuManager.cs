@@ -120,6 +120,9 @@ public class MenuManager : MonoBehaviour
     {
         _playerManager.enabled = true;
         _inventory.ResetInventory();
+
+        _profileInventory.PassMatchPointsToSkinPoints();
+
         _player.Live();
     }
 
@@ -130,6 +133,9 @@ public class MenuManager : MonoBehaviour
         _playerManager.enabled = true;
         _inventory.ResetInventory();
         _spawner.StopSpawn();
+        
+        _profileInventory.PassMatchPointsToSkinPoints();
+
         _player.Live();
     }
 
