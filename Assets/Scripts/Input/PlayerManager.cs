@@ -37,12 +37,16 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private BoxCollider2D jumpButtonCollider;
 
+    [SerializeField] private GameObject playerGameObject;
+    
     [SerializeField] private JumpInputEvent jumpInputEvent;
     [SerializeField] private StartAttackInputEvent startAttackInputEvent;
     [SerializeField] private EndAttackInputEvent endAttackInputEvent;
     [SerializeField] private ChangeOrderInputEvent changeOrderInputEvent;
 
     private Camera _camera;
+
+    
 
     private void Awake()
     {
@@ -84,7 +88,8 @@ public class PlayerManager : MonoBehaviour
     {
         if (startAttackInputEvent == null) return;
         
-        if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (EventSystem.current.IsPointerOverGameObject())
+            if (!EventSystem.current.currentSelectedGameObject.Equals(playerGameObject)) return;
 
         if (jumpButtonCollider.bounds.Contains(_controls.Player.AttackPosition.ReadValue<Vector2>())) return;
 
