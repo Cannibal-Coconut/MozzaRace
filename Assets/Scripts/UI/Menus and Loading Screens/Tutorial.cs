@@ -26,7 +26,7 @@ public class Tutorial : MonoBehaviour
 
         if (PlatformDetector.IsPlatformMobile())
         {
-            _pcImage.enabled = false;
+            _pcImage.gameObject.SetActive(false);
             _backButton.gameObject.SetActive(false);
 
             _mobileImage.enabled = true;
@@ -38,7 +38,7 @@ public class Tutorial : MonoBehaviour
             _backButton.enabled = true;
             
             _mobileBackButton.gameObject.SetActive(false);
-            _mobileImage.enabled = false;
+            _mobileImage.gameObject.SetActive(false);
         }
 
         _backButton.onClick.AddListener(() =>
