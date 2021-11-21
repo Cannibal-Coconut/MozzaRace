@@ -10,6 +10,7 @@ public class MissionHolder : MonoBehaviour
     [SerializeField] TextMeshProUGUI _description;
     [SerializeField] TextMeshProUGUI _reward;
     [SerializeField] TextMeshProUGUI _skipPrice;
+    [SerializeField] TextMeshProUGUI _percentage;
 
     [Space(5)]
     [SerializeField] Button _skipButton;
@@ -44,6 +45,7 @@ public class MissionHolder : MonoBehaviour
         _skipPrice.text = mission.skipPrice.ToString();
         _reward.text = mission.points.ToString();
         _mission = mission;
+        _percentage.text = mission.GetPercentage();
 
         switch (_currentLanguage)
         {

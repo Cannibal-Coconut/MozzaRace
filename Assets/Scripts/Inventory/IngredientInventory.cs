@@ -41,6 +41,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     Coroutine _orderGiverCoroutine;
 
     Action<Item> _onTakenItemAction;
+    public Action onTakenTipAction;
 
     public Item GetItemPrototype()
     {
@@ -255,6 +256,15 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         _settings = newSettings;
     }
 
+
+    public void PickedTip()
+    {
+        if (onTakenTipAction != null)
+        {
+            onTakenTipAction.Invoke();
+        }
+    }
+
     void CheckIngredient(Item item)
     {
         if (_selectedOrder >= orders.Count || _selectedOrder < 0) return;
@@ -419,7 +429,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     {
         for (int i = 0; i < orders.Count; i++) RemoveOrder(i);
         for (int i = 0; i < orders.Count; i++) RemoveOrder(i);
-     
+
         AddRandomOrder();
     }
 

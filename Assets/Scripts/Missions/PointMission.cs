@@ -5,7 +5,7 @@ using UnityEngine;
 public class PointMission : Mission
 {
     [Header("Settings")]
-    [SerializeField]int _targetPoints = 100;
+    [SerializeField] int _targetPoints = 100;
 
     bool _done;
 
@@ -19,7 +19,12 @@ public class PointMission : Mission
 
     public override void EndGame()
     {
-       
+
+    }
+
+    public override string GetPercentage()
+    {
+        return "";
     }
 
     public override void Initialize()
@@ -37,7 +42,7 @@ public class PointMission : Mission
 
     void OnPointsChangeCallback()
     {
-         if (_inventory.matchPoints >= _targetPoints)
+        if (_inventory.matchPoints >= _targetPoints)
         {
             _done = true;
         }

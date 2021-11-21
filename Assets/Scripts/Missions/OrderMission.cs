@@ -27,6 +27,11 @@ public class OrderMission : Mission
         }
     }
 
+    public override string GetPercentage()
+    {
+        return "";
+    }
+
     public override void Initialize()
     {
         _done = false;

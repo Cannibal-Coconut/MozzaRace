@@ -6,16 +6,25 @@ using UnityEngine;
 
 public class MissionWatcher : MonoBehaviour, ILiveListener
 {
-
+    [Header("Settings")]
     [SerializeField] OrderMission[] _orderMissions;
     [SerializeField] PointMission[] _pointMissions;
+    [SerializeField] PointMission[] _accumulativePointMissions;
+    [SerializeField] HitRollMission[] _hitRollMissions;
     [SerializeField] TimeMission[] _timeMissions;
+    [SerializeField] TipMission[] _tipMissions;
+    [SerializeField] GameCounterMission[] _gameCounterMissions;
+    [SerializeField] CutPizzaMission[] _cutPizzaMissions;
+
+    public Action<Mission> onEndedMissionCallback;
 
     Mission[] _allMissions
     {
         get
         {
-            int arrayLength = _orderMissions.Length + _pointMissions.Length + _timeMissions.Length;
+            int arrayLength = _orderMissions.Length + _pointMissions.Length + _accumulativePointMissions.Length + _hitRollMissions.Length;
+            arrayLength += _timeMissions.Length + _tipMissions.Length + _gameCounterMissions.Length + _cutPizzaMissions.Length;
+
             int acumulativeIndex = 0;
             Mission[] missions = new Mission[arrayLength];
 
@@ -37,8 +46,40 @@ public class MissionWatcher : MonoBehaviour, ILiveListener
                 acumulativeIndex++;
             }
 
+            for (int i = 0; i < _accumulativePointMissions.Length; i++)
+            {
+                missions[acumulativeIndex] = _accumulativePointMissions[i];
+                acumulativeIndex++;
+            }
+
+            for (int i = 0; i < _hitRollMissions.Length; i++)
+            {
+                missions[acumulativeIndex] = _hitRollMissions[i];
+                acumulativeIndex++;
+            }
+
+            for (int i = 0; i < _tipMissions.Length; i++)
+            {
+                missions[acumulativeIndex] = _tipMissions[i];
+                acumulativeIndex++;
+            }
+
+            for (int i = 0; i < _gameCounterMissions.Length; i++)
+            {
+                missions[acumulativeIndex] = _gameCounterMissions[i];
+                acumulativeIndex++;
+            }
+
+            for (int i = 0; i < _cutPizzaMissions.Length; i++)
+            {
+                missions[acumulativeIndex] = _cutPizzaMissions[i];
+                acumulativeIndex++;
+            }
+
+
             return missions;
         }
+
     }
 
     public List<Mission> selectedMissions { get; private set; }
@@ -48,6 +89,8 @@ public class MissionWatcher : MonoBehaviour, ILiveListener
     bool _checkMissions;
 
     MissionWatcher _instance;
+
+    ProfileInventory _inventory;
 
     public Action onMissionsChanged;
 
@@ -63,7 +106,10 @@ public class MissionWatcher : MonoBehaviour, ILiveListener
         {
             _instance = this;
             transform.parent = null;
-            
+            DontDestroyOnLoad(gameObject);
+
+            _inventory = FindObjectOfType<ProfileInventory>();
+
             selectedMissions = new List<Mission>();
             FillSelectedMissions();
 
@@ -117,10 +163,16 @@ public class MissionWatcher : MonoBehaviour, ILiveListener
             if (selectedMissions[i].CheckMission())
             {
                 Debug.Log(selectedMissions[i].missionNameEnglish + " completed");
+                _inventory.AddMatchPoints(selectedMissions[i].points);
+
+                if (onEndedMissionCallback != null)
+                {
+                    onEndedMissionCallback(selectedMissions[i]);
+                }
+
                 selectedMissions.RemoveAt(i);
-
-
                 i--;
+
             }
         }
     }

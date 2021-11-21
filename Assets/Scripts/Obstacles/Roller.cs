@@ -46,9 +46,14 @@ public class Roller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<PizzaLaunch>())
+        var launch = collision.GetComponent<PizzaLaunch>();
+
+        if (launch)
         {
             _flipped = true;
+
+            launch.RollHit();
+
         }
     }
 

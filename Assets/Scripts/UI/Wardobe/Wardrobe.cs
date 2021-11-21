@@ -53,12 +53,14 @@ public class Wardrobe : MonoBehaviour
             pageNumber = maxPage - 1;
         }
 
-        _currentSkinSpage = pageNumber;
 
         for (int i = 0; i < _skinHolders.Length; i++)
         {
             _skinHolders[i].Hide();
         }
+
+        if (_profileInventory.skins.Count == 0) return;
+        _currentSkinSpage = pageNumber;
 
         for (int i = 0; i < skinsPerPage; i++)
         {

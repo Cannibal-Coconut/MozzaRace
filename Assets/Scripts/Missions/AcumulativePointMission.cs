@@ -7,6 +7,7 @@ using UnityEngine;
 public class AcumulativePointMission : Mission
 {
 
+    [Header("Settings")]
     [SerializeField] int _targetPoints = 100;
     int _acumulatedPoints = 0;
 
@@ -24,10 +25,6 @@ public class AcumulativePointMission : Mission
         return _acumulatedPoints >= _targetPoints;
     }
 
-    public override void EndGame()
-    {
-
-    }
 
     public override void Initialize()
     {
@@ -38,9 +35,18 @@ public class AcumulativePointMission : Mission
     {
 
     }
+    public override void EndGame()
+    {
+
+    }
 
     void OnOrderFinishedCallback()
     {
         _acumulatedPoints += points;
+    }
+
+    public override string GetPercentage()
+    {
+        return ((int)(_acumulatedPoints * 100 / _targetPoints)).ToString() + "%";
     }
 }

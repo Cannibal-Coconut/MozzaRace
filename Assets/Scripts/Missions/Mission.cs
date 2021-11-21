@@ -19,4 +19,6 @@ public abstract class Mission
     public abstract void StartGame();
     public abstract void EndGame();
     public abstract bool CheckMission();
+
+    public abstract string GetPercentage();
 }
