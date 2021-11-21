@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2881092961542775170}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.6, y: -1.03, z: 0.7675974}
+  m_LocalPosition: {x: 1.46, y: -1.03, z: 0.7675974}
   m_LocalScale: {x: 0.34207234, y: 0.49246392, z: 0.34207234}
   m_Children: []
   m_Father: {fileID: 2881092962879898815}
@@ -171,7 +171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2881092961997217983}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.59, y: 0.2, z: 0.7675974}
+  m_LocalPosition: {x: -1.41, y: 0.2, z: 0.7675974}
   m_LocalScale: {x: 0.44269964, y: 0.61588377, z: 0.40708014}
   m_Children: []
   m_Father: {fileID: 2881092962879898815}
@@ -314,7 +314,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2881092962063549412}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.06949735, y: 0.3, z: 0.7675974}
+  m_LocalPosition: {x: -0.04, y: 0.3, z: 0.7675974}
   m_LocalScale: {x: 0.5047125, y: 0.5930372, z: 0.5047125}
   m_Children: []
   m_Father: {fileID: 2881092962879898815}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 1070121543872340493}
   - component: {fileID: 5327506179838947663}
   m_Layer: 0
-  m_Name: StovePrefab(UTIL)
+  m_Name: StovePrefab(UTIL) 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -589,7 +589,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.39968634, y: -3.264283}
+  m_Offset: {x: -0.41172206, y: -3.264283}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -600,7 +600,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.0918913, y: 3.2970881}
+  m_Size: {x: 7.0678215, y: 3.2970881}
   m_EdgeRadius: 0
 --- !u!212 &1070121543872340493
 SpriteRenderer:

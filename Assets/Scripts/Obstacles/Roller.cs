@@ -6,17 +6,34 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Roller : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] SpriteRenderer _warningSignal;
+
     [Header("Settings")]
     [SerializeField] [Range(0, 10)] float _speed;
     [SerializeField] [Range(0, 20)] float _flippedSpeed;
     [SerializeField] [Range(0, 5)] float _bounceHeight;
 
+    [SerializeField] [Range(0, 5)] float _signalTime;
+
     Rigidbody2D _rigidbody;
+    Removable _removabable;
+
     bool _flipped;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        _removabable = GetComponent<Removable>();
+
+        _warningSignal.transform.parent = null;
+        _removabable.AddRemoveListener(() =>
+        {
+            Destroy(_warningSignal.gameObject);
+        });
+
+        StartCoroutine(CountDownSignal());
     }
 
     private void Start()
@@ -29,6 +46,15 @@ public class Roller : MonoBehaviour
         _rigidbody.velocity = desiredVelocity;
 
         transform.parent = null;
+
+        SetOnBounds();
+    }
+
+    void SetOnBounds()
+    {
+        var bounds = FindObjectOfType<ProjectileBounds>();
+
+        _warningSignal.transform.position = bounds.rollerSignalPosition.position;
     }
 
     private void FixedUpdate()
@@ -41,8 +67,17 @@ public class Roller : MonoBehaviour
         {
             _rigidbody.velocity = new Vector2(-_speed, _rigidbody.velocity.y);
         }
+    }
+
+    IEnumerator CountDownSignal()
+    {
+        _warningSignal.enabled = true;
+        yield return new WaitForSeconds(_signalTime);
+        _warningSignal.enabled = false;
+
 
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
