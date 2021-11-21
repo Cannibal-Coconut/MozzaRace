@@ -30,6 +30,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     LanguageContext _languageContext;
 
     DifficultyLevel _currentLevel;
+    private ChangePizza _minigameMonitor;
 
     private void Awake()
     {
@@ -38,6 +39,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
         _profileInventory = FindObjectOfType<ProfileInventory>();
         _languageContext = FindObjectOfType<LanguageContext>();
         _menuManager = FindObjectOfType<MenuManager>();
+        _minigameMonitor= FindObjectOfType<ChangePizza>();
         _player = FindObjectOfType<Health>();
 
         InitializeButtons();
@@ -119,15 +121,23 @@ public class DeathScreen : MonoBehaviour, ILiveListener
         _currentLevel = level;
     }
 
+
     private IEnumerator DeathAnimationWaiter()
     {
 
         yield return new WaitForSeconds(1.5f);
-        _canvasGroup.alpha = 1f;
-        Time.timeScale = 0f;
-        _canvasGroup.blocksRaycasts = true;
+        //Init Pizza Time
+        _minigameMonitor.enabled = true;
+        
     }
 
+    public void DeathPostMinigame(){
+
+        _canvasGroup.alpha = 1f;
+        Time.timeScale = 1f;
+        _canvasGroup.blocksRaycasts = true;
+
+    }
     public void Hide()
     {
         // Time.timeScale = 1.0f;
