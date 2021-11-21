@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3488102758846392304}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.11, y: -0.3235014, z: -0.054288168}
-  m_LocalScale: {x: 0.106302075, y: 0.106302075, z: 0.026571427}
+  m_LocalScale: {x: 0.15306436, y: 0.15306436, z: 0.0382602}
   m_Children: []
   m_Father: {fileID: 4132808423252033734}
   m_RootOrder: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _warningSignal: {fileID: 5164757705800822310}
-  _speed: 7
-  _flippedSpeed: 8
+  _speed: 10
+  _flippedSpeed: 15
   _bounceHeight: 3
   _signalTime: 1.47
 --- !u!114 &4132808423252033732

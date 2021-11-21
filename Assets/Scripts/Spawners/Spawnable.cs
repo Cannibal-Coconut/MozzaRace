@@ -6,7 +6,7 @@ using UnityEngine;
 public class Spawnable : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] [Range(0, 10f)] float _timeForNextSpawn;
+    [SerializeField] [Range(0, 50f)] float _timeForNextSpawn;
 
     public float timeForNextSpawn
     {
