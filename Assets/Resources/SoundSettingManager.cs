@@ -22,7 +22,7 @@ public class SoundSettingManager : MonoBehaviour
         if(loopMusic == true) previousMusicTime = musicSource.time;
         loopMusic = false;
         musicSource.clip = PizzaTimeSong;
-        musicSource.volume = 1f;
+        musicSource.volume = 0.3f;
         musicSource.Play();
     }
     public void PlayTipTime(){
@@ -38,7 +38,7 @@ public class SoundSettingManager : MonoBehaviour
         loopMusic = true;
         musicSource.clip = MainThemeSong;
         musicSource.time = previousMusicTime;
-        musicSource.volume = 1f;
+        musicSource.volume = 0.3f;
         musicSource.Play();
 
     }

@@ -109,6 +109,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
         //QUICK AND DIRTY
 
         AddFinishedOrder();
+        AddRandomOrder();
     }
 
     void StartOrderClock()
