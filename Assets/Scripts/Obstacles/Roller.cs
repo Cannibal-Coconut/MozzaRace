@@ -20,9 +20,10 @@ public class Roller : MonoBehaviour
     Removable _removabable;
 
     bool _flipped;
-
+    SoundSettingManager sound;
     private void Awake()
     {
+        sound = FindObjectOfType<SoundSettingManager>();
         _rigidbody = GetComponent<Rigidbody2D>();
 
         _removabable = GetComponent<Removable>();
@@ -46,7 +47,7 @@ public class Roller : MonoBehaviour
         _rigidbody.velocity = desiredVelocity;
 
         transform.parent = null;
-
+        sound.PlayRollerAlert();
         SetOnBounds();
     }
 
@@ -86,9 +87,10 @@ public class Roller : MonoBehaviour
         if (launch)
         {
             _flipped = true;
-
+            sound.PlayRollerHit();
             launch.RollHit();
-
+            Collider2D col = this.gameObject.GetComponent<Collider2D>();   
+        if(col!=null) col.enabled = false;
         }
     }
 

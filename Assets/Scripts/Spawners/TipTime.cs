@@ -38,7 +38,7 @@ public class TipTime : MonoBehaviour
         
         _inventoryPoints.onupdateMatchPoints += UpdateCurrentPoints;
         _offsetPoints = 0;
-        _tipTimePointThreshhold = 1000;
+        _tipTimePointThreshhold = 50;
         _TipTimeCanvas.alpha = 0;
     }
 

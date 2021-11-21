@@ -38,8 +38,10 @@ public class ChangePizza : MonoBehaviour
 
     public Action onGoodPizzaCut;
 
+    SoundSettingManager sound;
     private void Awake()
     {
+        sound = FindObjectOfType<SoundSettingManager>();
         _pizzaCutManager = GetComponent<PizzaCutManager>();
         _orderInventory = FindObjectOfType<IngredientInventory>();
         _player = FindObjectOfType<PlayerManager>();
@@ -149,11 +151,14 @@ public class ChangePizza : MonoBehaviour
 
     private IEnumerator ShowResult(bool result)
     {
-        if (result)
+        if (result){
             correct.SetActive(true);
-        else
+            sound.PlayPizzaTimeCorrect();
+            }
+        else {
             failed.SetActive(true);
-
+            sound.PlayPizzaTimeError();
+        }
         yield return new WaitForSeconds(0.5f);
 
         correct.SetActive(false);
@@ -165,6 +170,7 @@ public class ChangePizza : MonoBehaviour
     private void OnEnable()
     {
 
+        sound.PlayPizzaTime();
         _pizzaCutManager.enabled = true;
         _player.enabled = false;
         InitMinigame();
@@ -215,6 +221,7 @@ public class ChangePizza : MonoBehaviour
 
     private void OnDisable()
     {
+        sound.PlayMainTheme();
         ResetMinigame();
         _player.enabled = true;
         _pizzaCutManager.enabled = false;

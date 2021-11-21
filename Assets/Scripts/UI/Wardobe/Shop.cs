@@ -30,10 +30,11 @@ public class Shop : MonoBehaviour
     CanvasGroup _canvasGroup;
     ProfileInventory _profileInventory;
 
+    SoundSettingManager sound;
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
-
+        sound  = FindObjectOfType<SoundSettingManager>();
         Hide();
 
         CreateSkins();
@@ -93,6 +94,7 @@ public class Shop : MonoBehaviour
                             default:
                                 throw new ArgumentOutOfRangeException();
                         }
+                        sound.PlaySpendMoney();
                     }
                 }
             }

@@ -26,10 +26,13 @@ public class PlayerJump : MonoBehaviour
     [SerializeField] private float jumpTimeCounter; // Timer that controls the time the player can stay on air
 
     [SerializeField] private LayerMask layerGround;
+
+    SoundSettingManager sound;
     
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        sound = FindObjectOfType<SoundSettingManager>();
     }
 
     // Update is called once per frame
@@ -69,12 +72,14 @@ public class PlayerJump : MonoBehaviour
                 jumpTimeCounter = jumpTime;
                 _rigidbody.velocity = Vector2.up * jumpForce;
                 _hasDoubleJump = _canDoubleJump = false;
+                sound.PlayJumpSound();
                 break;
             case false when !_isJumping && !_hasDoubleJump:
                 jumpTimeCounter = 0;
                 _canDoubleJump = true;
                 break;
             case false when _isJumping && _canDoubleJump:
+                sound.PlayJumpSound();
                 _rigidbody.velocity = Vector2.up * doubleJumpForce;
                 _canDoubleJump = false;
                 _hasDoubleJump = true;

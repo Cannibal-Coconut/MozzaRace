@@ -28,11 +28,13 @@ public class PizzaCutterSlide : MonoBehaviour
     private bool IsCutStarted { get; set; } // Check if the cut has started
 
     private bool Thrown { get; set; }
+    SoundSettingManager sound;
 
 
     private void Start()
     {
         _launchTrajectory = GetComponent<LaunchTrajectory>();
+        sound = FindObjectOfType<SoundSettingManager>();
     }
 
     private void Update()
@@ -55,6 +57,7 @@ public class PizzaCutterSlide : MonoBehaviour
         if (IsMinimalDistance() && !Thrown)
         {
             ThrowCutter(Vector3.Normalize(_endPoint - _startPoint));
+            sound.PlayPizaTimeCut();
         }
     }
 
