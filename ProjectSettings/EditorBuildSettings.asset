@@ -14,9 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Loading Screen.unity
     guid: 180e5c19ff6508842af75fcc5515840c
-  - enabled: 0
-    path: Assets/Scenes/login scene.unity
-    guid: 8535226eccefb50409be311af5435865
   - enabled: 1
     path: Assets/Scenes/Hide Jump Button.unity
     guid: a3dece451d646b04db7db600c34d31d9

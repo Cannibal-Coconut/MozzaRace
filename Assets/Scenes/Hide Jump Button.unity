@@ -512,6 +512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NEWPizzaTimeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5594373181851088855, guid: 7bd6140a5fbc47744bc3069b48448981, type: 3}
+      propertyPath: gameUI
+      value: 
+      objectReference: {fileID: 1798604915}
     - target: {fileID: 5807158878400714240, guid: 7bd6140a5fbc47744bc3069b48448981, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1233,6 +1237,14 @@ PrefabInstance:
     - target: {fileID: 6383814606144150127, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: _coinPresetSpawnables.Array.data[2]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634065053113002346, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634065053154653823, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9105915984720588127, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_AnchorMax.x

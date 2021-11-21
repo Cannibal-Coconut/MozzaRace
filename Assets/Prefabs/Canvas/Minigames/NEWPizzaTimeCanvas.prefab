@@ -580,6 +580,7 @@ GameObject:
   - component: {fileID: 8062331577635030393}
   - component: {fileID: 8789595171355435022}
   - component: {fileID: 3233878288040422310}
+  - component: {fileID: 5594373181851088855}
   m_Layer: 5
   m_Name: NEWPizzaTimeCanvas
   m_TagString: Untagged
@@ -673,6 +674,23 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!114 &5594373181851088855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3235930086234136089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e0fe9a534da1443a979a9ac208d9c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  remainingPizzaText: {fileID: 496706989098997592}
+  remainingTime: {fileID: 6743504053500320934}
+  progressTimeBar: {fileID: 1804352073240522935}
+  _thisCanvasGroup: {fileID: 8062331577635030393}
+  gameUI: {fileID: 0}
 --- !u!1 &3865195406630258394
 GameObject:
   m_ObjectHideFlags: 0
