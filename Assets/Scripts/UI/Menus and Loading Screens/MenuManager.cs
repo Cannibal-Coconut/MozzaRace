@@ -28,12 +28,15 @@ public class MenuManager : MonoBehaviour
 
     SceneLoader _sceneLoader;
 
+    ProfileInventory _profileInventory;
+
     private void Awake()
     {
         _game = FindObjectOfType<GameStateManager>();
         _player = FindObjectOfType<Health>();
         _sceneLoader = FindObjectOfType<SceneLoader>();
         _spawner = FindObjectOfType<Spawner>();
+
     }
 
     private void Start()
@@ -44,6 +47,8 @@ public class MenuManager : MonoBehaviour
 
         _pauseMenuCanvas.enabled = false;
         OpenMainMenu();
+
+        _profileInventory = FindObjectOfType<ProfileInventory>();
     }
 
     public void OpenShop()
@@ -102,6 +107,9 @@ public class MenuManager : MonoBehaviour
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1.0f;
+
+
+        _profileInventory.PassMatchPointsToSkinPoints();
         sceneLoader.LoadScene(3);
     }
 
@@ -141,5 +149,5 @@ public class MenuManager : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.MENUPOP, 1f);
     }
 
-   
+
 }

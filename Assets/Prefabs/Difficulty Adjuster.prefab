@@ -47,6 +47,7 @@ MonoBehaviour:
   - name: Facilito bro
     finishedOrders: 0
     speedFactor: 1
+    reviveCost: 200
     inventorySettings:
       maxOrders: 1
       baseOrderPoints: 100
@@ -64,6 +65,7 @@ MonoBehaviour:
   - name: Tope chungo
     finishedOrders: 5
     speedFactor: 1
+    reviveCost: 500
     inventorySettings:
       maxOrders: 2
       baseOrderPoints: 200
@@ -81,6 +83,7 @@ MonoBehaviour:
   - name: Tope chungo
     finishedOrders: 10
     speedFactor: 1
+    reviveCost: 1500
     inventorySettings:
       maxOrders: 3
       baseOrderPoints: 500

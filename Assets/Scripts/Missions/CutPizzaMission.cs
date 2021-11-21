@@ -30,9 +30,9 @@ public class CutPizzaMission : Mission
 
     public override void Initialize()
     {
-        PizzaLaunch launch = GameObject.FindObjectOfType<PizzaLaunch>();
+        ChangePizza changer = GameObject.FindObjectOfType<ChangePizza>();
 
-        launch.onHitRollCallback += AddCut;
+        changer.onGoodPizzaCut += AddCut;
     }
 
     public void AddCut()
