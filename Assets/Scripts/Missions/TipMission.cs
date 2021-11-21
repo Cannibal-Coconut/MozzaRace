@@ -27,7 +27,7 @@ public class TipMission : Mission
 
     public override void Initialize()
     {
-        _targetCounter = 0;
+        _counter = 0;
 
         IngredientInventory _inventory = GameObject.FindObjectOfType<IngredientInventory>();
         _inventory.onTakenTipAction += AddCounter;

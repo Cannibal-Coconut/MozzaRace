@@ -41,7 +41,9 @@ public class MissionHolder : MonoBehaviour
     public void SetMission(Mission mission)
     {
 
-        _icon.sprite = mission.icon;
+        if (_icon)
+            _icon.sprite = mission.icon;
+
         _skipPrice.text = mission.skipPrice.ToString();
         _reward.text = mission.points.ToString();
         _mission = mission;
