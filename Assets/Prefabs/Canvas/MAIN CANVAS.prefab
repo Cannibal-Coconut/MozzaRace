@@ -678,6 +678,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1500344574524282864}
+    - target: {fileID: 5281080617006214766, guid: ee24a680c3437234abfb42edf3a6bc0e, type: 3}
+      propertyPath: m_margin.w
+      value: -31.850348
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281080617006214766, guid: ee24a680c3437234abfb42edf3a6bc0e, type: 3}
+      propertyPath: m_margin.y
+      value: -1.6774712
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281080617006214766, guid: ee24a680c3437234abfb42edf3a6bc0e, type: 3}
+      propertyPath: m_margin.z
+      value: -157.31433
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281080617006214766, guid: ee24a680c3437234abfb42edf3a6bc0e, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 5281080617230076731, guid: ee24a680c3437234abfb42edf3a6bc0e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
