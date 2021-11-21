@@ -23,6 +23,7 @@ public class Spawner : MonoBehaviour, ILiveListener
     [SerializeField] SpawnSettings _defaultSpawnSettings;
 
     Coroutine _spawnCoroutine;
+    ChangePizza _pizzaTime;
 
 
     private TipTime _tipTime;
@@ -30,6 +31,7 @@ public class Spawner : MonoBehaviour, ILiveListener
     private void Awake()
     {
         _tipTime = FindObjectOfType<TipTime>();
+        _pizzaTime = FindObjectOfType<ChangePizza>();
 
         UpdateTotalWeights();
 
@@ -152,6 +154,9 @@ public class Spawner : MonoBehaviour, ILiveListener
            //TIP TIME
            var time = SpawnRandom();
             if(_tipTime.GetTipTimeModeStatus()) time = _tipTime.GetTipTime();
+            if(_pizzaTime.minigameState)  {
+                time =  4f;
+                }
             yield return new WaitForSeconds(time);
         }
     }
