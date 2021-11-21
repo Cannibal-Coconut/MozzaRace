@@ -179,8 +179,8 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 2340, y: 1080}
+  m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -402,15 +402,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2281726812873208484, guid: b62346490aff62d43be9cdec5506ff96, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -69.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281726812873208484, guid: b62346490aff62d43be9cdec5506ff96, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281726812873208484, guid: b62346490aff62d43be9cdec5506ff96, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.27846536
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2281726812873208484, guid: b62346490aff62d43be9cdec5506ff96, type: 3}
       propertyPath: m_LocalRotation.w
@@ -444,65 +444,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Login
       objectReference: {fileID: 0}
+    - target: {fileID: 3937829600414182862, guid: b62346490aff62d43be9cdec5506ff96, type: 3}
+      propertyPath: m_Name
+      value: Log-Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553334471317660903, guid: b62346490aff62d43be9cdec5506ff96, type: 3}
+      propertyPath: m_Name
+      value: Sign-Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223523368870354040, guid: b62346490aff62d43be9cdec5506ff96, type: 3}
+      propertyPath: m_Name
+      value: Cont-Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b62346490aff62d43be9cdec5506ff96, type: 3}
---- !u!1 &2281726812586460231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2281726812200839869, guid: b62346490aff62d43be9cdec5506ff96, type: 3}
-  m_PrefabInstance: {fileID: 2281726812586460230}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2281726812586460232 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2281726811411465548, guid: b62346490aff62d43be9cdec5506ff96, type: 3}
-  m_PrefabInstance: {fileID: 2281726812586460230}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2281726812586460233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2281726812586460231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56393f797a0f7e94e95547f5052052a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2281726812586460234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2281726812586460231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc33a39070010f94fb1c2dd721c1286d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showHtmlElement: 0
---- !u!114 &2281726812586460235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2281726812586460232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56393f797a0f7e94e95547f5052052a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2281726812586460236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2281726812586460232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc33a39070010f94fb1c2dd721c1286d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showHtmlElement: 0
