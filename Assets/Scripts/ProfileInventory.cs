@@ -296,6 +296,11 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
         AddPoints(matchPoints);
 
         matchPoints = 0;
+
+        if (_onEconomyChange != null)
+        {
+            _onEconomyChange.Invoke();
+        }
     }
 
     public void RemoveMatchPoints(int value)

@@ -1,19 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
+[Serializable]
 public class TimeMission : Mission
 {
-    MissionWatcher _watcher;
-
+    [Header("Settings")]
+    [SerializeField] float _targetTime = 100;
+    
     float _elapsedTime;
-    float _targetTime = 100;
-
-    public TimeMission(MissionWatcher watcher, float targetTime)
-    {
-        _watcher = watcher;
-        _targetTime = targetTime;
-    }
 
     public override bool CheckMission()
     {
@@ -27,11 +21,6 @@ public class TimeMission : Mission
         return false;
     }
 
-    public void SetTargetTime(float time)
-    {
-        _targetTime = time;
-    }
-
     public override void EndGame()
     {
 
@@ -39,6 +28,11 @@ public class TimeMission : Mission
 
     public override void StartGame()
     {
+        _elapsedTime = 0;
+    }
 
+    public override void Initialize()
+    {
+        _elapsedTime = 0;
     }
 }

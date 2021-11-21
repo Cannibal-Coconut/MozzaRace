@@ -1,33 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class AcumulativePointMission : Mission
 {
 
+    [SerializeField] int _targetPoints = 100;
     int _acumulatedPoints = 0;
-    int _targetPoints = 100;
-
-    bool _done;
 
     public AcumulativePointMission(int targetPoints)
     {
         _targetPoints = targetPoints;
 
-        var inventory = GameObject.FindObjectOfType<IngredientInventory>();
+        var inventory = GameObject.FindObjectOfType<ProfileInventory>();
 
-        inventory.AddFinishedOrderListener(OnOrderFinishedCallback);
+        inventory.AddOnEconomyChangeListener(OnOrderFinishedCallback);
     }
 
     public override bool CheckMission()
     {
-        return _done;
+        return _acumulatedPoints >= _targetPoints;
     }
-
 
     public override void EndGame()
     {
 
+    }
+
+    public override void Initialize()
+    {
+        _acumulatedPoints = 0;
     }
 
     public override void StartGame()
@@ -35,12 +39,8 @@ public class AcumulativePointMission : Mission
 
     }
 
-    void OnOrderFinishedCallback(int points)
+    void OnOrderFinishedCallback()
     {
         _acumulatedPoints += points;
-        if (points <= _acumulatedPoints)
-        {
-            _done = true;
-        }
     }
 }

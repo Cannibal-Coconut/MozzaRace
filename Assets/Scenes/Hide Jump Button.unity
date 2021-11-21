@@ -453,7 +453,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &911675137
 GameObject:
@@ -708,7 +708,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &1119315237
+--- !u!1 &1163573124
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -716,8 +716,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1119315238}
-  - component: {fileID: 1119315239}
+  - component: {fileID: 1163573126}
+  - component: {fileID: 1163573125}
   m_Layer: 0
   m_Name: Mission Watcher
   m_TagString: Untagged
@@ -725,32 +725,76 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1119315238
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119315237}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.323664, y: 2.296563, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1119315239
+--- !u!114 &1163573125
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119315237}
+  m_GameObject: {fileID: 1163573124}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97804aa9cd20f77419a1fcbdb57919f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _orderMissions:
+  - missionNameEnglish: Tomato Day!
+    missionNameSpanish: "\xA1D\xEDa del Tomate!"
+    missionDescriptionEnglish: Catch 5 tomates in one game
+    missionDescriptionSpanish: Coge 5 tomates en una partida
+    points: 500
+    skipPrice: 200
+    icon: {fileID: 21300000, guid: 0572db72b7e77c442841602210f4c85f, type: 3}
+    _targetOrder: 0b0000000b0000000b0000000b0000000b000000
+  - missionNameEnglish: Aloha!
+    missionNameSpanish: "\xA1Aloha!"
+    missionDescriptionEnglish: Catch 5 Pineapples in one game
+    missionDescriptionSpanish: "Coge 5 pi\xF1as en una partida"
+    points: 500
+    skipPrice: 200
+    icon: {fileID: 21300000, guid: 07c0d95c920b3e240a3d21ea673e85a4, type: 3}
+    _targetOrder: 0b0000000b0000000b0000000b0000000b000000
+  _pointMissions:
+  - missionNameEnglish: Great Day!
+    missionNameSpanish: "\xA1Un buen d\xEDa!"
+    missionDescriptionEnglish: Score 500 points in one match
+    missionDescriptionSpanish: Consigue 500 puntos en una partida
+    points: 500
+    skipPrice: 200
+    icon: {fileID: 21300000, guid: 264d270ac6fd96046901a210ced5357a, type: 3}
+    _targetPoints: 500
+  - missionNameEnglish: Master Chef
+    missionNameSpanish: Gran Chef
+    missionDescriptionEnglish: Score 5000 points in one match
+    missionDescriptionSpanish: Consigue 500 puntos en una partida
+    points: 5000
+    skipPrice: 200
+    icon: {fileID: 21300000, guid: 264d270ac6fd96046901a210ced5357a, type: 3}
+    _targetPoints: 5000
+  _timeMissions:
+  - missionNameEnglish: Natural Runner
+    missionNameSpanish: Corredor Nato
+    missionDescriptionEnglish: Run for over a minute in one game
+    missionDescriptionSpanish: "Corre por m\xE1s de un minuto en una partida"
+    points: 500
+    skipPrice: 200
+    icon: {fileID: 21300000, guid: 7c9baaf40ee3e5e478011237e52765fa, type: 3}
+    _targetTime: 60
+  _maxSelectedMissions: 3
+--- !u!4 &1163573126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163573124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 502.84204, y: 302.38318, z: 1.3556061}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1187546907 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4391831602830640197, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
@@ -797,7 +841,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1282781957
 GameObject:
@@ -910,7 +954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4391831602363511403, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4391831602363511403, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1028,7 +1072,7 @@ Transform:
   - {fileID: 1643491675}
   - {fileID: 1282781958}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1485786103
 MonoBehaviour:
@@ -1197,7 +1241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4891631593309048094, guid: 5be65a5c21145614b8a41a24025a134c, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4891631593309048094, guid: 5be65a5c21145614b8a41a24025a134c, type: 3}
       propertyPath: m_LocalPosition.x

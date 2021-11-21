@@ -1,24 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
+[Serializable]
 public class PointMission : Mission
 {
-    float _elapsedTime;
-    int _targetPoints = 100;
+    [Header("Settings")]
+    [SerializeField]int _targetPoints = 100;
 
     bool _done;
 
-    IngredientInventory _inventory;
-
-    public PointMission(int targetPoints)
-    {
-        _targetPoints = targetPoints;
-
-       _inventory = GameObject.FindObjectOfType<IngredientInventory>();
-
-        _inventory.AddFinishedOrderListener(OnOrderFinishedCallback);
-    }
+    ProfileInventory _inventory;
 
     public override bool CheckMission()
     {
@@ -31,16 +22,24 @@ public class PointMission : Mission
        
     }
 
+    public override void Initialize()
+    {
+        _inventory = GameObject.FindObjectOfType<ProfileInventory>();
+
+        _inventory.AddOnEconomyChangeListener(OnPointsChangeCallback);
+
+    }
+
     public override void StartGame()
     {
 
     }
 
-    void OnOrderFinishedCallback(int doneOrders)
+    void OnPointsChangeCallback()
     {
-        /* if (_profileInventory.points >= _targetPoints)
+         if (_inventory.matchPoints >= _targetPoints)
         {
             _done = true;
-        }*/
+        }
     }
 }
