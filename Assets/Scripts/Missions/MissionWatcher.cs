@@ -107,6 +107,7 @@ public class MissionWatcher : MonoBehaviour, ILiveListener
             _instance = this;
             transform.parent = null;
             DontDestroyOnLoad(gameObject);
+            SetCheckMissions(false);
 
             _inventory = FindObjectOfType<ProfileInventory>();
 
@@ -115,7 +116,6 @@ public class MissionWatcher : MonoBehaviour, ILiveListener
 
             SetListeners();
 
-            SetCheckMissions(false);
         }
     }
 

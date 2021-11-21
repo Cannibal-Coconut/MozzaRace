@@ -24,6 +24,7 @@ public class Settings : MonoBehaviour
 
     [Header("Tutorial")]
     [SerializeField] Button _tutorialButton;
+    [SerializeField] Tutorial _tutorial;
 
     [Space(5)]
     [Header("Back")]
@@ -219,7 +220,7 @@ public class Settings : MonoBehaviour
 
     public void DisplayTutorial()
     {
-        Debug.Log("Tutorial!");
+        _tutorial.Display();
     }
 
 }
