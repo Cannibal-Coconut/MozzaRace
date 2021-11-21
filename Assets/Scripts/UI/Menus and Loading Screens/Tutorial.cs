@@ -10,9 +10,11 @@ public class Tutorial : MonoBehaviour
     [SerializeField] Sprite _pcTutorial;
     [SerializeField] Sprite _mobileTutorial;
 
-    [SerializeField] Image _image;
+    [SerializeField] Image _pcImage;
+    [SerializeField] Image _mobileImage;
 
     [SerializeField] Button _backButton;
+    [SerializeField] Button _mobileBackButton;
 
     CanvasGroup _canvasGroup;
 
@@ -24,11 +26,19 @@ public class Tutorial : MonoBehaviour
 
         if (PlatformDetector.IsPlatformMobile())
         {
-            _image.sprite = _mobileTutorial;
+            _pcImage.enabled = false;
+            _backButton.gameObject.SetActive(false);
+
+            _mobileImage.enabled = true;
+            _mobileBackButton.enabled = true;
         }
         else
         {
-            _image.sprite = _pcTutorial;
+            _pcImage.enabled = true;
+            _backButton.enabled = true;
+            
+            _mobileBackButton.gameObject.SetActive(false);
+            _mobileImage.enabled = false;
         }
 
         _backButton.onClick.AddListener(() =>
