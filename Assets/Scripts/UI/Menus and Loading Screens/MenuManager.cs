@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Button _pauseMenuButton;
     [SerializeField] private Button _wardrobeButton;
     [SerializeField] private GameStateManager _game;
+    [SerializeField] private DeathScreen _death;
 
 
     [SerializeField] private IngredientInventory _inventory;
@@ -32,6 +33,7 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
+        _death = FindObjectOfType<DeathScreen>();
         _game = FindObjectOfType<GameStateManager>();
         _player = FindObjectOfType<Health>();
         _sceneLoader = FindObjectOfType<SceneLoader>();
@@ -102,6 +104,7 @@ public class MenuManager : MonoBehaviour
         _playerManager.enabled = true;
         _mainMenuCanvas.enabled = true;
         Time.timeScale = 0.0f;
+        
     }
 
     public void ReturnToMainMenu()
@@ -123,6 +126,7 @@ public class MenuManager : MonoBehaviour
 
     public void RestartButton()
     {
+        _death.SetHasNotDied(true);
         _playerManager.enabled = true;
         _inventory.ResetInventory();
         _spawner.StopSpawn();

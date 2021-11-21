@@ -32,6 +32,8 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     DifficultyLevel _currentLevel;
     private ChangePizza _minigameMonitor;
 
+    private bool _hasNotDied;
+
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
@@ -45,7 +47,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
         InitializeButtons();
 
         SetListeners();
-
+        _hasNotDied = true;
         enabled = true;
     }
 
@@ -73,6 +75,7 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     void RestartGame()
     {
         //ResetGame
+        SetHasNotDied(true);
         _inventory.ResetInventory();
         _profileInventory.PassMatchPointsToSkinPoints();
         Hide();
@@ -121,13 +124,17 @@ public class DeathScreen : MonoBehaviour, ILiveListener
         _currentLevel = level;
     }
 
+    public void SetHasNotDied(bool b) {
 
+        _hasNotDied = b;
+
+    }
     private IEnumerator DeathAnimationWaiter()
     {
 
         yield return new WaitForSeconds(1.5f);
         //Init Pizza Time
-        if(_inventory.finishedOrders > 1) _minigameMonitor.enabled = true;
+        if(_inventory.finishedOrders > 1 && _hasNotDied) _minigameMonitor.enabled = true;
         else DeathPostMinigame();
         
     }

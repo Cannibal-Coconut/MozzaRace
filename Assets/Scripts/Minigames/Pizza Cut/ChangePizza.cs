@@ -172,6 +172,7 @@ public class ChangePizza : MonoBehaviour
 
     private void InitMinigame()
     {
+        _death.SetHasNotDied(false);
         minigameState = true;
         InstantiatePizza();
         if (_orderInventory.finishedOrders <= 50)
