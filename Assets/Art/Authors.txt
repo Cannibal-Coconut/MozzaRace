@@ -36,8 +36,6 @@ dir ./Sprites:
 Pizza_cutter_sprites: Manuel Bueno Lasso
 Pizza_no_seams: Manuel Bueno Lasso
 Pizza_seams: Manuel Bueno Lasso
-pizza_4_cuts: Manuel Bueno Lasso
-pizza_6_cuts: Manuel Bueno Lasso
 shine: Manuel Bueno Lasso
 
 	dir ./Sprites/Character
@@ -171,10 +169,6 @@ shine: Manuel Bueno Lasso
 		WardrobeUI_Item: David González Rueda
 		WardrobeUI_Item_Selected: David González Rueda
 		WardrobeUI_PlaceHolders: David González Rueda
-
-		dir./UI/Login
-		Login_PlaceHolders: Manuel Bueno Lasso + David González Rueda
-		Login_UI: Manuel Bueno Lasso + David González Rueda
 
 dir ./UI/FinalTouches
 Bought_Button: David González Rueda

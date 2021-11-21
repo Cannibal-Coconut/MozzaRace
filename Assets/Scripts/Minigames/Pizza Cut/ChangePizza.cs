@@ -3,24 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    [RequireComponent(typeof(PizzaCutManager))] 
 
 public class ChangePizza : MonoBehaviour
-{      
-
-    private float _pizzaCuttingTotalRemainingTime {get;set;}
-    private float _pizzaCuttingTimer {get;set;}
-    private int _remainingPizzas {get;set;}
-    private int _goodPizzas {get;set;}
-    private int _finishedOrders;
-    private float _finishedOrderReviveThreshhold;
-
-    private IngredientInventory _orderInventory;
-    private PlayerManager _player;
-    private Health _playerHealth;
-
-    private GameObject _currentPizza;
-
+{
     [SerializeField] private GameObject pizza4;
     [SerializeField] private GameObject pizza6;
     [SerializeField] private GameObject pizza8;
@@ -28,104 +13,36 @@ public class ChangePizza : MonoBehaviour
     [SerializeField] private GameObject correct;
     [SerializeField] private GameObject failed;
 
-    public bool minigameState;
-
     private System.Random _random;
-
-    private PizzaCutManager _pizzaCutManager;
-
-    private DeathScreen _death;
 
     private void Awake()
     {
-        _pizzaCutManager = GetComponent<PizzaCutManager>();
-        _orderInventory = FindObjectOfType<IngredientInventory>();
-        _player = FindObjectOfType<PlayerManager>();
-        _playerHealth = FindObjectOfType<Health>();
-        _death = FindObjectOfType<DeathScreen>();
-
         correct.SetActive(false);
         failed.SetActive(false);
         _random = new System.Random();
-
-        minigameState = false;
-        this.enabled = false;
-        _pizzaCutManager.enabled = false;
+        InstantiatePizza();
     }
 
     private void InstantiatePizza()
     {
-        if(minigameState){
-            switch (_random.Next(1, 4))
-            {
-                case 1:
-                    _currentPizza = Instantiate(pizza4, Vector3.zero, Quaternion.Euler(0,0,UnityEngine.Random.Range(0.0f, 360.0f)));
-                    break;
-                case 2:
-                    _currentPizza =Instantiate(pizza6, Vector3.zero, Quaternion.Euler(0,0,UnityEngine.Random.Range(0.0f, 360.0f)));
-                    break;
-                case 3:
-                _currentPizza = Instantiate(pizza8, Vector3.zero, Quaternion.Euler(0,0,UnityEngine.Random.Range(0.0f, 360.0f)));
-                    break;
-            }
+        switch (_random.Next(1, 4))
+        {
+            case 1:
+                Instantiate(pizza4, Vector3.zero, Quaternion.Euler(0,0,UnityEngine.Random.Range(0.0f, 360.0f)));
+                break;
+            case 2:
+                Instantiate(pizza6, Vector3.zero, Quaternion.Euler(0,0,UnityEngine.Random.Range(0.0f, 360.0f)));
+                break;
+            case 3:
+                Instantiate(pizza8, Vector3.zero, Quaternion.Euler(0,0,UnityEngine.Random.Range(0.0f, 360.0f)));
+                break;
         }
     }
 
     public void ChangeVisiblePizza(PizzaCutCheck visiblePizza, bool result)
     {
         Destroy(visiblePizza.gameObject);
-        _remainingPizzas--;
-         if (result) _goodPizzas++; 
-        Debug.Log("You have to cut " + _remainingPizzas + " remaining pizzas");
         StartCoroutine(ShowResult(result));
-    }       
-
-    public IEnumerator PizzaCutMinigameTimer(){
-        
-
-        yield return new WaitForSeconds(_pizzaCuttingTotalRemainingTime);
-        if(minigameState) {
-            LoseMinigame();
-            Debug.Log("You just time lost");
-
-        }
-
-
-    }
-
-    private void Update() {
-
-            
-            if(_goodPizzas >=  (int) _finishedOrderReviveThreshhold && _finishedOrders > 1) {
-
-                //RevivePlayer
-               WinMinigame();
-
-                
-            } 
-
-            if(_remainingPizzas < 0) {
-
-                LoseMinigame();
-                Debug.Log("You just ran out of pizzas!");
-            }
-
-    }
-
-    public void WinMinigame(){
-
-        _playerHealth.Live();
-        this.enabled = false;
-        
-
-    }
-
-    public void LoseMinigame(){
-
-        _death.DeathPostMinigame();
-        this.enabled = false;
-
-
     }
 
     private IEnumerator ShowResult(bool result)
@@ -135,62 +52,11 @@ public class ChangePizza : MonoBehaviour
         else
             failed.SetActive(true);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
         
         correct.SetActive(false);
         failed.SetActive(false);
         
         InstantiatePizza();
-    }
-
-    private void OnEnable() {
-
-        _pizzaCutManager.enabled = true;
-        _player.enabled = false;
-        InitMinigame();
-    }
-
-    private void InitMinigame(){
-        minigameState = true;
-        InstantiatePizza();
-        if( _orderInventory.finishedOrders <= 50) {
-            _finishedOrders = _orderInventory.finishedOrders;
-        } else _finishedOrders = 50; 
-        CalculateTotalPizzaTime();
-        StartCoroutine(PizzaCutMinigameTimer());
-
-        _remainingPizzas = _finishedOrders;
-
-        _finishedOrderReviveThreshhold = _finishedOrders * 0.5f;
-        Debug.Log("Cut " + _finishedOrderReviveThreshhold + " to Revive!");
-        Debug.Log("You have completed " + _finishedOrders + " orders!");
-        
-    }
-
-    private void CalculateTotalPizzaTime(){
-
-        if(_finishedOrders >= 50) {
-
-            _pizzaCuttingTotalRemainingTime = 30;
-
-        }
-        else _pizzaCuttingTotalRemainingTime =  (int) 20 * Mathf.Log10(_finishedOrders) ;
-
-        Debug.Log( "Total pizza time : " + _pizzaCuttingTotalRemainingTime);
-    }
-
-    private void ResetMinigame(){
-
-        Destroy(_currentPizza);
-        minigameState = false;
-        _pizzaCuttingTimer = _pizzaCuttingTotalRemainingTime;
-        _remainingPizzas = 0;
-
-    }   
-
-    private void OnDisable() {
-        ResetMinigame();
-        _player.enabled = true;
-        _pizzaCutManager.enabled = false;
     }
 }
