@@ -88,8 +88,9 @@ public class PlayerManager : MonoBehaviour
     {
         if (startAttackInputEvent == null) return;
         
-        if (EventSystem.current.IsPointerOverGameObject())
-            if (!EventSystem.current.currentSelectedGameObject.Equals(playerGameObject)) return;
+        if (EventSystem.current.IsPointerOverGameObject())return;
+            //if (!EventSystem.current.currentSelectedGameObject.Equals(playerGameObject)) 
+
 
         if (jumpButtonCollider.bounds.Contains(_controls.Player.AttackPosition.ReadValue<Vector2>())) return;
 

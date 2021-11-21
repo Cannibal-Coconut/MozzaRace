@@ -13,7 +13,7 @@ public class PizzaTimeCanvas : MonoBehaviour
     private float time;
 
     [SerializeField] private CanvasGroup _thisCanvasGroup;
-    
+    [SerializeField] private CanvasGroup gameUI;
     private void Awake() {
         _thisCanvasGroup = GetComponent<CanvasGroup>();
         _pizzaManager = FindObjectOfType<ChangePizza>();
@@ -54,13 +54,16 @@ public class PizzaTimeCanvas : MonoBehaviour
 
     public void Hide(){
 
+        gameUI.alpha = 1;
+        gameUI.blocksRaycasts = true;
         _thisCanvasGroup.alpha = 0;
         _thisCanvasGroup.blocksRaycasts = false;
 
     }
 
         public void Display(){
-
+        gameUI.alpha = 0;
+        gameUI.blocksRaycasts = false;
         _thisCanvasGroup.alpha = 1;
         _thisCanvasGroup.blocksRaycasts = true;
 

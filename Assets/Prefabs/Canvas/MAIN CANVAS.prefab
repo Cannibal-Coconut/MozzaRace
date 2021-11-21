@@ -137,6 +137,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 1, z: 0}
+--- !u!225 &89336948351692251
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634065053427652177}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!225 &1939445152
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -732,6 +744,11 @@ PrefabInstance:
       objectReference: {fileID: 4391831603166089242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee24a680c3437234abfb42edf3a6bc0e, type: 3}
+--- !u!1 &6634065053427652177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3001700011699880211, guid: ee24a680c3437234abfb42edf3a6bc0e, type: 3}
+  m_PrefabInstance: {fileID: 8482742403097892674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6634065053427652269 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3001700011699880431, guid: ee24a680c3437234abfb42edf3a6bc0e, type: 3}
