@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5281956370314670814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5281956370314670812}
+  - component: {fileID: 5281956370314670815}
+  m_Layer: 0
+  m_Name: Mission Watcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5281956370314670812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5281956370314670814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 502.84204, y: 302.38318, z: 1.3556061}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5281956370314670815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5281956370314670814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97804aa9cd20f77419a1fcbdb57919f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _orderMissions:
+  - missionNameEnglish: Tomato Day!
+    missionNameSpanish: "\xA1D\xEDa del Tomate!"
+    missionDescriptionEnglish: Catch 5 tomates in one game
+    missionDescriptionSpanish: Coge 5 tomates en una partida
+    points: 500
+    skipPrice: 200
+    icon: {fileID: 21300000, guid: 0572db72b7e77c442841602210f4c85f, type: 3}
+    _targetOrder: 0b0000000b0000000b0000000b0000000b000000
+  - missionNameEnglish: Aloha!
+    missionNameSpanish: "\xA1Aloha!"
+    missionDescriptionEnglish: Catch 5 Pineapples in one game
+    missionDescriptionSpanish: "Coge 5 pi\xF1as en una partida"
+    points: 500
+    skipPrice: 200
+    icon: {fileID: 21300000, guid: 07c0d95c920b3e240a3d21ea673e85a4, type: 3}
+    _targetOrder: 0b0000000b0000000b0000000b0000000b000000
+  _pointMissions:
+  - missionNameEnglish: Great Day!
+    missionNameSpanish: "\xA1Un buen d\xEDa!"
+    missionDescriptionEnglish: Score 500 points in one match
+    missionDescriptionSpanish: Consigue 500 puntos en una partida
+    points: 500
+    skipPrice: 200
+    icon: {fileID: 21300000, guid: 264d270ac6fd96046901a210ced5357a, type: 3}
+    _targetPoints: 500
+  _accumulativePointMissions:
+  - missionNameEnglish: Master Chef
+    missionNameSpanish: Master Chef
+    missionDescriptionEnglish: Score 5000 points in one game
+    missionDescriptionSpanish: Consigue 5000 punto en una partida
+    points: 5000
+    skipPrice: 1000
+    icon: {fileID: 21300000, guid: 2759f8cd80f89d24c87f231b500c3e4d, type: 3}
+    _targetPoints: 5000
+  _hitRollMissions:
+  - missionNameEnglish: Hit on the Roll
+    missionNameSpanish: Hit on the Roll
+    missionDescriptionEnglish: Hit 3 rolls in one game
+    missionDescriptionSpanish: Golpea 3 rodillos en una partida
+    points: 1001
+    skipPrice: 500
+    icon: {fileID: 21300000, guid: febb2a8b9fd429943af9993748ab5c76, type: 3}
+    _targetNumber: 3
+  _timeMissions:
+  - missionNameEnglish: Natural Runner
+    missionNameSpanish: Corredor Nato
+    missionDescriptionEnglish: Run for over a minute in one game
+    missionDescriptionSpanish: "Corre por m\xE1s de un minuto en una partida"
+    points: 500
+    skipPrice: 200
+    icon: {fileID: 21300000, guid: 7c9baaf40ee3e5e478011237e52765fa, type: 3}
+    _targetTime: 60
+  _tipMissions:
+  - missionNameEnglish: Tip of the day
+    missionNameSpanish: Dia de propina
+    missionDescriptionEnglish: Catch a Tip Jar in one game
+    missionDescriptionSpanish: Coge un bote de propinas en una partida
+    points: 1000
+    skipPrice: 200
+    icon: {fileID: 21300000, guid: c63530217c62adf4da788c42cf4f91b8, type: 3}
+    _targetCounter: 1
+  _maxSelectedMissions: 3

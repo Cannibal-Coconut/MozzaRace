@@ -28,6 +28,9 @@ public class PizzaLaunch : MonoBehaviour
 
     private TrailRenderer _trailRenderer;
 
+    public Action onHitRollCallback;
+    public Action onCutCallback;
+
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -85,7 +88,7 @@ public class PizzaLaunch : MonoBehaviour
     public void ThrowPizza(Vector3 throwDirection)
     {
         _spriteRenderer.flipY = throwDirection.x < 0;
-        
+
         _rigidbody2D.isKinematic = false;
         transform.position = playerTransform.position;
         var force = playerAttack.Power;
@@ -105,5 +108,21 @@ public class PizzaLaunch : MonoBehaviour
     public bool IsWithPlayer()
     {
         return _state == State.WithPlayer;
+    }
+
+    public void RollHit()
+    {
+        if (onHitRollCallback != null)
+        {
+            onHitRollCallback.Invoke();
+        }
+    }
+
+    public void CutPizza()
+    {
+        if (onCutCallback != null)
+        {
+            onCutCallback.Invoke();
+        }
     }
 }

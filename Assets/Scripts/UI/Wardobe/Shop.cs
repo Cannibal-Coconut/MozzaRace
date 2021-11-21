@@ -32,9 +32,7 @@ public class Shop : MonoBehaviour
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
-        _profileInventory = FindObjectOfType<ProfileInventory>();
-        _profileInventory.AddOnEconomyChangeListener(UpdateMoney);
-
+        
         Hide();
 
         CreateSkins();
@@ -46,6 +44,8 @@ public class Shop : MonoBehaviour
 
         SetSkinPage(0);
 
+        _profileInventory = FindObjectOfType<ProfileInventory>();
+        _profileInventory.AddOnEconomyChangeListener(UpdateMoney);
         UpdateMoney();
     }
 

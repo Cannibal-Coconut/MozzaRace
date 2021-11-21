@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class LoginScreen : MonoBehaviour
 {
     [Header("References")]
@@ -17,12 +18,23 @@ public class LoginScreen : MonoBehaviour
 
 
     ProfileInventory _profileInventory;
+    SceneLoader _sceneLoader;
+    CanvasGroup _canvasGroup;
 
     private void Awake()
     {
         _profileInventory = FindObjectOfType<ProfileInventory>();
+        _sceneLoader = FindObjectOfType<SceneLoader>();
+        _canvasGroup = GetComponent<CanvasGroup>();
+
+        _passwordField.inputType = TMP_InputField.InputType.Password;
 
         SetButtons();
+    }
+
+    private void Start()
+    {
+        Show();
     }
 
     void SetButtons()
@@ -35,11 +47,24 @@ public class LoginScreen : MonoBehaviour
     private void StartGame()
     {
         Debug.Log("Start Game!");
+        _sceneLoader.LoadScene(3);
+    }
+
+    public void Hide()
+    {
+        _canvasGroup.alpha = 0;
+        _canvasGroup.blocksRaycasts = false;
+    }
+
+    public void Show()
+    {
+        _canvasGroup.alpha = 1;
+        _canvasGroup.blocksRaycasts = true;
     }
 
     void ContinueWithNoProfile()
     {
-
+        StartGame();
     }
 
     void LogInFailure()

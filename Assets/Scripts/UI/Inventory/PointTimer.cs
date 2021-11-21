@@ -22,30 +22,39 @@ public class PointTimer : MonoBehaviour
 
     // Update is called once per frame
 
-    public void UpdateTimer(){
+    public void UpdateTimer()
+    {
 
-        float currentPointPercentage =  _currentPoints/ _totalPoints; 
-        if( currentPointPercentage > 0.5) {
+        float currentPointPercentage = _currentPoints / _totalPoints;
+        if (currentPointPercentage > 0.5)
+        {
             SetFillColor(Color.green);
-            }
-        else if( currentPointPercentage > 0.25) {
+        }
+        else if (currentPointPercentage > 0.25)
+        {
             SetFillColor(Color.yellow);
-            }
-        else if( currentPointPercentage >=0) {
+        }
+        else if (currentPointPercentage >= 0)
+        {
             SetFillColor(Color.red);
-            }
+        }
 
-        _fill.color = _fillColor;
-        _fill.fillAmount = currentPointPercentage;
+        if (_fill)
+        {
+            _fill.color = _fillColor;
+            _fill.fillAmount = currentPointPercentage;
+
+        }
 
 
     }
 
-    public void UpdateCurrentPoints(int current){ _currentPoints = current; }
+    public void UpdateCurrentPoints(int current) { _currentPoints = current; }
 
-    public void SetTotalPoints(int total) { _totalPoints = total;}
- 
-    public void SetFillColor(Color color){
+    public void SetTotalPoints(int total) { _totalPoints = total; }
+
+    public void SetFillColor(Color color)
+    {
 
         _fillColor = color;
 

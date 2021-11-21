@@ -2,23 +2,17 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class TimeMission : Mission
+public class GameCounterMission : Mission
 {
     [Header("Settings")]
-    [SerializeField] float _targetTime = 100;
+    [SerializeField] int _targetCount = 15;
 
-    float _elapsedTime;
+    int _counter = 0;
 
     public override bool CheckMission()
     {
-        _elapsedTime += Time.deltaTime;
-
-        if (_elapsedTime >= _targetTime)
-        {
-            return true;
-        }
-
-        return false;
+        
+        return _counter >= _targetCount;
     }
 
     public override void EndGame()
@@ -28,16 +22,16 @@ public class TimeMission : Mission
 
     public override void StartGame()
     {
-        _elapsedTime = 0;
+        _counter++;
     }
 
     public override void Initialize()
     {
-        _elapsedTime = 0;
+        _counter = 0;
     }
 
     public override string GetPercentage()
     {
-        return "";
+        return ((int)(100 * (float)_counter / (float)_targetCount)).ToString() + "%";
     }
 }

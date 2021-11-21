@@ -37,7 +37,7 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
         if (_instance)
         {
             _instance.SetListeners();
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
         }
         else
         {
@@ -301,6 +301,11 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
         AddPoints(matchPoints);
 
         matchPoints = 0;
+
+        if (_onEconomyChange != null)
+        {
+            _onEconomyChange.Invoke();
+        }
     }
 
     public void RemoveMatchPoints(int value)
