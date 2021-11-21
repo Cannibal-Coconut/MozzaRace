@@ -88,6 +88,16 @@ shine: Manuel Bueno Lasso
 	Pizza_vertical_sprites: Manuel Bueno Lasso
 	
 	dir ./Sprites/UI
+		dir ./UI/Credits
+		CreditsUI_Base : David González Rueda + Manuel Bueno Lasso
+		CreditsUI_Instagram: David González Rueda
+		CreditsUI_Itchio: David González Rueda	
+		CreditsUI_Out: David González Rueda	
+		CreditsUI_Twitter: David González Rueda
+		CreditsUI_Web: David González Rueda
+		CreditsUI_WithPlaceholders: David González Rueda + Manuel Bueno Lasso
+		CreditsUI_Youtube: David González Rueda
+
 		dir ./UI/Death
 		DeathUI:Background: David González Rueda
 		DeathUI_Button_Home: David González Rueda
@@ -113,7 +123,11 @@ shine: Manuel Bueno Lasso
 		GameUI_Base: David González Rueda
 		GameUI_Order: David González Rueda
 		GameUI_Placeholders: David González Rueda
-		JumpButton: David González Rueda		
+		JumpButton: David González Rueda
+
+		dir./UI/Login
+		Login_PlaceHolders: Manuel Bueno Lasso + David González Rueda
+		Login_UI: Manuel Bueno Lasso + David González Rueda		
 
 		dir ./UI/MainMenu
 		MainUI_Base: David González Rueda
@@ -171,10 +185,7 @@ shine: Manuel Bueno Lasso
 		WardrobeUI_Item: David González Rueda
 		WardrobeUI_Item_Selected: David González Rueda
 		WardrobeUI_PlaceHolders: David González Rueda
-
-		dir./UI/Login
-		Login_PlaceHolders: Manuel Bueno Lasso + David González Rueda
-		Login_UI: Manuel Bueno Lasso + David González Rueda
+		
 
 dir ./UI/FinalTouches
 Bought_Button: David González Rueda
