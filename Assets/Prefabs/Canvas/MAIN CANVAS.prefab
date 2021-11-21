@@ -121,6 +121,7 @@ MonoBehaviour:
   _pauseMenuButton: {fileID: 8391815611155963703}
   _wardrobeButton: {fileID: 5104424113843853077}
   _game: {fileID: 0}
+  _death: {fileID: 0}
   _inventory: {fileID: 0}
   _player: {fileID: 0}
   _spawner: {fileID: 0}
@@ -1003,6 +1004,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1500344574524282865}
+    - target: {fileID: 5455746676047648827, guid: ee24a680c3437234abfb42edf3a6bc0e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: debc0660abf7c8744a24663a78823ba4, type: 3}
     - target: {fileID: 5455746676047648827, guid: ee24a680c3437234abfb42edf3a6bc0e, type: 3}
       propertyPath: m_Color.a
       value: 0.6
