@@ -198,4 +198,9 @@ public class ChangePizza : MonoBehaviour
         return _pizzaCuttingTotalRemainingTime;
 
     }
+     public float GetFinishedOrders(){
+
+        return _finishedOrders;
+
+    }
 }

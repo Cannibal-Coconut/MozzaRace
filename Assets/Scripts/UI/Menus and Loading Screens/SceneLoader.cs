@@ -38,8 +38,8 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator StartingAnimation()
     {
-        yield return new WaitForSeconds(0f);
-        LoadScene(2);
+        yield return new WaitForSeconds(0.1f);
+        LoadScene(1);
     }
 
 

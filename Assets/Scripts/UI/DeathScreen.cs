@@ -127,7 +127,8 @@ public class DeathScreen : MonoBehaviour, ILiveListener
 
         yield return new WaitForSeconds(1.5f);
         //Init Pizza Time
-        _minigameMonitor.enabled = true;
+        if(_inventory.finishedOrders > 1) _minigameMonitor.enabled = true;
+        else DeathPostMinigame();
         
     }
 
