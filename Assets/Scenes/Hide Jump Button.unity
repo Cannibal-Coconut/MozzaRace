@@ -733,7 +733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119315237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.323664, y: 2.296563, z: 0}
+  m_LocalPosition: {x: 5.02, y: 2.296563, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -751,6 +751,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97804aa9cd20f77419a1fcbdb57919f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _orderMissions: []
+  _pointMissions: []
+  _accumulativePointMissions: []
+  _hitRollMissions: []
+  _timeMissions: []
+  _tipMissions: []
+  _gameCounterMissions: []
+  _cutPizzaMissions: []
+  _maxSelectedMissions: 1
 --- !u!1 &1187546907 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4391831602830640197, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
