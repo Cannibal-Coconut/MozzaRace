@@ -26,6 +26,11 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
     Coroutine _databaseCoroutine;
     bool _databaseCoroutineAvaliable = true;
 
+    public delegate void OnUpdateMatchPoints();
+
+    public event OnUpdateMatchPoints onupdateMatchPoints;
+
+
     private void Awake()
     {
         //Make Sure there is only one of these.
@@ -284,7 +289,7 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
     public void AddMatchPoints(int value)
     {
         matchPoints += Mathf.Abs(value);
-
+        onupdateMatchPoints();
         if (_onEconomyChange != null)
         {
             _onEconomyChange.Invoke();

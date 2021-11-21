@@ -18,21 +18,28 @@ public class Spawner : MonoBehaviour, ILiveListener
     WeightedSpawnable[] _hardSpawnables;
     int _hardTotalWeight;
 
+
     SpawnSettings _spawnSettings;
     [SerializeField] SpawnSettings _defaultSpawnSettings;
 
     Coroutine _spawnCoroutine;
 
+
+    private TipTime _tipTime;
+
     private void Awake()
     {
+        _tipTime = FindObjectOfType<TipTime>();
+
         UpdateTotalWeights();
+
 
         SetListeners();
 
         _spawnSettings = _defaultSpawnSettings;
     }
 
-    void StartSpawn()
+    public void StartSpawn()
     {
         if (_spawnCoroutine != null)
         {
@@ -142,7 +149,9 @@ public class Spawner : MonoBehaviour, ILiveListener
     {
         while (true)
         {
-            var time = SpawnRandom();
+           //TIP TIME
+           var time = SpawnRandom();
+            if(_tipTime.GetTipTimeModeStatus()) time = _tipTime.GetTipTime();
             yield return new WaitForSeconds(time);
         }
     }
@@ -156,7 +165,7 @@ public class Spawner : MonoBehaviour, ILiveListener
     {
         StopSpawn();
     }
-
+    
     public void SetListeners()
     {
         var player = FindObjectOfType<Health>();

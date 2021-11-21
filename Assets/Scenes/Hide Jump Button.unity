@@ -904,6 +904,10 @@ PrefabInstance:
       propertyPath: _playerManager
       value: 
       objectReference: {fileID: 740086478}
+    - target: {fileID: 3024221075452300853, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00008392334
+      objectReference: {fileID: 0}
     - target: {fileID: 4391831602363511402, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_Name
       value: Canvas Rafa
@@ -1184,6 +1188,23 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 4295702710739705985, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
   m_PrefabInstance: {fileID: 1298406372}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2084846446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7771900233536113243, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+  m_PrefabInstance: {fileID: 1298406372}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &2084846447
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084846446}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &2110759295
 PrefabInstance:
   m_ObjectHideFlags: 0
