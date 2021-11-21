@@ -105,4 +105,22 @@ MonoBehaviour:
     skipPrice: 200
     icon: {fileID: 21300000, guid: c63530217c62adf4da788c42cf4f91b8, type: 3}
     _targetCounter: 1
+  _gameCounterMissions:
+  - missionNameEnglish: Pizzaphile
+    missionNameSpanish: "Pizz\xE9filo"
+    missionDescriptionEnglish: Play 15 games
+    missionDescriptionSpanish: Juega 15 partidas
+    points: 2000
+    skipPrice: 1000
+    icon: {fileID: 21300000, guid: 87fb5ee24e254e64f961b74c8bc1ca43, type: 3}
+    _targetCount: 15
+  _cutPizzaMissions:
+  - missionNameEnglish: Skilled Pizza-Cutter
+    missionNameSpanish: Cotardor Profesional
+    missionDescriptionEnglish: Cut 5 pizzas in one game
+    missionDescriptionSpanish: Cortar 5 pizzas en una partida
+    points: 500
+    skipPrice: 200
+    icon: {fileID: 21300000, guid: fec2217f080716f42b90b533342120b7, type: 3}
+    _targetNumber: 5
   _maxSelectedMissions: 3
