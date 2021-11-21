@@ -130,6 +130,7 @@ shine: Manuel Bueno Lasso
 		Login_UI: Manuel Bueno Lasso + David González Rueda		
 
 		dir ./UI/MainMenu
+		Credits_Button: David González Rueda
 		MainUI_Base: David González Rueda
 		MainUI_MissionLayout: David González Rueda
 		MainUI_MissionSkip: David González Rueda
