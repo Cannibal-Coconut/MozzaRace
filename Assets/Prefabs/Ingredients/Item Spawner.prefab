@@ -46,15 +46,59 @@ MonoBehaviour:
   _easySpawnables:
   - spawnablePrototype: {fileID: 8501705632778821268, guid: 4fe5bea8868fb1e41b6388373144c92d, type: 3}
     spawnWeight: 1
-  _mediumSpawnables:
-  - spawnablePrototype: {fileID: 8501705632778821268, guid: 87a9330c5f9e61c4f962a5e7b5e16dfb, type: 3}
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 6ae498e2fbaf0724287f7282d7d081cf, type: 3}
     spawnWeight: 1
-  - spawnablePrototype: {fileID: 8501705632778821268, guid: 57c6f857a34892e4294ed7176c9af7a8, type: 3}
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: d3dbc4a17a14d9f46bc40d26f1ce8000, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: f502a6e2de8a13342ae263eabc9f5244, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 77836875210661549a3ff6cca932fe36, type: 3}
+    spawnWeight: 2
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 77a3e9c8598135f45b7e82e0a71466ba, type: 3}
+    spawnWeight: 2
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: d94771ab0c7cd654395581b81394b5ce, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 9dee811c51bee1e4b935e670b15b6eb0, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 3f2e136b027a8d244bc017dd094645c1, type: 3}
+    spawnWeight: 2
+  _mediumSpawnables:
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 1775d13e267615d41b8245a6c76a5f19, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 2e23839ae12411545ba71a92fbe1cc37, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 80d70a3c12304a14ebde87060fafa042, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: f8689979a0c28b24484718f8f2333334, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: ad464599d7adacd488138e5519df72f5, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 0a3a83d1353ba6f4c8cfcb017b7a2d8d, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 26a2980c1410a6540abead6eefcf8971, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 4cea6dd90eec8ee40828a44c81509231, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 790839b342d03e14d9f60e5533e03d0b, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 35b9279cd029aaf428ada1e2109acf17, type: 3}
     spawnWeight: 1
   _hardSpawnables:
-  - spawnablePrototype: {fileID: 8501705632778821268, guid: 339df19c67abb7e4fa630c01e8d63d71, type: 3}
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 27ca0dc62bb87fb449fe3640569d033e, type: 3}
     spawnWeight: 1
-  - spawnablePrototype: {fileID: 8501705632778821268, guid: 99e840a0e1e6a984cb1ec0d82aa167d9, type: 3}
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 96aad3d04d2f5244e9f714c6a4f32e7f, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 5aae795a2ea91f5458a11169c830822a, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 233da0e91dd6cfc49ad5930c3592e658, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 1e89bcb2eaeeb4c4bab9d37323497b9e, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 95879d82fd410e347bef3bf4cce783eb, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: c50033e60ea0a024e80c493c43f0ba3b, type: 3}
+    spawnWeight: 1
+  - spawnablePrototype: {fileID: 8501705632778821268, guid: 459e9b0debc5bbe49aca4952b7eb1fc3, type: 3}
     spawnWeight: 1
   _defaultSpawnSettings:
     easyObstacleWeight: 1
