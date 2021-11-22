@@ -45,6 +45,11 @@ public class Tutorial : MonoBehaviour
         {
             Hide();
         });
+        
+        _mobileBackButton.onClick.AddListener(() =>
+        {
+            Hide();
+        });
     }
 
     public void Display()
