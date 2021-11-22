@@ -96,7 +96,16 @@ public class Shop : MonoBehaviour
                         }
                         sound.PlaySpendMoney();
                     }
+                    
                 }
+                else
+                {
+                    sound.PlayPizzaTimeError();
+                }
+            }
+            else
+            {
+                sound.PlayPizzaTimeError();
             }
         }
     }
