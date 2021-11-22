@@ -694,7 +694,7 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 1
-  cloudProjectId: 00bbdb6a-2542-49c4-a0be-427e245e9498
+  cloudProjectId: 21c76817-18e9-4167-8198-a526d377c612
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames:
   - Very Low
@@ -703,8 +703,8 @@ PlayerSettings:
   - High
   - Very High
   - Ultra
-  projectName: MozzaRace (2)
-  organizationId: dexaxi12-gmail-com
+  projectName: MozzaRace
+  organizationId: relegends
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   virtualTexturingSupportEnabled: 0
