@@ -204,8 +204,10 @@ ShopItem_Selected: David González Rueda + Manuel Bueno Lasso
 UIShop_Base_WithCoins: David González Rueda + Manuel Bueno Lasso
 UIShop_WithPlaceHolders: David González Rueda + Manuel Bueno Lasso
 
+dir ./Events&Specials
+Banner_Christmas: Manuel Bueno Lasso
 
-dir./Avatares (Repositorio de Cannibal-Coconut)
+dir ./Avatares (Repositorio de Cannibal-Coconut)
 Avatar_Ángel: Manuel Bueno Lasso
 Avatar_David: Manuel Bueno Lasso
 Avatar_Javi: Manuel Bueno Lasso
