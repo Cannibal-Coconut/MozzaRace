@@ -189,6 +189,106 @@ shine: Manuel Bueno Lasso
 		WardrobeUI_Item: David González Rueda
 		WardrobeUI_Item_Selected: David González Rueda
 		WardrobeUI_PlaceHolders: David González Rueda
+	dir ./Sprites/Skins
+		dir./Skins/Changing_no_pizza
+		Changing_no_pizza_red: Manuel Bueno Lasso
+		Changing_no_pizza_blue: Manuel Bueno Lasso
+		Changing_no_pizza_cyan: Manuel Bueno Lasso
+		Changing_no_pizza_orange: Manuel Bueno Lasso
+		Changing_no_pizza_purple: Manuel Bueno Lasso
+		Changing_no_pizza_pink: Manuel Bueno Lasso
+		Changing_no_pizza_green: Manuel Bueno Lasso
+		Changing_no_pizza_yellow: Manuel Bueno Lasso
+		dir./Skins/Changing_pizza
+		Changing_pizza_red: Manuel Bueno Lasso
+		Changing_pizza_blue: Manuel Bueno Lasso
+		Changing_pizza_cyan: Manuel Bueno Lasso
+		Changing_pizza_orange: Manuel Bueno Lasso
+		Changing_pizza_purple: Manuel Bueno Lasso
+		Changing_pizza_pink: Manuel Bueno Lasso
+		Changing_pizza_green: Manuel Bueno Lasso
+		Changing_pizza_yellow: Manuel Bueno Lasso
+		dir./Skins/Flip
+		Flip_red: Manuel Bueno Lasso
+		Flip_blue: Manuel Bueno Lasso
+		Flip_cyan: Manuel Bueno Lasso
+		Flip_orange: Manuel Bueno Lasso
+		Flip_purple: Manuel Bueno Lasso
+		Flip_pink: Manuel Bueno Lasso
+		Flip_green: Manuel Bueno Lasso
+		Flip_yellow: Manuel Bueno Lasso
+		dir./Skins/Jumping_no_pizza
+		Jumping_no_pizza_red: Manuel Bueno Lasso
+		Jumping_no_pizza_blue: Manuel Bueno Lasso
+		Jumping_no_pizza_cyan: Manuel Bueno Lasso
+		Jumping_no_pizza_orange: Manuel Bueno Lasso
+		Jumping_no_pizza_purple: Manuel Bueno Lasso
+		Jumping_no_pizza_pink: Manuel Bueno Lasso
+		Jumping_no_pizza_green: Manuel Bueno Lasso
+		Jumping_no_pizza_yellow: Manuel Bueno Lasso
+		dir./Skins/Jumping_pizza
+		Jumping_pizza_red: Manuel Bueno Lasso
+		Jumping_pizza_blue: Manuel Bueno Lasso
+		Jumping_pizza_cyan: Manuel Bueno Lasso
+		Jumping_pizza_orange: Manuel Bueno Lasso
+		Jumping_pizza_purple: Manuel Bueno Lasso
+		Jumping_pizza_pink: Manuel Bueno Lasso
+		Jumping_pizza_green: Manuel Bueno Lasso
+		Jumping_pizza_yellow: Manuel Bueno Lasso
+		dir./Skins/Landing_no_pizza
+		Landing_no_pizza_red: Manuel Bueno Lasso
+		Landing_no_pizza_blue: Manuel Bueno Lasso
+		Landing_no_pizza_cyan: Manuel Bueno Lasso
+		Landing_no_pizza_orange: Manuel Bueno Lasso
+		Landing_no_pizza_purple: Manuel Bueno Lasso
+		Landing_no_pizza_pink: Manuel Bueno Lasso
+		Landing_no_pizza_green: Manuel Bueno Lasso
+		Landing_no_pizza_yellow: Manuel Bueno Lasso
+		dir./Skins/Landing_pizza
+		Landing_pizza_red: Manuel Bueno Lasso
+		Landing_pizza_blue: Manuel Bueno Lasso
+		Landing_pizza_cyan: Manuel Bueno Lasso
+		Landing_pizza_orange: Manuel Bueno Lasso
+		Landing_pizza_purple: Manuel Bueno Lasso
+		Landing_pizza_pink: Manuel Bueno Lasso
+		Landing_pizza_green: Manuel Bueno Lasso
+		Landing_pizza_yellow: Manuel Bueno Lasso
+		dir./Skins/Running_holding
+		Running_holding_red: Manuel Bueno Lasso
+		Running_holding_blue: Manuel Bueno Lasso
+		Running_holding_cyan: Manuel Bueno Lasso
+		Running_holding_orange: Manuel Bueno Lasso
+		Running_holding_purple: Manuel Bueno Lasso
+		Running_holding_pink: Manuel Bueno Lasso
+		Running_holding_green: Manuel Bueno Lasso
+		Running_holding_yellow: Manuel Bueno Lasso
+		dir./Skins/Running_no_pizza
+		Running_no_pizza_red: Manuel Bueno Lasso
+		Running_no_pizza_blue: Manuel Bueno Lasso
+		Running_no_pizza_cyan: Manuel Bueno Lasso
+		Running_no_pizza_orange: Manuel Bueno Lasso
+		Running_no_pizza_purple: Manuel Bueno Lasso
+		Running_no_pizza_pink: Manuel Bueno Lasso
+		Running_no_pizza_green: Manuel Bueno Lasso
+		Running_no_pizza_yellow: Manuel Bueno Lasso
+		dir./Skins/Running_pizza
+		Running_pizza_red: Manuel Bueno Lasso
+		Running_pizza_blue: Manuel Bueno Lasso
+		Running_pizza_cyan: Manuel Bueno Lasso
+		Running_pizza_orange: Manuel Bueno Lasso
+		Running_pizza_purple: Manuel Bueno Lasso
+		Running_pizza_pink: Manuel Bueno Lasso
+		Running_pizza_green: Manuel Bueno Lasso
+		Running_pizza_yellow: Manuel Bueno Lasso
+		dir./Skins/Spin
+		Spin_red: Manuel Bueno Lasso
+		Spin_blue: Manuel Bueno Lasso
+		Spin_cyan: Manuel Bueno Lasso
+		Spin_orange: Manuel Bueno Lasso
+		Spin_purple: Manuel Bueno Lasso
+		Spin_pink: Manuel Bueno Lasso
+		Spin_green: Manuel Bueno Lasso
+		Spin_yellow: Manuel Bueno Lasso
 		
 
 dir ./UI/FinalTouches
