@@ -118,6 +118,7 @@ shine: Manuel Bueno Lasso
 		Icon_katana: Manuel Bueno Lasso
 		Icon_pig: Manuel Bueno Lasso
 		Icon_tomatoDay: Manuel Bueno Lasso
+		Pointer: Manuel Bueno Lasso
 
 		dir ./UI/InGame
 		GameUI_Base: David González Rueda
