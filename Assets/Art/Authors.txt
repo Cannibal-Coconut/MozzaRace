@@ -23,6 +23,10 @@ portada: Manuel Bueno Lasso
 Pruebas_color: Manuel Bueno Lasso
 Pruebas_linea: Manuel Bueno Lasso
 
+dir./ Events&Specials
+Banner_Christmas: Manuel Bueno Lasso
+Event_Cupid: Manuel Bueno Lasso
+Event_Halloween: Manuel Bueno Lasso
 dir ./RRSS
 Banner: Manuel Bueno Lasso
 fondo_principal: Manuel Bueno Lasso
