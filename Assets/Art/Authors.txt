@@ -27,6 +27,8 @@ dir./ Events&Specials
 Banner_Christmas: Manuel Bueno Lasso
 Event_Cupid: Manuel Bueno Lasso
 Event_Halloween: Manuel Bueno Lasso
+MockupNavidad: David González Rueda
+
 dir ./RRSS
 Banner: Manuel Bueno Lasso
 fondo_principal: Manuel Bueno Lasso
