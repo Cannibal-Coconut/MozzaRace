@@ -1387,10 +1387,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 427536333427138482, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
-      propertyPath: m_text
-      value: Castellano
-      objectReference: {fileID: 0}
     - target: {fileID: 427536333498268638, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1638,6 +1634,26 @@ PrefabInstance:
     - target: {fileID: 1233110547434184544, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373839431982503747, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4531945
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373839431982503747, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4531945
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373839431982503747, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4531945
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373839431982503747, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373839431982503747, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 213
       objectReference: {fileID: 0}
     - target: {fileID: 1393597556648326955, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2898,6 +2914,10 @@ PrefabInstance:
     - target: {fileID: 7248838211211497961, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800922106675846945, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: _spanishText
+      value: Comprar?
       objectReference: {fileID: 0}
     - target: {fileID: 7858551544425188395, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
