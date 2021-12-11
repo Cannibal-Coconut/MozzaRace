@@ -26,7 +26,7 @@ public class PointsDisplay : MonoBehaviour
     {
         if (_textMesh != null)
         {
-            _textMesh.text = "Points: " + _inventory.matchPoints;
+            _textMesh.text ="" +  _inventory.matchPoints;
 
         }
 

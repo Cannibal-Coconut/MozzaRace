@@ -98,21 +98,9 @@ public class DeathScreen : MonoBehaviour, ILiveListener
     {
         _menuManager.DisablePauseButton();
 
-        string pointsText = "Points: ";
+        string pointsText = "";
         string totalText = "Total: ";
-        switch (_languageContext.currentLanguage)
-        {
-            case Language.English:
-                pointsText = "Points: ";
-                totalText = "Total: ";
-                break;
-            case Language.Spanish:
-                pointsText = "Puntos: ";
-                totalText = "Total: ";
-                break;
-            default:
-                break;
-        }
+       
         _matchScoreMesh.text = pointsText + _profileInventory.matchPoints.ToString();
         _pointsMesh.text = totalText + (_profileInventory.points + _profileInventory.matchPoints).ToString();
         _premiumCostMesh.text = _currentLevel.reviveCost.ToString();
