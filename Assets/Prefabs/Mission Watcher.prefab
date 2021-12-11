@@ -107,7 +107,7 @@ MonoBehaviour:
     _targetCounter: 1
   _gameCounterMissions:
   - missionNameEnglish: Pizzaphile
-    missionNameSpanish: "Pizz\xE9filo"
+    missionNameSpanish: Pizzefilo
     missionDescriptionEnglish: Play 15 games
     missionDescriptionSpanish: Juega 15 partidas
     points: 2000
