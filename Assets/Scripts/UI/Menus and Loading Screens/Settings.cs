@@ -44,8 +44,8 @@ public class Settings : MonoBehaviour
     const string MusicAudioKey = "MusicAudio";
     const string SFXAudioKey = "SFXAudio";
 
-    const float MaxAudioValue = 20;
-    const float MinAudioValue = -80;
+    const float MaxAudioValue = 1f;
+    const float MinAudioValue = 0.001f;
 
     static bool _displayJumpButton = true;
 
@@ -181,26 +181,27 @@ public class Settings : MonoBehaviour
 
         slider.minValue = MinAudioValue;
         slider.maxValue = MaxAudioValue;
-
+        
         float value;
         _audioMixer.GetFloat(groupKey, out value);
 
-        slider.value = value;
+        if(value == 0) slider.value = 0.8f;
+        else slider.value = value;
     }
 
     public void SetMasterVolume(float newVolume)
     {
-        _audioMixer.SetFloat(MasterAudioKey, newVolume);
+        _audioMixer.SetFloat(MasterAudioKey, Mathf.Log10(newVolume)*20);
     }
 
     public void SetMusicVolume(float newVolume)
     {
-        _audioMixer.SetFloat(MusicAudioKey, newVolume);
+        _audioMixer.SetFloat(MusicAudioKey, Mathf.Log10(newVolume)*20);
     }
 
     public void SetSFXVolume(float newVolume)
     {
-        _audioMixer.SetFloat(SFXAudioKey, newVolume);
+        _audioMixer.SetFloat(SFXAudioKey, Mathf.Log10(newVolume)*20);
     }
 
     public void SetLanguage(Language language)
