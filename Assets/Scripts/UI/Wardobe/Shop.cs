@@ -117,7 +117,7 @@ public class Shop : MonoBehaviour
         switch (languageContext.currentLanguage)
         {
             case Language.Spanish:
-                _textBuyButton.SetText(_selectedSkinHolder.skin.purchased ? "Comprado" : "¿Comprar?");
+                _textBuyButton.SetText(_selectedSkinHolder.skin.purchased ? "Comprado" : "Comprar?");
                 break;
             case Language.English:
                 _textBuyButton.SetText(_selectedSkinHolder.skin.purchased ? "Bought" : "Buy?");

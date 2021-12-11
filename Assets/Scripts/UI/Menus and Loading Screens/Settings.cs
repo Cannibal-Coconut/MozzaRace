@@ -36,7 +36,9 @@ public class Settings : MonoBehaviour
     [SerializeField] private CanvasGroup _languageCanvas;
     [SerializeField] private CanvasGroup _miscCanvas;
 
-    [SerializeField] private TextMeshProUGUI _settingTitle;
+    [SerializeField] private TextMeshProUGUI _settingTitle1;
+    [SerializeField] private TextMeshProUGUI _settingTitle2;
+    [SerializeField] private TextMeshProUGUI _settingTitle3;
 
     CanvasGroup _canvasGroup;
 
@@ -89,6 +91,9 @@ public class Settings : MonoBehaviour
 
             case SettingsState.Volume:
 
+                _settingTitle1.enabled = true;
+                _settingTitle2.enabled = false;
+                _settingTitle3.enabled = false;
                 _languageCanvas.alpha = 0;
                 _languageCanvas.blocksRaycasts = false;
                 _miscCanvas.alpha = 0;
@@ -100,6 +105,9 @@ public class Settings : MonoBehaviour
 
             case SettingsState.Language:
 
+                _settingTitle1.enabled = false;
+                _settingTitle2.enabled = true;
+                _settingTitle3.enabled = false;
                 _languageCanvas.alpha = 1;
                 _languageCanvas.blocksRaycasts = true;
                 _miscCanvas.alpha = 0;
@@ -109,7 +117,9 @@ public class Settings : MonoBehaviour
                 break;
 
             case SettingsState.Misc:
-                _settingTitle.text = "Misc";
+                _settingTitle1.enabled = false;
+                _settingTitle2.enabled = false;
+                _settingTitle3.enabled = true;
                 _languageCanvas.alpha = 0;
                 _languageCanvas.blocksRaycasts = false;
                 _miscCanvas.alpha = 1;

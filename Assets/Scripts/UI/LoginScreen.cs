@@ -16,17 +16,20 @@ public class LoginScreen : MonoBehaviour
     [SerializeField] Button _signInButton;
     [SerializeField] Button _continueWithoutProfileButton;
 
+    [SerializeField] Button _spanishButton;
+    [SerializeField] Button _engButton;
 
     ProfileInventory _profileInventory;
     SceneLoader _sceneLoader;
     CanvasGroup _canvasGroup;
 
+    LanguageContext _languageContext;
     private void Awake()
     {
         _profileInventory = FindObjectOfType<ProfileInventory>();
         _sceneLoader = FindObjectOfType<SceneLoader>();
         _canvasGroup = GetComponent<CanvasGroup>();
-
+        _languageContext = FindObjectOfType<LanguageContext>();
         _passwordField.inputType = TMP_InputField.InputType.Password;
 
         SetButtons();
@@ -42,6 +45,14 @@ public class LoginScreen : MonoBehaviour
         _loginButton.onClick.AddListener(LogIn);
         _signInButton.onClick.AddListener(SignIn);
         _continueWithoutProfileButton.onClick.AddListener(ContinueWithNoProfile);
+          _spanishButton.onClick.AddListener(() =>
+        {
+            _languageContext.ChangeLanguage(Language.Spanish);
+        });
+          _engButton.onClick.AddListener(() =>
+        {
+            _languageContext.ChangeLanguage(Language.English);
+        });
     }
 
     private void StartGame()

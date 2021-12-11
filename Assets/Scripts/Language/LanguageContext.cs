@@ -21,7 +21,7 @@ public class LanguageContext : MonoBehaviour
             _instance = this;
             transform.parent = null;
             DontDestroyOnLoad(gameObject);
-            ChangeLanguage(Language.English);
+            ChangeLanguage(Language.Spanish);
         }
     }
 
