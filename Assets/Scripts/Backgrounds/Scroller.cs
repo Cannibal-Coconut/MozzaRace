@@ -21,14 +21,24 @@ public class Scroller : MonoBehaviour
     }
 
     private void Update() {
-        transform.position  = (Vector2) transform.position - new Vector2(_scrollSpeed * _parallaxEffect* Time.unscaledDeltaTime,0);
-        if(transform.position.x < -_width){
+        MenuManager mm = FindObjectOfType<MenuManager>();
+        if(mm!=null){
+            if(mm.IsPaused==false){
             
-            Vector2 resetPosition = new Vector2(_width*2f,0);
-            transform.position = (Vector2)transform.position + resetPosition ;
-            transform.position =  (Vector2)transform.position + offset;
-
-        }
+                transform.position  = (Vector2) transform.position - new Vector2(_scrollSpeed * _parallaxEffect* Time.unscaledDeltaTime,0);
+       
+            }
+        }   
+       else{  
+            transform.position  = (Vector2) transform.position - new Vector2(_scrollSpeed * _parallaxEffect* Time.deltaTime,0);
+           
+       }
+       
+        if(transform.position.x < -_width){ 
+                Vector2 resetPosition = new Vector2(_width*2f,0);
+                transform.position = (Vector2)transform.position + resetPosition ;
+                transform.position =  (Vector2)transform.position + offset;
+            }
     }
 
 }
