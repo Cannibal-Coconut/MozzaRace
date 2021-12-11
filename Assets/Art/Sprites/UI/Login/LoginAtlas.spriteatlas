@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 2048
+      m_MaxTextureSize: 4096
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 1
@@ -46,7 +46,9 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 867afd138de4e684db405eee4a14753b, type: 3}
     - {fileID: 2800000, guid: 5d3c79b0ae8c3924fa692db6488c46eb, type: 3}
     - {fileID: 2800000, guid: 6255d72d133fda74f993c9140a4fc635, type: 3}
-    totalSpriteSurfaceArea: 2739900
+    - {fileID: 2800000, guid: 0239adf7d105e6a44a0dd710aef74442, type: 3}
+    - {fileID: 2800000, guid: 656171fa234a8014caa50e805c0a9f42, type: 3}
+    totalSpriteSurfaceArea: 5223627
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -54,10 +56,14 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: 5d3c79b0ae8c3924fa692db6488c46eb, type: 3}
   - {fileID: 21300000, guid: 867afd138de4e684db405eee4a14753b, type: 3}
+  - {fileID: 21300000, guid: 0239adf7d105e6a44a0dd710aef74442, type: 3}
+  - {fileID: 21300000, guid: 656171fa234a8014caa50e805c0a9f42, type: 3}
   - {fileID: 21300000, guid: 6255d72d133fda74f993c9140a4fc635, type: 3}
   m_PackedSpriteNamesToIndex:
   - button_login
   - background_login
+  - Spanish_flag
+  - British_flag
   - TextField_login
   m_RenderDataMap: {}
   m_Tag: LoginAtlas
