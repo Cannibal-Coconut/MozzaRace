@@ -28,9 +28,12 @@ enum FSM {
     public Animator playerAnimator;
     private PlayerMovementInterface _playerInfo;
     // Start is called before the first frame update
+
+    private void Awake() {
+        playerAnimator = GetComponent<Animator>();
+    }
     void Start()
     {
-        playerAnimator = GetComponent<Animator>();
         _playerInfo = GetComponent<PlayerMovementInterface>();
         _playerInfo.onLaunchPizza += LaunchPizzaEvent;
         _playerInfo.onReceivePizza += ReceivePizzaEvent; //Receive pizza event

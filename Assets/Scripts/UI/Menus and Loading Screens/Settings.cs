@@ -196,7 +196,6 @@ public class Settings : MonoBehaviour
         _audioMixer.GetFloat(groupKey, out value);
         value = Mathf.Pow(10,value/20);
         slider.value = value;
-        Debug.Log(slider.value);
     }
 
     public void SetMasterVolume(float newVolume)

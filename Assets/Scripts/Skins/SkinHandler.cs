@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 public class SkinHandler : MonoBehaviour
 {
-   public Animator playerAnimator;
-  public enum Skin{
+   public PlayerAnimationHandler player;
+  public enum SkinEnum{
 
 
     DEFAULT,
@@ -17,44 +18,31 @@ public class SkinHandler : MonoBehaviour
     RED,
     YELLOW,
   }
-public enum Animations{
 
-  AIRBORNEPIZZA,
-  AIRBORNENOPIZZA,
-  JUMPINGPIZZA,
-  JUMPINGNOPIZZA,
-  LANDINGPIZZA,
-  LANDINGNOPIZZA,
-  RUNNINGPIZZA,
-  RUNNINGNOPIZZA,
-  CHARGING,
-  FLIP,
-  SPIN,
+  [SerializeField] Sprite[] skinSprites = new Sprite[System.Enum.GetValues(typeof(SkinEnum)).Length];
+  public Sprite GetSprite (SkinEnum skin){
+      return skinSprites[((int)skin)];
+    } 
 
-}
+  public SkinEnum currentSkin;
 
 
-  public Animation[,] skinAnimations = 
-  new Animation[System.Enum.GetValues(typeof(Skin)).Length,System.Enum.GetValues(typeof(Animations)).Length];
+  [SerializeField] public AnimatorOverrideController[] playerAnimators = new AnimatorOverrideController[System.Enum.GetValues(typeof(SkinEnum)).Length];
 
 
   private void Awake() {
-    
+      player = FindObjectOfType<PlayerAnimationHandler>();
+      currentSkin = SkinEnum.DEFAULT;
+  }
 
+
+
+  public void SetSkin(Skin skin){
+    player = FindObjectOfType<PlayerAnimationHandler>();
+    player.playerAnimator.runtimeAnimatorController = playerAnimators[((int)skin.skin)];
 
   }
 
 
-  public void SetSkin(){
-
-
-
-  }
-
-    private void Update() {
-      AnimatorClipInfo[] clipInfo;
-      AnimatorStateInfo animStateInfo = playerAnimator.GetCurrentAnimatorStateInfo(0);
-      clipInfo = playerAnimator.GetCurrentAnimatorClipInfo(0);
-    }
 
 }

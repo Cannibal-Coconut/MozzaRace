@@ -6,30 +6,17 @@ using UnityEngine;
 [Serializable]
 public class Skin
 {
-    public float r;
-    public float g;
-    public float b;
-    public float a;
-
-    public Color color
-    {
-        get
-        {
-            return new Color(r, g, b, a);
-        }
-    }
-
     public int value { get; private set; }
+    public SkinHandler.SkinEnum skin { get; private set; }
     public bool purchased;
-
-    public Skin(Color color, int value)
+    public Sprite sprite;
+    public Skin(SkinHandler.SkinEnum s, int value)
     {
-        r = color.r;
-        g = color.g;
-        b = color.b;
-        a = color.a;
-
+        this.skin = s;
         this.value = value;
+        SkinHandler sk = GameObject.FindObjectOfType<SkinHandler>();
+        if(sk.GetSprite(s) !=null) this.sprite =sk.GetSprite(s);
+        else this.sprite = sk.GetSprite(this.skin);
     }
 
 }
