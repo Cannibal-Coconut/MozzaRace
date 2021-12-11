@@ -146,13 +146,14 @@ public class Shop : MonoBehaviour
         
         List<Skin> skins = new List<Skin>();
 
-        skins.Add(new Skin(Color.green, 200));
-        skins.Add(new Skin(Color.yellow, 300));
-        skins.Add(new Skin(Color.blue, 400));
-        skins.Add(new Skin(Color.magenta, 500));
-        skins.Add(new Skin(Color.red, 500));
-        skins.Add(new Skin(Color.gray, 500));
-        skins.Add(new Skin(Color.cyan, 500));
+        skins.Add(new Skin(SkinHandler.SkinEnum.GREEN, 200));
+        skins.Add(new Skin(SkinHandler.SkinEnum.YELLOW, 300));
+        skins.Add(new Skin(SkinHandler.SkinEnum.BLUE, 400));
+        skins.Add(new Skin(SkinHandler.SkinEnum.MAGENTA, 500));
+        skins.Add(new Skin(SkinHandler.SkinEnum.RED, 500));
+        skins.Add(new Skin(SkinHandler.SkinEnum.CYAN, 500));
+        skins.Add(new Skin(SkinHandler.SkinEnum.ORANGE, 500));
+        skins.Add(new Skin(SkinHandler.SkinEnum.PURPLE, 1000));
 
         _skins = skins.ToArray();
 

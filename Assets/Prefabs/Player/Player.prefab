@@ -513,6 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _state: 0
+  playerAnimator: {fileID: 0}
 --- !u!114 &2049926714592565448
 MonoBehaviour:
   m_ObjectHideFlags: 0

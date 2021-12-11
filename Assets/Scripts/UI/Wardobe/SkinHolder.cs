@@ -22,7 +22,7 @@ public class SkinHolder : MonoBehaviour
     [SerializeField] Sprite _selectedSprite;
     [SerializeField] Sprite _unselectedSprite;
 
-    PlayerSkin _playerSkin;
+    SkinHandler _playerSkin;
     Shop _shop;
 
     CanvasGroup _canvasGroup;
@@ -38,7 +38,7 @@ public class SkinHolder : MonoBehaviour
 
     private void Awake()
     {
-        _playerSkin = FindObjectOfType<PlayerSkin>();
+        _playerSkin = FindObjectOfType<SkinHandler>();
         _shop = FindObjectOfType<Shop>();
 
         _canvasGroup = GetComponent<CanvasGroup>();
@@ -90,7 +90,7 @@ public class SkinHolder : MonoBehaviour
     {
         this.skin = skin;
 
-        _image.color = this.skin.color;
+        this._image.sprite = skin.sprite;
 
         if (_priceText)
         {

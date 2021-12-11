@@ -28,9 +28,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private PizzaCutManager _pizzaCutManager;
 
     SceneLoader _sceneLoader;
-
+    Tutorial _tutorial;
     ProfileInventory _profileInventory;
-    [SerializeField] float testSpeed;
+    
     private void Awake()
     {
         _death = FindObjectOfType<DeathScreen>();
@@ -38,7 +38,7 @@ public class MenuManager : MonoBehaviour
         _player = FindObjectOfType<Health>();
         _sceneLoader = FindObjectOfType<SceneLoader>();
         _spawner = FindObjectOfType<Spawner>();
-
+        _tutorial = FindObjectOfType<Tutorial>();
     }
 
     private void Start()
@@ -158,6 +158,14 @@ public class MenuManager : MonoBehaviour
         _wardrobeButton.gameObject.SetActive(true);
     }
 
-  
+    public void ShowTutorial(){
 
+
+        _tutorial.Display();
+        _settings.GetComponent<CanvasGroup>().alpha = 1;
+        _settings.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        
+    }
+
+    
 }

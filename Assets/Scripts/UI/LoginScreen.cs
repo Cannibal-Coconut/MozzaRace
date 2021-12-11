@@ -75,7 +75,7 @@ public class LoginScreen : MonoBehaviour
 
     void ContinueWithNoProfile()
     {
-        _profileInventory.AddBoughtSkin(new Skin(Color.white, 0));
+        _profileInventory.AddBoughtSkin(new Skin(SkinHandler.SkinEnum.DEFAULT, 0));
 
         StartGame();
     }

@@ -62,5 +62,8 @@ public class Tutorial : MonoBehaviour
     {
         _canvasGroup.alpha = 0;
         _canvasGroup.blocksRaycasts = false;
+        Settings s =  FindObjectOfType<Settings>();
+        s.GetComponent<CanvasGroup>().alpha = 0;
+        s.GetComponent<CanvasGroup>().blocksRaycasts=false;
     }
 }

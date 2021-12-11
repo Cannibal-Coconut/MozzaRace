@@ -151,7 +151,7 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
         form.AddField("loginPass", password);
 
         skins = new List<Skin>();
-        skins.Add(new Skin(Color.white, 0));
+        skins.Add(new Skin(SkinHandler.SkinEnum.DEFAULT, 0));
         var saveData = new ProfileSaveData(points, skins);
 
         form.AddField("loginData", JsonUtility.ToJson(saveData));

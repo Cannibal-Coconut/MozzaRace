@@ -25,12 +25,15 @@ enum FSM {
 
 } 
     [SerializeField]private FSM _state;
-    private Animator _playerAnimator;
+    public Animator playerAnimator;
     private PlayerMovementInterface _playerInfo;
     // Start is called before the first frame update
+
+    private void Awake() {
+        playerAnimator = GetComponent<Animator>();
+    }
     void Start()
     {
-        _playerAnimator = GetComponent<Animator>();
         _playerInfo = GetComponent<PlayerMovementInterface>();
         _playerInfo.onLaunchPizza += LaunchPizzaEvent;
         _playerInfo.onReceivePizza += ReceivePizzaEvent; //Receive pizza event
@@ -119,18 +122,18 @@ enum FSM {
         if(!overridePizza){
 
             if(!AnimationIsPlaying(pizzaAnimationName,0)) {
-                _playerAnimator.Play(pizzaAnimationName, 0, animationStart);
+                playerAnimator.Play(pizzaAnimationName, 0, animationStart);
             } 
             
             if(!AnimationIsPlaying(NoPizzaAnimationName,1)) {
-                _playerAnimator.Play(NoPizzaAnimationName, 1, animationStart);
+                playerAnimator.Play(NoPizzaAnimationName, 1, animationStart);
             } 
 
         } else {
            
             if(!AnimationIsPlaying(animationName,1)) {
-                _playerAnimator.Play(animationName, 0, animationStart);
-                _playerAnimator.Play(animationName, 1, animationStart);
+                playerAnimator.Play(animationName, 0, animationStart);
+                playerAnimator.Play(animationName, 1, animationStart);
             }
 
         }
@@ -147,15 +150,15 @@ enum FSM {
 
     private void LaunchPizzaEvent(){
         
-        _playerAnimator.SetLayerWeight(1, 100);
-        _playerAnimator.SetLayerWeight(0, 0);
+        playerAnimator.SetLayerWeight(1, 100);
+        playerAnimator.SetLayerWeight(0, 0);
        if(_state != FSM.Dead) _state = FSM.Spinning;
     }
 
    void ReceivePizzaEvent(){
 
-        _playerAnimator.SetLayerWeight(0, 100);
-        _playerAnimator.SetLayerWeight(1, 0);
+        playerAnimator.SetLayerWeight(0, 100);
+        playerAnimator.SetLayerWeight(1, 0);
 
 
    }
@@ -171,12 +174,12 @@ enum FSM {
     }
 
     bool AnimationIsPlaying(string stateName, int layer){
-            return _playerAnimator.GetCurrentAnimatorStateInfo(layer).IsName(stateName);
+            return playerAnimator.GetCurrentAnimatorStateInfo(layer).IsName(stateName);
      }
 
     bool AnimationIsFinished(string stateName, int layer, float normalizedMaxTime){
 
-       return  _playerAnimator.GetCurrentAnimatorStateInfo(layer).IsName(stateName) && _playerAnimator.GetCurrentAnimatorStateInfo(layer).normalizedTime >= normalizedMaxTime;
+       return  playerAnimator.GetCurrentAnimatorStateInfo(layer).IsName(stateName) && playerAnimator.GetCurrentAnimatorStateInfo(layer).normalizedTime >= normalizedMaxTime;
 
     }
 

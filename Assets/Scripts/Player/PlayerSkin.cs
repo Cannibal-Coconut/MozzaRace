@@ -16,7 +16,6 @@ public class PlayerSkin : MonoBehaviour
     public void SetSkin(Skin skin) {
         _currentSkin = skin;
 
-        _spriteRenderer.color = skin.color;
 
     }
 
