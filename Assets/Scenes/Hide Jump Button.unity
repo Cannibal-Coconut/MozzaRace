@@ -1387,6 +1387,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 427536333427138482, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_text
+      value: Castellano
+      objectReference: {fileID: 0}
     - target: {fileID: 427536333498268638, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
