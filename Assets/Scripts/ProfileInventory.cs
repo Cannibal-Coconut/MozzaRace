@@ -41,6 +41,7 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
         }
         else
         {
+            skins = new List<Skin>();
             _instance = this;
             transform.parent = null;
             DontDestroyOnLoad(this);
