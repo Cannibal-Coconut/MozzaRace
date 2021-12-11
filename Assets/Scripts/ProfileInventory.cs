@@ -368,6 +368,12 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
         }
     }
 
+    [ContextMenu("Add a lot of points")]
+    void LotsOfPoints()
+    {
+        AddPoints(99999);
+    }
+
     [Serializable]
     public class ProfileSaveData
     {

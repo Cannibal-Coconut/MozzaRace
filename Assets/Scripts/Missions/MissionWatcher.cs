@@ -88,7 +88,7 @@ public class MissionWatcher : MonoBehaviour, ILiveListener
 
     bool _checkMissions;
 
-    MissionWatcher _instance;
+    static MissionWatcher _instance;
 
     ProfileInventory _inventory;
 

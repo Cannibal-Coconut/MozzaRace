@@ -41,7 +41,6 @@ public class TipTime : MonoBehaviour
 
     private void UpdateCurrentPoints()
     {
-
         _currentPoints = _inventoryPoints.matchPoints;
 
         if ((_currentPoints - _offsetPoints) >= _tipTimePointThreshhold)
@@ -65,7 +64,6 @@ public class TipTime : MonoBehaviour
     {
         //Spawn Jar
         _presetSpawner.Spawn(_tipJarSpawnable);
-
     }
 
     private void OnDeath()
