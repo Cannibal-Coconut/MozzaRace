@@ -1599,6 +1599,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -63
       objectReference: {fileID: 0}
+    - target: {fileID: 841538394232511672, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_text
+      value: 'Hide Jump Button :'
+      objectReference: {fileID: 0}
+    - target: {fileID: 841538394232511672, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_fontSize
+      value: 66.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 841538394232511672, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_margin.x
+      value: 66.347
+      objectReference: {fileID: 0}
+    - target: {fileID: 841538394232511672, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_margin.z
+      value: 64.55386
+      objectReference: {fileID: 0}
+    - target: {fileID: 841538394232511672, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 66.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 841538394232511672, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 841538394232511672, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1041637457828805074, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_text
       value: 'Points:'
@@ -1703,9 +1731,25 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Points:'
       objectReference: {fileID: 0}
+    - target: {fileID: 2864443495373208481, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864443495373208481, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -43
+      objectReference: {fileID: 0}
     - target: {fileID: 3008988618926138441, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3247907658250532155, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: _englishText
+      value: 'Hide Jump Button :'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3247907658250532155, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: _spanishText
+      value: 'Ocultar el Boton de Salto:'
       objectReference: {fileID: 0}
     - target: {fileID: 3268451240302442454, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1962,6 +2006,14 @@ PrefabInstance:
     - target: {fileID: 4391831601471830317, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 233
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391831601556993693, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391831601556993693, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 191
       objectReference: {fileID: 0}
     - target: {fileID: 4391831601754692710, guid: 06037bed5e1777344b63b31d3ffa0210, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

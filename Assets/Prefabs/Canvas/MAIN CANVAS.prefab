@@ -1381,6 +1381,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6311659336030015590, guid: 7943fc70b85ce834881e7c48490ac062, type: 3}
+      propertyPath: _englishText
+      value: 'Hide Jump Button  :'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311659336030015590, guid: 7943fc70b85ce834881e7c48490ac062, type: 3}
+      propertyPath: _spanishText
+      value: "Ocultar el Bot\xF3n de Salto :"
+      objectReference: {fileID: 0}
     - target: {fileID: 9133694407259957769, guid: 7943fc70b85ce834881e7c48490ac062, type: 3}
       propertyPath: m_IsActive
       value: 1
