@@ -151,7 +151,9 @@ shine: Manuel Bueno Lasso
 
 		dir ./UI/Minigame
 		Right_Button: David González Rueda
-		Left_Button: David González Rueda		
+		Left_Button: David González Rueda	
+		Minigame_cut_right: Manuel Bueno Lasso
+		Minigame_cut_wrong: Manuel Bueno Lasso	
 
 		dir ./UI/MomentoPropina
 		Coin: Manuel Bueno Lasso
