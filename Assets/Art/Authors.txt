@@ -138,6 +138,8 @@ shine: Manuel Bueno Lasso
 		button_Login: Manuel Bueno Lasso + David González Rueda
 		TextField_login: Manuel Bueno Lasso
 		Background_login: Manuel Bueno Lasso + David González Rueda	
+		Spanish_flag: Manuel Bueno Lasso
+		British flag: Manuel Bueno Lasso
 
 		dir ./UI/MainMenu
 		Credits_Button: David González Rueda
