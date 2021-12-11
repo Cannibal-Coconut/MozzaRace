@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     SceneLoader sceneLoader;
-
+    public bool IsPaused;
     [SerializeField] private Canvas _mainMenuCanvas;
     [SerializeField] private Canvas _pauseMenuCanvas;
     [SerializeField] private Button _pauseMenuButton;
@@ -30,7 +30,7 @@ public class MenuManager : MonoBehaviour
     SceneLoader _sceneLoader;
 
     ProfileInventory _profileInventory;
-
+    [SerializeField] float testSpeed;
     private void Awake()
     {
         _death = FindObjectOfType<DeathScreen>();
@@ -43,6 +43,7 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+
         sceneLoader = FindObjectOfType<SceneLoader>();
         _inventory = FindObjectOfType<IngredientInventory>();
         _player = FindObjectOfType<Health>();
@@ -57,6 +58,7 @@ public class MenuManager : MonoBehaviour
     {
         _shop.Display();
     }
+
 
 
     public void OpenWardrobe()
@@ -84,12 +86,14 @@ public class MenuManager : MonoBehaviour
         _playerManager.enabled = false;
         _pauseMenuCanvas.enabled = true;
         Time.timeScale = 0.0f;
+        IsPaused = true;
     }
 
     public void ResumeGame()
     {
         _playerManager.enabled = true;
         Time.timeScale = 1.0f;
+        IsPaused = false;
         _pauseMenuCanvas.enabled = false;
     }
 

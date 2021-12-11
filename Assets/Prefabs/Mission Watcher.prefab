@@ -46,7 +46,7 @@ MonoBehaviour:
   _orderMissions:
   - missionNameEnglish: Tomato Day!
     missionNameSpanish: "\xA1D\xEDa del Tomate!"
-    missionDescriptionEnglish: Catch 5 tomates in one game
+    missionDescriptionEnglish: Catch 5 tomatoes in one game
     missionDescriptionSpanish: Coge 5 tomates en una partida
     points: 500
     skipPrice: 200
@@ -55,7 +55,7 @@ MonoBehaviour:
   - missionNameEnglish: Aloha!
     missionNameSpanish: "\xA1Aloha!"
     missionDescriptionEnglish: Catch 5 Pineapples in one game
-    missionDescriptionSpanish: "Coge 5 pi\xF1as en una partida"
+    missionDescriptionSpanish: Cocina 5 Hawaianas en una partida
     points: 500
     skipPrice: 200
     icon: {fileID: 21300000, guid: 07c0d95c920b3e240a3d21ea673e85a4, type: 3}
@@ -73,7 +73,7 @@ MonoBehaviour:
   - missionNameEnglish: Master Chef
     missionNameSpanish: Master Chef
     missionDescriptionEnglish: Score 5000 points in one game
-    missionDescriptionSpanish: Consigue 5000 punto en una partida
+    missionDescriptionSpanish: Consigue 5000 puntos en una partida
     points: 5000
     skipPrice: 1000
     icon: {fileID: 21300000, guid: 2759f8cd80f89d24c87f231b500c3e4d, type: 3}
@@ -91,7 +91,7 @@ MonoBehaviour:
   - missionNameEnglish: Natural Runner
     missionNameSpanish: Corredor Nato
     missionDescriptionEnglish: Run for over a minute in one game
-    missionDescriptionSpanish: "Corre por m\xE1s de un minuto en una partida"
+    missionDescriptionSpanish: Corre por mas de un minuto en una partida
     points: 500
     skipPrice: 200
     icon: {fileID: 21300000, guid: 7c9baaf40ee3e5e478011237e52765fa, type: 3}
@@ -107,7 +107,7 @@ MonoBehaviour:
     _targetCounter: 1
   _gameCounterMissions:
   - missionNameEnglish: Pizzaphile
-    missionNameSpanish: "Pizz\xE9filo"
+    missionNameSpanish: Pizzefilo
     missionDescriptionEnglish: Play 15 games
     missionDescriptionSpanish: Juega 15 partidas
     points: 2000

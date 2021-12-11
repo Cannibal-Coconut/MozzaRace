@@ -43,6 +43,8 @@ public class OrderDisplay : MonoBehaviour
             display.Hide();
         }
 
+        if (orders.Count == 0) return;
+
         //Show only used displayers and set mealOrder on them
         for (int i = 0; i < orders.Count; i++)
         {

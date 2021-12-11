@@ -28,7 +28,7 @@ public class HideJumpButtonSetting : MonoBehaviour
 
     private void SetText()
     {
-        text.SetText(!isActive ? "Hide Jump Button: ON" : "Hide Jump Button: OFF");
+        text.SetText(!isActive ? "ON" : "OFF");
         isActive = !isActive;
     }
 }

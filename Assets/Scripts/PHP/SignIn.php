@@ -1,5 +1,10 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+header("Access-Control-Allow-Methods: GET, POST");
+header('content-type: application/json; charset=utf-8');
+
 $servername="localhost";
 $username="id17970645_orlandmin";
 $password="o_(zGa=2T!f%kZQW";
@@ -20,7 +25,7 @@ $sql1 = "SELECT username FROM players WHERE username = '$loginUser'";
 
 $result = $conn->query($sql1);
 
-if($result->num_rows > 0){
+if($result->num_rows == 0){
 
   
   $sql2 = "INSERT INTO players (username, password, data) VALUES ('$loginUser', '$loginPass', '$loginData')";
@@ -35,8 +40,8 @@ else
 }  
   
 }else{
-
-  echo "NOK";
+  echo "Error: " . $sql1 . "<br>" . $conn->error;
+  //echo "NOK ";
 
 
 }

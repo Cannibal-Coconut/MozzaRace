@@ -46,8 +46,8 @@ public class PizzaTimeCanvas : MonoBehaviour
     
     public void UpdateGraphics(){
 
-        remainingPizzaText.text = "Remaining pizzas :" +  (_pizzaManager.remainingPizzas + 1).ToString();
-        remainingTime.text = "Time :" + ((int) time).ToString();
+        remainingPizzaText.text = "" +  (_pizzaManager.remainingPizzas + 1).ToString();
+        remainingTime.text = "" + ((int) time).ToString();
         progressTimeBar.fillAmount = time/_pizzaManager.GetPizzaCuttingTotalRemainingTime();
 
     }   

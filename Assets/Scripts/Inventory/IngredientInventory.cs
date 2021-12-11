@@ -313,7 +313,8 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
             RemoveOrder(_selectedOrder);
             sound.PlayFinishedOrder();
             AddFinishedOrder();
-        } else         sound.PlayIngredientPickup();
+        }
+        else sound.PlayIngredientPickup();
 
 
         _orderDisplay.DisplayOrders(orders, _selectedOrder);
@@ -342,12 +343,15 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
     protected void ConfirmWrongIngredient(DelayedIngredient delayedIngredient)
     {
-        if (orders[_selectedOrder].ChangePoints(-_settings.wrongIngredientLoose))
-        {
-            RemoveOrder(_selectedOrder);
-        }
+        if (orders.Count != 0 && _selectedOrder >= 0 && _selectedOrder < orders.Count) 
+            if (orders[_selectedOrder].ChangePoints(-_settings.wrongIngredientLoose))
+            {
+                RemoveOrder(_selectedOrder);
+            }
 
-        _delayedIngredients.Remove(delayedIngredient);
+        if (_delayedIngredients.Contains(delayedIngredient))
+            _delayedIngredients.Remove(delayedIngredient);
+
 
         _orderDisplay.DisplayOrders(orders, _selectedOrder);
 
