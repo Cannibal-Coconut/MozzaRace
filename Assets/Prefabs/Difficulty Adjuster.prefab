@@ -62,8 +62,26 @@ MonoBehaviour:
     events:
       m_PersistentCalls:
         m_Calls: []
-  - name: Tope chungo
-    finishedOrders: 5
+  - name: Facil Medio
+    finishedOrders: 2
+    speedFactor: 1
+    reviveCost: 350
+    inventorySettings:
+      maxOrders: 1
+      baseOrderPoints: 500
+      wrongIngredientLoose: 40
+      overtimeLoose: 5
+      looseDelay: 5
+      requestedItemSpawnBuff: 5
+    spawnSettings:
+      easyObstacleWeight: 3
+      mediumObstacleWeight: 1
+      hardObstacleWeight: 0
+    events:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Medio medio
+    finishedOrders: 4
     speedFactor: 1
     reviveCost: 500
     inventorySettings:
@@ -74,14 +92,32 @@ MonoBehaviour:
       looseDelay: 10
       requestedItemSpawnBuff: 5
     spawnSettings:
+      easyObstacleWeight: 3
+      mediumObstacleWeight: 3
+      hardObstacleWeight: 1
+    events:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Medio Chungo
+    finishedOrders: 5
+    speedFactor: 1
+    reviveCost: 1000
+    inventorySettings:
+      maxOrders: 3
+      baseOrderPoints: 500
+      wrongIngredientLoose: 40
+      overtimeLoose: 5
+      looseDelay: 5
+      requestedItemSpawnBuff: 5
+    spawnSettings:
       easyObstacleWeight: 1
-      mediumObstacleWeight: 1
-      hardObstacleWeight: 0
+      mediumObstacleWeight: 2
+      hardObstacleWeight: 1
     events:
       m_PersistentCalls:
         m_Calls: []
   - name: Tope chungo
-    finishedOrders: 10
+    finishedOrders: 7
     speedFactor: 1
     reviveCost: 1500
     inventorySettings:
@@ -94,7 +130,7 @@ MonoBehaviour:
     spawnSettings:
       easyObstacleWeight: 1
       mediumObstacleWeight: 2
-      hardObstacleWeight: 3
+      hardObstacleWeight: 2
     events:
       m_PersistentCalls:
         m_Calls: []

@@ -227,6 +227,8 @@ MonoBehaviour:
   _timeAfterAlign: 1
   _alignSpeed: 3
   _fireSpeed: 25
+  _scaleFactor: 1.5
+  _signalTime: 1
 --- !u!114 &270312556072020800
 MonoBehaviour:
   m_ObjectHideFlags: 0

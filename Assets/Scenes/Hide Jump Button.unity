@@ -3940,16 +3940,16 @@ PrefabInstance:
       value: Difficulty Adjuster
       objectReference: {fileID: 0}
     - target: {fileID: 7012705696252801559, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
-      propertyPath: _levels.Array.data[1].name
-      value: Medio medio
-      objectReference: {fileID: 0}
-    - target: {fileID: 7012705696252801559, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
-      propertyPath: _levels.Array.data[1].finishedOrders
+      propertyPath: _levels.Array.data[1].spawnSettings.easyObstacleWeight
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7012705696252801559, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
-      propertyPath: _levels.Array.data[2].finishedOrders
-      value: 6
+      propertyPath: _levels.Array.data[2].spawnSettings.easyObstacleWeight
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801559, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: _levels.Array.data[2].spawnSettings.mediumObstacleWeight
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}

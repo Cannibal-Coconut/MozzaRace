@@ -14,6 +14,8 @@ public class Roller : MonoBehaviour
     [SerializeField] [Range(0, 20)] float _flippedSpeed;
     [SerializeField] [Range(0, 5)] float _bounceHeight;
 
+    [Space(5)] 
+    [SerializeField] [Range(1, 3)] float _scaleFactor = 1.5f;
     [SerializeField] [Range(0, 5)] float _signalTime;
 
     Rigidbody2D _rigidbody;
@@ -73,7 +75,21 @@ public class Roller : MonoBehaviour
     IEnumerator CountDownSignal()
     {
         _warningSignal.enabled = true;
-        yield return new WaitForSeconds(_signalTime);
+
+
+        Vector3 startingScale = _warningSignal.transform.localScale;
+        Vector3 targetScale = _warningSignal.transform.localScale * _scaleFactor;
+
+        float elapsedTime = 0;
+
+        while (elapsedTime < _signalTime)
+        {
+            _warningSignal.transform.localScale = Vector3.Lerp(startingScale, targetScale, elapsedTime / _signalTime);
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
         _warningSignal.enabled = false;
 
 
@@ -89,8 +105,8 @@ public class Roller : MonoBehaviour
             _flipped = true;
             sound.PlayRollerHit();
             launch.RollHit();
-            Collider2D col = this.gameObject.GetComponent<Collider2D>();   
-        if(col!=null) col.enabled = false;
+            Collider2D col = this.gameObject.GetComponent<Collider2D>();
+            if (col != null) col.enabled = false;
         }
     }
 

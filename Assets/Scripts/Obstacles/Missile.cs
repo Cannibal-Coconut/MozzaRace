@@ -18,6 +18,11 @@ public class Missile : MonoBehaviour
     [SerializeField] [Range(0, 10)] float _alignSpeed = 1;
     [SerializeField] [Range(1, 25)] float _fireSpeed = 10;
 
+    [Space(5)] 
+    [SerializeField] [Range(1, 3)] float _scaleFactor = 1.5f;
+    [SerializeField] [Range(0, 5)] float _signalTime = 1;
+
+
     Health _target;
 
     float _aligningElapsedTime = 0;
@@ -65,6 +70,7 @@ public class Missile : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         if (_isAligning)
         {
             Align();
@@ -81,7 +87,8 @@ public class Missile : MonoBehaviour
     }
 
     void Align()
-    {
+    {   
+
         if (_aligningElapsedTime < _aligningTime)
         {
             _aligningElapsedTime += Time.fixedDeltaTime;
@@ -112,10 +119,24 @@ public class Missile : MonoBehaviour
 
     IEnumerator FireCountdown()
     {
-        yield return new WaitForSeconds(_timeAfterAlign);
+
+        Vector3 startingScale = _warningSignal.transform.localScale;
+        Vector3 targetScale = _warningSignal.transform.localScale * _scaleFactor;
+
+        float elapsedTime = 0;
+
+        while (elapsedTime < _signalTime)
+        {
+            _warningSignal.transform.localScale = Vector3.Lerp(startingScale, targetScale, elapsedTime / _signalTime);
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
         _warningSignal.enabled = false;
         sound.PlayKnifeThrow();
         _go = true;
+
     }
 
+    
 }
