@@ -1,5 +1,10 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+header("Access-Control-Allow-Methods: GET, POST");
+header('content-type: application/json; charset=utf-8');
+
 $servername="localhost";
 $username="id17970645_orlandmin";
 $password="o_(zGa=2T!f%kZQW";
