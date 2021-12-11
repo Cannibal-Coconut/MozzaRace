@@ -314,7 +314,7 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
 
     public void RemoveMatchPoints(int value)
     {
-        points -= Mathf.Abs(value);
+        matchPoints -= Mathf.Abs(value);
 
         if (points < 0)
         {
