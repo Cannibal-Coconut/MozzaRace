@@ -30,7 +30,7 @@ public class MenuManager : MonoBehaviour
     SceneLoader _sceneLoader;
 
     ProfileInventory _profileInventory;
-
+    [SerializeField] float testSpeed;
     private void Awake()
     {
         _death = FindObjectOfType<DeathScreen>();
@@ -43,6 +43,7 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+
         sceneLoader = FindObjectOfType<SceneLoader>();
         _inventory = FindObjectOfType<IngredientInventory>();
         _player = FindObjectOfType<Health>();
@@ -57,6 +58,7 @@ public class MenuManager : MonoBehaviour
     {
         _shop.Display();
     }
+
 
 
     public void OpenWardrobe()
