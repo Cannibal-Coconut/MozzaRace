@@ -130,6 +130,20 @@ public class Shop : MonoBehaviour
 
     void CreateSkins()
     {
+
+          switch (languageContext.currentLanguage)
+        {
+            case Language.Spanish:
+                _textBuyButton.SetText("Comprar?");
+                break;
+            case Language.English:
+                _textBuyButton.SetText("Buy?");
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
+        
         List<Skin> skins = new List<Skin>();
 
         skins.Add(new Skin(Color.green, 200));

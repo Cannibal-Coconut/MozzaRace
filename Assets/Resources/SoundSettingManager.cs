@@ -19,17 +19,19 @@ public class SoundSettingManager : MonoBehaviour
         }
 
     public void PlayPizzaTime(){
-        if(loopMusic == true) previousMusicTime = musicSource.time;
+        //if(loopMusic == true) previousMusicTime = musicSource.time;
         loopMusic = false;
         musicSource.clip = PizzaTimeSong;
         musicSource.volume = 0.3f;
+        musicSource.time = 0.0f;
         musicSource.Play();
     }
     public void PlayTipTime(){
-        if(loopMusic == true) previousMusicTime = musicSource.time;
+      //  if(loopMusic == true) previousMusicTime = musicSource.time;
         loopMusic = false;
         musicSource.clip = TipTimeSong;
         musicSource.volume = 1.5f;
+        musicSource.time = 0.0f;
         musicSource.Play();
 
     }
@@ -40,7 +42,6 @@ public class SoundSettingManager : MonoBehaviour
         musicSource.time = previousMusicTime;
         musicSource.volume = 0.3f;
         musicSource.Play();
-
     }
 
 
