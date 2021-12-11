@@ -184,9 +184,9 @@ public class Settings : MonoBehaviour
         
         float value;
         _audioMixer.GetFloat(groupKey, out value);
-
-        if(value == 0) slider.value = 0.8f;
-        else slider.value = value;
+        value = Mathf.Pow(10,value/20);
+        slider.value = value;
+        Debug.Log(slider.value);
     }
 
     public void SetMasterVolume(float newVolume)
