@@ -33,7 +33,7 @@ public class SkinHolder : MonoBehaviour
     {
         Shop,
         Wardrobe
-
+ 
     }
 
     private void Awake()
@@ -90,7 +90,7 @@ public class SkinHolder : MonoBehaviour
     {
         this.skin = skin;
 
-        this._image.sprite = skin.sprite;
+        this._image.sprite = _playerSkin.GetSprite(skin.skinID);
 
         if (_priceText)
         {
