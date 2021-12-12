@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +14,6 @@ public class Wardrobe : MonoBehaviour
 
     int _currentSkinSpage;
     int maxPage = 0;
-
 
     CanvasGroup _canvasGroup;
     [SerializeField] CanvasGroup _extraCanvas;
@@ -100,6 +96,8 @@ public class Wardrobe : MonoBehaviour
 
             skinCount -= maxPage * _skinHolders.Length;
         }
+
+        maxPage++;
 
         SetSkinPage(0);
 
