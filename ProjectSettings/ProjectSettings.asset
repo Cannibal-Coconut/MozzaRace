@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: CannibalCoconut
   productName: MozzaRace
-  defaultCursor: {fileID: 2800000, guid: 14fe16450b3f73a49a8ee1d999bc9528, type: 3}
+  defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.86274517, g: 0.5686275, b: 0.43921572, a: 1}
   m_ShowUnitySplashScreen: 1

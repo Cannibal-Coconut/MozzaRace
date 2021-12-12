@@ -38,9 +38,9 @@ public class SkinHandler : MonoBehaviour
 
 
   public void SetSkin(Skin skin){
-    player = FindObjectOfType<PlayerAnimationHandler>();
-    player.playerAnimator.runtimeAnimatorController = playerAnimators[((int)skin.skin)];
-
+      player = FindObjectOfType<PlayerAnimationHandler>();
+      Debug.Log(skin.skin);
+      player.playerAnimator.runtimeAnimatorController = playerAnimators[((int)skin.skin)];
   }
 
 

@@ -105,7 +105,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     private void Start()
     {
         //QUICK AND DIRTY
-        AddRandomOrder();
+        //AddRandomOrder();
         //QUICK AND DIRTY
 
         AddFinishedOrder();
@@ -397,6 +397,8 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
 
     void AddRandomOrder()
     {
+
+        Debug.Log("Added order");
         List<ItemType> allItems = new List<ItemType>();
 
         foreach (ItemType item in System.Enum.GetValues(typeof(ItemType)))
@@ -447,10 +449,10 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     public void ResetInventory()
     {
         for (int i = 0; i < orders.Count; i++) RemoveOrder(i);
-
+        orders = new List<MealOrder>();
         finishedOrders = 0;
 
-        //AddRandomOrder();
+        AddRandomOrder();
     }
 
 
