@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [Serializable]
-public class StartCutInputEvent : UnityEvent<Vector2>
+public class StartCutInputEvent : UnityEvent<Vector2, bool>
 {
 }
 
@@ -20,33 +20,37 @@ public class EndCutInputEvent : UnityEvent<Vector2>
 public class PizzaCutManager : MonoBehaviour
 {
     private Controls _controls;
-    
+
     [SerializeField] private StartCutInputEvent startCutInputEvent;
     [SerializeField] private EndCutInputEvent endCutInputEvent;
-    
+
     private Camera _camera;
-    
+    private bool _isFirstCut;
+
     private void Awake()
     {
         _camera = Camera.main;
         _controls = new Controls();
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
+        _isFirstCut = true;
         _controls.Player.AttackContact.started += OnCutStarted;
         _controls.Player.AttackContact.canceled += OnCutEnded;
     }
-    
+
     private void OnEnable()
     {
+        _isFirstCut = true;
         _controls.Player.Enable();
         _controls.UI.Disable();
     }
 
     private void OnDisable()
     {
+        _isFirstCut = false;
         _controls.Player.Disable();
     }
 
@@ -56,7 +60,14 @@ public class PizzaCutManager : MonoBehaviour
 
         var startPointWorldCoords = AttackPosition();
 
-        startCutInputEvent.Invoke(startPointWorldCoords);
+
+        if (_isFirstCut)
+        {
+            _isFirstCut = false;
+            startCutInputEvent.Invoke(startPointWorldCoords, true);
+        }
+        else
+            startCutInputEvent.Invoke(startPointWorldCoords, false);
     }
 
     private void OnCutEnded(InputAction.CallbackContext context)
@@ -67,7 +78,7 @@ public class PizzaCutManager : MonoBehaviour
 
         endCutInputEvent.Invoke(endPointWorldCoords);
     }
-    
+
     public Vector2 AttackPosition()
     {
         return Utils.ScreenToWorld(_camera, _controls.Player.AttackPosition.ReadValue<Vector2>());
