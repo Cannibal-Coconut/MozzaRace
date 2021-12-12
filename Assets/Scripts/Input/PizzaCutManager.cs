@@ -61,7 +61,7 @@ public class PizzaCutManager : MonoBehaviour
         var startPointWorldCoords = AttackPosition();
 
 
-        if (_isFirstCut)
+        if (_isFirstCut && PlatformDetector.IsPlatformMobile())
         {
             _isFirstCut = false;
             startCutInputEvent.Invoke(startPointWorldCoords, true);
