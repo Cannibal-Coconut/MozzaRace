@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 4096
+      m_MaxTextureSize: 8192
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 1
@@ -53,7 +53,13 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 689365cf684af574c9e03c32835ca91b, type: 3}
     - {fileID: 2800000, guid: f5aa773c712a5b641a2992d9793a62e7, type: 3}
     - {fileID: 2800000, guid: ef3f1c5a8021b414eb7ff1b968adcfd9, type: 3}
-    totalSpriteSurfaceArea: 21102920
+    - {fileID: 2800000, guid: b4985a8d27fbfed418bfbfb8da3b14ac, type: 3}
+    - {fileID: 2800000, guid: 5d192e724aaf69a40b67e9246874793c, type: 3}
+    - {fileID: 2800000, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+    - {fileID: 2800000, guid: 01a51f1bca8cf2346aa868979d05d825, type: 3}
+    - {fileID: 2800000, guid: 003fbc7795eab5e458e7e3784d157d81, type: 3}
+    - {fileID: 2800000, guid: 7b89d0ded818e904690f77210e3fc621, type: 3}
+    totalSpriteSurfaceArea: 43123016
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -61,24 +67,66 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: eee6f920d708b4642b9ef9e609961c08, type: 3}
   - {fileID: 21300000, guid: debc0660abf7c8744a24663a78823ba4, type: 3}
+  - {fileID: -6741431919659217451, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: 6672308271320636120, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: 6660865167933743449, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: -8067367957597266592, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: 3106350618205905477, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: -8807796014005682658, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: -7603481730462246051, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: 1968030420987857110, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: 7834548661957695477, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: -7501663820900899089, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: 1783117803233885503, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: -6050892349984434897, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: 5147540017078787779, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: -1743933211156344693, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: -8124924239419532216, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: 6811800782551579846, guid: 7ee23fa0439bb934bba8fab5ce01fd5d, type: 3}
+  - {fileID: 21300000, guid: 5d192e724aaf69a40b67e9246874793c, type: 3}
   - {fileID: 21300000, guid: 696e83530c8bb4e47a3f683f4ef7516b, type: 3}
+  - {fileID: 21300000, guid: 003fbc7795eab5e458e7e3784d157d81, type: 3}
   - {fileID: 21300000, guid: f23e785811c0d77468d23f889fcc471b, type: 3}
   - {fileID: 21300000, guid: ef3f1c5a8021b414eb7ff1b968adcfd9, type: 3}
   - {fileID: 21300000, guid: 52b86ffa31b045c409a7d1bebb1bbbfd, type: 3}
+  - {fileID: 21300000, guid: 01a51f1bca8cf2346aa868979d05d825, type: 3}
   - {fileID: 21300000, guid: cb8ab5eb4f7ff2f46ac2360b6dd06670, type: 3}
   - {fileID: 21300000, guid: f5aa773c712a5b641a2992d9793a62e7, type: 3}
+  - {fileID: 21300000, guid: b4985a8d27fbfed418bfbfb8da3b14ac, type: 3}
   - {fileID: 21300000, guid: 176f5b0e0d4d7d040b6ddff7ac3841b7, type: 3}
+  - {fileID: 21300000, guid: 7b89d0ded818e904690f77210e3fc621, type: 3}
   - {fileID: 21300000, guid: 689365cf684af574c9e03c32835ca91b, type: 3}
   m_PackedSpriteNamesToIndex:
   - Pause_Button
   - JumpButton
+  - Pizza_cutter_sprites_14
+  - Pizza_cutter_sprites_15
+  - Pizza_cutter_sprites_10
+  - Pizza_cutter_sprites_11
+  - Pizza_cutter_sprites_12
+  - Pizza_cutter_sprites_5
+  - Pizza_cutter_sprites_13
+  - Pizza_cutter_sprites_4
+  - Pizza_cutter_sprites_7
+  - Pizza_cutter_sprites_6
+  - Pizza_cutter_sprites_1
+  - Pizza_cutter_sprites_0
+  - Pizza_cutter_sprites_3
+  - Pizza_cutter_sprites_2
+  - Pizza_cutter_sprites_9
+  - Pizza_cutter_sprites_8
+  - pizza_6_cuts
   - tutorial_pc
+  - pizza_seams
   - GameUI_Order
   - tutorial_mobile
   - MomentoPropinaJar
+  - pizza_no_seams
   - Crono
   - Minigame_cut_wrong
+  - pizza_4_cuts
   - MomentoPropinaSign_noText
+  - Coin
   - Minigame_cut_right
   m_RenderDataMap: {}
   m_Tag: BonusAtlas
