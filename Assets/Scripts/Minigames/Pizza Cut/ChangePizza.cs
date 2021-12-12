@@ -215,6 +215,7 @@ public class ChangePizza : MonoBehaviour
         Destroy(_currentPizza);
         minigameState = false;
         remainingPizzas = 0;
+        _goodPizzas = 0;
         _pizzaCanvas.Hide();
     }
 
