@@ -30,6 +30,10 @@ public class Shop : MonoBehaviour
     CanvasGroup _canvasGroup;
     ProfileInventory _profileInventory;
 
+    [SerializeField] Image buyingSprite;
+    [SerializeField] Sprite unBoughtSprite;
+    [SerializeField] Sprite boughtSprite;
+
     SoundSettingManager sound;
     private void Awake()
     {
@@ -63,7 +67,6 @@ public class Shop : MonoBehaviour
         _selectedSkinHolder = skinHolder;
 
         _selectedSkinHolder.Select();
-        
         SkinInProperty();
     }
 
@@ -94,6 +97,8 @@ public class Shop : MonoBehaviour
                             default:
                                 throw new ArgumentOutOfRangeException();
                         }
+
+                        buyingSprite.sprite = boughtSprite; 
                         sound.PlaySpendMoney();
                     }
                     
@@ -125,6 +130,10 @@ public class Shop : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
+
+        if(_selectedSkinHolder.skin.purchased) buyingSprite.sprite = boughtSprite;
+        else buyingSprite.sprite =unBoughtSprite;        
+
 
     }
 

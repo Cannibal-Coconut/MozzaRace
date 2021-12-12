@@ -138,6 +138,7 @@ public class IngredientInventory : MonoBehaviour, ILiveListener
     {
         if (orders.Contains(order))
         {
+            FindObjectOfType<SoundSettingManager>().PlayButtonSound();
             ChangeSelectedOrder(orders.IndexOf(order));
         }
     }

@@ -62,7 +62,7 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
     public void AddBoughtSkin(Skin skin)
     {
         skin.purchased = true;
-
+        
         skins.Add(skin);
 
         UpdateInventoryInDatabase();
