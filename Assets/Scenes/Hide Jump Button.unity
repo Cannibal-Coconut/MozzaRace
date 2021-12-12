@@ -673,6 +673,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
+      propertyPath: _easySpawnables.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
+      propertyPath: _easySpawnables.Array.data[9].spawnWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 857513313088535564, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
+      propertyPath: _easySpawnables.Array.data[9].spawnablePrototype
+      value: 
+      objectReference: {fileID: 8501705632778821268, guid: 2109a7dc1c1af2c4b805c5e3753cbc73, type: 3}
     - target: {fileID: 857513313088535565, guid: c85fa943d89756b439fdee0d84d9fbe2, type: 3}
       propertyPath: m_Name
       value: Item Spawner
@@ -4230,6 +4242,18 @@ PrefabInstance:
     - target: {fileID: 7012705696252801558, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
       propertyPath: m_Name
       value: Difficulty Adjuster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801559, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: _levels.Array.data[1].spawnSettings.easyObstacleWeight
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801559, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: _levels.Array.data[2].spawnSettings.easyObstacleWeight
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7012705696252801559, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
+      propertyPath: _levels.Array.data[2].spawnSettings.mediumObstacleWeight
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19227ac145aa32d41ad85e48cf4ab9bc, type: 3}
