@@ -6,7 +6,7 @@ SpriteAtlas:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BonusAtlas
+  m_Name: BonusAtlas2
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 2048
+      m_MaxTextureSize: 4096
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 1
@@ -35,7 +35,7 @@ SpriteAtlas:
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
-      padding: 8
+      padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
@@ -43,22 +43,34 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 7b89d0ded818e904690f77210e3fc621, type: 3}
-    - {fileID: 2800000, guid: 52b86ffa31b045c409a7d1bebb1bbbfd, type: 3}
-    - {fileID: 2800000, guid: 176f5b0e0d4d7d040b6ddff7ac3841b7, type: 3}
-    totalSpriteSurfaceArea: 9437184
+    - {fileID: 2800000, guid: ef3f1c5a8021b414eb7ff1b968adcfd9, type: 3}
+    - {fileID: 2800000, guid: 696e83530c8bb4e47a3f683f4ef7516b, type: 3}
+    - {fileID: 2800000, guid: debc0660abf7c8744a24663a78823ba4, type: 3}
+    - {fileID: 2800000, guid: f23e785811c0d77468d23f889fcc471b, type: 3}
+    - {fileID: 2800000, guid: cb8ab5eb4f7ff2f46ac2360b6dd06670, type: 3}
+    - {fileID: 2800000, guid: a7ed869086a478a4aad5abbe36030bdd, type: 3}
+    - {fileID: 2800000, guid: eee6f920d708b4642b9ef9e609961c08, type: 3}
+    totalSpriteSurfaceArea: 6399304
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 52b86ffa31b045c409a7d1bebb1bbbfd, type: 3}
-  - {fileID: 21300000, guid: 176f5b0e0d4d7d040b6ddff7ac3841b7, type: 3}
-  - {fileID: 21300000, guid: 7b89d0ded818e904690f77210e3fc621, type: 3}
+  - {fileID: 21300000, guid: eee6f920d708b4642b9ef9e609961c08, type: 3}
+  - {fileID: 21300000, guid: debc0660abf7c8744a24663a78823ba4, type: 3}
+  - {fileID: 21300000, guid: a7ed869086a478a4aad5abbe36030bdd, type: 3}
+  - {fileID: 21300000, guid: 696e83530c8bb4e47a3f683f4ef7516b, type: 3}
+  - {fileID: 21300000, guid: f23e785811c0d77468d23f889fcc471b, type: 3}
+  - {fileID: 21300000, guid: ef3f1c5a8021b414eb7ff1b968adcfd9, type: 3}
+  - {fileID: 21300000, guid: cb8ab5eb4f7ff2f46ac2360b6dd06670, type: 3}
   m_PackedSpriteNamesToIndex:
-  - MomentoPropinaJar
-  - MomentoPropinaSign_noText
-  - Coin
+  - Pause_Button
+  - JumpButton
+  - GameUI_Base
+  - tutorial_pc
+  - GameUI_Order
+  - tutorial_mobile
+  - Crono
   m_RenderDataMap: {}
-  m_Tag: BonusAtlas
+  m_Tag: BonusAtlas2
   m_IsVariant: 0
