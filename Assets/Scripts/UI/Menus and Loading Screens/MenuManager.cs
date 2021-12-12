@@ -105,7 +105,7 @@ public class MenuManager : MonoBehaviour
 
     public void OpenMainMenu()
     {
-        _playerManager.enabled = true;
+        _playerManager.enabled = false;
         _mainMenuCanvas.enabled = true;
         Time.timeScale = 0.0f;
         
