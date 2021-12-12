@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -151,7 +149,7 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
         form.AddField("loginPass", password);
 
         skins = new List<Skin>();
-        skins.Add(new Skin(SkinHandler.SkinEnum.DEFAULT, 0));
+        skins.Add(new Skin(SkinEnum.DEFAULT, 0));
         var saveData = new ProfileSaveData(points, skins);
 
         form.AddField("loginData", JsonUtility.ToJson(saveData));
@@ -385,6 +383,7 @@ public class ProfileInventory : MonoBehaviour, ILiveListener
         {
             this.points = points;
             this.skins = skins;
+
         }
     }
 

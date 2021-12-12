@@ -8,7 +8,9 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CanvasGroup))]
 public class Shop : MonoBehaviour
 {
-    [Header("References")] [Header("Buttons")] [SerializeField]
+    [Header("References")]
+    [Header("Buttons")]
+    [SerializeField]
     Button _backButton;
 
     [SerializeField] Button _previousSkinPageButton;
@@ -38,9 +40,11 @@ public class Shop : MonoBehaviour
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
-        sound  = FindObjectOfType<SoundSettingManager>();
+        sound = FindObjectOfType<SoundSettingManager>();
         Hide();
 
+        _profileInventory = FindObjectOfType<ProfileInventory>();
+        _profileInventory.AddOnEconomyChangeListener(UpdateMoney);
         CreateSkins();
     }
 
@@ -50,10 +54,9 @@ public class Shop : MonoBehaviour
 
         SetSkinPage(0);
 
-        _profileInventory = FindObjectOfType<ProfileInventory>();
-        _profileInventory.AddOnEconomyChangeListener(UpdateMoney);
+ 
         UpdateMoney();
-        
+
         SkinInProperty();
     }
 
@@ -98,10 +101,10 @@ public class Shop : MonoBehaviour
                                 throw new ArgumentOutOfRangeException();
                         }
 
-                        buyingSprite.sprite = boughtSprite; 
+                        buyingSprite.sprite = boughtSprite;
                         sound.PlaySpendMoney();
                     }
-                    
+
                 }
                 else
                 {
@@ -131,8 +134,8 @@ public class Shop : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
 
-        if(_selectedSkinHolder.skin.purchased) buyingSprite.sprite = boughtSprite;
-        else buyingSprite.sprite =unBoughtSprite;        
+        if (_selectedSkinHolder.skin.purchased) buyingSprite.sprite = boughtSprite;
+        else buyingSprite.sprite = unBoughtSprite;
 
 
     }
@@ -140,7 +143,7 @@ public class Shop : MonoBehaviour
     void CreateSkins()
     {
 
-          switch (languageContext.currentLanguage)
+        switch (languageContext.currentLanguage)
         {
             case Language.Spanish:
                 _textBuyButton.SetText("Comprar?");
@@ -152,19 +155,30 @@ public class Shop : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
 
-        
+
         List<Skin> skins = new List<Skin>();
 
-        skins.Add(new Skin(SkinHandler.SkinEnum.GREEN, 200));
-        skins.Add(new Skin(SkinHandler.SkinEnum.YELLOW, 300));
-        skins.Add(new Skin(SkinHandler.SkinEnum.BLUE, 400));
-        skins.Add(new Skin(SkinHandler.SkinEnum.MAGENTA, 500));
-        skins.Add(new Skin(SkinHandler.SkinEnum.RED, 500));
-        skins.Add(new Skin(SkinHandler.SkinEnum.CYAN, 500));
-        skins.Add(new Skin(SkinHandler.SkinEnum.ORANGE, 500));
-        skins.Add(new Skin(SkinHandler.SkinEnum.PURPLE, 1000));
+        skins.Add(new Skin(SkinEnum.GREEN, 200));
+        skins.Add(new Skin(SkinEnum.YELLOW, 300));
+        skins.Add(new Skin(SkinEnum.BLUE, 400));
+        skins.Add(new Skin(SkinEnum.MAGENTA, 500));
+        skins.Add(new Skin(SkinEnum.RED, 500));
+        skins.Add(new Skin(SkinEnum.CYAN, 500));
+        skins.Add(new Skin(SkinEnum.ORANGE, 500));
+        skins.Add(new Skin(SkinEnum.PURPLE, 1000));
 
         _skins = skins.ToArray();
+
+        foreach (var shopSkin in _skins)
+        {
+            foreach (var profileSkin in _profileInventory.skins)
+            {
+                if (shopSkin.skinID == profileSkin.skinID)
+                {
+                    shopSkin.purchased = true;
+                }
+            }
+        }
 
         maxPage = 0;
         int skinCount = _skins.Length;

@@ -58,15 +58,15 @@ public class Wardrobe : MonoBehaviour
             _skinHolders[i].Hide();
         }
 
-        Debug.Log(_skinHolders.Length);
+        
         if (_profileInventory.skins.Count == 0) return;
-        Debug.Log("Returnedn't");
+        
         _currentSkinSpage = pageNumber;
 
         for (int i = 0; i < skinsPerPage; i++)
         {
             if (i + pageNumber * skinsPerPage >= _profileInventory.skins.Count) break;
-            Debug.Log("Set skin" + _profileInventory.skins[pageNumber * skinsPerPage + i].skin);
+            Debug.Log("Set skin" + _profileInventory.skins[pageNumber * skinsPerPage + i].skinID);
             _skinHolders[i].SetSkin(_profileInventory.skins[pageNumber * skinsPerPage + i]);
             _skinHolders[i].Show();
         }
