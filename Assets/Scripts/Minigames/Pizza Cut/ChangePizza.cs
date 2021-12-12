@@ -212,7 +212,6 @@ public class ChangePizza : MonoBehaviour
 
     private void ResetMinigame()
     {
-
         Destroy(_currentPizza);
         minigameState = false;
         remainingPizzas = 0;

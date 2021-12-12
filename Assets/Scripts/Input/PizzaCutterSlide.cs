@@ -42,8 +42,9 @@ public class PizzaCutterSlide : MonoBehaviour
         GetCurrentPoint();
     }
 
-    public void OnStartCutInput(Vector2 startPoint)
+    public void OnStartCutInput(Vector2 startPoint, bool isFirstCut)
     {
+        if (isFirstCut) return;
         _startPoint = startPoint;
         IsCutStarted = true;
     }
