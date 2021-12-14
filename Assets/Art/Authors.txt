@@ -28,6 +28,8 @@ Banner_Christmas: Manuel Bueno Lasso
 Event_Cupid: Manuel Bueno Lasso
 Event_Halloween: Manuel Bueno Lasso
 MockupNavidad: David González Rueda
+tarjeta: Manuel Bueno Lasso
+tarjeta_frente: Manuel Bueno Lasso
 
 dir ./RRSS
 Banner: Manuel Bueno Lasso
